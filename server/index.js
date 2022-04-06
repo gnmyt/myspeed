@@ -4,6 +4,17 @@ const path = require('path');
 const app = express();
 const port = process.env.port || 5216;
 
+let db;
+try {
+    db = require('better-sqlite3')('storage.db');
+    console.log("Successfully connected to the database file");
+} catch (e) {
+    console.error("Could not open the database file. Maybe it is damaged?");
+    process.exit();
+}
+
+module.exports.database = db;
+
 // Register middlewares
 app.use(express.json());
 
