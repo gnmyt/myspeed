@@ -8,8 +8,8 @@
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   },
   "dependencies": {
-    "express": "^4.17.3",
-    "sqlite3": "^4.2.0"
+    "better-sqlite3": "^7.5.0",
+    "express": "^4.17.3"
   },
   "devDependencies": {
     "concurrently": "^7.1.0",
