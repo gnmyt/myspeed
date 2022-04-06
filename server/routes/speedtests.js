@@ -1,19 +1,28 @@
 const app = require('express').Router();
+const tests = require('../controller/speedtests');
 
+// List all speedtests
 app.get("/", (req, res) => {
-    // TODO: Show all speedtests from the database
+    res.json(tests.list());
 });
 
+// List only the latest speedtest
 app.get("/latest", (req, res) => {
-   // TODO: Show the latest speedtest
+    res.json(tests.latest());
 });
 
+// Get a specific speedtest
 app.get("/:id", (req, res) => {
-    // TODO: Shows a specific speedtest by id
+    let test = tests.get(req.params.id);
+    if (test === undefined) res.status(404).json({message: "Speedtest not found"});
+    res.json(test);
 });
 
-app.delete("/api/speedtests/:id", (req, res) => {
-    // TODO: Delete a speedtest by id
+// Delete a specific speedtest
+app.delete("/:id", (req, res) => {
+    let test = tests.delete(req.params.id);
+    if (test === undefined) return res.status(404).json({message: "Speedtest not found"});
+    res.json({message: "Successfully deleted the provided speedtest"});
 });
 
 module.exports = app;
