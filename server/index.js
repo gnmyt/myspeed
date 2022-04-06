@@ -15,6 +15,10 @@ try {
 
 module.exports.database = db;
 
+// Create all tables & insert the defaults
+require("./controller/tables").create();
+require("./controller/tables").insert();
+
 // Register middlewares
 app.use(express.json());
 
