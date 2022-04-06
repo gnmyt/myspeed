@@ -8,6 +8,7 @@
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "better-sqlite3": "^7.5.0",
     "express": "^4.17.3"
   },
