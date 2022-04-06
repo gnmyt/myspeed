@@ -7,6 +7,11 @@ const port = process.env.port || 5216;
 // Register middlewares
 app.use(express.json());
 
+// Register routes
+app.use("/api/config", require('./routes/config'));
+app.use("/api/speedtests", require('./routes/speedtests'));
+app.use("/api/info", require('./routes/system'));
+app.use("/api*", (req, res) => res.status(404).json({message: "Route not found"}));
 
 // Enable production
 if (process.env.NODE_ENV === 'production') {
