@@ -21,6 +21,7 @@ require("./controller/tables").insert();
 
 // Register middlewares
 app.use(express.json());
+app.use(require('./middlewares/password'));
 
 // Register routes
 app.use("/api/config", require('./routes/config'));
