@@ -22,6 +22,9 @@ app.get("/:key", (req, res) => {
 app.patch("/:key", async (req, res) => {
     if (!req.body.value) return res.status(400).json({message: "You need to provide the new value"});
 
+    if ((req.params.key === "ping" || req.params.key === "download" || req.params.key === "upload") && isNaN(req.body.value))
+        return res.status(400).json({message: "You need to provide a number in order to change this"});
+
     if (req.params.key === "password" && req.body.value !== "none") req.body.value = await require('bcrypt').hash(req.body.value, 10);
 
     if (!config.update(req.params.key, req.body.value)) return res.status(404).json({message: "The provided key does not exist"});
