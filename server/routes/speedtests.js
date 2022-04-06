@@ -8,7 +8,9 @@ app.get("/", (req, res) => {
 
 // List only the latest speedtest
 app.get("/latest", (req, res) => {
-    res.json(tests.latest());
+    let latest = tests.latest();
+    if (latest === undefined) return res.status(404).json({message: "No speedtest has been made yet"});
+    res.json(latest);
 });
 
 // Get a specific speedtest
