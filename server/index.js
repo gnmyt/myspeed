@@ -15,6 +15,9 @@ try {
 
 module.exports.database = db;
 
+let interval = setInterval(async () => require('./tasks/speedtest').create(), 3600000); // run a speedtest every 1 hour
+let removeInterval = setInterval(async () => require('./tasks/speedtest').removeOld(), 60000);
+
 // Create all tables & insert the defaults
 require("./controller/tables").create();
 require("./controller/tables").insert();
@@ -37,5 +40,8 @@ if (process.env.NODE_ENV === 'production') {
         res.sendFile(path.join(__dirname, '../build', 'index.html'));
     });
 }
+
+// Make a speedtest
+require('./tasks/speedtest').create();
 
 app.listen(port, () => console.log(`Server listening on port ${port}`));
