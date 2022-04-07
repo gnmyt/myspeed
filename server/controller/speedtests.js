@@ -26,3 +26,9 @@ module.exports.delete = (id) => {
     db.prepare("DELETE FROM speedtests WHERE id = ?").run(id);
     return true;
 }
+
+// Removes speedtests older than 24 hours
+module.exports.removeOld = () => {
+    db.prepare("DELETE FROM speedtests WHERE created <= date('now','-1 day')").run();
+    return true;
+}
