@@ -10,7 +10,8 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "better-sqlite3": "^7.5.0",
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "speedtest-net": "^2.2.0"
   },
   "devDependencies": {
     "concurrently": "^7.1.0",
