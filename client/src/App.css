@@ -1,3 +1,6 @@
 body, html {
   margin: 0;
+  background-color: #2F3136;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
 }
