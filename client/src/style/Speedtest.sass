@@ -1,0 +1,54 @@
+.speedtest
+  margin-bottom: 2rem
+  display: flex
+  padding: 1.5rem 2rem
+  border: #DFDFDF 1px solid
+  border-radius: 15px
+  justify-content: space-between
+  width: 80rem
+  flex-wrap: wrap
+
+.speedtest-row
+  display: flex
+  align-items: center
+
+.date
+  display: flex
+  align-items: center
+
+.date-text
+  margin: 0 0 0 1rem
+  font-size: 24pt
+  font-weight: 900
+  color: #C8C8C8
+
+.speedtest-text
+  margin: 0
+  font-size: 28pt
+  font-weight: 900
+  color: #C8C8C8
+
+@media (max-width: 1370px)
+  .speedtest
+    width: 60rem
+
+@media (max-width: 1050px)
+  .speedtest
+    width: 40rem
+
+@media (max-width: 730px)
+  .speedtest
+    width: 33rem
+
+@media (max-width: 605px)
+  .speedtest
+    width: 25rem
+    flex-direction: column
+  .date-text
+    font-size: 32pt
+  .speedtest-text
+    font-size: 32pt
+
+@media (max-width: 475px)
+  .speedtest
+    width: 15rem
