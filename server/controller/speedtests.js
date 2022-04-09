@@ -2,7 +2,8 @@ const db = require('../index').database;
 
 // Inserts a new speedtest into the database
 module.exports.create = (ping, download, upload) => {
-    return db.prepare("INSERT INTO speedtests (ping, download, upload) VALUES (?, ?, ?)").run(ping, download, upload).lastInsertRowid;
+    return db.prepare("INSERT INTO speedtests (ping, download, upload, created) VALUES (?, ?, ?, ?)").run(ping, download, upload,
+        new Date().toISOString()).lastInsertRowid;
 }
 
 // Gets a specific speedtest by id
@@ -12,7 +13,7 @@ module.exports.get = (id) => {
 
 // Lists all speedtests from the database
 module.exports.list = () => {
-    return db.prepare("SELECT * FROM speedtests").all();
+    return db.prepare("SELECT * FROM speedtests ORDER BY created DESC").all();
 }
 
 // Gets the latest speedtest from the database
