@@ -20,8 +20,7 @@ jobs:
 
       - run: sudo apt install jq
       - run: cd client && npm install
-      - run: cd .. && npm run build
-      - run: npm install
+      - run: npm run build && npm install
 
       - name: Get version
         id: get_version
