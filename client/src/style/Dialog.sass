@@ -1,0 +1,128 @@
+.dialog-area
+  position: fixed
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  width: 100%
+  height: 100%
+  background-color: rgb(0,0,0)
+  background-color: rgba(0,0,0,0.6)
+  display: flex
+  align-items: center
+  z-index: 10
+  justify-content: center
+
+.dialog
+  width: 480px
+  height: 180px
+  padding: 15px
+  background-color: #27282B
+  border-radius: 15px
+  transform: scale(0.9)
+  transition: opacity 300ms, transform 300ms
+
+.dialog-speedtest
+  display: flex
+  justify-content: center
+  align-content: center
+  align-items: center
+  width: 70px
+  height: 70px
+
+.dialog-header
+  display: flex
+  align-items: center
+  justify-content: space-between
+
+.dialog-main
+  display: flex
+  height: 65%
+  justify-content: center
+  align-items: center
+
+.dialog-buttons
+  display: flex
+  justify-content: right
+
+.dialog-text
+  font-size: 16pt
+  color: #C9C9C9
+  margin: 0
+
+.dialog-icon
+  cursor: pointer
+
+.dialog-input
+  width: 200px
+  font-size: 20pt
+  padding: 15px
+  font-weight: 700
+  background-color: #2F3136
+  color: #C9C9C9
+  border: none
+  border-radius: 15px
+  text-align: center
+
+.dialog-btn
+  font-size: 16pt
+  padding: 8px 15px
+  border: none
+  font-weight: 700
+  border-radius: 5px
+  color: #27282B
+  background-color: #45C65A
+  cursor: pointer
+
+
+
+
+.lds-ellipsis
+  display: inline-block
+  position: relative
+  width: 80px
+  height: 80px
+
+.lds-ellipsis div
+  position: absolute
+  top: 33px
+  width: 13px
+  height: 13px
+  border-radius: 50%
+  background: #fff
+  animation-timing-function: cubic-bezier(0, 1, 1, 0)
+
+.lds-ellipsis div:nth-child(1)
+  left: 8px
+  animation: lds-ellipsis1 0.6s infinite
+
+.lds-ellipsis div:nth-child(2)
+  left: 8px
+  animation: lds-ellipsis2 0.6s infinite
+
+.lds-ellipsis div:nth-child(3)
+  left: 32px
+  animation: lds-ellipsis2 0.6s infinite
+
+.lds-ellipsis div:nth-child(4)
+  left: 56px
+  animation: lds-ellipsis3 0.6s infinite
+
+@keyframes lds-ellipsis1
+  0%
+    transform: scale(0)
+  100%
+    transform: scale(1)
+
+@keyframes lds-ellipsis3
+  0%
+    transform: scale(1)
+  100%
+    transform: scale(0)
+
+
+@keyframes lds-ellipsis2
+  0%
+    transform: translate(0, 0)
+  100%
+    transform: translate(24px, 0)
