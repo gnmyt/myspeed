@@ -26,7 +26,7 @@ jobs:
         run: echo "::set-output name=version::$(jq .version package.json --raw-output)"
 
       - name: Install zip
-        run: apt-get install zip
+        run: sudo apt-get install zip
 
       - name: Zip all files
         run: zip -r MySpeed-${{ steps.get_version.outputs.version }}.zip build node_modules server package.json package_lock.json
