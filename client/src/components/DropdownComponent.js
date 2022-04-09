@@ -20,7 +20,7 @@ export const toggleDropdown = () => {
     }
 }
 
-export default () => {
+function DropdownComponent() {
 
     const [setDialog] = useContext(DialogContext);
     let headers = localStorage.getItem("password") ? {password: localStorage.getItem("password")} : {}
@@ -132,3 +132,5 @@ export default () => {
         </div>
     )
 }
+
+export default DropdownComponent;

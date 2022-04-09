@@ -5,10 +5,6 @@ import "../style/Speedtest.sass";
 
 class Speedtest extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <div>
