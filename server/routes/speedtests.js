@@ -6,6 +6,12 @@ app.get("/", (req, res) => {
     res.json(tests.list());
 });
 
+// Runs a speedtest
+app.post("/run", async (req, res) => {
+    await require("../tasks/speedtest").create();
+    res.json({message: "Speedtest successfully created"});
+});
+
 // List only the latest speedtest
 app.get("/latest", (req, res) => {
     let latest = tests.latest();
