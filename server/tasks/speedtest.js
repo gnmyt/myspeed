@@ -19,14 +19,13 @@ module.exports.run = async () => {
     return speedtest;
 }
 
-module.exports.create = () => {
-    this.run().then(test => {
-        let ping = Math.round(test.ping.latency);
-        let download = roundSpeed(test.download.bytes, test.download.elapsed);
-        let upload = roundSpeed(test.upload.bytes, test.upload.elapsed);
-        let testResult = tests.create(ping, download, upload);
-        console.log(`Test #${testResult} was executed successfully. 🏓 ${ping} ⬇ ${download}️ ⬆ ${upload}️`);
-    });
+module.exports.create = async () => {
+    let test = await this.run();
+    let ping = Math.round(test.ping.latency);
+    let download = roundSpeed(test.download.bytes, test.download.elapsed);
+    let upload = roundSpeed(test.upload.bytes, test.upload.elapsed);
+    let testResult = tests.create(ping, download, upload);
+    console.log(`Test #${testResult} was executed successfully. 🏓 ${ping} ⬇ ${download}️ ⬆ ${upload}️`);
 }
 
 module.exports.removeOld = () => {
