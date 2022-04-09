@@ -18,7 +18,6 @@ jobs:
         with:
           node-version: '16'
 
-      - run: sudo apt install jq
       - run: cd client && npm install
       - run: npm run build && npm install
 
