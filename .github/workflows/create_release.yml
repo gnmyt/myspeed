@@ -1,0 +1,41 @@
+name: Upload the latest release
+
+on:
+  push:
+    branches: [ release ]
+
+jobs:
+  create:
+    name: "Creates the newest release by version"
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v2.3.4
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - run: sudo apt install jq
+      - run: cd client && npm install
+      - run: cd .. && npm run build
+      - run: npm install
+
+      - name: Get version
+        id: get_version
+        run: echo "::set-output name=version::$(jq .version package.json --raw-output)"
+
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: ${{ steps.get_version.outputs.version }}
+          prerelease: false
+          title: Release ${{ steps.get_version.outputs.version }}
+          files: |
+            ./build
+            ./node_modules
+            ./package.json
+            ./package_lock.json
+            ./server
