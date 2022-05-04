@@ -29,7 +29,7 @@ function LatestTestComponent() {
                     <h2 className="container-text">Ping<span className="container-subtext">ms</span></h2>
                 </div>
                 <div className="container-main">
-                    <h2>{latest.ping}</h2>
+                    <h2>{latest.ping === 0 ? "Test" : latest.ping}</h2>
                 </div>
             </div>
 
@@ -41,7 +41,7 @@ function LatestTestComponent() {
                     <h2 className="container-text">Download<span className="container-subtext">Mbps</span></h2>
                 </div>
                 <div className="container-main">
-                    <h2>{latest.download}</h2>
+                    <h2>{latest.download === 0 ? "schlug" : latest.download}</h2>
                 </div>
             </div>
 
@@ -53,7 +53,7 @@ function LatestTestComponent() {
                     <h2 className="container-text">Upload<span className="container-subtext">Mbps</span></h2>
                 </div>
                 <div className="container-main">
-                    <h2>{latest.upload}</h2>
+                    <h2>{latest.upload === 0 ? "fehl!" : latest.upload}</h2>
                 </div>
             </div>
 
@@ -61,7 +61,7 @@ function LatestTestComponent() {
             <div className="inner-container">
                 <div className="container-header">
                     <FontAwesomeIcon icon={faClockRotateLeft} className="container-icon icon-blue"/>
-                    <h2 className="container-text">Letztes Update<span className="container-subtext">vor</span></h2>
+                    <h2 className="container-text">Letzter Test<span className="container-subtext">vor</span></h2>
                 </div>
                 <div className="container-main">
                     <h2>{generateRelativeTime(latest.created)}</h2>
