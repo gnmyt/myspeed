@@ -4,7 +4,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
     faArrowDown,
     faArrowUp,
-    faGaugeHigh,
+    faGaugeHigh, faInfo,
     faKey,
     faPingPongPaddleBall,
     faServer
@@ -70,6 +70,7 @@ function DropdownComponent() {
         setDialog({
             title: "Neues Passwort festlegen",
             placeholder: "Neues Passwort",
+            password: true,
             onSuccess: value => {
                 fetch("/api/config/password", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})});
                 localStorage.setItem("password", value);
@@ -93,6 +94,12 @@ function DropdownComponent() {
     const startSpeedtest = async () => {
         toggleDropdown();
         setDialog({speedtest: true, promise: fetch("/api/speedtests/run", {headers: headers, method: "POST"})});
+    }
+
+    const showCredits = async () => {
+        toggleDropdown();
+        setDialog({title: "MySpeed", description: <><a href="https://github.com/gnmyt/myspeed" target="_blank">MySpeed</a> wird von GNMYT bereitgestellt
+                und nutzt die Technogie <a href="https://www.speedtest.net/apps/cli" target="_blank">Speedtest-CLI</a> von Ookla.</>});
     }
 
     return (
@@ -126,6 +133,10 @@ function DropdownComponent() {
                     <div className="dropdown-item" onClick={startSpeedtest}>
                         <FontAwesomeIcon icon={faGaugeHigh}/>
                         <h3>Speedtest starten</h3>
+                    </div>
+                    <div className="dropdown-item" onClick={showCredits}>
+                        <FontAwesomeIcon icon={faInfo}/>
+                        <h3>Info</h3>
                     </div>
                 </div>
             </div>
