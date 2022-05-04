@@ -4,7 +4,7 @@ export function generateRelativeTime(created) {
 
     const diff = (currentDate - date) / 1000;
 
-    if (diff === 0) {
+    if (diff < 5) {
         return "Gerade eben"
     } else if (diff < 60) {
         return diff === 1 ? "Einer Sekunde" : `${Math.floor(diff)} Sekunden`
