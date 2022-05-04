@@ -49,11 +49,11 @@ const Dialog = ({dialog, setDialog}) => {
                     <FontAwesomeIcon icon={faClose} className="dialog-text dialog-icon" onClick={closeDialog}/>
                 </div>
                 <div className="dialog-main">
-                    <input className="dialog-input" type="text" placeholder={dialog.placeholder} value={value}
-                           onChange={updateValue}/>
+                    {dialog.placeholder ? <input className="dialog-input" type={dialog.password ? "password" : "text"} placeholder={dialog.placeholder} value={value}
+                                                 onChange={updateValue}/> : <h3 className="dialog-description">{dialog.description}</h3>}
                 </div>
                 <div className="dialog-buttons">
-                    <button className="dialog-btn" onClick={submit}>Aktualisieren</button>
+                    <button className="dialog-btn" onClick={submit}>Fertig</button>
                 </div>
             </div>
         </div>
