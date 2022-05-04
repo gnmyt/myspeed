@@ -20,12 +20,17 @@ module.exports.run = async () => {
 }
 
 module.exports.create = async () => {
-    let test = await this.run();
-    let ping = Math.round(test.ping.latency);
-    let download = roundSpeed(test.download.bytes, test.download.elapsed);
-    let upload = roundSpeed(test.upload.bytes, test.upload.elapsed);
-    let testResult = tests.create(ping, download, upload);
-    console.log(`Test #${testResult} was executed successfully. 🏓 ${ping} ⬇ ${download}️ ⬆ ${upload}️`);
+    try {
+        let test = await this.run();
+        let ping = Math.round(test.ping.latency);
+        let download = roundSpeed(test.download.bytes, test.download.elapsed);
+        let upload = roundSpeed(test.upload.bytes, test.upload.elapsed);
+        let testResult = tests.create(ping, download, upload);
+        console.log(`Test #${testResult} was executed successfully. 🏓 ${ping} ⬇ ${download}️ ⬆ ${upload}️`);
+    } catch (e) {
+        let testResult = tests.create(0, 0, 0);
+        console.log(`Test #${testResult} was not executed successfully. Please try reconnecting to the internet or restarting the software.`);
+    }
 }
 
 module.exports.removeOld = () => {
