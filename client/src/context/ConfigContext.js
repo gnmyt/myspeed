@@ -21,6 +21,7 @@ export const ConfigProvider = (props) => {
             .catch(() => setDialog({
                 title: "Passwort erforderlich",
                 placeholder: "Dein Passwort",
+                password: true,
                 onClose: () => window.location.reload(),
                 onSuccess: (value) => {
                     localStorage.setItem("password", value);
