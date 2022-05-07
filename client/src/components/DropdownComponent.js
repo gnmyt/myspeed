@@ -30,7 +30,7 @@ function DropdownComponent() {
         toggleDropdown();
         fetch("/api/config/ping", {headers: headers}).then(res => res.json())
             .then(ping => setDialog({
-                title: "Optimalen Ping setzen",
+                title: "Optimalen Ping setzen (ms)",
                 placeholder: "Ping",
                 value: ping.value,
                 onSuccess: value => {
@@ -44,7 +44,7 @@ function DropdownComponent() {
         toggleDropdown();
         fetch("/api/config/download", {headers: headers}).then(res => res.json())
             .then(down => setDialog({
-                title: "Optimalen Down-Speed setzen",
+                title: "Optimalen Down-Speed setzen (Mbit/s)",
                 placeholder: "Down-Speed",
                 value: down.value,
                 onSuccess: value => {
@@ -58,7 +58,7 @@ function DropdownComponent() {
         toggleDropdown();
         fetch("/api/config/upload", {headers: headers}).then(res => res.json())
             .then(up => setDialog({
-                title: "Optimalen Up-Speed setzen",
+                title: "Optimalen Up-Speed setzen (Mbit/s)",
                 placeholder: "Up-Speed",
                 value: up.value,
                 onSuccess: value => {
