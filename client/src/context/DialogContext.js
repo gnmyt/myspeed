@@ -54,8 +54,9 @@ const Dialog = ({dialog, setDialog}) => {
                     <FontAwesomeIcon icon={faClose} className="dialog-text dialog-icon" onClick={closeDialog}/>
                 </div>
                 <div className="dialog-main">
+                    {dialog.description ? <h3 className="dialog-description">{dialog.description}</h3>: ""}
                     {dialog.placeholder ? <input className="dialog-input" type={dialog.password ? "password" : "text"} placeholder={dialog.placeholder} value={value}
-                                                 onChange={updateValue}/> : <h3 className="dialog-description">{dialog.description}</h3>}
+                                                 onChange={updateValue}/> : ""}
                 </div>
                 <div className="dialog-buttons">
                     {dialog.unsetButton ? <button className="dialog-btn dialog-secondary" onClick={clear}>{dialog.unsetButtonText || "Entfernen"}</button> : ""}
