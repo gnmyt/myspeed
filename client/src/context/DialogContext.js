@@ -35,7 +35,11 @@ const Dialog = ({dialog, setDialog}) => {
     }
 
     if (dialog.speedtest) {
-        dialog.promise.then(() => window.location.reload());
+        dialog.promise.then(res => {
+            if (res.status === 409) {
+                setDialog({title: "Fehlgeschlagen", description: "Es läuft bereits ein Speedtest. Bitte gedulde dich ein wenig, bis dieser fertig ist.", buttonText: "Okay"});
+            } else window.location.reload();
+        });
 
         return (
             <div className="dialog-area">
