@@ -7,11 +7,11 @@ export function generateRelativeTime(created) {
     if (diff < 5) {
         return "Gerade eben"
     } else if (diff < 60) {
-        return diff === 1 ? "Einer Sekunde" : `${Math.floor(diff)} Sekunden`
+        return diff === 1 ? "1 Sekunde" : `${Math.floor(diff)} Sekunden`
     } else if (diff < 3600) {
-        return Math.floor(diff / 60) === 1 ? "Einer Minute" : `${Math.floor(diff / 60)} Minuten`
+        return Math.floor(diff / 60) === 1 ? "1 Minute" : `${Math.floor(diff / 60)} Minuten`
     } else if (diff < 86400) {
-        return Math.floor(diff / 3600) === 1 ? "Einer Stunde" : `${Math.floor(diff / 3600)} Stunden`
+        return Math.floor(diff / 3600) === 1 ? "1 Stunde" : `${Math.floor(diff / 3600)} Stunden`
     }
 
     return "Einer langen Zeit"
