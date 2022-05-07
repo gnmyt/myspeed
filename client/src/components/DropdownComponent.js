@@ -120,13 +120,13 @@ function DropdownComponent() {
                         <FontAwesomeIcon icon={faPingPongPaddleBall}/>
                         <h3>Optimaler Ping</h3>
                     </div>
-                    <div className="dropdown-item" onClick={updateDownload}>
-                        <FontAwesomeIcon icon={faArrowDown}/>
-                        <h3>Optimaler Down-Speed</h3>
-                    </div>
                     <div className="dropdown-item" onClick={updateUpload}>
                         <FontAwesomeIcon icon={faArrowUp}/>
                         <h3>Optimaler Up-Speed</h3>
+                    </div>
+                    <div className="dropdown-item" onClick={updateDownload}>
+                        <FontAwesomeIcon icon={faArrowDown}/>
+                        <h3>Optimaler Down-Speed</h3>
                     </div>
                     <div className="center">
                         <hr className="dropdown-hr"/>
