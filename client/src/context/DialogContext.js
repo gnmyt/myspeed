@@ -29,6 +29,11 @@ const Dialog = ({dialog, setDialog}) => {
         if (dialog.onSuccess) dialog.onSuccess(value);
     }
 
+    function clear() {
+        setDialog();
+        if (dialog.onClear) dialog.onClear();
+    }
+
     if (dialog.speedtest) {
         dialog.promise.then(() => window.location.reload());
 
@@ -53,6 +58,7 @@ const Dialog = ({dialog, setDialog}) => {
                                                  onChange={updateValue}/> : <h3 className="dialog-description">{dialog.description}</h3>}
                 </div>
                 <div className="dialog-buttons">
+                    {dialog.unsetButton ? <button className="dialog-btn dialog-secondary" onClick={clear}>{dialog.unsetButtonText || "Entfernen"}</button> : ""}
                     <button className="dialog-btn" onClick={submit}>{dialog.buttonText || "Aktualisieren"}</button>
                 </div>
             </div>
