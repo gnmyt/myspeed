@@ -101,18 +101,42 @@ function DropdownComponent() {
         setDialog({speedtest: true, promise: fetch("/api/speedtests/run", {headers: headers, method: "POST"})});
     }
 
-    const showCredits = async () => {
+    const showCredits = () => {
         toggleDropdown();
         setDialog({title: "MySpeed", description: <><a href="https://github.com/gnmyt/myspeed" target="_blank">MySpeed</a> wird von GNMYT bereitgestellt
                 und verwendet die <a href="https://www.speedtest.net/apps/cli" target="_blank">Speedtest-CLI</a> von Ookla.</>, buttonText: "Schließen"});
     }
 
-    const showFeedback = async () => {
+    const showFeedback = () => {
         setDialog({title: "MySpeed", description: <>Deine Änderungen wurden übernommen.</>, buttonText: "Okay"});
     }
 
     const recommendedSettings = async () => {
-
+        toggleDropdown();
+        fetch("/api/recommendations", {headers: headers}).then(res => res.json())
+            .then(values => values.message !== undefined ? setDialog({
+                title: "Automatische Empfehlungen",
+                description: <>Du musst mindestens 10 Tests machen, damit ein Durchschnitt ermittelt werden kann. Ob die
+                    Tests manuell oder automatisch durchgeführt wurden ist egal.
+                </>,
+                buttonText: "Okay"
+            }) : setDialog({
+                title: "Automatische Empfehlungen setzen?",
+                description: <>Anhand der letzten 10 Testergebnisse wurde festgestellt, dass der optimale Ping bei <span
+                    className="dialog-value">
+                    {values.ping} ms</span>, der Download bei <span
+                    className="dialog-value">{values.download} Mbit/s </span>
+                    und der Upload bei <span className="dialog-value">{values.upload} Mbit/s</span> liegt. <br/>
+                    Orientiere dich am besten an deinem Internetvertrag und übernehme es nur, wenn es mit dem
+                    übereinstimmt.</>,
+                buttonText: "Ja, übernehmen",
+                onSuccess: async () => {
+                    await fetch("/api/config/ping", {headers: headers, method: "PATCH", body: JSON.stringify({value: values.ping})});
+                    await fetch("/api/config/download", {headers: headers, method: "PATCH", body: JSON.stringify({value: values.download})});
+                    await fetch("/api/config/upload", {headers: headers, method: "PATCH", body: JSON.stringify({value: values.upload})});
+                    showFeedback();
+                }
+            }));
     }
 
     return (
