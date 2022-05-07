@@ -53,7 +53,7 @@ const Dialog = ({dialog, setDialog}) => {
                                                  onChange={updateValue}/> : <h3 className="dialog-description">{dialog.description}</h3>}
                 </div>
                 <div className="dialog-buttons">
-                    <button className="dialog-btn" onClick={submit}>Fertig</button>
+                    <button className="dialog-btn" onClick={submit}>{dialog.buttonText || "Aktualisieren"}</button>
                 </div>
             </div>
         </div>
