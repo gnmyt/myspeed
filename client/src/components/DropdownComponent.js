@@ -74,6 +74,13 @@ function DropdownComponent() {
             title: "Neues Passwort festlegen",
             placeholder: "Neues Passwort",
             password: true,
+            unsetButton: true,
+            unsetButtonText: "Sperre aufheben",
+            onClear: () => {
+                fetch("/api/config/password", {headers: headers, method: "PATCH", body: JSON.stringify({value: "none"})})
+                    .then(() => showFeedback(<>Die Passwortsperre wurde aufgehoben.</>));
+                localStorage.removeItem("password");
+            },
             onSuccess: value => {
                 fetch("/api/config/password", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
                     .then(() => showFeedback());
@@ -107,8 +114,8 @@ function DropdownComponent() {
                 und verwendet die <a href="https://www.speedtest.net/apps/cli" target="_blank">Speedtest-CLI</a> von Ookla.</>, buttonText: "Schließen"});
     }
 
-    const showFeedback = () => {
-        setDialog({title: "MySpeed", description: <>Deine Änderungen wurden übernommen.</>, buttonText: "Okay"});
+    const showFeedback = (customText) => {
+        setDialog({title: "MySpeed", description: customText || <>Deine Änderungen wurden übernommen.</>, buttonText: "Okay"});
     }
 
     const recommendedSettings = async () => {
