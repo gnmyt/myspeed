@@ -7,7 +7,7 @@ import {
     faGaugeHigh, faInfo,
     faKey,
     faPingPongPaddleBall,
-    faServer
+    faServer, faWandMagicSparkles
 } from "@fortawesome/free-solid-svg-icons";
 import {DialogContext} from "../context/DialogContext";
 
@@ -111,6 +111,10 @@ function DropdownComponent() {
         setDialog({title: "MySpeed", description: <>Deine Änderungen wurden übernommen.</>, buttonText: "Okay"});
     }
 
+    const recommendedSettings = async () => {
+
+    }
+
     return (
         <div className="dropdown dropdown-invisible">
             <div id="dropdown" className="dropdown-content">
@@ -127,6 +131,10 @@ function DropdownComponent() {
                     <div className="dropdown-item" onClick={updateDownload}>
                         <FontAwesomeIcon icon={faArrowDown}/>
                         <h3>Optimaler Down-Speed</h3>
+                    </div>
+                    <div className="dropdown-item" onClick={recommendedSettings}>
+                        <FontAwesomeIcon icon={faWandMagicSparkles}/>
+                        <h3>Optimale Werte</h3>
                     </div>
                     <div className="center">
                         <hr className="dropdown-hr"/>
