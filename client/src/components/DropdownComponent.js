@@ -34,7 +34,8 @@ function DropdownComponent() {
                 placeholder: "Ping",
                 value: ping.value,
                 onSuccess: value => {
-                    fetch("/api/config/ping", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})});
+                    fetch("/api/config/ping", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
+                        .then(() => showFeedback());
                 }
             }));
     }
@@ -47,7 +48,8 @@ function DropdownComponent() {
                 placeholder: "Down-Speed",
                 value: down.value,
                 onSuccess: value => {
-                    fetch("/api/config/download", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})});
+                    fetch("/api/config/download", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
+                        .then(() => showFeedback());
                 }
             }));
     }
@@ -60,7 +62,8 @@ function DropdownComponent() {
                 placeholder: "Up-Speed",
                 value: up.value,
                 onSuccess: value => {
-                    fetch("/api/config/upload", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})});
+                    fetch("/api/config/upload", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
+                        .then(() => showFeedback());
                 }
             }));
     }
@@ -72,7 +75,8 @@ function DropdownComponent() {
             placeholder: "Neues Passwort",
             password: true,
             onSuccess: value => {
-                fetch("/api/config/password", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})});
+                fetch("/api/config/password", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
+                    .then(() => showFeedback());
                 localStorage.setItem("password", value);
             }
         })
@@ -86,7 +90,8 @@ function DropdownComponent() {
                 placeholder: "Server-ID",
                 value: ping.value,
                 onSuccess: value => {
-                    fetch("/api/config/serverId", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})});
+                    fetch("/api/config/serverId", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
+                        .then(() => showFeedback());
                 }
             }));
     }
@@ -99,7 +104,11 @@ function DropdownComponent() {
     const showCredits = async () => {
         toggleDropdown();
         setDialog({title: "MySpeed", description: <><a href="https://github.com/gnmyt/myspeed" target="_blank">MySpeed</a> wird von GNMYT bereitgestellt
-                und verwendet die <a href="https://www.speedtest.net/apps/cli" target="_blank">Speedtest-CLI</a> von Ookla.</>});
+                und verwendet die <a href="https://www.speedtest.net/apps/cli" target="_blank">Speedtest-CLI</a> von Ookla.</>, buttonText: "Schließen"});
+    }
+
+    const showFeedback = async () => {
+        setDialog({title: "MySpeed", description: <>Deine Änderungen wurden übernommen.</>, buttonText: "Okay"});
     }
 
     return (
