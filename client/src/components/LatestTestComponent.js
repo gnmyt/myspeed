@@ -8,6 +8,7 @@ import {DialogContext} from "../context/DialogContext";
 
 function LatestTestComponent() {
     const [latest, setLatest] = useState({});
+    const [latestTestTime, setLatestTestTime] = useState("");
     const [setDialog] = useContext(DialogContext);
     const config = useContext(ConfigContext);
 
@@ -15,9 +16,15 @@ function LatestTestComponent() {
         let passwordHeaders = localStorage.getItem("password") ? {password: localStorage.getItem("password")} : {}
         fetch("/api/speedtests/latest", {headers: passwordHeaders})
             .then(res => res.json())
-            .then(latest => setLatest(latest));
-
+            .then(latest => {
+                setLatest(latest);
+                setLatestTestTime(generateRelativeTime(latest.created));
+            });
     }, [setLatest]);
+
+    setTimeout(() => {
+        setLatestTestTime(generateRelativeTime(latest.created));
+    }, 1000);
 
     if (Object.entries(config).length === 0) return (<></>)
 
@@ -77,7 +84,7 @@ function LatestTestComponent() {
                     <h2 className="container-text">Letzter Test<span className="container-subtext">vor</span></h2>
                 </div>
                 <div className="container-main">
-                    <h2>{generateRelativeTime(latest.created)}</h2>
+                    <h2>{latestTestTime}</h2>
                 </div>
             </div>
         </div>
