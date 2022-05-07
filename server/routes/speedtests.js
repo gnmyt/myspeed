@@ -8,7 +8,8 @@ app.get("/", (req, res) => {
 
 // Runs a speedtest
 app.post("/run", async (req, res) => {
-    await require("../tasks/speedtest").create();
+    let speedtest = await require("../tasks/speedtest").create();
+    if (speedtest !== undefined) return res.status(409).json({message: "An speedtest is already running"});
     res.json({message: "Speedtest successfully created"});
 });
 
