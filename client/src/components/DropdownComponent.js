@@ -99,7 +99,7 @@ function DropdownComponent() {
     const showCredits = async () => {
         toggleDropdown();
         setDialog({title: "MySpeed", description: <><a href="https://github.com/gnmyt/myspeed" target="_blank">MySpeed</a> wird von GNMYT bereitgestellt
-                und nutzt die Technogie <a href="https://www.speedtest.net/apps/cli" target="_blank">Speedtest-CLI</a> von Ookla.</>});
+                und verwendet die <a href="https://www.speedtest.net/apps/cli" target="_blank">Speedtest-CLI</a> von Ookla.</>});
     }
 
     return (
