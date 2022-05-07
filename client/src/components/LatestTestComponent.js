@@ -38,7 +38,7 @@ function LatestTestComponent() {
                 <div className="container-header">
                     <FontAwesomeIcon icon={faArrowDown}
                                      className={"container-icon icon-" + getIconBySpeed(latest.download, config.download, true)}/>
-                    <h2 className="container-text">Download<span className="container-subtext">Mbps</span></h2>
+                    <h2 className="container-text">Download<span className="container-subtext">Mbit/s</span></h2>
                 </div>
                 <div className="container-main">
                     <h2>{latest.download === 0 ? "schlug" : latest.download}</h2>
@@ -50,7 +50,7 @@ function LatestTestComponent() {
                 <div className="container-header">
                     <FontAwesomeIcon icon={faArrowUp}
                                      className={"container-icon icon-" + getIconBySpeed(latest.upload, config.upload, true)}/>
-                    <h2 className="container-text">Upload<span className="container-subtext">Mbps</span></h2>
+                    <h2 className="container-text">Upload<span className="container-subtext">Mbit/s</span></h2>
                 </div>
                 <div className="container-main">
                     <h2>{latest.upload === 0 ? "fehl!" : latest.upload}</h2>
