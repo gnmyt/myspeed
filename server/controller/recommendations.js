@@ -9,9 +9,9 @@ module.exports.get = () => {
 module.exports.set = (ping, download, upload) => {
     if (this.get() === undefined) {
         return db.prepare("INSERT INTO recommendations (ping, download, upload) VALUES (?, ?, ?)")
-            .run(Math.round(ping), Math.round(download), Math.round(upload));
+            .run(Math.round(ping), download.toFixed(2), upload.toFixed(2));
     } else {
         return db.prepare("UPDATE recommendations SET ping = ?, download = ?, upload = ?")
-            .run(Math.round(ping), Math.round(download), Math.round(upload));
+            .run(Math.round(ping), download.toFixed(2), upload.toFixed(2));
     }
 }
