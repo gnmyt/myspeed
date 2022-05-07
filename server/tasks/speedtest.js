@@ -9,15 +9,15 @@ function roundSpeed(bytes, elapsed) {
 
 async function createRecommendations() {
     let list = tests.list();
-    if (list.length >= 5) {
+    if (list.length >= 10) {
         let avgNumbers = {ping: 0, down: 0, up: 0};
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 10; i++) {
             avgNumbers["ping"] += list[i].ping;
             avgNumbers["down"] += list[i].download;
             avgNumbers["up"] += list[i].upload;
         }
 
-        recommendations.set(avgNumbers["ping"] / 5, avgNumbers["down"] / 5, avgNumbers["up"] / 5);
+        recommendations.set(avgNumbers["ping"] / 10, avgNumbers["down"] / 10, avgNumbers["up"] / 10);
     }
 }
 
