@@ -120,7 +120,8 @@ function DropdownComponent() {
     }
 
     const showFeedback = (customText) => {
-        setDialog({title: "MySpeed", description: customText || <>Deine Änderungen wurden übernommen.</>, buttonText: "Okay"});
+        setDialog({title: "MySpeed", description: customText || <>Deine Änderungen wurden übernommen.</>, buttonText: "Okay",
+            onSuccess: () => window.location.reload(), onClose: () => window.location.reload()});
     }
 
     const recommendedSettings = async () => {
