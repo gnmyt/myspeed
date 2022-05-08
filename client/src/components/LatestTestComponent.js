@@ -22,9 +22,12 @@ function LatestTestComponent() {
             });
     }, [setLatest]);
 
-    setTimeout(() => {
-        setLatestTestTime(generateRelativeTime(latest.created));
-    }, 1000);
+    useEffect(() => {
+        const interval = setInterval(() => setLatestTestTime(generateRelativeTime(latest.created)), 1000);
+        return () => {
+            clearInterval(interval);
+        };
+    }, [setLatestTestTime, latest]);
 
     if (Object.entries(config).length === 0) return (<></>)
 
