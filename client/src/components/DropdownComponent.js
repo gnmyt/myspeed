@@ -3,20 +3,25 @@ import "../style/Dropdown.sass";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
     faArrowDown,
-    faArrowUp,
-    faGaugeHigh, faInfo,
+    faArrowUp, faClose,
+    faGaugeHigh, faGear, faInfo,
     faKey,
     faPingPongPaddleBall,
     faServer, faWandMagicSparkles
 } from "@fortawesome/free-solid-svg-icons";
 import {DialogContext} from "../context/DialogContext";
 
-export const toggleDropdown = () => {
+let icon;
+
+export const toggleDropdown = (setIcon) => {
+    if (setIcon) icon = setIcon;
     let classList = document.getElementsByClassName("dropdown")[0].classList;
     if (classList.contains("dropdown-invisible")) {
         classList.remove("dropdown-invisible");
+        icon(faClose);
     } else {
         classList.add("dropdown-invisible");
+        icon(faGear);
     }
 }
 
