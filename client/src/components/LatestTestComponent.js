@@ -12,7 +12,7 @@ function LatestTestComponent() {
     const [setDialog] = useContext(DialogContext);
     const config = useContext(ConfigContext);
 
-    useEffect(() => {
+    function updateTest() {
         let passwordHeaders = localStorage.getItem("password") ? {password: localStorage.getItem("password")} : {}
         fetch("/api/speedtests/latest", {headers: passwordHeaders})
             .then(res => res.json())
@@ -20,13 +20,17 @@ function LatestTestComponent() {
                 setLatest(latest);
                 setLatestTestTime(generateRelativeTime(latest.created));
             });
+    }
+
+    useEffect(() => {
+        const interval = setInterval(() => updateTest(), 15000);
+        updateTest();
+        return () => clearInterval(interval);
     }, [setLatest]);
 
     useEffect(() => {
         const interval = setInterval(() => setLatestTestTime(generateRelativeTime(latest.created)), 1000);
-        return () => {
-            clearInterval(interval);
-        };
+        return () => clearInterval(interval);
     }, [setLatestTestTime, latest]);
 
     if (Object.entries(config).length === 0) return (<></>)

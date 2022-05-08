@@ -7,11 +7,17 @@ function TestArea() {
     const config = useContext(ConfigContext);
     const [tests, setTests] = useState([]);
 
-    useEffect(() => {
+    function updateTests() {
         let passwordHeaders = localStorage.getItem("password") ? {password: localStorage.getItem("password")} : {}
         fetch("/api/speedtests", {headers: passwordHeaders})
             .then(res => res.json())
-            .then(tests => setTests(tests));
+            .then(tests => setTests(tests))
+    }
+
+    useEffect(() => {
+        const interval = setInterval(() => updateTests(), 15000);
+        updateTests();
+        return () => clearInterval(interval);
     }, [setTests]);
 
     if (Object.entries(config).length === 0) return (<></>)
