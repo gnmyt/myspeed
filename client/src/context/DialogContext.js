@@ -29,8 +29,17 @@ const Dialog = ({dialog, setDialog}) => {
         if (dialog.onSuccess) dialog.onSuccess(value);
     }
 
+    function clear() {
+        setDialog();
+        if (dialog.onClear) dialog.onClear();
+    }
+
     if (dialog.speedtest) {
-        dialog.promise.then(() => window.location.reload());
+        dialog.promise.then(res => {
+            if (res.status === 409) {
+                setDialog({title: "Fehlgeschlagen", description: "Es läuft bereits ein Speedtest. Bitte gedulde dich ein wenig, bis dieser fertig ist.", buttonText: "Okay"});
+            } else window.location.reload();
+        });
 
         return (
             <div className="dialog-area">
@@ -49,11 +58,13 @@ const Dialog = ({dialog, setDialog}) => {
                     <FontAwesomeIcon icon={faClose} className="dialog-text dialog-icon" onClick={closeDialog}/>
                 </div>
                 <div className="dialog-main">
-                    <input className="dialog-input" type="text" placeholder={dialog.placeholder} value={value}
-                           onChange={updateValue}/>
+                    {dialog.description ? <h3 className="dialog-description">{dialog.description}</h3>: ""}
+                    {dialog.placeholder ? <input className="dialog-input" type={dialog.password ? "password" : "text"} placeholder={dialog.placeholder} value={value}
+                                                 onChange={updateValue}/> : ""}
                 </div>
                 <div className="dialog-buttons">
-                    <button className="dialog-btn" onClick={submit}>Aktualisieren</button>
+                    {dialog.unsetButton ? <button className="dialog-btn dialog-secondary" onClick={clear}>{dialog.unsetButtonText || "Entfernen"}</button> : ""}
+                    <button className="dialog-btn" onClick={submit}>{dialog.buttonText || "Aktualisieren"}</button>
                 </div>
             </div>
         </div>

@@ -20,6 +20,11 @@ module.exports.create = () => {
         "    download double," +
         "    upload double," +
         "    created DATETIME DEFAULT CURRENT_TIMESTAMP);");
+    db.exec("create table if not exists recommendations(" +
+        "    id       integer primary key autoincrement," +
+        "    ping     integer(5000)," +
+        "    download double," +
+        "    upload double);");
 }
 
 module.exports.insert = () => {

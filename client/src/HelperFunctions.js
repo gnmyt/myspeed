@@ -4,14 +4,14 @@ export function generateRelativeTime(created) {
 
     const diff = (currentDate - date) / 1000;
 
-    if (diff === 0) {
+    if (diff < 5) {
         return "Gerade eben"
     } else if (diff < 60) {
-        return diff === 1 ? "Einer Sekunde" : `${Math.floor(diff)} Sekunden`
+        return diff === 1 ? "1 Sekunde" : `${Math.floor(diff)} Sekunden`
     } else if (diff < 3600) {
-        return Math.floor(diff / 60) === 1 ? "Einer Minute" : `${Math.floor(diff / 60)} Minuten`
+        return Math.floor(diff / 60) === 1 ? "1 Minute" : `${Math.floor(diff / 60)} Minuten`
     } else if (diff < 86400) {
-        return Math.floor(diff / 3600) === 1 ? "Einer Stunde" : `${Math.floor(diff / 3600)} Stunden`
+        return Math.floor(diff / 3600) === 1 ? "1 Stunde" : `${Math.floor(diff / 3600)} Stunden`
     }
 
     return "Einer langen Zeit"
@@ -19,6 +19,8 @@ export function generateRelativeTime(created) {
 
 export function getIconBySpeed(current, optional, higherIsBetter) {
     let speed = Math.floor((current / optional) * 100);
+
+    if (current === 0) return "error";
 
     if (higherIsBetter) {
         if (speed >= 75) return "green";
