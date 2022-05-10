@@ -17,18 +17,19 @@ log () {
 
 # Root check
 if [ $EUID -ne 0 ]; then
-  echo -e "$RED ✗ Fehler bei der Installation: $NORMAL Du benötigst Root-Rechte, um die Installation zu starten."
+  echo -e "$RED✗ Fehler bei der Installation:$NORMAL Du benötigst Root-Rechte, um die Installation zu starten."
   exit
 fi
 
 # Check if installed
 if [ -d $INSTALLATION_PATH ]; then
-    echo -e "$YELLOW ⚠ Fehler bei der Installation: $NORMAL MySpeed ist bereits auf diesem System installiert. ($INSTALLATION_PATH)"
+    echo -e "$YELLOW⚠ Fehler bei der Installation: $NORMAL MySpeed ist bereits auf diesem System installiert. (Pfad: $INSTALLATION_PATH)"
     exit 0
 fi
 
 
 # Update all packages
+echo -e "$BLUE🔎 Status:$NORMAL Es wird nach neuen Updates für das Linux-System gesucht..."
 apt-get update -y
 
 clear
@@ -56,7 +57,7 @@ fi
 
 # Check for curl
 clear
-echo -e "$BLUE 🔎 Status:$NORMAL Überprüfe, ob curl vorhanden ist..."
+echo -e "$BLUE🔎 Status:$NORMAL Überprüfe, ob curl vorhanden ist..."
 if ! command -v curl &> /dev/null
 then
     echo -e "$YELLOWℹ\"curl\" ist nicht installiert.$NORMAL Die Installation wurde gestartet..."
@@ -66,7 +67,7 @@ fi
 
 # Check for node
 clear
-echo -e "$BLUE 🔎 Status:$NORMAL Überprüfe, ob node vorhanden ist..."
+echo -e "$BLUE🔎 Status:$NORMAL Überprüfe, ob node vorhanden ist..."
 if ! command -v node &> /dev/null
 then
     echo -e "$YELLOWℹ\"node\" ist nicht installiert.$NORMAL Die Installation wurde gestartet..."
@@ -77,7 +78,7 @@ fi
 
 clear
 echo -e "$GREEN✓ Vorbereitung abgeschlossen:$NORMAL Die Installation von MySpeed wird jetzt gestartet..."
-sleep 5
+sleep 3
 
 clear
 if [ ! -d $INSTALLATION_PATH ]
@@ -103,5 +104,8 @@ sleep 2
 npm install
 
 clear
+echo -e "$GREEN-$NORMAL-$GREEN-$NORMAL$GREEN-$NORMAL$GREEN-$NORMAL$GREEN-$NORMAL$GREEN-$NORMAL$GREEN-$NORMAL$GREEN-$NORMAL$GREEN-$NORMAL" #multicolor
 echo -e "$GREEN✓ Installation abgeschlossen: $NORMAL MySpeed wurde unter $INSTALLATION_PATH installiert."
-echo -e "Die Weboberfläche findest du unter $BLUEhttp://localhost:5216$NORMAL."
+echo -e "Die Weboberfläche findest du im Browser unter $BLUEhttp://localhost:5216$NORMAL."
+echo -e "$GREEN-$NORMAL-$GREEN-$NORMAL$GREEN-$NORMAL$GREEN-$NORMAL$GREEN-$NORMAL$GREEN-$NORMAL$GREEN-$NORMAL$GREEN-$NORMAL$GREEN-$NORMAL" #multicolor
+# MySpeed is installed successfully.
