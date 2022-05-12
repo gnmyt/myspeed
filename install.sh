@@ -18,7 +18,8 @@ fi
 
 # Check if installed
 if [ -d $INSTALLATION_PATH ]; then
-    echo -e "$YELLOW⚠ Warnung: $NORMAL MySpeed ist bereits auf diesem System installiert. Es wird nun unter $INSTALLATION_PATH aktualisiert."
+    echo -e "$YELLOW⚠ Warnung: $NORMAL MySpeed ist bereits auf diesem System installiert."
+    echo -e "$GREENℹ Info:$NORMAL Es wird nun der aktuelle Release installiert..."
     sleep 5
 fi
 
@@ -125,8 +126,9 @@ EOF
 fi
 
 if ! command -v systemctl &> /dev/null; then
-    echo -e "$YELLOW⚠ Warnung: $NORMAL Dein System unterstützt die Installation als Hintergrunddienst nicht."
-    exit 0
+    echo -e "$YELLOW⚠ Warnung: $NORMAL Dein Linux-System bietet derzeit nicht die Möglichkeit, MySpeed im Hintergrund zu starten. Hierfür wird \"systemd\" benötigt."
+    echo -e "$BLUEℹ Info: $NORMAL Du kannst, wenn du \"systemd\" installiert hast, die Installation erneut starten. Es wird dann automatisch eingestellt."
+    sleep 2
 fi
 
 clear
