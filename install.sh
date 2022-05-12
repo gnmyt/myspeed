@@ -125,13 +125,14 @@ EOF
   systemctl start myspeed
 fi
 
+clear
+
 if ! command -v systemctl &> /dev/null; then
     echo -e "$YELLOW⚠ Warnung: $NORMAL Dein Linux-System bietet derzeit nicht die Möglichkeit, MySpeed im Hintergrund zu starten. Hierfür wird \"systemd\" benötigt."
     echo -e "$BLUEℹ Info: $NORMAL Du kannst, wenn du \"systemd\" installiert hast, die Installation erneut starten. Es wird dann automatisch eingestellt."
-    sleep 2
+    sleep 5
 fi
 
-clear
 echo -e "$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-" #multicolor
 echo -e "$GREEN✓ Installation abgeschlossen: $NORMAL MySpeed wurde unter $INSTALLATION_PATH installiert."
 echo -e "Die Weboberfläche findest du im Browser unter$BLUE http://localhost:5216$NORMAL."
