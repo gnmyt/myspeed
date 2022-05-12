@@ -93,7 +93,7 @@ wget "$RELEASE_URL"
 
 echo -e "$BLUEℹ Info: $NORMAL Download abgeschlossen. Entpacken läuft..."
 sleep 2
-unzip MySpeed*.zip
+unzip -qo MySpeed*.zip
 rm MySpeed-*.zip
 
 echo -e "$BLUEℹ Info: $NORMAL Die notwendigen Abhängigkeiten werden jetzt installiert..."
