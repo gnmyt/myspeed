@@ -1,6 +1,6 @@
 {
   "name": "myspeed",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "scripts": {
     "client": "cd client && npm start",
     "server": "nodemon server",
