@@ -102,7 +102,7 @@ npm install
 # Install as system service
 clear
 echo -e "$BLUE🔎 Status:$NORMAL Registriere MySpeed als Hintergrunddienst..."
-if systemctl --all --type service | grep -q "myspeed.service"; then
+if ! systemctl --all --type service | grep -n "myspeed.service"; then
   cat << EOF >> /etc/systemd/system/myspeed.service
   [Unit]
   Description=MySpeed
