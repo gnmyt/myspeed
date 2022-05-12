@@ -131,6 +131,8 @@ if ! command -v systemctl &> /dev/null; then
     echo -e "$YELLOW⚠ Warnung: $NORMAL Dein Linux-System bietet derzeit nicht die Möglichkeit, MySpeed im Hintergrund zu starten. Hierfür wird \"systemd\" benötigt."
     echo -e "$BLUEℹ Info: $NORMAL Du kannst, wenn du \"systemd\" installiert hast, die Installation erneut starten. Es wird dann automatisch eingestellt."
     sleep 5
+elif [ ! -d $INSTALLATION_PATH ]; then
+  systemctl restart myspeed
 fi
 
 echo -e "$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-" #multicolor
