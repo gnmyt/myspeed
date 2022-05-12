@@ -40,7 +40,7 @@ clear
 echo -e "$BLUE🔎 Status:$NORMAL Überprüfe, ob wget vorhanden ist..."
 if ! command -v wget &> /dev/null
 then
-    echo -e "$YELLOWℹ\"wget\" ist nicht installiert.$NORMAL Die Installation wurde gestartet..."
+    echo -e "$YELLOWℹ \"wget\" ist nicht installiert.$NORMAL Die Installation wurde gestartet..."
     sleep 2
     apt-get install wget -y
 fi
@@ -50,7 +50,7 @@ clear
 echo -e "$BLUE🔎 Status:$NORMAL Überprüfe, ob unzip vorhanden ist..."
 if ! command -v unzip &> /dev/null
 then
-    echo -e "$YELLOWℹ\"unzip\" ist nicht installiert.$NORMAL Die Installation wurde gestartet..."
+    echo -e "$YELLOWℹ \"unzip\" ist nicht installiert.$NORMAL Die Installation wurde gestartet..."
     sleep 2
     apt-get install unzip -y
 fi
@@ -60,7 +60,7 @@ clear
 echo -e "$BLUE🔎 Status:$NORMAL Überprüfe, ob curl vorhanden ist..."
 if ! command -v curl &> /dev/null
 then
-    echo -e "$YELLOWℹ\"curl\" ist nicht installiert.$NORMAL Die Installation wurde gestartet..."
+    echo -e "$YELLOWℹ \"curl\" ist nicht installiert.$NORMAL Die Installation wurde gestartet..."
     sleep 2
     apt-get install curl -y
 fi
@@ -70,7 +70,7 @@ clear
 echo -e "$BLUE🔎 Status:$NORMAL Überprüfe, ob node vorhanden ist..."
 if ! command -v node &> /dev/null
 then
-    echo -e "$YELLOWℹ\"node\" ist nicht installiert.$NORMAL Die Installation wurde gestartet..."
+    echo -e "$YELLOWℹ \"node\" ist nicht installiert.$NORMAL Die Installation wurde gestartet..."
     sleep 2
     curl -sSL https://deb.nodesource.com/setup_16.x | bash
     apt-get install nodejs -y
@@ -104,8 +104,8 @@ sleep 2
 npm install
 
 clear
-echo -e "$GREEN-$NORMAL-$GREEN-$NORMAL$GREEN-$NORMAL$GREEN-$NORMAL$GREEN-$NORMAL$GREEN-$NORMAL$GREEN-$NORMAL$GREEN-$NORMAL$GREEN-$NORMAL" #multicolor
+echo -e "$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-" #multicolor
 echo -e "$GREEN✓ Installation abgeschlossen: $NORMAL MySpeed wurde unter $INSTALLATION_PATH installiert."
-echo -e "Die Weboberfläche findest du im Browser unter $BLUEhttp://localhost:5216$NORMAL."
-echo -e "$GREEN-$NORMAL-$GREEN-$NORMAL$GREEN-$NORMAL$GREEN-$NORMAL$GREEN-$NORMAL$GREEN-$NORMAL$GREEN-$NORMAL$GREEN-$NORMAL$GREEN-$NORMAL" #multicolor
+echo -e "Die Weboberfläche findest du im Browser unter$BLUE http://localhost:5216$NORMAL."
+echo -e "$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-" #multicolor
 # MySpeed is installed successfully.
