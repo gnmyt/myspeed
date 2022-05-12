@@ -124,8 +124,6 @@ EOF
   systemctl start myspeed
 fi
 
-systemctl status myspeed
-
 clear
 echo -e "$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-" #multicolor
 echo -e "$GREEN✓ Installation abgeschlossen: $NORMAL MySpeed wurde unter $INSTALLATION_PATH installiert."
