@@ -18,8 +18,8 @@ fi
 
 # Check if installed
 if [ -d $INSTALLATION_PATH ]; then
-    echo -e "$YELLOW⚠ Fehler bei der Installation: $NORMAL MySpeed ist bereits auf diesem System installiert. (Pfad: $INSTALLATION_PATH)"
-    exit 0
+    echo -e "$YELLOW⚠ Warnung: $NORMAL MySpeed ist bereits auf diesem System installiert. Es wird nun unter $INSTALLATION_PATH aktualisiert."
+    sleep 5
 fi
 
 
@@ -102,7 +102,7 @@ npm install
 # Install as system service
 clear
 echo -e "$BLUE🔎 Status:$NORMAL Registriere MySpeed als Hintergrunddienst..."
-if ! systemctl --all --type service | grep -n "myspeed.service"; then
+if command -v systemctl &> /dev/null && ! systemctl --all --type service | grep -n "myspeed.service"; then
   cat << EOF >> /etc/systemd/system/myspeed.service
   [Unit]
   Description=MySpeed
@@ -122,6 +122,11 @@ EOF
   systemctl daemon-reload
   systemctl enable myspeed
   systemctl start myspeed
+fi
+
+if ! command -v systemctl &> /dev/null; then
+    echo -e "$YELLOW⚠ Warnung: $NORMAL Dein System unterstützt die Installation als Hintergrunddienst nicht."
+    exit 0
 fi
 
 clear
