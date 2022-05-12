@@ -11,10 +11,6 @@ NORMAL='\033[0;39m'
 INSTALLATION_PATH="/opt/myspeed"
 RELEASE_URL=$(curl -s https://api.github.com/repos/gnmyt/myspeed/releases/latest | grep browser_download_url | cut -d '"' -f 4)
 
-log () {
-    printf "\033[0;34m$1\e[0m\n"
-}
-
 # Root check
 if [ $EUID -ne 0 ]; then
   echo -e "$RED✗ Fehler bei der Installation:$NORMAL Du benötigst Root-Rechte, um die Installation zu starten."
