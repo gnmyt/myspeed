@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+# Colors for better overview
+GREEN='\033[0;32m'
+BLUE='\033[1;34m'
+YELLOW='\033[1;33m'
+RED='\033[1;31m'
+NORMAL='\033[0;39m'
+
+
 INSTALLATION_PATH="/opt/myspeed"
 RELEASE_URL=$(curl -s https://api.github.com/repos/gnmyt/myspeed/releases/latest | grep browser_download_url | cut -d '"' -f 4)
 
@@ -9,77 +17,95 @@ log () {
 
 # Root check
 if [ $EUID -ne 0 ]; then
-  echo "Du musst dieses Skript als root ausführen"
+  echo -e "$RED✗ Fehler bei der Installation:$NORMAL Du benötigst Root-Rechte, um die Installation zu starten."
   exit
 fi
 
 # Check if installed
 if [ -d $INSTALLATION_PATH ]; then
-    log "Eine MySpeed-Instanz unter $INSTALLATION_PATH wurde bereits installiert. Die Installation wird abgebrochen."
+    echo -e "$YELLOW⚠ Fehler bei der Installation: $NORMAL MySpeed ist bereits auf diesem System installiert. (Pfad: $INSTALLATION_PATH)"
     exit 0
 fi
 
 
 # Update all packages
+echo -e "$BLUE🔎 Status:$NORMAL Es wird nach neuen Updates für das Linux-System gesucht..."
 apt-get update -y
 
+clear
+echo -e "$GREENℹ Info:$NORMAL Die Installation wird jetzt vorbereitet. Das kann einen Augenblick dauern..."
+sleep 5
 # Check for wget
+clear
+echo -e "$BLUE🔎 Status:$NORMAL Überprüfe, ob wget vorhanden ist..."
 if ! command -v wget &> /dev/null
 then
-    log "Das Paket \"wget\" wurde nicht gefunden, wird aber benötigt. Es wird nun installiert..."
+    echo -e "$YELLOWℹ \"wget\" ist nicht installiert.$NORMAL Die Installation wurde gestartet..."
     sleep 2
     apt-get install wget -y
 fi
 
 # Check for unzip
+clear
+echo -e "$BLUE🔎 Status:$NORMAL Überprüfe, ob unzip vorhanden ist..."
 if ! command -v unzip &> /dev/null
 then
-    log "Das Paket \"unzip\" wurde nicht gefunden, wird aber benötigt. Es wird nun installiert..."
+    echo -e "$YELLOWℹ \"unzip\" ist nicht installiert.$NORMAL Die Installation wurde gestartet..."
     sleep 2
     apt-get install unzip -y
 fi
 
 # Check for curl
+clear
+echo -e "$BLUE🔎 Status:$NORMAL Überprüfe, ob curl vorhanden ist..."
 if ! command -v curl &> /dev/null
 then
-    log "Das Paket \"curl\" wurde nicht gefunden, wird aber benötigt. Es wird nun installiert..."
+    echo -e "$YELLOWℹ \"curl\" ist nicht installiert.$NORMAL Die Installation wurde gestartet..."
     sleep 2
     apt-get install curl -y
 fi
 
 # Check for node
+clear
+echo -e "$BLUE🔎 Status:$NORMAL Überprüfe, ob node vorhanden ist..."
 if ! command -v node &> /dev/null
 then
-    log "Das Paket \"nodejs\" wurde nicht gefunden, wird aber benötigt. Es wird nun installiert..."
+    echo -e "$YELLOWℹ \"node\" ist nicht installiert.$NORMAL Die Installation wurde gestartet..."
     sleep 2
     curl -sSL https://deb.nodesource.com/setup_16.x | bash
     apt-get install nodejs -y
 fi
 
-log "Alle notwendigen Pakete sind installiert. Starte installation von MySpeed..."
-sleep 2
+clear
+echo -e "$GREEN✓ Vorbereitung abgeschlossen:$NORMAL Die Installation von MySpeed wird jetzt gestartet..."
+sleep 3
 
+clear
 if [ ! -d $INSTALLATION_PATH ]
 then
-    log "MySpeed wird unter $INSTALLATION_PATH installiert. Der Ordner wird nun erstellt."
+    echo -e "$BLUEℹ Info: $NORMAL MySpeed wird unter dem Verzeichnis $INSTALLATION_PATH installiert. Der Ordner wird nun erstellt."
     sleep 2
     mkdir $INSTALLATION_PATH
 fi
 
 cd $INSTALLATION_PATH
 
-log "Lade notwendige Daten herunter..."
+echo -e "$BLUEℹ Info: $NORMAL Die aktuelle MySpeed-Instanz wird heruntergeladen. Einen Moment..."
 sleep 2
 wget "$RELEASE_URL"
 
-log "Entpacke notwendige Daten..."
+echo -e "$BLUEℹ Info: $NORMAL Download abgeschlossen. Entpacken läuft..."
 sleep 2
 unzip MySpeed*.zip
 rm MySpeed-*.zip
 
-log "Lade die notwendigen Abhängigkeiten herunter..."
+echo -e "$BLUEℹ Info: $NORMAL Die notwendigen Abhängigkeiten werden jetzt installiert..."
 sleep 2
 npm install
 
 clear
-log "Erfolg! MySpeed wurde unter $INSTALLATION_PATH installiert."
+echo -e "$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-" #multicolor
+echo -e "$GREEN✓ Installation abgeschlossen: $NORMAL MySpeed wurde unter $INSTALLATION_PATH installiert."
+echo -e "Die Weboberfläche findest du im Browser unter$BLUE http://localhost:5216$NORMAL."
+echo -e "$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-" #multicolor
+# MySpeed is installed successfully.
