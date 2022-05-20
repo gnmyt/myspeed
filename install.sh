@@ -16,6 +16,21 @@ if [ $EUID -ne 0 ]; then
   exit
 fi
 
+echo -e "$GREEN ---------$BLUE Automatische Installation$GREEN ---------"
+echo -e "$BLUE MySpeed$YELLOW wird nun installiert."
+if [ "$1" == "--beta" ]; then
+  echo -e "$YELLOW Version:$BLUE MySpeed Beta"
+else
+  echo -e "$YELLOW Version:$BLUE MySpeed Release"
+fi
+echo -e "$YELLOW Es wird die Speedtest API von Ookla verwendet."
+echo -e "$YELLOW Wenn du damit$RED nicht$YELLOW einverstanden bist,"
+echo -e "$YELLOW kannst du die Installation mit$RED STRG + C$YELLOW abbrechen. "
+echo -e "$GREEN Die Installation beginnt in 5 Sekunden..."
+echo -e "$GREEN ----------------------------------------------"
+sleep 5
+clear
+
 # Check if installed
 if [ -d $INSTALLATION_PATH ]; then
     echo -e "$YELLOW⚠ Warnung: $NORMAL MySpeed ist bereits auf diesem System installiert."
