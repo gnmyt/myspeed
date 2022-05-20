@@ -51,6 +51,19 @@ then
     apt-get install unzip -y
 fi
 
+# Check for build essential
+clear
+if [ "$1" == "--beta" ]; then
+  echo -e "$BLUE🔎 Status:$NORMAL Überprüfe, ob build-essential vorhanden ist..."
+  if ! command -v build-essential &> /dev/null
+  then
+      echo -e "$YELLOWℹ \"build-essential\" ist nicht installiert.$NORMAL Die Installation wurde gestartet..."
+      sleep 2
+      apt-get install build-essential -y
+  fi
+fi
+
+
 # Check for curl
 clear
 echo -e "$BLUE🔎 Status:$NORMAL Überprüfe, ob curl vorhanden ist..."
@@ -69,11 +82,18 @@ then
     echo -e "$YELLOWℹ \"node\" ist nicht installiert.$NORMAL Die Installation wurde gestartet..."
     sleep 2
     curl -sSL https://deb.nodesource.com/setup_16.x | bash
-    apt-get install nodejs npm -y
+    apt-get install nodejs -y
 fi
 
 clear
-RELEASE_URL=$(curl -s https://api.github.com/repos/gnmyt/myspeed/releases/latest | grep browser_download_url | cut -d '"' -f 4)
+
+if [ "$1" == "--beta" ]; then
+  RELEASE_URL=https://github.com/gnmyt/myspeed/archive/refs/heads/development.zip
+else
+  RELEASE_URL=$(curl -s https://api.github.com/repos/gnmyt/myspeed/releases/latest | grep browser_download_url | cut -d '"' -f 4)
+fi
+
+
 echo -e "$GREEN✓ Vorbereitung abgeschlossen:$NORMAL Die Installation von MySpeed wird jetzt gestartet..."
 sleep 3
 
@@ -93,12 +113,27 @@ wget "$RELEASE_URL"
 
 echo -e "$BLUEℹ Info: $NORMAL Download abgeschlossen. Entpacken läuft..."
 sleep 2
-unzip -qo MySpeed*.zip
-rm MySpeed-*.zip
+if [ "$1" == "--beta" ]; then
+  unzip -qo development.zip
+  mv myspeed-*/* .
+  rm development.zip
+  rm -R myspeed-development
+else
+  unzip -qo MySpeed*.zip
+  rm MySpeed-*.zip
+fi
+
 
 echo -e "$BLUEℹ Info: $NORMAL Die notwendigen Abhängigkeiten werden jetzt installiert..."
 sleep 2
 npm install
+
+if [ "$1" == "--beta" ]; then
+  echo -e "$BLUEℹ Info: $NORMAL Die Weboberfläche wird kompiliert..."
+  sleep 2
+  cd client && npm install
+  cd .. && npm run build
+fi
 
 # Install as system service
 clear
