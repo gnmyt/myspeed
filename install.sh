@@ -115,7 +115,8 @@ echo -e "$BLUEℹ Info: $NORMAL Download abgeschlossen. Entpacken läuft..."
 sleep 2
 if [ "$1" == "--beta" ]; then
   unzip -qo development.zip
-  cp myspeed-*/* .
+  rm -R server client
+  mv myspeed-*/* .
   rm development.zip
   rm -R myspeed-development
 else
