@@ -55,7 +55,7 @@ fi
 clear
 if [ "$1" == "--beta" ]; then
   echo -e "$BLUE🔎 Status:$NORMAL Überprüfe, ob build-essential vorhanden ist..."
-  if ! command -v build-essential &> /dev/null
+  if ! dpkg-query -l build-essential | grep build-essential &> /dev/null
   then
       echo -e "$YELLOWℹ \"build-essential\" ist nicht installiert.$NORMAL Die Installation wurde gestartet..."
       sleep 2
