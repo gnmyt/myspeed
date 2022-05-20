@@ -46,7 +46,7 @@ function LatestTestComponent() {
                     <h2 className="container-text">Ping<span className="container-subtext">ms</span></h2>
                 </div>
                 <div className="container-main">
-                    <h2>{latest.ping === 0 ? "Test" : latest.ping}</h2>
+                    <h2>{latest.ping === -1 ? "Test" : latest.ping}</h2>
                 </div>
             </div>
 
@@ -61,7 +61,7 @@ function LatestTestComponent() {
                     <h2 className="container-text">Download<span className="container-subtext">Mbit/s</span></h2>
                 </div>
                 <div className="container-main">
-                    <h2>{latest.download === 0 ? "schlug" : latest.download}</h2>
+                    <h2>{latest.download === -1 ? "schlug" : latest.download}</h2>
                 </div>
             </div>
 
@@ -76,7 +76,7 @@ function LatestTestComponent() {
                     <h2 className="container-text">Upload<span className="container-subtext">Mbit/s</span></h2>
                 </div>
                 <div className="container-main">
-                    <h2>{latest.upload === 0 ? "fehl!" : latest.upload}</h2>
+                    <h2>{latest.upload === -1 ? "fehl!" : latest.upload}</h2>
                 </div>
             </div>
 

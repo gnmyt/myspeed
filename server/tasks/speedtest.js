@@ -49,7 +49,7 @@ module.exports.create = async () => {
         console.log(`Test #${testResult} was executed successfully. 🏓 ${ping} ⬇ ${download}️ ⬆ ${upload}️`);
         createRecommendations().then(() => "");
     } catch (e) {
-        let testResult = tests.create(0, 0, 0);
+        let testResult = tests.create(-1, -1, -1);
         console.log(`Test #${testResult} was not executed successfully. Please try reconnecting to the internet or restarting the software.`);
     }
     isRunning = false;

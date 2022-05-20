@@ -20,7 +20,7 @@ export function generateRelativeTime(created) {
 export function getIconBySpeed(current, optional, higherIsBetter) {
     let speed = Math.floor((current / optional) * 100);
 
-    if (current === 0) return "error";
+    if (current === -1) return "error";
 
     if (higherIsBetter) {
         if (speed >= 75) return "green";
