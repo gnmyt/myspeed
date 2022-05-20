@@ -69,7 +69,7 @@ then
     echo -e "$YELLOWℹ \"node\" ist nicht installiert.$NORMAL Die Installation wurde gestartet..."
     sleep 2
     curl -sSL https://deb.nodesource.com/setup_16.x | bash
-    apt-get install nodejs -y
+    apt-get install nodejs npm -y
 fi
 
 clear
