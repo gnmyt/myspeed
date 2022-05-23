@@ -6,6 +6,7 @@ BLUE='\033[1;34m'
 YELLOW='\033[1;33m'
 RED='\033[1;31m'
 NORMAL='\033[0;39m'
+PURPLE='\033[0;35m'
 
 
 INSTALLATION_PATH="/opt/myspeed"
@@ -19,7 +20,7 @@ fi
 echo -e "$GREEN ---------$BLUE Automatische Installation$GREEN ---------"
 echo -e "$BLUE MySpeed$YELLOW wird nun installiert."
 if [ "$1" == "--beta" ]; then
-  echo -e "$YELLOW Version:$BLUE MySpeed Beta"
+  echo -e "$YELLOW Version:$BLUE MySpeed$PURPLE Beta"
 else
   echo -e "$YELLOW Version:$BLUE MySpeed Release"
 fi
