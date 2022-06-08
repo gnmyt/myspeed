@@ -143,12 +143,12 @@ fi
 
 echo -e "$BLUEℹ Info: $NORMAL Die notwendigen Abhängigkeiten werden jetzt installiert..."
 sleep 2
-npm install
+npm install --force
 
 if [ "$1" == "--beta" ]; then
   echo -e "$BLUEℹ Info: $NORMAL Die Weboberfläche wird kompiliert..."
   sleep 2
-  cd client && npm install
+  cd client && npm install --force
   cd .. && npm run build
 fi
 
