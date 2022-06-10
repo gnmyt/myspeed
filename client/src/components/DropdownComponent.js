@@ -208,13 +208,25 @@ function DropdownComponent() {
         setDialog({
             select: true,
             title: "Speedtests exportieren",
+            buttonText: "Herunterladen",
             value: "json",
             selectOptions: {
                 json: "JSON-Datei",
                 csv: "CSV-Datei"
             },
             onSuccess: value => {
-                window.location.href = "/api/export/" + value;
+                fetch("/api/export/" + value, {headers: headers})
+                    .then(async res => {
+                        let element = document.createElement('a');
+                        let url = res.headers.get('Content-Disposition').split('filename=')[1];
+                        element.setAttribute("download", url.replaceAll("\"", ""));
+                        res.blob().then(async blob => {
+                            element.href = window.URL.createObjectURL(blob);
+                            document.body.appendChild(element);
+                            element.click();
+                            element.remove();
+                        });
+                    });
             }
         });
     }
