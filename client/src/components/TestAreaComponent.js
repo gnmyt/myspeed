@@ -30,10 +30,12 @@ function TestArea() {
                     let timeString = String(date.getHours()).padStart(2, '0') + ":" + String(date.getMinutes()).padStart(2, '0');
                     return <Speedtest time={timeString}
                                       ping={test.ping} pingLevel={getIconBySpeed(test.ping, config.ping, false)}
-                                      down={test.download}
-                                      downLevel={getIconBySpeed(test.download, config.download, true)}
+                                      down={test.download} downLevel={getIconBySpeed(test.download, config.download, true)}
                                       up={test.upload} upLevel={getIconBySpeed(test.upload, config.upload, true)}
+                                      error={test.error}
                                       key={test.id}
+                                      url={test.url}
+                                      duration={test.time}
                     />
                 }) : ""}
             </div>
