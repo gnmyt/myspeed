@@ -38,6 +38,8 @@ const Dialog = ({dialog, setDialog}) => {
         dialog.promise.then(res => {
             if (res.status === 409) {
                 setDialog({title: "Fehlgeschlagen", description: "Es läuft bereits ein Speedtest. Bitte gedulde dich ein wenig, bis dieser fertig ist.", buttonText: "Okay"});
+            } else if (res.status === 410) {
+                setDialog({title: "Fehlgeschlagen", description: "Speedtests sind aktuell pausiert. Bitte setze sie fort, wenn du einen machen möchtest.", buttonText: "Okay"});
             } else window.location.reload();
         });
 
@@ -59,7 +61,7 @@ const Dialog = ({dialog, setDialog}) => {
                 </div>
                 <div className="dialog-main">
                     {dialog.description ? <h3 className="dialog-description">{dialog.description}</h3>: ""}
-                    {dialog.placeholder ? <input className="dialog-input" type={dialog.password ? "password" : "text"} placeholder={dialog.placeholder} value={value}
+                    {dialog.placeholder ? <input className="dialog-input" type={dialog.type ? dialog.type : "text"} placeholder={dialog.placeholder} value={value}
                                                  onChange={updateValue}/> : ""}
                 </div>
                 <div className="dialog-buttons">
