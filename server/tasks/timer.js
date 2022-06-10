@@ -1,21 +1,13 @@
 const pauseController = require('../controller/pause');
+const schedule = require('node-schedule');
 
-let newDate = new Date();
-let timer;
+let job;
 
 module.exports.startTimer = () => {
-    if (timer != null) this.stopTimer();
+    const rule = new schedule.RecurrenceRule();
+    rule.minute = 0
 
-    if (newDate.getMinutes() === 0) {
-        this.runTask();
-    } else {
-        newDate.setHours(newDate.getHours() + 1);
-        newDate.setMinutes(0);
-        newDate.setSeconds(0);
-    
-        var difference = newDate - new Date();
-        timer = setTimeout(this.runTask, difference);
-    }
+    job = schedule.scheduleJob(rule, () => this.runTask());
 }
 
 module.exports.runTask = async () => {
@@ -28,10 +20,7 @@ module.exports.runTask = async () => {
 }
 
 module.exports.stopTimer = () => {
-    if (timer != null)
-        clearTimeout(timer);
-    
-    timer = null;
+    job.gracefulShutdown();
 }
 
-module.exports.timer = timer;
+module.exports.job = job;
