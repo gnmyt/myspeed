@@ -28,6 +28,27 @@
   font-weight: 900
   color: #C8C8C8
 
+.tooltip-element
+  position: relative
+
+.tooltip-element .tooltip
+  opacity: 0
+  bottom: 120%
+  left: 50%
+  margin-left: -60px
+  background-color: #1d2128
+  color: #C8C8C8
+  text-align: center
+  border-radius: 6px
+  padding: 5px 5px
+
+  z-index: 90
+  position: absolute
+  transition: opacity 0.2s
+
+.tooltip-element:hover .tooltip
+  opacity: 1
+
 @media (max-width: 1351px)
   .speedtest
     width: 60rem
