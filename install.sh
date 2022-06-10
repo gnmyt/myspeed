@@ -191,6 +191,9 @@ fi
 
 echo -e "$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-" #multicolor
 echo -e "$GREEN✓ Installation abgeschlossen: $NORMAL MySpeed wurde unter $INSTALLATION_PATH installiert."
-echo -e "Die Weboberfläche findest du im Browser unter$BLUE http://localhost:5216$NORMAL."
+echo -e "Die Weboberfläche findest du im Browser unter$BLUE http://$(curl -s ifconfig.me):5216$NORMAL."
+if [ -d $INSTALLATION_PATH ]; then
+  echo -e "$BLUEℹ Info:$NORMAL Sollte das Update nicht erfolgreich angewendet worden sein, bitte starte MySpeed mal neu:$BLUE systemctl restart myspeed"
+fi
 echo -e "$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-" #multicolor
 # MySpeed is installed successfully.
