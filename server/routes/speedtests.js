@@ -10,7 +10,7 @@ app.get("/", (req, res) => {
 // Runs a speedtest
 app.post("/run", async (req, res) => {
     if (pauseController.currentState) return res.status(410).json({message: "The speedtests are currently paused"});
-    let speedtest = await require("../tasks/speedtest").create();
+    let speedtest = await require("../tasks/speedtest").create("custom");
     if (speedtest !== undefined) return res.status(409).json({message: "An speedtest is already running"});
     res.json({message: "Speedtest successfully created"});
 });
