@@ -12,6 +12,7 @@
     "bcrypt": "^5.0.1",
     "better-sqlite3": "^7.5.0",
     "express": "^4.17.3",
+    "node-schedule": "^2.1.0",
     "speedtest-net": "^2.2.0"
   },
   "devDependencies": {
