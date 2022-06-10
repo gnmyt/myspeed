@@ -19,7 +19,7 @@ jobs:
           node-version: '16'
 
       - run: cd client && npm install
-      - run: npm run build && npm install
+      - run: npm run build && mv client/build . && npm install
 
       - name: Get version
         id: get_version

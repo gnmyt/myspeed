@@ -150,6 +150,8 @@ if [ "$1" == "--beta" ]; then
   sleep 2
   cd client && npm install --force
   cd .. && npm run build
+  cp -r client/build .
+  rm -rf client/build
 fi
 
 # Install as system service
