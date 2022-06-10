@@ -32,19 +32,26 @@
   position: relative
 
 .tooltip-element .tooltip
+  font-size: 16pt
   opacity: 0
   bottom: 120%
   left: 50%
+  width: 160px
   margin-left: -60px
   background-color: #1d2128
   color: #C8C8C8
   text-align: center
   border-radius: 6px
   padding: 5px 5px
+  height: fit-content
 
   z-index: 90
   position: absolute
   transition: opacity 0.2s
+
+.tooltip-bottom .tooltip
+  bottom: 0
+  top: 120%
 
 .tooltip-element:hover .tooltip
   opacity: 1

@@ -48,8 +48,16 @@ function HeaderComponent() {
                         Sieh dir <a target="_blank" href="https://github.com/gnmyt/myspeed/releases/latest" rel="noreferrer">die Änderungen an</a> und <a target="_blank" 
                         href="https://github.com/gnmyt/myspeed/wiki/Einrichtung-Linux" rel="noreferrer">lade dir das Update herunter</a>.</>})} /> 
                         : <></>}
-                    <FontAwesomeIcon icon={faGaugeHigh} className="header-icon" onClick={startSpeedtest} />
-                    <FontAwesomeIcon icon={icon} className="header-icon" onClick={switchDropdown} />
+                    <div className="tooltip-element tooltip-bottom">
+                        <FontAwesomeIcon icon={faGaugeHigh} className="header-icon" onClick={startSpeedtest} />
+                        <span className="tooltip">Test starten</span>
+                    </div>
+
+                    <div className="tooltip-element tooltip-bottom">
+                        <FontAwesomeIcon icon={icon} className="header-icon" onClick={switchDropdown} />
+                        <span className="tooltip">Einstellungen</span>
+                    </div>
+
                 </div>
             </div>
             <DropdownComponent/>
