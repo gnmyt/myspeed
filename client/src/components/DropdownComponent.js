@@ -3,7 +3,7 @@ import "../style/Dropdown.sass";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
     faArrowDown,
-    faArrowUp, faClose,
+    faArrowUp, faClose, faFileExport,
     faGear, faInfo,
     faKey,
     faPause,
@@ -51,14 +51,15 @@ function DropdownComponent() {
 
 
     function setPause(paused) {
-        let element = document.getElementsByClassName("analyse-area")[0].classList;
+        let element = document.getElementsByClassName("analyse-area")[0];
+        if (element == null) return;
 
         if (paused) {
-            if (!element.contains("tests-paused")) element.add("tests-paused");
+            if (!element.classList.contains("tests-paused")) element.classList.add("tests-paused");
         } else {
-            if (element.contains("tests-paused")) element.remove("tests-paused");
+            if (element.classList.contains("tests-paused")) element.classList.remove("tests-paused");
         }
-        
+
        setPauseState(paused);
     }
 
@@ -67,7 +68,7 @@ function DropdownComponent() {
             .then(res => res.json())
             .then(res => setPause(res.paused));
     }
-    
+
     useEffect(() => {
         const interval = setInterval(() => checkPauseStatus(), 15000);
         checkPauseStatus();
@@ -202,6 +203,22 @@ function DropdownComponent() {
             }));
     }
 
+    function exportDialog() {
+        toggleDropdown();
+        setDialog({
+            select: true,
+            title: "Speedtests exportieren",
+            value: "json",
+            selectOptions: {
+                json: "JSON-Datei",
+                csv: "CSV-Datei"
+            },
+            onSuccess: value => {
+                window.location.href = "/api/export/" + value;
+            }
+        });
+    }
+
     return (
         <div className="dropdown dropdown-invisible">
             <div id="dropdown" className="dropdown-content">
@@ -233,6 +250,10 @@ function DropdownComponent() {
                     <div className="dropdown-item" onClick={updatePassword}>
                         <FontAwesomeIcon icon={faKey}/>
                         <h3>Passwort ändern</h3>
+                    </div>
+                    <div className="dropdown-item" onClick={exportDialog}>
+                        <FontAwesomeIcon icon={faFileExport}/>
+                        <h3>Tests exportieren</h3>
                     </div>
                     <div className="dropdown-item" onClick={togglePause}>
                     <FontAwesomeIcon icon={pauseState ? faPlay : faPause}/>
