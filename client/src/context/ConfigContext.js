@@ -22,7 +22,7 @@ export const ConfigProvider = (props) => {
                 title: "Passwort erforderlich",
                 placeholder: "Dein Passwort",
                 description: localStorage.getItem("password") ? <span className="icon-red">Das von dir eingegebene Passwort ist falsch</span> : "",
-                password: true,
+                type: "password",
                 buttonText: "Fertig",
                 onClose: () => window.location.reload(),
                 onSuccess: (value) => {
