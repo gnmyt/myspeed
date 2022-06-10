@@ -5,24 +5,51 @@
   justify-content: space-between
   color: #F1F1F1
 
+.header-right
+  display: flex
+
+.header-right svg
+  margin-left: 15px
+
 .header-main *
   font-size: 24pt
 
 .header-main h2
   margin-left: 10%
 
-.header-main svg
+.header-main div
   margin-right: 10%
 
-.settings
+.header-icon
   cursor: pointer
   transition: all 50ms ease-in-out
   width: 30px
   height: 30px
 
-.settings:hover
+.header-icon:hover
   transform: scale(1.1)
 
-@media (max-width: 320px)
+@media (max-width: 425px)
+  .header-main
+    justify-content: center
+  .header-main div
+    margin-right: 0
   .header-main h2
     margin-left: 0
+    font-size: 18pt
+  .header-icon
+    width: 20px
+    height: 20px
+
+
+@media (max-width: 280px)
+  .header-main
+    justify-content: center
+  .header-main h2
+    margin-left: 0
+    font-size: 16pt
+    text-overflow: ellipsis
+    overflow: hidden
+  .header-icon
+    width: 16px
+    height: 16px
