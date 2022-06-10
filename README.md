@@ -52,7 +52,7 @@ Anleitung für [Windows](https://github.com/gnmyt/myspeed/wiki/Einrichtung-Windo
 
 ## Überzeugt?
 
-Cool, dann lass und loslegen! Die Installationsanleitung für Linux (und Windows) findest du oben unter Installation.
+Cool, dann lass uns loslegen! Die Installationsanleitung für Linux (und Windows) findest du oben unter Installation.
 
 ## Lizenz
 
