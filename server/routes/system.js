@@ -5,7 +5,11 @@ const axios = require('axios');
 
 
 app.get("/version", async (req, res) => {
-    res.json({local: version, remote: (await axios.get(remote_url)).data.version});
+    try {
+        res.json({local: version, remote: (await axios.get(remote_url)).data.version});
+    } catch (e) {
+        res.status(500).json({message: "An error occurred"});
+    }
 });
 
 module.exports = app;
