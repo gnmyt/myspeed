@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const timerTask = require('./tasks/timer');
 
 const app = express();
 const port = process.env.port || 5216;
@@ -25,7 +26,8 @@ try {
 
 module.exports.database = db;
 
-let interval = setInterval(async () => require('./tasks/speedtest').create(), 3600000); // run a speedtest every 1 hour
+// Start all timer
+timerTask.startTimer();
 let removeInterval = setInterval(async () => require('./tasks/speedtest').removeOld(), 60000);
 
 // Create all tables & insert the defaults
@@ -58,6 +60,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // Make a speedtest
-require('./tasks/speedtest').create();
+timerTask.runTask();
 
 app.listen(port, () => console.log(`Server listening on port ${port}`));
