@@ -19,6 +19,9 @@ module.exports.create = () => {
         "    ping     integer(5000)," +
         "    download double," +
         "    upload double," +
+        "    error varchar(255)," +
+        "    type varchar(255)," +
+        "    time double," +
         "    created DATETIME DEFAULT CURRENT_TIMESTAMP);");
     db.exec("create table if not exists recommendations(" +
         "    id       integer primary key autoincrement," +
