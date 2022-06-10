@@ -44,9 +44,9 @@ function HeaderComponent() {
                 <h2>Netzwerkanalyse</h2>
                 <div className="header-right">
                     {updateAvailable ? <FontAwesomeIcon icon={faCircleExclamation} className="header-icon icon-orange" 
-                    onClick={() => setDialog({title: "Update verfügbar", buttonText: "Okay", description: <p>Ein Update auf die Version {updateAvailable} ist verfügbar.
+                    onClick={() => setDialog({title: "Update verfügbar", buttonText: "Okay", description: <>Ein Update auf die Version {updateAvailable} ist verfügbar.
                         Sieh dir <a target="_blank" href="https://github.com/gnmyt/myspeed/releases/latest" rel="noreferrer">die Änderungen an</a> und <a target="_blank" 
-                        href="https://github.com/gnmyt/myspeed/wiki/Einrichtung-Linux" rel="noreferrer">lade dir das Update herunter</a>.</p>})} /> 
+                        href="https://github.com/gnmyt/myspeed/wiki/Einrichtung-Linux" rel="noreferrer">lade dir das Update herunter</a>.</>})} /> 
                         : <></>}
                     <FontAwesomeIcon icon={faGaugeHigh} className="header-icon" onClick={startSpeedtest} />
                     <FontAwesomeIcon icon={icon} className="header-icon" onClick={switchDropdown} />
