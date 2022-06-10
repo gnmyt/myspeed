@@ -55,9 +55,15 @@ function DropdownComponent() {
         if (element == null) return;
 
         if (paused) {
-            if (!element.classList.contains("tests-paused")) element.classList.add("tests-paused");
+            if (!element.classList.contains("tests-paused")) {
+                element.classList.add("tests-paused");
+                element.classList.remove("pulse");
+            }
         } else {
-            if (element.classList.contains("tests-paused")) element.classList.remove("tests-paused");
+            if (element.classList.contains("tests-paused")) {
+                element.classList.remove("tests-paused");
+                element.classList.add("pulse");
+            }
         }
 
        setPauseState(paused);

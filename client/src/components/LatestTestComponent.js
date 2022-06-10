@@ -36,7 +36,7 @@ function LatestTestComponent() {
     if (Object.entries(config).length === 0) return (<></>)
 
     return (
-        <div className="analyse-area">
+        <div className="analyse-area pulse">
             {/* Ping */}
             <div className="inner-container">
                 <div className="container-header">
