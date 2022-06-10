@@ -1,12 +1,14 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import "../style/Dropdown.sass";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
     faArrowDown,
     faArrowUp, faClose,
-    faGaugeHigh, faGear, faInfo,
+    faGear, faInfo,
     faKey,
+    faPause,
     faPingPongPaddleBall,
+    faPlay,
     faServer, faWandMagicSparkles
 } from "@fortawesome/free-solid-svg-icons";
 import {DialogContext} from "../context/DialogContext";
@@ -28,6 +30,8 @@ export const toggleDropdown = (setIcon) => {
 function DropdownComponent() {
 
     const [setDialog] = useContext(DialogContext);
+    const [pauseState, setPauseState] = useState(false);
+
     let headers = localStorage.getItem("password") ? {password: localStorage.getItem("password")} : {}
     headers['content-type'] = 'application/json'
 
@@ -44,6 +48,31 @@ function DropdownComponent() {
                 }
             }));
     }
+
+
+    function setPause(paused) {
+        let element = document.getElementsByClassName("analyse-area")[0].classList;
+
+        if (paused) {
+            if (!element.contains("tests-paused")) element.add("tests-paused");
+        } else {
+            if (element.contains("tests-paused")) element.remove("tests-paused");
+        }
+        
+       setPauseState(paused);
+    }
+
+    function checkPauseStatus() {
+        fetch("/api/speedtests/status", {headers: headers})
+            .then(res => res.json())
+            .then(res => setPause(res.paused));
+    }
+    
+    useEffect(() => {
+        const interval = setInterval(() => checkPauseStatus(), 15000);
+        checkPauseStatus();
+        return () => clearInterval(interval);
+    });
 
     const updateDownload = async () => {
         toggleDropdown();
@@ -78,7 +107,7 @@ function DropdownComponent() {
         setDialog({
             title: "Neues Passwort festlegen",
             placeholder: "Neues Passwort",
-            password: true,
+            type: "password",
             unsetButton: true,
             unsetButtonText: "Sperre aufheben",
             onClear: () => {
@@ -108,9 +137,30 @@ function DropdownComponent() {
             }));
     }
 
-    const startSpeedtest = async () => {
+
+    function togglePause() {
         toggleDropdown();
-        setDialog({speedtest: true, promise: fetch("/api/speedtests/run", {headers: headers, method: "POST"})});
+        if (pauseState) {
+            fetch("/api/speedtests/continue", {headers: headers, method: "POST"})
+                .then(() => setPause(false));
+        } else {
+            setDialog({
+                title: "Speedtests pausieren für...",
+                placeholder: "Stunden",
+                type: "number",
+                buttonText: "Pausieren",
+                unsetButton: true,
+                unsetButtonText: "Manuell freigeben",
+                onClear: async () => {
+                    fetch("/api/speedtests/pause", {headers: headers, method: "POST",
+                        body: JSON.stringify({resumeIn: -1})}).then(() => setPause(true));
+                },
+                onSuccess: async hours => {
+                    fetch("/api/speedtests/pause", {headers: headers, method: "POST",
+                        body: JSON.stringify({resumeIn: hours})}).then(() => setPause(true));
+                }
+            })
+        }
     }
 
     const showCredits = () => {
@@ -184,9 +234,9 @@ function DropdownComponent() {
                         <FontAwesomeIcon icon={faKey}/>
                         <h3>Passwort ändern</h3>
                     </div>
-                    <div className="dropdown-item" onClick={startSpeedtest}>
-                        <FontAwesomeIcon icon={faGaugeHigh}/>
-                        <h3>Speedtest starten</h3>
+                    <div className="dropdown-item" onClick={togglePause}>
+                    <FontAwesomeIcon icon={pauseState ? faPlay : faPause}/>
+                        <h3>{pauseState ? "Speedtests fortsetzen" : "Speedtests pausieren"}</h3>
                     </div>
                     <div className="dropdown-item" onClick={showCredits}>
                         <FontAwesomeIcon icon={faInfo}/>
