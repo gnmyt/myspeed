@@ -63,6 +63,9 @@ const Dialog = ({dialog, setDialog}) => {
                     {dialog.description ? <h3 className="dialog-description">{dialog.description}</h3>: ""}
                     {dialog.placeholder ? <input className="dialog-input" type={dialog.type ? dialog.type : "text"} placeholder={dialog.placeholder} value={value}
                                                  onChange={updateValue}/> : ""}
+                    {dialog.select ? <select value={value} onChange={updateValue} className="dialog-input">
+                        {Object.keys(dialog.selectOptions).map(key => <option key={key} value={key}>{dialog.selectOptions[key]}</option>)}
+                    </select> : ""}
                 </div>
                 <div className="dialog-buttons">
                     {dialog.unsetButton ? <button className="dialog-btn dialog-secondary" onClick={clear}>{dialog.unsetButtonText || "Entfernen"}</button> : ""}
