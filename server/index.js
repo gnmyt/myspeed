@@ -26,6 +26,9 @@ try {
 
 module.exports.database = db;
 
+// Create servers.json
+require('./tasks/loadServers');
+
 // Start all timer
 timerTask.startTimer();
 let removeInterval = setInterval(async () => require('./tasks/speedtest').removeOld(), 60000);
