@@ -130,13 +130,20 @@ function DropdownComponent() {
         })
     }
 
-    const updateServer = async () => {
+    const updateServer = () => {
         toggleDropdown();
+
+        let servers = {};
+        fetch("/api/info/server", {headers: headers})
+            .then(res => res.json())
+            .then(json => servers = json);
+
         fetch("/api/config/serverId", {headers: headers}).then(res => res.json())
-            .then(ping => setDialog({
+            .then(async server => setDialog({
                 title: "Speedtest-Server setzen",
-                placeholder: "Server-ID",
-                value: ping.value,
+                select: true,
+                selectOptions: servers,
+                value: server.value,
                 onSuccess: value => {
                     fetch("/api/config/serverId", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
                         .then(() => showFeedback());
