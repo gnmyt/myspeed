@@ -136,19 +136,18 @@ function DropdownComponent() {
         let servers = {};
         fetch("/api/info/server", {headers: headers})
             .then(res => res.json())
-            .then(json => servers = json);
-
-        fetch("/api/config/serverId", {headers: headers}).then(res => res.json())
-            .then(async server => setDialog({
-                title: "Speedtest-Server setzen",
-                select: true,
-                selectOptions: servers,
-                value: server.value,
-                onSuccess: value => {
-                    fetch("/api/config/serverId", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
-                        .then(() => showFeedback());
-                }
-            }));
+            .then(json => servers = json)
+            .then(() => fetch("/api/config/serverId", {headers: headers}).then(res => res.json())
+                .then(async server => setDialog({
+                    title: "Speedtest-Server setzen",
+                    select: true,
+                    selectOptions: servers,
+                    value: server.value,
+                    onSuccess: value => {
+                        fetch("/api/config/serverId", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
+                            .then(() => showFeedback());
+                    }
+                })));
     }
 
 
