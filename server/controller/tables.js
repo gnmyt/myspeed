@@ -5,6 +5,7 @@ const configDefaults = {
     "ping": 25,
     "download": 100,
     "upload": 50,
+    "timeLevel": 3,
     "serverId": "none",
     "password": "none"
 }
