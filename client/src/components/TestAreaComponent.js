@@ -37,6 +37,7 @@ function TestArea() {
                                       url={test.url}
                                       type={test.type}
                                       duration={test.time}
+                                      id={test.id}
                     />
                 }) : ""}
             </div>
