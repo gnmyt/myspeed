@@ -30,3 +30,14 @@ body:
         - Auf einem Tablet
     validations:
       required: true
+  - type: dropdown
+    id: server
+    attributes:
+      label: Auf welchem Betriebssystem läuft deine MySpeed-Instanz?
+      multiple: true
+      options:
+        - Linux
+        - Windows
+        - macOS
+    validations:
+      required: true
