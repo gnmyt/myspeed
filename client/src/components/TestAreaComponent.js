@@ -35,6 +35,7 @@ function TestArea() {
                                       error={test.error}
                                       key={test.id}
                                       url={test.url}
+                                      type={test.type}
                                       duration={test.time}
                     />
                 }) : ""}
