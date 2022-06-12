@@ -3,7 +3,7 @@ import "../style/Dropdown.sass";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
     faArrowDown,
-    faArrowUp, faClose, faFileExport,
+    faArrowUp, faClock, faClose, faFileExport,
     faGear, faInfo,
     faKey,
     faPause,
@@ -259,6 +259,27 @@ function DropdownComponent() {
         });
     }
 
+    const updateLevel = async () => {
+        toggleDropdown();
+        fetch("/api/config/timeLevel", {headers: headers}).then(res => res.json())
+            .then(level => setDialog({
+                title: "Test-Häufigkeit einstellen",
+                select: true,
+                selectOptions: {
+                    1: "Durchgehend (jede Minute)",
+                    2: "Sehr häufig (alle 30 Minuten)",
+                    3: "Häufig (jede Stunde)",
+                    4: "Selten (alle 3 Stunden)",
+                    5: "Sehr selten (alle 6 Stunden)"
+                },
+                value: level.value,
+                onSuccess: value => {
+                    fetch("/api/config/timeLevel", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
+                        .then(() => showFeedback());
+                }
+            }));
+    }
+
     return (
         <div className="dropdown dropdown-invisible">
             <div id="dropdown" className="dropdown-content">
@@ -290,6 +311,10 @@ function DropdownComponent() {
                     <div className="dropdown-item" onClick={updatePassword}>
                         <FontAwesomeIcon icon={faKey}/>
                         <h3>Passwort ändern</h3>
+                    </div>
+                    <div className="dropdown-item" onClick={updateLevel}>
+                        <FontAwesomeIcon icon={faClock}/>
+                        <h3>Häufigkeit einstellen</h3>
                     </div>
                     <div className="dropdown-item" onClick={exportDialog}>
                         <FontAwesomeIcon icon={faFileExport}/>
