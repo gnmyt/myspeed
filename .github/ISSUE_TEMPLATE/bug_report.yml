@@ -28,3 +28,5 @@ body:
         - Im Browser
         - Auf dem Handy
         - Auf einem Tablet
+    validations:
+      required: true
