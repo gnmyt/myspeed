@@ -32,7 +32,7 @@ app.patch("/:key", async (req, res) => {
 
     if (req.params.key === "timeLevel") {
         timer.stopTimer();
-        timer.startTimer();
+        timer.startTimer(req.body.value);
     }
 
     res.json({message: `The key '${req.params.key}' has been successfully updated`});
