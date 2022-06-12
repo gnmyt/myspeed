@@ -143,6 +143,9 @@ function DropdownComponent() {
                     select: true,
                     selectOptions: servers,
                     value: server.value,
+                    unsetButton: true,
+                    unsetButtonText: "Manuell festlegen",
+                    onClear: () => updateServerManually(),
                     onSuccess: value => {
                         fetch("/api/config/serverId", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
                             .then(() => showFeedback());
@@ -150,6 +153,19 @@ function DropdownComponent() {
                 })));
     }
 
+    const updateServerManually = () => {
+        fetch("/api/config/serverId", {headers: headers}).then(res => res.json())
+            .then(async server => setDialog({
+                title: "Speedtest-Server setzen",
+                placeholder: "Server-ID",
+                type: "number",
+                value: server.value,
+                onSuccess: value => {
+                    fetch("/api/config/serverId", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
+                        .then(() => showFeedback());
+                }
+            }))
+    }
 
     function togglePause() {
         toggleDropdown();
