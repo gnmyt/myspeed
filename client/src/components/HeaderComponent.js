@@ -50,7 +50,7 @@ function HeaderComponent() {
                         : <></>}
                     <div className="tooltip-element tooltip-bottom">
                         <FontAwesomeIcon icon={faGaugeHigh} className="header-icon" onClick={startSpeedtest} />
-                        <span className="tooltip">Test starten</span>
+                        <span className="tooltip">Speedtest starten</span>
                     </div>
 
                     <div className="tooltip-element tooltip-bottom">
