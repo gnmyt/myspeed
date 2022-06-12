@@ -1,0 +1,30 @@
+name: 🐛 Fehler melden
+description: Melde einen Fehler oder Bug in MySpeed
+title: "[Fehler] "
+labels: ["bug"]
+body:
+  - type: checkboxes
+    attributes:
+      label: Allgemeines
+      description: Bitte bestätige, dass die Folgenden aussagen zutreffen
+      options:
+        - label: Ich habe auf die neuste Version von MySpeed aktualisiert.
+          required: true
+        - label: Mein Bug wurde noch nicht gemeldet
+          required: true
+  - type: textarea
+    attributes:
+      label: "Der Fehler"
+      description: "Beschreibe den Bug/Fehler genau ins Detail. Füge falls vorhanden auch Screenshots hinzu und gib an, wie man den Fehler reproduzieren kann"
+      placeholder: "Es erscheint ein Fehler bei ..."
+    validations:
+      required: true
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: Auf welchem Gerät rufst du die Seite auf?
+      multiple: true
+      options:
+        - Im Browser
+        - Auf dem Handy
+        - Auf einem Tablet
