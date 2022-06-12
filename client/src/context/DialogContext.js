@@ -13,19 +13,35 @@ const Dialog = ({dialog, setDialog}) => {
             e.preventDefault();
             submit();
         }
+        if (e.key === "Escape") {
+            e.preventDefault();
+            closeDialog();
+        }
     }
 
     function updateValue(e) {
         setValue(e.target.value);
     }
 
+    function hideTooltips(state) {
+        Array.from(document.getElementsByClassName("tooltip")).forEach(element => {
+            if (state && !element.classList.contains("tooltip-invisible")) {
+                element.classList.add("tooltip-invisible");
+            } else if (!state && element.classList.contains("tooltip-invisible")) {
+                element.classList.remove("tooltip-invisible");
+            }
+        });
+    }
+
     function closeDialog() {
         setDialog();
+        hideTooltips(false);
         if (dialog.onClose) dialog.onClose();
     }
 
     function submit() {
         setDialog();
+        hideTooltips(false);
         if (dialog.onSuccess) dialog.onSuccess(value);
     }
 
@@ -33,6 +49,8 @@ const Dialog = ({dialog, setDialog}) => {
         setDialog();
         if (dialog.onClear) dialog.onClear();
     }
+
+    hideTooltips(true);
 
     if (dialog.speedtest) {
         dialog.promise.then(res => {
