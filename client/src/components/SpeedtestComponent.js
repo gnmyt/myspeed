@@ -14,6 +14,8 @@ function SpeedtestComponent(props) {
 
     const [setDialog] = useContext(DialogContext);
 
+    let passwordHeaders = localStorage.getItem("password") ? {password: localStorage.getItem("password")} : {}
+
     return (
         <div>
             <div className="speedtest">
@@ -25,13 +27,21 @@ function SpeedtestComponent(props) {
                                              title: "Test fehlgeschlagen",
                                              description: props.error.includes("Network unreachable") ? "Die Internetverbindung scheint unterbrochen gewesen zu sein. " +
                                                  "Bitte überprüfe weitestgehend, ob das öfters passiert." : "Unbekannter Fehler: " + props.error,
-                                             buttonText: "Okay"
+                                             buttonText: "Okay",
+                                             unsetButton: true,
+                                             unsetButtonText: "Test löschen",
+                                             onClear: () => fetch("/api/speedtests/"+props.id, {headers: passwordHeaders, method: "DELETE"})
+                                                 .then(() => window.location.reload())
                                          }) : () => setDialog({
                                              title: "Testergebnis",
                                              description: <>Dieser Test erreichte eine maximale Downloadgeschwindigkeit von <span className="dialog-value">{props.down} Mbit/s </span>
                                                     und eine maximale Uploadgeschwindigkeit von <span className="dialog-value">{props.up} Mbit/s</span>. Er wurde <span className="dialog-value">{props.type === "custom"
                                                      ? "von dir" : "automatisch"}</span> angelegt und hat <span className="dialog-value">{props.duration} Sekunden</span> gedauert.</>,
-                                             buttonText: "Okay"
+                                             buttonText: "Okay",
+                                             unsetButton: true,
+                                             unsetButtonText: "Test löschen",
+                                             onClear: () => fetch("/api/speedtests/"+props.id, {headers: passwordHeaders, method: "DELETE"})
+                                                 .then(() => window.location.reload())
                                          })} />
                         <span className="tooltip">{props.type === "custom" ? "Benutzerdefiniert" :"Automatisiert"}</span>
                     </div>
