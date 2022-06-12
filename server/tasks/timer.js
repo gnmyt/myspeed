@@ -10,20 +10,20 @@ module.exports.startTimer = (timeLevel) => {
 const getRuleFromLevel = (level) => {
     const rule = new schedule.RecurrenceRule();
 
-    switch (level) {
-        case 1:
+    switch (level.value) {
+        case "1":
             rule.second = 0;
             break;
-        case 2:
+        case "2":
             rule.minute = [0, 30]
             break;
-        case 3:
+        case "3":
             rule.minute = 0;
             break;
-        case 4:
+        case "4":
             rule.hour = [0, 3, 6, 9, 12, 15, 18, 21];
             break;
-        case 5:
+        case "5":
             rule.hour = [0, 6, 12, 18];
             break;
     }
