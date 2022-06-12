@@ -29,13 +29,13 @@ module.exports.database = db;
 // Create servers.json
 require('./tasks/loadServers');
 
-// Start all timer
-timerTask.startTimer();
-let removeInterval = setInterval(async () => require('./tasks/speedtest').removeOld(), 60000);
-
 // Create all tables & insert the defaults
 require("./controller/tables").create();
 require("./controller/tables").insert();
+
+// Start all timer
+timerTask.startTimer(require('./controller/config').get("timeLevel"));
+let removeInterval = setInterval(async () => require('./tasks/speedtest').removeOld(), 60000);
 
 // Register middlewares
 app.use(express.json());
