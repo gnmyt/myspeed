@@ -1,11 +1,13 @@
-import React, {useState, createContext} from "react";
+import React, {useState, createContext, useContext} from "react";
 import "../style/Dialog.sass";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faClose} from "@fortawesome/free-solid-svg-icons";
+import {SpeedtestContext} from "./SpeedtestContext";
 
 export const DialogContext = createContext();
 
 const Dialog = ({dialog, setDialog}) => {
+    const updateTests = useContext(SpeedtestContext)[1];
     const [value, setValue] = useState(dialog.value || "");
 
     document.onkeyup = e => {
@@ -55,16 +57,32 @@ const Dialog = ({dialog, setDialog}) => {
     if (dialog.speedtest) {
         dialog.promise.then(res => {
             if (res.status === 409) {
-                setDialog({title: "Fehlgeschlagen", description: "Es läuft bereits ein Speedtest. Bitte gedulde dich ein wenig, bis dieser fertig ist.", buttonText: "Okay"});
+                setDialog({
+                    title: "Fehlgeschlagen",
+                    description: "Es läuft bereits ein Speedtest. Bitte gedulde dich ein wenig, bis dieser fertig ist.",
+                    buttonText: "Okay"
+                });
             } else if (res.status === 410) {
-                setDialog({title: "Fehlgeschlagen", description: "Speedtests sind aktuell pausiert. Bitte setze sie fort, wenn du einen machen möchtest.", buttonText: "Okay"});
-            } else window.location.reload();
+                setDialog({
+                    title: "Fehlgeschlagen",
+                    description: "Speedtests sind aktuell pausiert. Bitte setze sie fort, wenn du einen machen möchtest.",
+                    buttonText: "Okay"
+                });
+            } else {
+                updateTests();
+                setDialog();
+            }
         });
 
         return (
             <div className="dialog-area">
                 <div className="dialog dialog-speedtest">
-                    <div className="lds-ellipsis"><div/><div/><div/><div/></div>
+                    <div className="lds-ellipsis">
+                        <div/>
+                        <div/>
+                        <div/>
+                        <div/>
+                    </div>
                 </div>
             </div>
         )
@@ -78,15 +96,18 @@ const Dialog = ({dialog, setDialog}) => {
                     <FontAwesomeIcon icon={faClose} className="dialog-text dialog-icon" onClick={closeDialog}/>
                 </div>
                 <div className="dialog-main">
-                    {dialog.description ? <h3 className="dialog-description">{dialog.description}</h3>: ""}
-                    {dialog.placeholder ? <input className="dialog-input" type={dialog.type ? dialog.type : "text"} placeholder={dialog.placeholder} value={value}
+                    {dialog.description ? <h3 className="dialog-description">{dialog.description}</h3> : ""}
+                    {dialog.placeholder ? <input className="dialog-input" type={dialog.type ? dialog.type : "text"}
+                                                 placeholder={dialog.placeholder} value={value}
                                                  onChange={updateValue}/> : ""}
                     {dialog.select ? <select value={value} onChange={updateValue} className="dialog-input">
-                        {Object.keys(dialog.selectOptions).map(key => <option key={key} value={key}>{dialog.selectOptions[key]}</option>)}
+                        {Object.keys(dialog.selectOptions).map(key => <option key={key}
+                                                                              value={key}>{dialog.selectOptions[key]}</option>)}
                     </select> : ""}
                 </div>
                 <div className="dialog-buttons">
-                    {dialog.unsetButton ? <button className="dialog-btn dialog-secondary" onClick={clear}>{dialog.unsetButtonText || "Entfernen"}</button> : ""}
+                    {dialog.unsetButton ? <button className="dialog-btn dialog-secondary"
+                                                  onClick={clear}>{dialog.unsetButtonText || "Entfernen"}</button> : ""}
                     <button className="dialog-btn" onClick={submit}>{dialog.buttonText || "Aktualisieren"}</button>
                 </div>
             </div>
@@ -99,7 +120,7 @@ export const DialogProvider = (props) => {
 
     return (
         <DialogContext.Provider value={[setDialog]}>
-            {dialog && <Dialog dialog={dialog} setDialog={setDialog}/>}
+            {dialog ? <Dialog dialog={dialog} setDialog={setDialog}/> : <></>}
             {props.children}
         </DialogContext.Provider>
     )

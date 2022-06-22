@@ -4,26 +4,29 @@ import HeaderComponent from "./components/HeaderComponent";
 import TestAreaComponent from "./components/TestAreaComponent";
 import {ConfigProvider} from "./context/ConfigContext";
 import {DialogProvider} from "./context/DialogContext";
+import {SpeedtestProvider} from "./context/SpeedtestContext";
 
 function App() {
 
     return (
-        <div className="App">
-            <DialogProvider>
-                <ConfigProvider>
-                <HeaderComponent/>
-                <main>
+        <>
+            <SpeedtestProvider>
+                <DialogProvider>
+                    <ConfigProvider>
 
-                    <LatestTestComponent/>
+                        <HeaderComponent/>
+                        <main>
+                            <LatestTestComponent/>
 
-                    <hr/>
+                            <hr/>
 
-                    <TestAreaComponent/>
+                            <TestAreaComponent/>
+                        </main>
 
-                </main>
-            </ConfigProvider>
-            </DialogProvider>
-        </div>
+                    </ConfigProvider>
+                </DialogProvider>
+            </SpeedtestProvider>
+        </>
     );
 }
 

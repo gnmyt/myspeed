@@ -79,7 +79,7 @@ function DropdownComponent() {
         const interval = setInterval(() => checkPauseStatus(), 15000);
         checkPauseStatus();
         return () => clearInterval(interval);
-    });
+    }, []);
 
     const updateDownload = async () => {
         toggleDropdown();
@@ -119,12 +119,12 @@ function DropdownComponent() {
             unsetButtonText: "Sperre aufheben",
             onClear: () => {
                 fetch("/api/config/password", {headers: headers, method: "PATCH", body: JSON.stringify({value: "none"})})
-                    .then(() => showFeedback(<>Die Passwortsperre wurde aufgehoben.</>));
+                    .then(() => showFeedback(<>Die Passwortsperre wurde aufgehoben.</>, false));
                 localStorage.removeItem("password");
             },
             onSuccess: value => {
                 fetch("/api/config/password", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
-                    .then(() => showFeedback());
+                    .then(() => showFeedback(undefined, false));
                 localStorage.setItem("password", value);
             }
         })
@@ -148,7 +148,7 @@ function DropdownComponent() {
                     onClear: () => updateServerManually(),
                     onSuccess: value => {
                         fetch("/api/config/serverId", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
-                            .then(() => showFeedback());
+                            .then(() => showFeedback(undefined, false));
                     }
                 })));
     }
@@ -162,17 +162,14 @@ function DropdownComponent() {
                 value: server.value,
                 onSuccess: value => {
                     fetch("/api/config/serverId", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
-                        .then(() => showFeedback());
+                        .then(() => showFeedback(undefined, false));
                 }
-            }))
+            }));
     }
 
     function togglePause() {
         toggleDropdown();
-        if (pauseState) {
-            fetch("/api/speedtests/continue", {headers: headers, method: "POST"})
-                .then(() => setPause(false));
-        } else {
+        if (!pauseState) {
             setDialog({
                 title: "Speedtests pausieren für...",
                 placeholder: "Stunden",
@@ -188,8 +185,9 @@ function DropdownComponent() {
                     fetch("/api/speedtests/pause", {headers: headers, method: "POST",
                         body: JSON.stringify({resumeIn: hours})}).then(() => setPause(true));
                 }
-            })
-        }
+            });
+        } else fetch("/api/speedtests/continue", {headers: headers, method: "POST"})
+            .then(() => setPause(false));
     }
 
     const showCredits = () => {
@@ -198,9 +196,9 @@ function DropdownComponent() {
                 und verwendet die <a href="https://www.speedtest.net/apps/cli" target="_blank" rel="noreferrer">Speedtest-CLI</a> von Ookla.</>, buttonText: "Schließen"});
     }
 
-    const showFeedback = (customText) => {
+    const showFeedback = (customText, reload = true) => {
         setDialog({title: "MySpeed", description: customText || <>Deine Änderungen wurden übernommen.</>, buttonText: "Okay",
-            onSuccess: () => window.location.reload(), onClose: () => window.location.reload()});
+            onSuccess: () => reload ? window.location.reload() : "", onClose: () => window.location.reload()});
     }
 
     const recommendedSettings = async () => {
@@ -268,14 +266,14 @@ function DropdownComponent() {
                 selectOptions: {
                     1: "Durchgehend (jede Minute)",
                     2: "Sehr häufig (alle 30 Minuten)",
-                    3: "Häufig (jede Stunde)",
+                    3: "Standard (jede Stunde)",
                     4: "Selten (alle 3 Stunden)",
                     5: "Sehr selten (alle 6 Stunden)"
                 },
                 value: level.value,
                 onSuccess: value => {
                     fetch("/api/config/timeLevel", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
-                        .then(() => showFeedback());
+                        .then(() => showFeedback(undefined, false));
                 }
             }));
     }

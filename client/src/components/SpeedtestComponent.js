@@ -9,10 +9,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "../style/Speedtest.sass";
 import {DialogContext} from "../context/DialogContext";
+import {SpeedtestContext} from "../context/SpeedtestContext";
 
 function SpeedtestComponent(props) {
 
     const [setDialog] = useContext(DialogContext);
+    const updateTests = useContext(SpeedtestContext)[1];
 
     let passwordHeaders = localStorage.getItem("password") ? {password: localStorage.getItem("password")} : {}
 
@@ -31,7 +33,7 @@ function SpeedtestComponent(props) {
                                              unsetButton: true,
                                              unsetButtonText: "Test löschen",
                                              onClear: () => fetch("/api/speedtests/"+props.id, {headers: passwordHeaders, method: "DELETE"})
-                                                 .then(() => window.location.reload())
+                                                 .then(updateTests)
                                          }) : () => setDialog({
                                              title: "Testergebnis",
                                              description: <>Dieser Test erreichte eine maximale Downloadgeschwindigkeit von <span className="dialog-value">{props.down} Mbit/s </span>
@@ -41,7 +43,7 @@ function SpeedtestComponent(props) {
                                              unsetButton: true,
                                              unsetButtonText: "Test löschen",
                                              onClear: () => fetch("/api/speedtests/"+props.id, {headers: passwordHeaders, method: "DELETE"})
-                                                 .then(() => window.location.reload())
+                                                 .then(updateTests)
                                          })} />
                         <span className="tooltip">{props.type === "custom" ? "Benutzerdefiniert" :"Automatisiert"}</span>
                     </div>
