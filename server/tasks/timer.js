@@ -10,7 +10,7 @@ module.exports.startTimer = (timeLevel) => {
 const getRuleFromLevel = (level) => {
     const rule = new schedule.RecurrenceRule();
 
-    switch (level.value) {
+    switch (level) {
         case "1":
             rule.second = 0;
             break;

@@ -34,7 +34,7 @@ require("./controller/tables").create();
 require("./controller/tables").insert();
 
 // Start all timer
-timerTask.startTimer(require('./controller/config').get("timeLevel"));
+timerTask.startTimer(require('./controller/config').get("timeLevel").value);
 let removeInterval = setInterval(async () => require('./tasks/speedtest').removeOld(), 60000);
 
 // Register middlewares
