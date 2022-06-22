@@ -79,6 +79,8 @@ function DropdownComponent() {
         const interval = setInterval(() => checkPauseStatus(), 15000);
         checkPauseStatus();
         return () => clearInterval(interval);
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const updateDownload = async () => {

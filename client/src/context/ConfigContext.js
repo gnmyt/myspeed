@@ -30,7 +30,7 @@ export const ConfigProvider = (props) => {
                     window.location.reload();
                 }
             }));
-    }, []);
+    }, [setDialog]);
 
     return (
         <ConfigContext.Provider value={config}>
