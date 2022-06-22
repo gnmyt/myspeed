@@ -22,7 +22,10 @@ echo -e "$YELLOW Deinstallation mit$RED STRG + C$YELLOW abbrechen. "
 echo -e "$GREEN Die Deinstallation beginnt in 5 Sekunden..."
 echo -e "$GREEN ----------------------------------------------"
 sleep 5
+
 clear
+echo -e "$BLUE🔎 Status:$NORMAL Die Servicedaten werden entfernt, falls vorhanden..."
+sleep 3
 
 # remove system file
 if command -v systemctl &> /dev/null && systemctl --all --type service | grep -n "myspeed.service"; then
@@ -34,6 +37,10 @@ if command -v systemctl &> /dev/null && systemctl --all --type service | grep -n
   systemctl reset-failed
 fi
 
+clear
+echo -e "$BLUE🔎 Status:$NORMAL Die MySpeed-Systemdaten werden entfernt, falls vorhanden..."
+sleep 3
+
 # remove folder
 if [ "$1" == "--keep-data" ]; then
   mv $INSTALLATION_PATH/data /tmp/myspeed_data
@@ -43,3 +50,8 @@ if [ "$1" == "--keep-data" ]; then
 else
   rm -R $INSTALLATION_PATH
 fi
+
+clear
+echo -e "$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-" #multicolor
+echo -e "$GREEN✓ Fertig: $NORMAL MySpeed wurde deinstalliert."
+echo -e "$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-" #multicolor
