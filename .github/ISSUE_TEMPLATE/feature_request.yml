@@ -1,0 +1,21 @@
+name: 💡 Idee vorschlagen
+description: Hast du eine Idee? Hier bist du richtig
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: checkboxes
+    attributes:
+      label: Allgemeines
+      description: Bitte bestätige, dass die Folgenden aussagen zutreffen
+      options:
+        - label: Mein Feature existiert noch nicht in der neusten Version von MySpeed.
+          required: true
+        - label: Ich habe überprüft, dass mein Feature noch von niemanden vorgeschlagen wurde.
+          required: true
+  - type: textarea
+    attributes:
+      label: "Deine Idee"
+      description: "Was können wir hinzufügen? Beschreibe deine Idee so genau wie möglich"
+      placeholder: "Meine Idee wäre es, ..."
+    validations:
+      required: true

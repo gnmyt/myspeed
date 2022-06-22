@@ -3,9 +3,11 @@
 
 # dependencies
 /node_modules
+/client/node_modules
 /.pnp
 .pnp.js
 
 
 # production
 /build
+/data

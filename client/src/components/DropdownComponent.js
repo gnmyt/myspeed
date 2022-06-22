@@ -1,12 +1,14 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import "../style/Dropdown.sass";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
     faArrowDown,
-    faArrowUp, faClose,
-    faGaugeHigh, faGear, faInfo,
+    faArrowUp, faClock, faClose, faFileExport,
+    faGear, faInfo,
     faKey,
+    faPause,
     faPingPongPaddleBall,
+    faPlay,
     faServer, faWandMagicSparkles
 } from "@fortawesome/free-solid-svg-icons";
 import {DialogContext} from "../context/DialogContext";
@@ -28,6 +30,8 @@ export const toggleDropdown = (setIcon) => {
 function DropdownComponent() {
 
     const [setDialog] = useContext(DialogContext);
+    const [pauseState, setPauseState] = useState(false);
+
     let headers = localStorage.getItem("password") ? {password: localStorage.getItem("password")} : {}
     headers['content-type'] = 'application/json'
 
@@ -44,6 +48,40 @@ function DropdownComponent() {
                 }
             }));
     }
+
+
+    function setPause(paused) {
+        let element = document.getElementsByClassName("analyse-area")[0];
+        if (element == null) return;
+
+        if (paused) {
+            if (!element.classList.contains("tests-paused")) {
+                element.classList.add("tests-paused");
+                element.classList.remove("pulse");
+            }
+        } else {
+            if (element.classList.contains("tests-paused")) {
+                element.classList.remove("tests-paused");
+                element.classList.add("pulse");
+            }
+        }
+
+       setPauseState(paused);
+    }
+
+    function checkPauseStatus() {
+        fetch("/api/speedtests/status", {headers: headers})
+            .then(res => res.json())
+            .then(res => setPause(res.paused));
+    }
+
+    useEffect(() => {
+        const interval = setInterval(() => checkPauseStatus(), 15000);
+        checkPauseStatus();
+        return () => clearInterval(interval);
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const updateDownload = async () => {
         toggleDropdown();
@@ -78,39 +116,80 @@ function DropdownComponent() {
         setDialog({
             title: "Neues Passwort festlegen",
             placeholder: "Neues Passwort",
-            password: true,
+            type: "password",
             unsetButton: true,
             unsetButtonText: "Sperre aufheben",
             onClear: () => {
                 fetch("/api/config/password", {headers: headers, method: "PATCH", body: JSON.stringify({value: "none"})})
-                    .then(() => showFeedback(<>Die Passwortsperre wurde aufgehoben.</>));
+                    .then(() => showFeedback(<>Die Passwortsperre wurde aufgehoben.</>, false));
                 localStorage.removeItem("password");
             },
             onSuccess: value => {
                 fetch("/api/config/password", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
-                    .then(() => showFeedback());
+                    .then(() => showFeedback(undefined, false));
                 localStorage.setItem("password", value);
             }
         })
     }
 
-    const updateServer = async () => {
+    const updateServer = () => {
         toggleDropdown();
+
+        let servers = {};
+        fetch("/api/info/server", {headers: headers})
+            .then(res => res.json())
+            .then(json => servers = json)
+            .then(() => fetch("/api/config/serverId", {headers: headers}).then(res => res.json())
+                .then(async server => setDialog({
+                    title: "Speedtest-Server setzen",
+                    select: true,
+                    selectOptions: servers,
+                    value: server.value,
+                    unsetButton: true,
+                    unsetButtonText: "Manuell festlegen",
+                    onClear: () => updateServerManually(),
+                    onSuccess: value => {
+                        fetch("/api/config/serverId", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
+                            .then(() => showFeedback(undefined, false));
+                    }
+                })));
+    }
+
+    const updateServerManually = () => {
         fetch("/api/config/serverId", {headers: headers}).then(res => res.json())
-            .then(ping => setDialog({
+            .then(async server => setDialog({
                 title: "Speedtest-Server setzen",
                 placeholder: "Server-ID",
-                value: ping.value,
+                type: "number",
+                value: server.value,
                 onSuccess: value => {
                     fetch("/api/config/serverId", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
-                        .then(() => showFeedback());
+                        .then(() => showFeedback(undefined, false));
                 }
             }));
     }
 
-    const startSpeedtest = async () => {
+    function togglePause() {
         toggleDropdown();
-        setDialog({speedtest: true, promise: fetch("/api/speedtests/run", {headers: headers, method: "POST"})});
+        if (!pauseState) {
+            setDialog({
+                title: "Speedtests pausieren für...",
+                placeholder: "Stunden",
+                type: "number",
+                buttonText: "Pausieren",
+                unsetButton: true,
+                unsetButtonText: "Manuell freigeben",
+                onClear: async () => {
+                    fetch("/api/speedtests/pause", {headers: headers, method: "POST",
+                        body: JSON.stringify({resumeIn: -1})}).then(() => setPause(true));
+                },
+                onSuccess: async hours => {
+                    fetch("/api/speedtests/pause", {headers: headers, method: "POST",
+                        body: JSON.stringify({resumeIn: hours})}).then(() => setPause(true));
+                }
+            });
+        } else fetch("/api/speedtests/continue", {headers: headers, method: "POST"})
+            .then(() => setPause(false));
     }
 
     const showCredits = () => {
@@ -119,9 +198,9 @@ function DropdownComponent() {
                 und verwendet die <a href="https://www.speedtest.net/apps/cli" target="_blank" rel="noreferrer">Speedtest-CLI</a> von Ookla.</>, buttonText: "Schließen"});
     }
 
-    const showFeedback = (customText) => {
+    const showFeedback = (customText, reload = true) => {
         setDialog({title: "MySpeed", description: customText || <>Deine Änderungen wurden übernommen.</>, buttonText: "Okay",
-            onSuccess: () => window.location.reload(), onClose: () => window.location.reload()});
+            onSuccess: () => reload ? window.location.reload() : "", onClose: () => window.location.reload()});
     }
 
     const recommendedSettings = async () => {
@@ -148,6 +227,55 @@ function DropdownComponent() {
                     await fetch("/api/config/download", {headers: headers, method: "PATCH", body: JSON.stringify({value: values.download})});
                     await fetch("/api/config/upload", {headers: headers, method: "PATCH", body: JSON.stringify({value: values.upload})});
                     showFeedback();
+                }
+            }));
+    }
+
+    function exportDialog() {
+        toggleDropdown();
+        setDialog({
+            select: true,
+            title: "Speedtests exportieren",
+            buttonText: "Herunterladen",
+            value: "json",
+            selectOptions: {
+                json: "JSON-Datei",
+                csv: "CSV-Datei"
+            },
+            onSuccess: value => {
+                fetch("/api/export/" + value, {headers: headers})
+                    .then(async res => {
+                        let element = document.createElement('a');
+                        let url = res.headers.get('Content-Disposition').split('filename=')[1];
+                        element.setAttribute("download", url.replaceAll("\"", ""));
+                        res.blob().then(async blob => {
+                            element.href = window.URL.createObjectURL(blob);
+                            document.body.appendChild(element);
+                            element.click();
+                            element.remove();
+                        });
+                    });
+            }
+        });
+    }
+
+    const updateLevel = async () => {
+        toggleDropdown();
+        fetch("/api/config/timeLevel", {headers: headers}).then(res => res.json())
+            .then(level => setDialog({
+                title: "Test-Häufigkeit einstellen",
+                select: true,
+                selectOptions: {
+                    1: "Durchgehend (jede Minute)",
+                    2: "Sehr häufig (alle 30 Minuten)",
+                    3: "Standard (jede Stunde)",
+                    4: "Selten (alle 3 Stunden)",
+                    5: "Sehr selten (alle 6 Stunden)"
+                },
+                value: level.value,
+                onSuccess: value => {
+                    fetch("/api/config/timeLevel", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
+                        .then(() => showFeedback(undefined, false));
                 }
             }));
     }
@@ -184,9 +312,17 @@ function DropdownComponent() {
                         <FontAwesomeIcon icon={faKey}/>
                         <h3>Passwort ändern</h3>
                     </div>
-                    <div className="dropdown-item" onClick={startSpeedtest}>
-                        <FontAwesomeIcon icon={faGaugeHigh}/>
-                        <h3>Speedtest starten</h3>
+                    <div className="dropdown-item" onClick={updateLevel}>
+                        <FontAwesomeIcon icon={faClock}/>
+                        <h3>Häufigkeit einstellen</h3>
+                    </div>
+                    <div className="dropdown-item" onClick={exportDialog}>
+                        <FontAwesomeIcon icon={faFileExport}/>
+                        <h3>Tests exportieren</h3>
+                    </div>
+                    <div className="dropdown-item" onClick={togglePause}>
+                    <FontAwesomeIcon icon={pauseState ? faPlay : faPause}/>
+                        <h3>{pauseState ? "Speedtests fortsetzen" : "Speedtests pausieren"}</h3>
                     </div>
                     <div className="dropdown-item" onClick={showCredits}>
                         <FontAwesomeIcon icon={faInfo}/>

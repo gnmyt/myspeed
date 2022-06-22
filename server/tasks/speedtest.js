@@ -10,7 +10,7 @@ function roundSpeed(bytes, elapsed) {
 }
 
 async function createRecommendations() {
-    let list = tests.list();
+    let list = tests.list().filter((entry) => !entry.error);
     if (list.length >= 10) {
         let avgNumbers = {ping: 0, down: 0, up: 0};
         for (let i = 0; i < 10; i++) {
@@ -37,7 +37,7 @@ module.exports.run = async () => {
     return speedtest;
 }
 
-module.exports.create = async () => {
+module.exports.create = async (type = "auto") => {
     if (isRunning) return 500;
 
     try {
@@ -45,11 +45,11 @@ module.exports.create = async () => {
         let ping = Math.round(test.ping.latency);
         let download = roundSpeed(test.download.bytes, test.download.elapsed);
         let upload = roundSpeed(test.upload.bytes, test.upload.elapsed);
-        let testResult = tests.create(ping, download, upload);
+        let testResult = tests.create(ping, download, upload, Math.round((test.download.elapsed + test.upload.elapsed)/1000), type);
         console.log(`Test #${testResult} was executed successfully. 🏓 ${ping} ⬇ ${download}️ ⬆ ${upload}️`);
         createRecommendations().then(() => "");
     } catch (e) {
-        let testResult = tests.create(0, 0, 0);
+        let testResult = tests.create(-1, -1, -1, null, type, e.message);
         console.log(`Test #${testResult} was not executed successfully. Please try reconnecting to the internet or restarting the software.`);
     }
     isRunning = false;

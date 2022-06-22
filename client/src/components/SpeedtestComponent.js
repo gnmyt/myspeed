@@ -1,40 +1,73 @@
-import {Component} from "react";
+import React, {useContext} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
     faArrowDown,
     faArrowUp,
     faClockRotateLeft,
-    faClose,
+    faClose, faInfo,
     faPingPongPaddleBall
 } from "@fortawesome/free-solid-svg-icons";
 import "../style/Speedtest.sass";
+import {DialogContext} from "../context/DialogContext";
+import {SpeedtestContext} from "../context/SpeedtestContext";
 
-class Speedtest extends Component {
+function SpeedtestComponent(props) {
 
-    render() {
-        return (
-            <div>
-                <div className="speedtest">
-                    <div className="date">
-                        <FontAwesomeIcon icon={faClockRotateLeft} className="container-icon icon-blue"/>
-                        <h2 className="date-text">Um {this.props.time}</h2>
+    const [setDialog] = useContext(DialogContext);
+    const updateTests = useContext(SpeedtestContext)[1];
+
+    let passwordHeaders = localStorage.getItem("password") ? {password: localStorage.getItem("password")} : {}
+
+    return (
+        <div>
+            <div className="speedtest">
+                <div className="date">
+                    <div className="tooltip-element">
+                        <FontAwesomeIcon icon={props.error ? faInfo : faClockRotateLeft}
+                                         className={"container-icon help-icon icon-" + (props.error ? "error" : "blue")}
+                                         onClick={props.error ? () => setDialog({
+                                             title: "Test fehlgeschlagen",
+                                             description: props.error.includes("Network unreachable") ? "Die Internetverbindung scheint unterbrochen gewesen zu sein. " +
+                                                 "Bitte überprüfe weitestgehend, ob das öfters passiert." : "Unbekannter Fehler: " + props.error,
+                                             buttonText: "Okay",
+                                             unsetButton: true,
+                                             unsetButtonText: "Test löschen",
+                                             onClear: () => fetch("/api/speedtests/"+props.id, {headers: passwordHeaders, method: "DELETE"})
+                                                 .then(updateTests)
+                                         }) : () => setDialog({
+                                             title: "Testergebnis",
+                                             description: <>Dieser Test erreichte eine maximale Downloadgeschwindigkeit von <span className="dialog-value">{props.down} Mbit/s </span>
+                                                    und eine maximale Uploadgeschwindigkeit von <span className="dialog-value">{props.up} Mbit/s</span>. Er wurde <span className="dialog-value">{props.type === "custom"
+                                                     ? "von dir" : "automatisch"}</span> angelegt und hat <span className="dialog-value">{props.duration} Sekunden</span> gedauert.</>,
+                                             buttonText: "Okay",
+                                             unsetButton: true,
+                                             unsetButtonText: "Test löschen",
+                                             onClear: () => fetch("/api/speedtests/"+props.id, {headers: passwordHeaders, method: "DELETE"})
+                                                 .then(updateTests)
+                                         })} />
+                        <span className="tooltip">{props.type === "custom" ? "Benutzerdefiniert" :"Automatisiert"}</span>
                     </div>
-                    <div className="speedtest-row">
-                        <FontAwesomeIcon icon={this.props.ping !== 0 ? faPingPongPaddleBall : faClose} className={"speedtest-icon icon-" + this.props.pingLevel}/>
-                        <h2 className="speedtest-text">{this.props.ping === 0 ? "" : this.props.ping}</h2>
-                    </div>
-                    <div className="speedtest-row">
-                        <FontAwesomeIcon icon={this.props.down !== 0 ? faArrowDown : faClose} className={"speedtest-icon icon-" + this.props.downLevel} />
-                        <h2 className="speedtest-text">{this.props.down === 0 ? "" : this.props.down}</h2>
-                    </div>
-                    <div className="speedtest-row">
-                        <FontAwesomeIcon icon={this.props.up !== 0 ? faArrowUp : faClose} className={"speedtest-icon icon-" + this.props.upLevel}/>
-                        <h2 className="speedtest-text">{this.props.up === 0 ? "" : this.props.up}</h2>
-                    </div>
+
+                    <h2 className="date-text">Um {props.time}</h2>
+                </div>
+                <div className="speedtest-row">
+                    <FontAwesomeIcon icon={props.error ? faClose : faPingPongPaddleBall}
+                                     className={"speedtest-icon icon-" + props.pingLevel}/>
+                    <h2 className="speedtest-text">{props.error ? "" : props.ping}</h2>
+                </div>
+                <div className="speedtest-row">
+                    <FontAwesomeIcon icon={props.error ? faClose : faArrowDown}
+                                     className={"speedtest-icon icon-" + props.downLevel}/>
+                    <h2 className="speedtest-text">{props.error ? "" : props.down}</h2>
+                </div>
+                <div className="speedtest-row">
+                    <FontAwesomeIcon icon={props.error ? faClose : faArrowUp}
+                                     className={"speedtest-icon icon-" + props.upLevel}/>
+                    <h2 className="speedtest-text">{props.error ? "" : props.up}</h2>
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
 }
 
-export default Speedtest;
+export default SpeedtestComponent;

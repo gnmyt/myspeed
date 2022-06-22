@@ -1,16 +1,18 @@
 {
   "name": "myspeed",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "scripts": {
     "client": "cd client && npm start",
     "server": "nodemon server",
-    "build": "cd client && npm run build && mv build ..",
+    "build": "cd client && npm run build",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
     "better-sqlite3": "^7.5.0",
     "express": "^4.17.3",
+    "node-schedule": "^2.1.0",
     "speedtest-net": "^2.2.0"
   },
   "devDependencies": {

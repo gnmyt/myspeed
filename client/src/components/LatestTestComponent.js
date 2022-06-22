@@ -5,38 +5,29 @@ import {generateRelativeTime, getIconBySpeed} from "../HelperFunctions";
 import {useContext, useEffect, useState} from "react";
 import {ConfigContext} from "../context/ConfigContext";
 import {DialogContext} from "../context/DialogContext";
+import {SpeedtestContext} from "../context/SpeedtestContext";
 
 function LatestTestComponent() {
-    const [latest, setLatest] = useState({});
-    const [latestTestTime, setLatestTestTime] = useState("");
+    const [latest, setLatest] = useState({ping: "-", download: "-", upload: "-"});
+    const [latestTestTime, setLatestTestTime] = useState("-");
     const [setDialog] = useContext(DialogContext);
+    const [speedtests] = useContext(SpeedtestContext);
     const config = useContext(ConfigContext);
 
-    function updateTest() {
-        let passwordHeaders = localStorage.getItem("password") ? {password: localStorage.getItem("password")} : {}
-        fetch("/api/speedtests/latest", {headers: passwordHeaders})
-            .then(res => res.json())
-            .then(latest => {
-                setLatest(latest);
-                setLatestTestTime(generateRelativeTime(latest.created));
-            });
-    }
+    useEffect(() => setLatest(speedtests[0]), [speedtests]);
 
     useEffect(() => {
-        const interval = setInterval(() => updateTest(), 15000);
-        updateTest();
-        return () => clearInterval(interval);
-    }, [setLatest]);
-
-    useEffect(() => {
+        if (latest) setLatestTestTime(generateRelativeTime(latest.created));
         const interval = setInterval(() => setLatestTestTime(generateRelativeTime(latest.created)), 1000);
         return () => clearInterval(interval);
-    }, [setLatestTestTime, latest]);
+    }, [latest]);
 
-    if (Object.entries(config).length === 0) return (<></>)
+    if (!latest) return <></>;
+
+    if (Object.entries(config).length === 0) return (<></>);
 
     return (
-        <div className="analyse-area">
+        <div className="analyse-area pulse">
             {/* Ping */}
             <div className="inner-container">
                 <div className="container-header">
@@ -46,7 +37,7 @@ function LatestTestComponent() {
                     <h2 className="container-text">Ping<span className="container-subtext">ms</span></h2>
                 </div>
                 <div className="container-main">
-                    <h2>{latest.ping === 0 ? "Test" : latest.ping}</h2>
+                    <h2>{latest.ping === -1 ? "Test" : latest.ping}</h2>
                 </div>
             </div>
 
@@ -61,7 +52,7 @@ function LatestTestComponent() {
                     <h2 className="container-text">Download<span className="container-subtext">Mbit/s</span></h2>
                 </div>
                 <div className="container-main">
-                    <h2>{latest.download === 0 ? "schlug" : latest.download}</h2>
+                    <h2>{latest.download === -1 ? "schlug" : latest.download}</h2>
                 </div>
             </div>
 
@@ -76,7 +67,7 @@ function LatestTestComponent() {
                     <h2 className="container-text">Upload<span className="container-subtext">Mbit/s</span></h2>
                 </div>
                 <div className="container-main">
-                    <h2>{latest.upload === 0 ? "fehl!" : latest.upload}</h2>
+                    <h2>{latest.upload === -1 ? "fehl!" : latest.upload}</h2>
                 </div>
             </div>
 

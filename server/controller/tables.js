@@ -2,9 +2,10 @@ const db = require('../index').database;
 
 const configDefaults = {
     "setupDone": "true",
-    "ping": 25,
-    "download": 100,
-    "upload": 50,
+    "ping": "25",
+    "download": "100",
+    "upload": "50",
+    "timeLevel": "3",
     "serverId": "none",
     "password": "none"
 }
@@ -19,6 +20,9 @@ module.exports.create = () => {
         "    ping     integer(5000)," +
         "    download double," +
         "    upload double," +
+        "    error varchar(255)," +
+        "    type varchar(255)," +
+        "    time double," +
         "    created DATETIME DEFAULT CURRENT_TIMESTAMP);");
     db.exec("create table if not exists recommendations(" +
         "    id       integer primary key autoincrement," +

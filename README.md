@@ -12,40 +12,47 @@
 </p>
 <h3 align="center">MySpeed</h3>
 
-## Was ist das?
+## Was ist MySpeed?
 
-MySpeed ist eine deutschsprachige Speedtest Analyse-Software, welche das Internet der letzten 24 Stunden übersichtlich
+MySpeed ist eine deutschsprachige Speedtest Analyse-Software, welche die Geschwindigkeit des Internets der letzten 24 Stunden übersichtlich
 darstellt.
 
 ### Installation
 
-1. Stelle sicher, dass du nodejs installiert hast.
-2. Lade dir die neuste Version aus den [Releases](https://github.com/gnmyt/myspeed/releases/latest) herunter.
-3. Setze die Umgebungsvariable `NODE_ENV` auf `production`.
-4. Starte das Projekt. Das geht ganz einfach mit `node server`
+Anleitung für [Linux](https://github.com/gnmyt/myspeed/wiki/Einrichtung-Linux)
+
+Anleitung für [Windows](https://github.com/gnmyt/myspeed/wiki/Einrichtung-Windows)
 
 ### Beispiel-Screenshots
 
 #### Startseite
 
-<img src="https://i.imgur.com/vYWe5RJ.png">
+<img src="https://i.imgur.com/94rQ4jq.png">
 
 #### Auswahl-Menü
 
-<img src="https://i.imgur.com/vRhBYD2.png">
+<img src="https://i.imgur.com/tJHmUVs.png">
 
 #### Seite während eines Speedtests
 
-<img src="https://i.imgur.com/V7E3xH9.png">
+<img src="https://i.imgur.com/rqvb1Ni.png">
 
 #### Dialog für Einstellen des Down-Speeds
 
-<img src="https://i.imgur.com/Pxw42b8.png">
+<img src="https://i.imgur.com/DnEPbFV.png">
+
+### Geschützte Startseite (Passwort festgelegt)
+
+<img src="https://i.imgur.com/BGK166K.png">
+
+### Dialog für Up- und Downspeed Empfehlung
+
+<img src="https://i.imgur.com/ExgswYD.png">
+
 
 ## Überzeugt?
 
-Du kannst dir das Projekt ganz easy herunterladen und auf deinen Server Zuhause installieren. Gib mir gerne Feedback,
-falls ich etwas besser machen kann! :)
+Cool, dann lass uns loslegen! Die Installationsanleitung für Linux (und Windows) findest du oben unter Installation.
 
 ## Lizenz
 
