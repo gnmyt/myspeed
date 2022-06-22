@@ -39,6 +39,10 @@ if [ -d $INSTALLATION_PATH ]; then
     sleep 5
 fi
 
+if command -v systemctl &> /dev/null && systemctl --all --type service | grep -n "myspeed.service"; then
+  systemctl stop myspeed
+fi
+
 
 # Update all packages
 echo -e "$BLUE🔎 Status:$NORMAL Es wird nach neuen Updates für das Linux-System gesucht..."
