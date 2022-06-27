@@ -121,7 +121,7 @@ function DropdownComponent() {
             unsetButtonText: "Sperre aufheben",
             onClear: () => {
                 fetch("/api/config/password", {headers: headers, method: "PATCH", body: JSON.stringify({value: "none"})})
-                    .then(() => showFeedback(<>Die Passwortsperre wurde aufgehoben.</>, false));
+                    .then(() => showFeedback(<>Die Passwortsperre wurde aufgehoben und das festgelegte Passwort wurde entfernt.</>, false));
                 localStorage.removeItem("password");
             },
             onSuccess: value => {
