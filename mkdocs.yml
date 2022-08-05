@@ -1,0 +1,53 @@
+site_name: MySpeed Dokumentation
+copyright: Copyright &copy; 2021 - 2022 Mathias Wagner
+
+repo_name: MySpeed
+repo_url: https://github.com/gnmyt/myspeed
+edit_uri: https://github.com/gnmyt/myspeed/edit/development/docs
+
+theme:
+  name: material
+  language: de
+  logo: assets/images/logo.png
+  features:
+    - toc.integrate
+    - content.code.annotate
+  favicon: assets/images/logo.png
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      schema: default
+      primary: teal
+      toggle:
+        icon: material/brightness-7
+        name: Zum dunklen Modus wechseln
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      toggle:
+        icon: material/brightness-4
+        name: Zum hellen Modus wechseln
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/gnmyt/myspeed
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/germannewsmaker
+    - icon: fontawesome/brands/discord
+      link: https://discord.com/users/386242172632170496
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+nav:
+  - Start: index.md
+  - Häufig gestellte Fragen: faq.md
+  - Einrichtung:
+      - Linux: setup/linux.md
+      - Windows: setup/windows.md
+  - Fehlerbehebung: troubleshooting.md
