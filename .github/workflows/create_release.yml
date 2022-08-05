@@ -2,7 +2,7 @@ name: Upload the latest release
 
 on:
   push:
-    branches: [ release ]
+    tags: [ "v*" ]
 
 jobs:
   create:
