@@ -5,7 +5,7 @@ import {ConfigContext} from "../context/ConfigContext";
 import {SpeedtestContext} from "../context/SpeedtestContext";
 
 function TestArea() {
-    const config = useContext(ConfigContext);
+    const config = useContext(ConfigContext)[0];
     const [speedtests] = useContext(SpeedtestContext);
 
     if (Object.entries(config).length === 0) return (<></>)
