@@ -1,6 +1,7 @@
 {
   "short_name": "MySpeed",
-  "name": "Eine deutschsprachige Speedtest Analyse-Software, welche das Internet der letzten 24 Stunden übersichtlich darstellt.",
+  "name": "MySpeed - Speedtests",
+  "description": "Eine deutschsprachige Speedtest Analyse-Software, welche das Internet der letzten 24 Stunden übersichtlich darstellt.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -15,5 +16,5 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#2F3136"
+  "theme_color": "#232835"
 }
