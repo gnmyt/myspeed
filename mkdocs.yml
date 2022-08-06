@@ -38,6 +38,7 @@ extra:
       link: https://discord.com/users/386242172632170496
 
 markdown_extensions:
+  - attr_list
   - admonition
   - pymdownx.details
   - pymdownx.superfences
