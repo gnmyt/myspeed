@@ -26,7 +26,7 @@ app.patch("/:key", async (req, res) => {
     if ((req.params.key === "ping" || req.params.key === "download" || req.params.key === "upload" || req.params.key === "timeLevel") && isNaN(req.body.value))
         return res.status(400).json({message: "You need to provide a number in order to change this"});
 
-    if (req.params.key === "ping")
+    if (req.params.key === "ping" && req.body.value instanceof String)
         req.body.value = req.body.value.split(".")[0];
 
     if (req.params.key === "password" && req.body.value !== "none") req.body.value = await require('bcrypt').hash(req.body.value, 10);
