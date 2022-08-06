@@ -3,6 +3,7 @@ name: Upload the latest release
 on:
   push:
     tags: [ "v*" ]
+    branches: [ "development" ]
 
 jobs:
   create:
