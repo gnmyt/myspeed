@@ -2,7 +2,8 @@
 Hier beantworten wir dir die Fragen, die möglicherweise auftreten könnten.
 
 ??? question "Wie installiere ich MySpeed?"
-    Du findest in der Seitenleiste unter "Einrichtung" das für dich passende Betriebsystem und eine Anleitung zur Installation.
+    Je nach Betriebssystem ist diese Anleitung unterschiedlich. Hier findest du die Anleitung für [Windows](/setup/windows) und [Linux](/setup/linux).  
+    Allerdings wird es stark empfohlen, MySpeed unter Linux zu installieren.
 
 ??? question "Warum sollte ich Häufigkeiten konfigurieren?"
     Das kommt sehr stark auf dein Internet an. Hast du beispielsweise ein sehr schlechtes Internet, so solltest du die Häufigkeit eher verringern. Ist dein Internet recht schnell, kannst du diese vergrößern. Auf dieser Basis werden dann je nachdem mehr oder weniger Tests gemacht.  
