@@ -12,6 +12,7 @@ import {
     faServer, faWandMagicSparkles
 } from "@fortawesome/free-solid-svg-icons";
 import {DialogContext} from "../context/DialogContext";
+import {ConfigContext} from "../context/ConfigContext";
 
 let icon;
 
@@ -29,26 +30,50 @@ export const toggleDropdown = (setIcon) => {
 
 function DropdownComponent() {
 
+    const reloadConfig = useContext(ConfigContext)[1];
     const [setDialog] = useContext(DialogContext);
     const [pauseState, setPauseState] = useState(false);
 
     let headers = localStorage.getItem("password") ? {password: localStorage.getItem("password")} : {}
     headers['content-type'] = 'application/json'
 
-    const updatePing = async () => {
+    const patchDialog = (path, dialog) => {
         toggleDropdown();
-        fetch("/api/config/ping", {headers: headers}).then(res => res.json())
-            .then(ping => setDialog({
-                title: "Optimalen Ping setzen (ms)",
-                placeholder: "Ping",
-                value: ping.value,
+        fetch(path, {headers}).then(res => res.json())
+            .then(value => setDialog({
+                ...dialog(value.value),
                 onSuccess: value => {
-                    fetch("/api/config/ping", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
+                    fetch(path, {headers, method: "PATCH", body: JSON.stringify({value})})
                         .then(() => showFeedback());
                 }
             }));
     }
 
+    const showFeedback = (customText, reload = true) => {
+        setDialog({
+            title: "MySpeed", description: customText || <>Deine Änderungen wurden übernommen.</>, buttonText: "Okay",
+            onSuccess: () => reload ? reloadConfig() : "", onClose: () => reloadConfig()
+        });
+    }
+
+    const updatePing = async () => {
+        patchDialog("/api/config/ping", (value) => ({
+            title: "Optimalen Ping setzen (ms)", placeholder: "Ping", value
+        }));
+    }
+
+
+    const updateDownload = async () => {
+        patchDialog("/api/config/download", (value) => ({
+            title: "Optimalen Down-Speed setzen (Mbit/s)", placeholder: "Down-Speed", value
+        }));
+    }
+
+    const updateUpload = async () => {
+        patchDialog("/api/config/upload", (value) => ({
+            title: "Optimalen Up-Speed setzen (Mbit/s)", placeholder: "Up-Speed", value
+        }));
+    }
 
     function setPause(paused) {
         let element = document.getElementsByClassName("analyse-area")[0];
@@ -82,34 +107,6 @@ function DropdownComponent() {
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-
-    const updateDownload = async () => {
-        toggleDropdown();
-        fetch("/api/config/download", {headers: headers}).then(res => res.json())
-            .then(down => setDialog({
-                title: "Optimalen Down-Speed setzen (Mbit/s)",
-                placeholder: "Down-Speed",
-                value: down.value,
-                onSuccess: value => {
-                    fetch("/api/config/download", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
-                        .then(() => showFeedback());
-                }
-            }));
-    }
-
-    const updateUpload = async () => {
-        toggleDropdown();
-        fetch("/api/config/upload", {headers: headers}).then(res => res.json())
-            .then(up => setDialog({
-                title: "Optimalen Up-Speed setzen (Mbit/s)",
-                placeholder: "Up-Speed",
-                value: up.value,
-                onSuccess: value => {
-                    fetch("/api/config/upload", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
-                        .then(() => showFeedback());
-                }
-            }));
-    }
 
     const updatePassword = async () => {
         toggleDropdown();
@@ -156,17 +153,9 @@ function DropdownComponent() {
     }
 
     const updateServerManually = () => {
-        fetch("/api/config/serverId", {headers: headers}).then(res => res.json())
-            .then(async server => setDialog({
-                title: "Speedtest-Server setzen",
-                placeholder: "Server-ID",
-                type: "number",
-                value: server.value,
-                onSuccess: value => {
-                    fetch("/api/config/serverId", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
-                        .then(() => showFeedback(undefined, false));
-                }
-            }));
+        patchDialog("/api/config/download", (value) => ({
+            title: "Speedtest-Server setzen", placeholder: "Server-ID", type: "number", value: value,
+        }));
     }
 
     function togglePause() {
@@ -196,11 +185,6 @@ function DropdownComponent() {
         toggleDropdown();
         setDialog({title: "MySpeed", description: <><a href="https://github.com/gnmyt/myspeed" target="_blank" rel="noreferrer">MySpeed</a> wird von GNMYT bereitgestellt
                 und verwendet die <a href="https://www.speedtest.net/apps/cli" target="_blank" rel="noreferrer">Speedtest-CLI</a> von Ookla.</>, buttonText: "Schließen"});
-    }
-
-    const showFeedback = (customText, reload = true) => {
-        setDialog({title: "MySpeed", description: customText || <>Deine Änderungen wurden übernommen.</>, buttonText: "Okay",
-            onSuccess: () => reload ? window.location.reload() : "", onClose: () => window.location.reload()});
     }
 
     const recommendedSettings = async () => {
