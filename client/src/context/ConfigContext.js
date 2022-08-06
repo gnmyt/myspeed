@@ -8,8 +8,7 @@ export const ConfigProvider = (props) => {
     const [config, setConfig] = useState({});
     const [setDialog] = useContext(DialogContext);
 
-
-    useEffect(() => {
+    const reloadConfig = () => {
         let passwordHeaders = localStorage.getItem("password") ? {password: localStorage.getItem("password")} : {}
         fetch("/api/config", {headers: passwordHeaders})
             .then(res => {
@@ -30,10 +29,15 @@ export const ConfigProvider = (props) => {
                     window.location.reload();
                 }
             }));
-    }, [setDialog]);
+    }
+
+    useEffect(() => {
+        reloadConfig();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (
-        <ConfigContext.Provider value={config}>
+        <ConfigContext.Provider value={[config, reloadConfig]}>
             {props.children}
         </ConfigContext.Provider>
     )
