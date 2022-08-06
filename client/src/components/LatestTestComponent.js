@@ -12,7 +12,7 @@ function LatestTestComponent() {
     const [latestTestTime, setLatestTestTime] = useState("-");
     const [setDialog] = useContext(DialogContext);
     const [speedtests] = useContext(SpeedtestContext);
-    const config = useContext(ConfigContext);
+    const config = useContext(ConfigContext)[0];
 
     useEffect(() => setLatest(speedtests[0]), [speedtests]);
 
