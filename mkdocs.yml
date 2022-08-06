@@ -56,3 +56,6 @@ nav:
       - Linux: setup/linux.md
       - Windows: setup/windows.md
   - Fehlerbehebung: troubleshooting.md
+  - Handhabung:
+      - Die Startseite: instructions/main.md
+      - Einstellungen: instructions/settings.md
