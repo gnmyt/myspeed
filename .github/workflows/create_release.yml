@@ -2,7 +2,8 @@ name: Upload the latest release
 
 on:
   push:
-    branches: [ release ]
+    tags: [ "v*" ]
+    branches: [ "development" ]
 
 jobs:
   create:
@@ -37,7 +38,6 @@ jobs:
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: ${{ steps.get_version.outputs.version }}
           prerelease: false
           title: Release ${{ steps.get_version.outputs.version }}
           files: |
