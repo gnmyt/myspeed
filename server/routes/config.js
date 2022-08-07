@@ -3,9 +3,9 @@ const config = require('../controller/config');
 const timer = require('../tasks/timer');
 
 // Gets all config entries
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
     let configValues = {};
-    config.list().forEach(row => {
+    (await config.list()).forEach(row => {
         if (row.key !== "password") configValues[row.key] = row.value;
     });
     if (Object.keys(configValues).length === 0) return res.status(404).json({message: "Hmm. There are no config values. Weird..."});
@@ -13,8 +13,9 @@ app.get("/", (req, res) => {
 });
 
 // Gets a specific config entry
-app.get("/:key", (req, res) => {
-    let row = config.get(req.params.key);
+app.get("/:key", async (req, res) => {
+    let row = await config.get(req.params.key);
+    if (row === null) return res.status(404).json({message: "Config value not found"});
     if (row.key === "password") return res.status(403).json({message: "Really?"});
     res.json({key: row.key, value: row.value});
 });
@@ -31,7 +32,7 @@ app.patch("/:key", async (req, res) => {
 
     if (req.params.key === "password" && req.body.value !== "none") req.body.value = await require('bcrypt').hash(req.body.value, 10);
 
-    if (!config.update(req.params.key, req.body.value)) return res.status(404).json({message: "The provided key does not exist"});
+    if (!await config.update(req.params.key, req.body.value)) return res.status(404).json({message: "The provided key does not exist"});
 
     if (req.params.key === "timeLevel") {
         timer.stopTimer();
