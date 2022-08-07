@@ -15,3 +15,8 @@ MySpeed erstellt jede Stunde automatisiert Tests, welche du dir in einem Dashboa
 Zusammengefasst nur ein Gerät, welches in der Lage ist, **24/7** zu laufen und von **NodeJS** unterstützt wird. Dazu gehören unter anderem Windows, macOS oder Linux.
 
 Auch wenn es möglich ist, das System auf einem normalen Rechner zu installieren, wird es empfohlen, es auf einem Gerät zu installieren, welches wenig Strom verbraucht. Perfekt dafür geeignet wäre beispielsweise ein sogenannter [Raspberry Pi](https://www.raspberrypi.com/) oder andere [Mini-PCs](https://www.amazon.de/s?k=mini+pc).
+
+## :heart: Und ein großes Danke an ...
+- [Sierra Devoplers](https://sierra-dev.de/myspeed) für die dort erstellte Seite 
+- [Ookla](https://www.ookla.com/) für die Testdaten und das großartige Testnetzwerk
+- [Alle Mitwirkende](https://github.com/gnmyt/myspeed/graphs/contributors) für ihre Hilfe und die Arbeit in das Projekt
