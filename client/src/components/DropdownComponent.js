@@ -18,7 +18,7 @@ let icon;
 
 export const toggleDropdown = (setIcon) => {
     if (setIcon) icon = setIcon;
-    let classList = document.getElementsByClassName("dropdown")[0].classList;
+    let classList = document.getElementById("dropdown").classList;
     if (classList.contains("dropdown-invisible")) {
         classList.remove("dropdown-invisible");
         icon(faClose);
@@ -34,8 +34,17 @@ function DropdownComponent() {
     const [setDialog] = useContext(DialogContext);
     const [pauseState, setPauseState] = useState(false);
 
-    let headers = localStorage.getItem("password") ? {password: localStorage.getItem("password")} : {}
-    headers['content-type'] = 'application/json'
+    let headers = localStorage.getItem("password") ? {password: localStorage.getItem("password")} : {};
+    headers['content-type'] = 'application/json';
+
+    useEffect(() => {
+        const onPress = event => {
+            if (event.code === "Escape" && !document.getElementById("dropdown").classList.contains("dropdown-invisible"))
+                toggleDropdown(icon);
+        }
+        document.addEventListener("keyup", onPress);
+        return () => document.removeEventListener("keyup", onPress);
+    }, []);
 
     const patchDialog = (path, dialog) => {
         toggleDropdown();
@@ -265,8 +274,8 @@ function DropdownComponent() {
     }
 
     return (
-        <div className="dropdown dropdown-invisible">
-            <div id="dropdown" className="dropdown-content">
+        <div className="dropdown dropdown-invisible" id="dropdown">
+            <div className="dropdown-content">
                 <h2>Einstellungen</h2>
                 <div className="dropdown-entries">
                     <div className="dropdown-item" onClick={updatePing}>
