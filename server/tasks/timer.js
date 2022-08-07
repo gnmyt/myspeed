@@ -37,7 +37,7 @@ module.exports.runTask = async () => {
         return;
     }
 
-    await require('../tasks/speedtest').create("auto");
+    await require('./speedtest').create("auto");
 }
 
 module.exports.stopTimer = () => {
