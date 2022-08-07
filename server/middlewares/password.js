@@ -1,8 +1,8 @@
 const config = require('../controller/config');
 const bcrypt = require('bcrypt');
 
-module.exports = (req, res, next) => {
-    let passwordHash = config.get("password").value;
+module.exports = async (req, res, next) => {
+    let passwordHash = (await config.get("password")).value;
 
     if (passwordHash === "none")
         return next();
