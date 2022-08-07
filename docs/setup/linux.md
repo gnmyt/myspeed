@@ -9,7 +9,7 @@ Hier wird die Einrichtung für Linux beschrieben. MySpeed lässt sich über vers
 
 === "Stabile Version"
     ```sh
-    curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/release/install.sh | bash
+    curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/install.sh | bash
     ```
 
 === "Entwicklungsversion"
@@ -22,12 +22,12 @@ Keine Lust mehr? Du kannst MySpeed ganz einfach wieder entfernen. Entscheide hie
 
 === "Daten behalten"
     ```sh
-    curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/release/uninstall.sh | bash -s -- --keep-data
+    curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/uninstall.sh | bash -s -- --keep-data
     ```
 
 === "Daten löschen"
     ```sh
-    curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/release/uninstall.sh | bash
+    curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/uninstall.sh | bash
     ```
 
 ## Manuelle Installation
@@ -45,7 +45,7 @@ unzip MySpeed-*.zip && rm MySpeed-*.zip #(5)
 
 npm install #(6)
 
-NODE_ENV=production node server.js #(7)
+NODE_ENV=production node server #(7)
 ```
 
 1. Hier installierst du alle notwendigen Pakete, um das Projekt zu installieren.
