@@ -46,8 +46,8 @@ function DropdownComponent() {
         return () => document.removeEventListener("keyup", onPress);
     }, []);
 
-    const patchDialog = (path, dialog) => {
-        toggleDropdown();
+    const patchDialog = (path, dialog, toggle = true) => {
+        if (toggle) toggleDropdown();
         fetch(path, {headers}).then(res => res.json())
             .then(value => setDialog({
                 ...dialog(value.value),
@@ -162,9 +162,9 @@ function DropdownComponent() {
     }
 
     const updateServerManually = () => {
-        patchDialog("/api/config/download", (value) => ({
+        patchDialog("/api/config/serverId", (value) => ({
             title: "Speedtest-Server setzen", placeholder: "Server-ID", type: "number", value: value,
-        }));
+        }), false);
     }
 
     function togglePause() {
