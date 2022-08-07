@@ -10,13 +10,16 @@
   animation: fadeIn 0.5s
 
 .pulse
-  animation: pulse 5s infinite
+  border: #45c65a 2px solid
+  animation: pulse 2s infinite
 
 @keyframes pulse
-  0%, 100%
-    border: #45c65a 2px solid
-  50%
-    border: #2a5b2e 2px solid
+  0%
+    box-shadow: 0 0 0 0 #14AB37FF
+  70%
+    box-shadow: 0 0 0 10px #CCA92C00
+  100%
+    box-shadow: 0 0 0 0 #CCA92C00
 
 .inner-container
   margin-left: 2rem
