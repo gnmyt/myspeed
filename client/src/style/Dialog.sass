@@ -6,20 +6,20 @@
   right: 0
   width: 100%
   height: 100%
-  background-color: rgb(0, 0, 0)
   background-color: rgba(0, 0, 0, 0.6)
   display: flex
   align-items: center
   z-index: 10
   justify-content: center
+  backdrop-filter: blur(2px)
 
 .dialog
   width: 480px
   padding: 15px
   background-color: #27282B
   border-radius: 15px
-  transform: scale(0.9)
-  transition: opacity 300ms, transform 300ms
+  transition: all 0.2s
+  animation: fadeIn 0.2s
 
 .dialog-speedtest
   display: flex
@@ -64,6 +64,9 @@
 .dialog-icon
   cursor: pointer
 
+.dialog-icon:hover
+    color: #B83939
+
 .dialog-input
   font-size: 18pt
   padding: 15px
@@ -88,8 +91,14 @@
   margin-left: 5px
   margin-right: 5px
 
+.dialog-btn:hover
+  background-color: #3EA95A
+
 .dialog-secondary
   background-color: #C64545
+
+.dialog-secondary:hover
+    background-color: #B83939
 
 .lds-ellipsis
   display: inline-block

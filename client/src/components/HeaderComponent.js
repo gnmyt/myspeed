@@ -50,7 +50,7 @@ function HeaderComponent() {
                                                                              href="https://github.com/gnmyt/myspeed/releases/latest"
                                                                              rel="noreferrer">die Änderungen
                                                           an</a> und <a target="_blank"
-                                                                        href="https://github.com/gnmyt/myspeed/wiki/Einrichtung-Linux"
+                                                                        href="https://myspeed.gnmyt.dev/setup/linux/"
                                                                         rel="noreferrer">lade dir das Update
                                                           herunter</a>.</>
                                               })}/></div>

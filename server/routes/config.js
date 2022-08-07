@@ -27,7 +27,7 @@ app.patch("/:key", async (req, res) => {
         return res.status(400).json({message: "You need to provide a number in order to change this"});
 
     if (req.params.key === "ping")
-        req.body.value = req.body.value.split(".")[0];
+        req.body.value = req.body.value.toString().split(".")[0];
 
     if (req.params.key === "password" && req.body.value !== "none") req.body.value = await require('bcrypt').hash(req.body.value, 10);
 

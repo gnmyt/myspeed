@@ -6,21 +6,26 @@
   border-radius: 15px
   width: 80rem
   flex-wrap: wrap
+  transition: all 0.5s
+  animation: fadeIn 0.5s
 
 .pulse
-  animation: pulse 5s infinite
+  border: #45c65a 2px solid
+  animation: pulse 2s infinite
 
 @keyframes pulse
   0%
-    border: #45c65a 2px solid
-  50%
-    border: #2d7134 2px solid
+    box-shadow: 0 0 0 0 #14AB37FF
+  70%
+    box-shadow: 0 0 0 10px #CCA92C00
   100%
-    border: #45c65a 2px solid
+    box-shadow: 0 0 0 0 #CCA92C00
 
 .inner-container
   margin-left: 2rem
   margin-right: 2rem
+  transition: all 0.5s
+  animation: fadeIn 0.5s
 
 .container-header
   display: flex
