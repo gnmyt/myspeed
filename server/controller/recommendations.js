@@ -1,17 +1,12 @@
-const db = require('../index').database;
+const recommendations = require('../models/Recommendations');
 
 // Gets the current recommendations
-module.exports.get = () => {
-    return db.prepare("SELECT * FROM recommendations").get();
+module.exports.get = async () => {
+    return await recommendations.findOne();
 }
 
 // Sets new recommendations
-module.exports.set = (ping, download, upload) => {
-    if (this.get() === undefined) {
-        return db.prepare("INSERT INTO recommendations (ping, download, upload) VALUES (?, ?, ?)")
-            .run(Math.round(ping), download.toFixed(2), upload.toFixed(2));
-    } else {
-        return db.prepare("UPDATE recommendations SET ping = ?, download = ?, upload = ?")
-            .run(Math.round(ping), download.toFixed(2), upload.toFixed(2));
-    }
+module.exports.set = async (ping, download, upload) => {
+    await recommendations.destroy({truncate: true});
+    return await recommendations.create({ping: Math.round(ping), download: download.toFixed(2), upload: upload.toFixed(2)});
 }
