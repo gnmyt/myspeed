@@ -45,9 +45,7 @@ function LatestTestComponent() {
             <div className="inner-container">
                 <div className="container-header">
                     <FontAwesomeIcon onClick={() => setDialog({title: "Download-Geschwindigkeit", description: "Die Downloadgeschwindigkeit wirkt sich " +
-                            "auf dein Surferlebnis aus. Umso mehr du bekommst, desto besser und stabiler ist das Internet. " +
-                            "Achte hierbei auch auf den Internetvertrag und prüfe, ob die Bedingungen erfüllt werden. " +
-                            "Du kannst nur so viel bekommen, wie dein Anbieter auch verspricht.", buttonText: "Okay"})}
+                            "auf dein Surferlebnis aus. Umso mehr du bekommst, desto schneller kann dein Computer Daten empfangen.", buttonText: "Okay"})}
                                      icon={faArrowDown} className={"container-icon help-icon icon-" + getIconBySpeed(latest.download, config.download, true)}/>
                     <h2 className="container-text">Download<span className="container-subtext">Mbit/s</span></h2>
                 </div>
@@ -60,9 +58,7 @@ function LatestTestComponent() {
             <div className="inner-container">
                 <div className="container-header">
                     <FontAwesomeIcon onClick={() => setDialog({title: "Upload-Geschwindigkeit", description: "Die Uploadgeschwindigkeit wirkt sich " +
-                            "auf dein Surferlebnis aus. Umso mehr du bekommst, desto besser und stabiler ist das Internet. " +
-                            "Achte hierbei auch auf den Internetvertrag und prüfe, ob die Bedingungen erfüllt werden. " +
-                            "Du kannst nur so viel bekommen, wie dein Anbieter auch verspricht.", buttonText: "Okay"})}
+                            "auf dein Surferlebnis aus. Umso mehr du bekommst, desto schneller kann dein Computer Daten senden.", buttonText: "Okay"})}
                                      icon={faArrowUp} className={"container-icon help-icon icon-" + getIconBySpeed(latest.upload, config.upload, true)}/>
                     <h2 className="container-text">Upload<span className="container-subtext">Mbit/s</span></h2>
                 </div>
