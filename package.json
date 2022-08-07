@@ -10,11 +10,10 @@
   "dependencies": {
     "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
-    "sequelize": "^6.21.3",
-    "sqlite3": "^5.0.11",
     "express": "^4.18.1",
     "node-schedule": "^2.1.0",
-    "speedtest-net": "^2.2.0"
+    "sequelize": "^6.21.3",
+    "sqlite3": "^5.0.11"
   },
   "devDependencies": {
     "concurrently": "^7.3.0",
