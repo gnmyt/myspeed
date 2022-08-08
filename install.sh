@@ -10,7 +10,7 @@ PURPLE='\033[0;35m'
 
 INSTALLATION_PATH="/opt/myspeed"
 
-while getopts "d:" o; do
+while getopts "d:" o > /dev/null 2>&1; do
     # shellcheck disable=SC2220
     case "${o}" in
         d) INSTALLATION_PATH=${OPTARG} ;;
