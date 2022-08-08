@@ -28,7 +28,7 @@ if (process.env.NODE_ENV === 'production') {
     app.get('*', (req, res) => res.sendFile(path.join(__dirname, '../build', 'index.html')));
 } else {
     app.get("*", (req, res) => res.status(500).send("<h2>Diese MySpeed-Instanz befindet sich aktuell im Entwicklungsmodus.<br/><br/>"
-            + "Wenn du der Betreiber bist, bitte ändere deine Umgebungsvariable ab.</h2>"));
+        + "Wenn du der Betreiber bist, bitte ändere deine Umgebungsvariable ab.</h2>"));
 }
 
 // Connect to the database
@@ -39,6 +39,9 @@ const run = async () => {
 
     // Sync the database
     await db.sync({alter: true, force: false});
+
+    // Load the cli
+    await require('./config/loadCli').load();
 
     await config.insertDefaults();
 
@@ -52,12 +55,10 @@ const run = async () => {
     app.listen(port, () => console.log(`Server listening on port ${port}`));
 }
 
-db.authenticate()
-    .then(() => {
-        console.log("Successfully connected to the database file");
-        run();
-    })
-    .catch(err => {
-        console.error("Could not open the database file. Maybe it is damaged?: " + err.message);
-        process.exit(111);
-    });
+db.authenticate().then(() => {
+    console.log("Successfully connected to the database file");
+    run();
+}).catch(err => {
+    console.error("Could not open the database file. Maybe it is damaged?: " + err.message);
+    process.exit(111);
+});
