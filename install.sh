@@ -8,8 +8,14 @@ RED='\033[1;31m'
 NORMAL='\033[0;39m'
 PURPLE='\033[0;35m'
 
-
 INSTALLATION_PATH="/opt/myspeed"
+
+while getopts "d:" o; do
+    # shellcheck disable=SC2220
+    case "${o}" in
+        d) INSTALLATION_PATH=${OPTARG} ;;
+    esac
+done
 
 # Root check
 if [ $EUID -ne 0 ]; then
@@ -24,6 +30,7 @@ if [ "$1" == "--beta" ]; then
 else
   echo -e "$YELLOW Version:$BLUE MySpeed Release"
 fi
+echo -e "$YELLOW Ort:$BLUE $INSTALLATION_PATH"
 echo -e "$YELLOW Es wird die Speedtest API von Ookla verwendet."
 echo -e "$YELLOW Wenn du damit$RED nicht$YELLOW einverstanden bist,"
 echo -e "$YELLOW kannst du die Installation mit$RED STRG + C$YELLOW abbrechen. "
@@ -33,7 +40,7 @@ sleep 5
 clear
 
 # Check if installed
-if [ -d $INSTALLATION_PATH ]; then
+if [ -d "$INSTALLATION_PATH" ]; then
     echo -e "$YELLOW⚠ Warnung: $NORMAL MySpeed ist bereits auf diesem System installiert."
     echo -e "$GREENℹ Info:$NORMAL Es wird nun der aktuelle Release installiert..."
     sleep 5
@@ -173,7 +180,7 @@ if command -v systemctl &> /dev/null && ! systemctl --all --type service | grep 
   Restart=always
   User=root
   Environment=NODE_ENV=production
-  WorkingDirectory=/opt/myspeed
+  WorkingDirectory=$INSTALLATION_PATH
 
   [Install]
   WantedBy=multi-user.target
