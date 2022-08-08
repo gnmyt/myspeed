@@ -110,7 +110,7 @@ clear
 if [ "$1" == "--beta" ]; then
   RELEASE_URL=https://github.com/gnmyt/myspeed/archive/refs/heads/development.zip
 else
-  RELEASE_URL=$(curl -s https://api.github.com/repos/gnmyt/myspeed/releases/latest | grep browser_download_url | cut -d '"' -f 4 | grep -m1 "")
+  RELEASE_URL=$(curl -s https://api.github.com/repos/gnmyt/myspeed/releases/latest | grep browser_download_url | cut -d '"' -f 4)
 fi
 
 
