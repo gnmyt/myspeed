@@ -1,4 +1,4 @@
-const speedTest = require('speedtest-net');
+const speedTest = require('../util/speedtest');
 const tests = require('../controller/speedtests');
 const config = require('../controller/config');
 const recommendations = require("../controller/recommendations");
@@ -29,7 +29,7 @@ module.exports.run = async () => {
     if (serverId === "none")
         serverId = undefined;
 
-    let speedtest = await speedTest({acceptLicense: true, acceptGdpr: true, serverId: serverId});
+    let speedtest = await speedTest(serverId);
 
     if (serverId === undefined)
         await config.update("serverId", speedtest.server.id);
@@ -50,7 +50,7 @@ module.exports.create = async (type = "auto") => {
         createRecommendations().then(() => "");
     } catch (e) {
         let testResult = await tests.create(-1, -1, -1, null, type, e.message);
-        console.log(`Test #${testResult} was not executed successfully. Please try reconnecting to the internet or restarting the software.`);
+        console.log(`Test #${testResult} was not executed successfully. Please try reconnecting to the internet or restarting the software: ` + e.message);
     }
     isRunning = false;
 }
