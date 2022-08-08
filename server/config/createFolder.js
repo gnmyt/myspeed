@@ -1,10 +1,14 @@
 const fs = require('fs');
 
-if (!fs.existsSync("data")) {
-    try {
-        fs.mkdirSync("data", {recursive: true});
-    } catch (e) {
-        console.error("Could not create the data folder. Please check the permission");
-        process.exit(0);
+const neededFolder = ["data", "bin"];
+
+neededFolder.forEach(folder => {
+    if (!fs.existsSync(folder)) {
+        try {
+            fs.mkdirSync(folder, {recursive: true});
+        } catch (e) {
+            console.error("Could not create the data folder. Please check the permission");
+            process.exit(0);
+        }
     }
-}
+});
