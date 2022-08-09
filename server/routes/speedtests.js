@@ -26,10 +26,10 @@ app.post("/pause", (req, res) => {
 
     if (req.body.resumeIn === -1) {
         pauseController.updateState(true);
-    } else {
-        pauseController.resumeIn(req.body.resumeIn);
+    } else if (!pauseController.resumeIn(req.body.resumeIn)) {
+        return res.status(400).json({message: "You need to provide when to resume"});
     }
-    
+
     res.json({message: "Successfully paused the speedtests"});
 });
 
