@@ -6,8 +6,10 @@ import {useContext, useEffect, useState} from "react";
 import {ConfigContext} from "../context/ConfigContext";
 import {DialogContext} from "../context/DialogContext";
 import {SpeedtestContext} from "../context/SpeedtestContext";
+import {StatusContext} from "../context/StatusContext";
 
 function LatestTestComponent() {
+    const status = useContext(StatusContext)[0];
     const [latest, setLatest] = useState({ping: "-", download: "-", upload: "-"});
     const [latestTestTime, setLatestTestTime] = useState("-");
     const [setDialog] = useContext(DialogContext);
@@ -27,7 +29,7 @@ function LatestTestComponent() {
     if (Object.entries(config).length === 0) return (<></>);
 
     return (
-        <div className="analyse-area pulse">
+        <div className={"analyse-area " + (status.paused ? "tests-paused" : "pulse")}>
             {/* Ping */}
             <div className="inner-container">
                 <div className="container-header">
