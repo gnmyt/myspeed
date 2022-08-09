@@ -36,7 +36,7 @@ module.exports.latest = async () => {
 
 // Deletes a specific speedtest
 module.exports.delete = async (id) => {
-    if (await this.get(id) === undefined) return false;
+    if (await this.get(id) === null) return false;
     await tests.destroy({where: {id: id}});
     return true;
 }
