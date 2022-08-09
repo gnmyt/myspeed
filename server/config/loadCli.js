@@ -8,7 +8,7 @@ const binaries = require('./binaries');
 
 const binaryRegex = /speedtest(.exe)?$/;
 const binaryDirectory = __dirname + "/../../bin/";
-const binaryPath = `${binaryDirectory}/speedtest`;
+const binaryPath = `${binaryDirectory}/speedtest` + (process.platform === "win32" ? ".exe" : "");
 
 const downloadPath = `https://install.speedtest.net/app/cli/ookla-speedtest-${binaries.version}-`;
 
@@ -28,7 +28,7 @@ module.exports.downloadFile = async () => {
                         plugins: [decompressTarGz(), decompressUnzip()],
                         filter: file => binaryRegex.test(file.path),
                         map: file => {
-                            file.path = "speedtest";
+                            file.path = "speedtest" + (process.platform === "win32" ? ".exe" : "");
                             return file;
                         }
                     });
