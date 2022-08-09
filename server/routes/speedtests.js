@@ -15,13 +15,6 @@ app.post("/run", async (req, res) => {
     res.json({message: "Speedtest successfully created"});
 });
 
-// List only the latest speedtest
-app.get("/latest", async (req, res) => {
-    let latest = await tests.latest();
-    if (latest === undefined) return res.status(404).json({message: "No speedtest has been made yet"});
-    res.json(latest);
-});
-
 // Get the current pause status
 app.get("/status", (req, res) => {
     res.json({paused: pauseController.currentState});
