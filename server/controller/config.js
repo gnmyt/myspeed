@@ -1,17 +1,36 @@
-const db = require('../index').database;
+const config = require("../models/Config");
+
+const configDefaults = {
+    "ping": "25",
+    "download": "100",
+    "upload": "50",
+    "timeLevel": "3",
+    "serverId": "none",
+    "password": "none"
+}
+
+module.exports.insertDefaults = async () => {
+    let insert = [];
+    for (let key in configDefaults) {
+        if (!(await config.findOne({where: {key: key}})))
+            insert.push({key: key, value: configDefaults[key]});
+    }
+
+    await config.bulkCreate(insert, {validate: true});
+}
 
 // Lists all config entries
-module.exports.list = () => {
-    return db.prepare("SELECT * FROM config").all();
+module.exports.list = async () => {
+    return await config.findAll();
 }
 
 // Gets a specific config entry
-module.exports.get = (key) => {
-    return db.prepare("SELECT * FROM config WHERE key = ?").get(key);
+module.exports.get = async (key) => {
+    return await config.findByPk(key);
 }
 
 // Updates a specific config entry
-module.exports.update = (key, newValue) => {
-    if (this.get(key) === undefined) return undefined;
-    return db.prepare("UPDATE config SET value = ? WHERE key = ?").run(newValue, key);
+module.exports.update = async (key, newValue) => {
+    if ((await this.get(key)) === undefined) return undefined;
+    return await config.update({value: newValue}, {where: {key: key}});
 }

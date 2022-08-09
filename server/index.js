@@ -1,41 +1,13 @@
 const express = require('express');
 const path = require('path');
-const fs = require('fs');
 const timerTask = require('./tasks/timer');
 
 const app = express();
 const port = process.env.port || 5216;
 
-if (!fs.existsSync("data")) {
-    try {
-        fs.mkdirSync("data", {recursive: true});
-    } catch (e) {
-        console.error("Could not create the data folder. Please check the permission");
-        process.exit(0);
-    }
-}
-
-let db;
-try {
-    db = require('better-sqlite3')('data/storage.db');
-    console.log("Successfully connected to the database file");
-} catch (e) {
-    console.error("Could not open the database file. Maybe it is damaged?");
-    process.exit();
-}
-
-module.exports.database = db;
-
-// Create servers.json
-require('./tasks/loadServers');
-
-// Create all tables & insert the defaults
-require("./controller/tables").create();
-require("./controller/tables").insert();
-
-// Start all timer
-timerTask.startTimer(require('./controller/config').get("timeLevel").value);
-let removeInterval = setInterval(async () => require('./tasks/speedtest').removeOld(), 60000);
+// Create the data folder and the servers file
+require('./config/createFolder');
+require('./config/loadServers');
 
 // Register middlewares
 app.use(express.json());
@@ -53,17 +25,40 @@ app.use("/api*", (req, res) => res.status(404).json({message: "Route not found"}
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../build')));
 
-    app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, '../build', 'index.html'));
-    });
+    app.get('*', (req, res) => res.sendFile(path.join(__dirname, '../build', 'index.html')));
 } else {
-    app.get("*", (req, res) => {
-        res.status(500).send("<h2>Diese MySpeed-Instanz befindet sich aktuell im Entwicklungsmodus.<br/><br/>"
-            + "Wenn du der Betreiber bist, bitte ändere deine Umgebungsvariable ab.</h2>");
-    });
+    app.get("*", (req, res) => res.status(500).send("<h2>Diese MySpeed-Instanz befindet sich aktuell im Entwicklungsmodus.<br/><br/>"
+        + "Wenn du der Betreiber bist, bitte ändere deine Umgebungsvariable ab.</h2>"));
 }
 
-// Make a speedtest
-timerTask.runTask();
+// Connect to the database
+let db = require("./config/database");
 
-app.listen(port, () => console.log(`Server listening on port ${port}`));
+const run = async () => {
+    const config = require('./controller/config');
+
+    // Sync the database
+    await db.sync({alter: true, force: false});
+
+    // Load the cli
+    await require('./config/loadCli').load();
+
+    await config.insertDefaults();
+
+    // Start all timer
+    timerTask.startTimer((await config.get("timeLevel")).value);
+    setInterval(async () => require('./tasks/speedtest').removeOld(), 60000);
+
+    // Make a speedtest
+    timerTask.runTask();
+
+    app.listen(port, () => console.log(`Server listening on port ${port}`));
+}
+
+db.authenticate().then(() => {
+    console.log("Successfully connected to the database file");
+    run();
+}).catch(err => {
+    console.error("Could not open the database file. Maybe it is damaged?: " + err.message);
+    process.exit(111);
+});

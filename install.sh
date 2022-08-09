@@ -8,8 +8,14 @@ RED='\033[1;31m'
 NORMAL='\033[0;39m'
 PURPLE='\033[0;35m'
 
-
 INSTALLATION_PATH="/opt/myspeed"
+
+while getopts "d:" o > /dev/null 2>&1; do
+    # shellcheck disable=SC2220
+    case "${o}" in
+        d) INSTALLATION_PATH=${OPTARG} ;;
+    esac
+done
 
 # Root check
 if [ $EUID -ne 0 ]; then
@@ -24,6 +30,7 @@ if [ "$1" == "--beta" ]; then
 else
   echo -e "$YELLOW Version:$BLUE MySpeed Release"
 fi
+echo -e "$YELLOW Ort:$BLUE $INSTALLATION_PATH"
 echo -e "$YELLOW Es wird die Speedtest API von Ookla verwendet."
 echo -e "$YELLOW Wenn du damit$RED nicht$YELLOW einverstanden bist,"
 echo -e "$YELLOW kannst du die Installation mit$RED STRG + C$YELLOW abbrechen. "
@@ -33,7 +40,7 @@ sleep 5
 clear
 
 # Check if installed
-if [ -d $INSTALLATION_PATH ]; then
+if [ -d "$INSTALLATION_PATH" ]; then
     echo -e "$YELLOW⚠ Warnung: $NORMAL MySpeed ist bereits auf diesem System installiert."
     echo -e "$GREENℹ Info:$NORMAL Es wird nun der aktuelle Release installiert..."
     sleep 5
@@ -51,48 +58,21 @@ apt-get update -y
 clear
 echo -e "$GREENℹ Info:$NORMAL Die Installation wird jetzt vorbereitet. Das kann einen Augenblick dauern..."
 sleep 5
-# Check for wget
-clear
-echo -e "$BLUE🔎 Status:$NORMAL Überprüfe, ob wget vorhanden ist..."
-if ! command -v wget &> /dev/null
-then
-    echo -e "$YELLOWℹ \"wget\" ist nicht installiert.$NORMAL Die Installation wurde gestartet..."
-    sleep 2
-    apt-get install wget -y
-fi
 
-# Check for unzip
-clear
-echo -e "$BLUE🔎 Status:$NORMAL Überprüfe, ob unzip vorhanden ist..."
-if ! command -v unzip &> /dev/null
-then
-    echo -e "$YELLOWℹ \"unzip\" ist nicht installiert.$NORMAL Die Installation wurde gestartet..."
-    sleep 2
-    apt-get install unzip -y
-fi
-
-# Check for build essential
-clear
-if [ "$1" == "--beta" ]; then
-  echo -e "$BLUE🔎 Status:$NORMAL Überprüfe, ob build-essential vorhanden ist..."
-  if ! dpkg-query -l build-essential | grep build-essential &> /dev/null
+function check() {
+  clear
+  echo -e "$BLUE🔎 Status:$NORMAL Überprüfe, ob $1 vorhanden ist..."
+  if ! command -v "$1" &> /dev/null
   then
-      echo -e "$YELLOWℹ \"build-essential\" ist nicht installiert.$NORMAL Die Installation wurde gestartet..."
+      echo -e "$YELLOWℹ \"$1\" ist nicht installiert.$NORMAL Die Installation wurde gestartet..."
       sleep 2
-      apt-get install build-essential -y
+      apt-get install "$1" -y
   fi
-fi
+}
 
-
-# Check for curl
-clear
-echo -e "$BLUE🔎 Status:$NORMAL Überprüfe, ob curl vorhanden ist..."
-if ! command -v curl &> /dev/null
-then
-    echo -e "$YELLOWℹ \"curl\" ist nicht installiert.$NORMAL Die Installation wurde gestartet..."
-    sleep 2
-    apt-get install curl -y
-fi
+check "wget"
+check "unzip"
+check "curl"
 
 # Check for node
 clear
@@ -110,7 +90,7 @@ clear
 if [ "$1" == "--beta" ]; then
   RELEASE_URL=https://github.com/gnmyt/myspeed/archive/refs/heads/development.zip
 else
-  RELEASE_URL=$(curl -s https://api.github.com/repos/gnmyt/myspeed/releases/latest | grep browser_download_url | cut -d '"' -f 4 | grep -m1 "")
+  RELEASE_URL=$(curl -s https://api.github.com/repos/gnmyt/myspeed/releases/latest | grep browser_download_url | cut -d '"' -f 4)
 fi
 
 
@@ -118,14 +98,14 @@ echo -e "$GREEN✓ Vorbereitung abgeschlossen:$NORMAL Die Installation von MySpe
 sleep 3
 
 clear
-if [ ! -d $INSTALLATION_PATH ]
+if [ ! -d "$INSTALLATION_PATH" ]
 then
     echo -e "$BLUEℹ Info: $NORMAL MySpeed wird unter dem Verzeichnis $INSTALLATION_PATH installiert. Der Ordner wird nun erstellt."
     sleep 2
-    mkdir $INSTALLATION_PATH
+    mkdir "$INSTALLATION_PATH"
 fi
 
-cd $INSTALLATION_PATH
+cd "$INSTALLATION_PATH"
 
 echo -e "$BLUEℹ Info: $NORMAL Die aktuelle MySpeed-Instanz wird heruntergeladen. Einen Moment..."
 sleep 2
@@ -173,7 +153,7 @@ if command -v systemctl &> /dev/null && ! systemctl --all --type service | grep 
   Restart=always
   User=root
   Environment=NODE_ENV=production
-  WorkingDirectory=/opt/myspeed
+  WorkingDirectory=$INSTALLATION_PATH
 
   [Install]
   WantedBy=multi-user.target

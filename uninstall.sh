@@ -45,7 +45,7 @@ sleep 3
 if [ "$1" == "--keep-data" ]; then
   mv $INSTALLATION_PATH/data /tmp/myspeed_data
   rm -R $INSTALLATION_PATH
-  mkdir /opt/myspeed
+  mkdir $INSTALLATION_PATH
   mv /tmp/myspeed_data $INSTALLATION_PATH/data
 else
   rm -R $INSTALLATION_PATH

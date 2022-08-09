@@ -4,12 +4,12 @@ const tests = require('../controller/speedtests');
 
 app.get("/json", async (req, res) => {
     res.set({"Content-Disposition": "attachment; filename=\"speedtests.json\""});
-    res.send(JSON.stringify(tests.list(), null, 4));
+    res.send(JSON.stringify(await tests.list(), null, 4));
 });
 
 app.get("/csv", async (req, res) => {
     res.set({"Content-Disposition": "attachment; filename=\"speedtests.csv\""});
-    let list = tests.list();
+    let list = await tests.list();
     let fields = Object.keys(list[0]);
 
     let replacer = (key, value) => value === null ? '' : value

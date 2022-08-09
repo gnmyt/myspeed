@@ -3,8 +3,8 @@ const tests = require('../controller/speedtests');
 const pauseController = require('../controller/pause');
 
 // List all speedtests
-app.get("/", (req, res) => {
-    res.json(tests.list());
+app.get("/", async (req, res) => {
+    res.json(await tests.list());
 });
 
 // Runs a speedtest
@@ -13,13 +13,6 @@ app.post("/run", async (req, res) => {
     let speedtest = await require("../tasks/speedtest").create("custom");
     if (speedtest !== undefined) return res.status(409).json({message: "An speedtest is already running"});
     res.json({message: "Speedtest successfully created"});
-});
-
-// List only the latest speedtest
-app.get("/latest", (req, res) => {
-    let latest = tests.latest();
-    if (latest === undefined) return res.status(404).json({message: "No speedtest has been made yet"});
-    res.json(latest);
 });
 
 // Get the current pause status
@@ -33,10 +26,10 @@ app.post("/pause", (req, res) => {
 
     if (req.body.resumeIn === -1) {
         pauseController.updateState(true);
-    } else {
-        pauseController.resumeIn(req.body.resumeIn);
+    } else if (!pauseController.resumeIn(req.body.resumeIn)) {
+        return res.status(400).json({message: "You need to provide when to resume"});
     }
-    
+
     res.json({message: "Successfully paused the speedtests"});
 });
 
@@ -47,16 +40,16 @@ app.post("/continue", (req, res) => {
 });
 
 // Get a specific speedtest
-app.get("/:id", (req, res) => {
-    let test = tests.get(req.params.id);
-    if (test === undefined) res.status(404).json({message: "Speedtest not found"});
+app.get("/:id", async (req, res) => {
+    let test = await tests.get(req.params.id);
+    if (test === null) return res.status(404).json({message: "Speedtest not found"});
     res.json(test);
 });
 
 // Delete a specific speedtest
-app.delete("/:id", (req, res) => {
-    let test = tests.delete(req.params.id);
-    if (test === undefined) return res.status(404).json({message: "Speedtest not found"});
+app.delete("/:id", async (req, res) => {
+    let test = await tests.delete(req.params.id);
+    if (!test) return res.status(404).json({message: "Speedtest not found"});
     res.json({message: "Successfully deleted the provided speedtest"});
 });
 

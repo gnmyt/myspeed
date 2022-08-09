@@ -39,7 +39,7 @@ sudo apt-get install nodejs -y #(2)
 
 mkdir /opt/myspeed && cd /opt/myspeed #(3)
 
-wget $(curl -s https://api.github.com/repos/gnmyt/myspeed/releases/latest | grep browser_download_url | cut -d '"' -f 4 | grep -m1 "") #(4)
+wget $(curl -s https://api.github.com/repos/gnmyt/myspeed/releases/latest | grep browser_download_url | cut -d '"' -f 4) #(4)
 
 unzip MySpeed-*.zip && rm MySpeed-*.zip #(5)
 

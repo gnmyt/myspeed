@@ -14,7 +14,10 @@ app.get("/version", async (req, res) => {
 });
 
 app.get("/server", (req, res) => {
-    res.json(JSON.parse(fs.readFileSync("./data/servers.json").toString()));
+    fs.readFile("./data/servers.json", "utf8", (err, data) => {
+        if (err) return res.status(500).json({message: "Could not read servers"});
+        res.json(JSON.parse(data.toString()));
+    });
 });
 
 module.exports = app;

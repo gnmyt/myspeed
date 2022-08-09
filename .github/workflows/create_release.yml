@@ -19,7 +19,7 @@ jobs:
           node-version: '16'
 
       - run: cd client && npm install --force
-      - run: npm run build && mv client/build . && npm install --force
+      - run: npm run build && mv client/build .
 
       - name: Get version
         id: get_version
@@ -29,10 +29,7 @@ jobs:
         run: sudo apt-get install zip
 
       - name: Zip all files
-        run: zip -r MySpeed-${{ steps.get_version.outputs.version }}-with-modules.zip build node_modules server package.json package-lock.json
-
-      - name: Zip all files (without node_modules)
-        run: zip -r MySpeed-${{ steps.get_version.outputs.version }}-without-modules.zip build server package.json package-lock.json
+        run: zip -r MySpeed-${{ steps.get_version.outputs.version }}.zip build server package.json package-lock.json
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
@@ -40,5 +37,4 @@ jobs:
           prerelease: false
           title: Release ${{ steps.get_version.outputs.version }}
           files: |
-            ./MySpeed-*-with-modules.zip
-            ./MySpeed-*-without-modules.zip
+            ./MySpeed-*.zip
