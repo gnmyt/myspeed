@@ -1,6 +1,6 @@
 const {spawn} = require('child_process');
 
-module.exports = async (serverId, binary_path = './bin/speedtest') => {
+module.exports = async (serverId, binary_path = './bin/speedtest' + (process.platform === "win32" ? ".exe" : "")) => {
     const args = ['--accept-license', '--accept-gdpr', '--format=jsonl'];
     if (serverId) args.push(`--server-id=${serverId}`);
 
