@@ -9,6 +9,7 @@ module.exports.create = async (ping, download, upload, time, type = "auto", erro
 // Gets a specific speedtest by id
 module.exports.get = async (id) => {
     let speedtest = await tests.findByPk(id);
+    if (speedtest === null) return null;
     if (speedtest.error === null) delete speedtest.error;
     return speedtest
 }
