@@ -7,7 +7,7 @@ const fs = require("fs");
 
 app.get("/version", async (req, res) => {
     try {
-        res.json({local: version, remote: (await axios.get(remote_url)).data.tag_name});
+        res.json({local: version, remote: ((await axios.get(remote_url)).data.tag_name).replace("v", "")});
     } catch (e) {
         res.json({local: version, remote: "0"});
     }
