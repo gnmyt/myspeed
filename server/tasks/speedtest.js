@@ -23,32 +23,37 @@ async function createRecommendations() {
     }
 }
 
-module.exports.run = async () => {
+module.exports.run = async (retryAuto = false) => {
     isRunning = true;
-    let serverId = config.get("serverId").value;
+    let serverId = (await config.get("serverId")).value;
+
     if (serverId === "none")
         serverId = undefined;
 
-    let speedtest = await speedTest(serverId);
+    let speedtest = await (retryAuto ? speedTest() : speedTest(serverId));
 
     if (serverId === undefined)
         await config.update("serverId", speedtest.server.id);
 
+    if (Object.keys(speedtest).length === 0) throw {message: "No response, even after trying again, test timed out."};
+
     return speedtest;
 }
 
-module.exports.create = async (type = "auto") => {
-    if (isRunning) return 500;
+module.exports.create = async (type = "auto", retried = false) => {
+    if (isRunning && !retried) return 500;
 
     try {
-        let test = await this.run();
+        let test = await this.run(retried);
         let ping = Math.round(test.ping.latency);
         let download = roundSpeed(test.download.bytes, test.download.elapsed);
         let upload = roundSpeed(test.upload.bytes, test.upload.elapsed);
-        let testResult = await tests.create(ping, download, upload, Math.round((test.download.elapsed + test.upload.elapsed)/1000), type);
+        let time = Math.round((test.download.elapsed + test.upload.elapsed) / 1000);
+        let testResult = await tests.create(ping, download, upload, time, type);
         console.log(`Test #${testResult} was executed successfully. 🏓 ${ping} ⬇ ${download}️ ⬆ ${upload}️`);
         createRecommendations().then(() => "");
     } catch (e) {
+        if (!retried) return this.create(type, true);
         let testResult = await tests.create(-1, -1, -1, null, type, e.message);
         console.log(`Test #${testResult} was not executed successfully. Please try reconnecting to the internet or restarting the software: ` + e.message);
     }
