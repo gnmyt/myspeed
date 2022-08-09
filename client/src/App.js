@@ -5,6 +5,7 @@ import TestAreaComponent from "./components/TestAreaComponent";
 import {ConfigProvider} from "./context/ConfigContext";
 import {DialogProvider} from "./context/DialogContext";
 import {SpeedtestProvider} from "./context/SpeedtestContext";
+import {StatusProvider} from "./context/StatusContext";
 
 function App() {
 
@@ -13,16 +14,18 @@ function App() {
             <SpeedtestProvider>
                 <DialogProvider>
                     <ConfigProvider>
+                        <StatusProvider>
 
-                        <HeaderComponent/>
-                        <main>
-                            <LatestTestComponent/>
+                            <HeaderComponent/>
+                            <main>
+                                <LatestTestComponent/>
 
-                            <hr/>
+                                <hr/>
 
-                            <TestAreaComponent/>
-                        </main>
+                                <TestAreaComponent/>
+                            </main>
 
+                        </StatusProvider>
                     </ConfigProvider>
                 </DialogProvider>
             </SpeedtestProvider>

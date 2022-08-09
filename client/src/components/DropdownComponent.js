@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext, useEffect} from "react";
 import "../style/Dropdown.sass";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
@@ -13,6 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import {DialogContext} from "../context/DialogContext";
 import {ConfigContext} from "../context/ConfigContext";
+import {StatusContext} from "../context/StatusContext";
 
 let icon;
 
@@ -31,8 +32,8 @@ export const toggleDropdown = (setIcon) => {
 function DropdownComponent() {
 
     const reloadConfig = useContext(ConfigContext)[1];
+    const [status, updateStatus] = useContext(StatusContext);
     const [setDialog] = useContext(DialogContext);
-    const [pauseState, setPauseState] = useState(false);
 
     let headers = localStorage.getItem("password") ? {password: localStorage.getItem("password")} : {};
     headers['content-type'] = 'application/json';
@@ -83,39 +84,6 @@ function DropdownComponent() {
             title: "Optimalen Up-Speed setzen (Mbit/s)", placeholder: "Up-Speed", value
         }));
     }
-
-    function setPause(paused) {
-        let element = document.getElementsByClassName("analyse-area")[0];
-        if (element == null) return;
-
-        if (paused) {
-            if (!element.classList.contains("tests-paused")) {
-                element.classList.add("tests-paused");
-                element.classList.remove("pulse");
-            }
-        } else {
-            if (element.classList.contains("tests-paused")) {
-                element.classList.remove("tests-paused");
-                element.classList.add("pulse");
-            }
-        }
-
-       setPauseState(paused);
-    }
-
-    function checkPauseStatus() {
-        fetch("/api/speedtests/status", {headers: headers})
-            .then(res => res.json())
-            .then(res => setPause(res.paused));
-    }
-
-    useEffect(() => {
-        const interval = setInterval(() => checkPauseStatus(), 15000);
-        checkPauseStatus();
-        return () => clearInterval(interval);
-
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
 
     const updatePassword = async () => {
         toggleDropdown();
@@ -169,7 +137,7 @@ function DropdownComponent() {
 
     function togglePause() {
         toggleDropdown();
-        if (!pauseState) {
+        if (!status.paused) {
             setDialog({
                 title: "Speedtests pausieren für...",
                 placeholder: "Stunden",
@@ -179,15 +147,15 @@ function DropdownComponent() {
                 unsetButtonText: "Manuell freigeben",
                 onClear: async () => {
                     fetch("/api/speedtests/pause", {headers: headers, method: "POST",
-                        body: JSON.stringify({resumeIn: -1})}).then(() => setPause(true));
+                        body: JSON.stringify({resumeIn: -1})}).then(() => updateStatus());
                 },
                 onSuccess: async hours => {
                     fetch("/api/speedtests/pause", {headers: headers, method: "POST",
-                        body: JSON.stringify({resumeIn: hours})}).then(() => setPause(true));
+                        body: JSON.stringify({resumeIn: hours})}).then(() => updateStatus());
                 }
             });
         } else fetch("/api/speedtests/continue", {headers: headers, method: "POST"})
-            .then(() => setPause(false));
+            .then(() => updateStatus());
     }
 
     const showCredits = () => {
@@ -314,8 +282,8 @@ function DropdownComponent() {
                         <h3>Tests exportieren</h3>
                     </div>
                     <div className="dropdown-item" onClick={togglePause}>
-                    <FontAwesomeIcon icon={pauseState ? faPlay : faPause}/>
-                        <h3>{pauseState ? "Speedtests fortsetzen" : "Speedtests pausieren"}</h3>
+                        <FontAwesomeIcon icon={status.paused ? faPlay : faPause}/>
+                        <h3>{status.paused ? "Speedtests fortsetzen" : "Speedtests pausieren"}</h3>
                     </div>
                     <div className="dropdown-item" onClick={showCredits}>
                         <FontAwesomeIcon icon={faInfo}/>
