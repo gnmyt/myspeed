@@ -42,7 +42,7 @@ app.post("/continue", (req, res) => {
 // Get a specific speedtest
 app.get("/:id", async (req, res) => {
     let test = await tests.get(req.params.id);
-    if (test === undefined) res.status(404).json({message: "Speedtest not found"});
+    if (test === null) return res.status(404).json({message: "Speedtest not found"});
     res.json(test);
 });
 
