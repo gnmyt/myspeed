@@ -31,6 +31,6 @@ module.exports.get = async (key) => {
 
 // Updates a specific config entry
 module.exports.update = async (key, newValue) => {
-    if (this.get(key) === undefined) return undefined;
+    if ((await this.get(key)) === undefined) return undefined;
     return await config.update({value: newValue}, {where: {key: key}});
 }
