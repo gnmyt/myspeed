@@ -1,4 +1,4 @@
-module.exports.version = "1.1.1";
+module.exports.version = "1.2.0";
 module.exports.list = [
     // MacOS
     {os: 'darwin', arch: 'x64', suffix: 'macosx-x86_64.tgz'},
