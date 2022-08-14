@@ -7,9 +7,9 @@ import {
     faClose, faInfo,
     faPingPongPaddleBall
 } from "@fortawesome/free-solid-svg-icons";
-import "../style/Speedtest.sass";
-import {DialogContext} from "../context/DialogContext";
-import {SpeedtestContext} from "../context/SpeedtestContext";
+import {DialogContext} from "@/common/contexts/Dialog";
+import {SpeedtestContext} from "@/common/contexts/Speedtests";
+import "./styles.sass";
 
 const errors = {
     "Network unreachable": "Die Internetverbindung scheint unterbrochen gewesen zu sein",

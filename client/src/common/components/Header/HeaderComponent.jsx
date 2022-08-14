@@ -1,9 +1,9 @@
-import "../style/Header.sass";
+import "./styles.sass";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCircleExclamation, faGaugeHigh, faGear} from "@fortawesome/free-solid-svg-icons";
-import DropdownComponent, {toggleDropdown} from "./DropdownComponent";
 import {useContext, useEffect, useState} from "react";
-import {DialogContext} from "../context/DialogContext";
+import DropdownComponent, {toggleDropdown} from "../Dropdown/DropdownComponent";
+import {DialogContext} from "@/common/contexts/Dialog";
 
 
 function HeaderComponent() {

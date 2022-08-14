@@ -1,50 +1,49 @@
+@import "./common/styles/colors"
+
 body, html
   margin: 0
-  background-color: #232835
+  background-color: $background
   font-family: "Inter", sans-serif
   font-weight: 700
 
 ::-webkit-scrollbar
-  width: 10px
+  width: 13px
 
 ::-webkit-scrollbar-thumb
-  background: #1d222e
+  background: $darker-gray
   border-radius: 10px
 
 ::-webkit-scrollbar-thumb:hover
-  background: #1e212a
+  background: $dark-gray
 
 .speedtest-icon
   font-size: 26pt
-  color: #F1F1F1
+  color: $white
   margin-right: 10px
 
 .container-icon
   width: 35px
   height: 35px
-  color: #F1F1F1
+  color: $white
   font-size: 26pt
 
 .help-icon
   cursor: help
 
 .icon-red
-  color: #C64545
-
-.icon-white
-  color: #ffffff
+  color: $red
 
 .icon-error
-  color: #900c0c
+  color: $error
 
 .icon-green
-  color: #45C65A
+  color: $green
 
 .icon-orange
-  color: #E58A00
+  color: $orange
 
 .icon-blue
-  color: #456AC6
+  color: $blue
 
 main
   display: flex
@@ -54,7 +53,7 @@ main
 hr
   margin: 2rem
   width: 3rem
-  border: 1px solid #727676
+  border: 1px solid $gray
   border-radius: 25px
 
 @keyframes fadeIn

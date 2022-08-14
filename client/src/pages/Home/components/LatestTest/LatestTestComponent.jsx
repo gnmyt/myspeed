@@ -1,12 +1,13 @@
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowDown, faArrowUp, faClockRotateLeft, faPingPongPaddleBall} from "@fortawesome/free-solid-svg-icons";
-import "../style/LatestTest.sass";
-import {generateRelativeTime, getIconBySpeed} from "../HelperFunctions";
 import {useContext, useEffect, useState} from "react";
-import {ConfigContext} from "../context/ConfigContext";
-import {DialogContext} from "../context/DialogContext";
-import {SpeedtestContext} from "../context/SpeedtestContext";
-import {StatusContext} from "../context/StatusContext";
+import {faArrowDown, faArrowUp, faClockRotateLeft, faPingPongPaddleBall} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {generateRelativeTime} from "./utils";
+import {StatusContext} from "@/common/contexts/Status";
+import {DialogContext} from "@/common/contexts/Dialog";
+import {SpeedtestContext} from "@/common/contexts/Speedtests";
+import {ConfigContext} from "@/common/contexts/Config";
+import "./styles.sass";
+import {getIconBySpeed} from "@/common/utils/TestUtil";
 
 function LatestTestComponent() {
     const status = useContext(StatusContext)[0];
@@ -20,7 +21,7 @@ function LatestTestComponent() {
 
     useEffect(() => {
         if (latest) setLatestTestTime(generateRelativeTime(latest.created));
-        const interval = setInterval(() => setLatestTestTime(generateRelativeTime(latest.created)), 1000);
+        const interval = setInterval(() => setLatestTestTime(generateRelativeTime(latest.created || 0)), 1000);
         return () => clearInterval(interval);
     }, [latest]);
 

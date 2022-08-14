@@ -1,13 +1,12 @@
 import './App.sass';
-import LatestTestComponent from "./components/LatestTestComponent";
-import HeaderComponent from "./components/HeaderComponent";
-import TestAreaComponent from "./components/TestAreaComponent";
-import {ConfigProvider} from "./context/ConfigContext";
-import {DialogProvider} from "./context/DialogContext";
-import {SpeedtestProvider} from "./context/SpeedtestContext";
-import {StatusProvider} from "./context/StatusContext";
+import Home from "./pages/Home";
+import HeaderComponent from "./common/components/Header";
+import {SpeedtestProvider} from "./common/contexts/Speedtests";
+import {DialogProvider} from "./common/contexts/Dialog";
+import {ConfigProvider} from "./common/contexts/Config";
+import {StatusProvider} from "./common/contexts/Status";
 
-function App() {
+const App = () => {
 
     return (
         <>
@@ -18,11 +17,7 @@ function App() {
 
                             <HeaderComponent/>
                             <main>
-                                <LatestTestComponent/>
-
-                                <hr/>
-
-                                <TestAreaComponent/>
+                                <Home/>
                             </main>
 
                         </StatusProvider>
