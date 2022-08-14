@@ -2,7 +2,7 @@
   "name": "myspeed",
   "version": "1.0.3",
   "scripts": {
-    "client": "cd client && npm start",
+    "client": "cd client && npm run dev",
     "server": "nodemon server",
     "build": "cd client && npm run build",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
