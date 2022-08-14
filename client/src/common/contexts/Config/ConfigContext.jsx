@@ -1,5 +1,5 @@
 import React, {useState, createContext, useEffect, useContext} from "react";
-import {DialogContext} from "./DialogContext";
+import {DialogContext} from "../Dialog";
 
 export const ConfigContext = createContext();
 
