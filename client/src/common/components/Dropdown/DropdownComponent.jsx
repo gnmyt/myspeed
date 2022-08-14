@@ -1,5 +1,5 @@
 import React, {useContext, useEffect} from "react";
-import "../style/Dropdown.sass";
+import "./styles.sass";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
     faArrowDown,
@@ -11,9 +11,9 @@ import {
     faPlay,
     faServer, faWandMagicSparkles
 } from "@fortawesome/free-solid-svg-icons";
-import {DialogContext} from "../context/DialogContext";
-import {ConfigContext} from "../context/ConfigContext";
-import {StatusContext} from "../context/StatusContext";
+import {ConfigContext} from "@/common/contexts/Config";
+import {StatusContext} from "@/common/contexts/Status";
+import {DialogContext} from "@/common/contexts/Dialog";
 
 let icon;
 
@@ -31,7 +31,7 @@ export const toggleDropdown = (setIcon) => {
 
 function DropdownComponent() {
 
-    const reloadConfig = useContext(ConfigContext)[1];
+    const [config, reloadConfig] = useContext(ConfigContext);
     const [status, updateStatus] = useContext(StatusContext);
     const [setDialog] = useContext(DialogContext);
 
@@ -47,43 +47,35 @@ function DropdownComponent() {
         return () => document.removeEventListener("keyup", onPress);
     }, []);
 
-    const patchDialog = (path, dialog, toggle = true) => {
+    const showFeedback = (customText, reload = true) => setDialog({
+        title: "MySpeed", description: customText || <>Deine Änderungen wurden übernommen.</>, buttonText: "Okay",
+        onSuccess: () => reload ? reloadConfig() : "", onClose: () => reloadConfig()
+    });
+
+    const patchDialog = (value, dialog, toggle = true) => {
         if (toggle) toggleDropdown();
-        fetch(path, {headers}).then(res => res.json())
-            .then(value => setDialog({
-                ...dialog(value.value),
-                onSuccess: value => {
-                    fetch(path, {headers, method: "PATCH", body: JSON.stringify({value})})
-                        .then(() => showFeedback());
-                }
-            }));
-    }
 
-    const showFeedback = (customText, reload = true) => {
         setDialog({
-            title: "MySpeed", description: customText || <>Deine Änderungen wurden übernommen.</>, buttonText: "Okay",
-            onSuccess: () => reload ? reloadConfig() : "", onClose: () => reloadConfig()
-        });
+            ...dialog(config[value]),
+            onSuccess: value => {
+                fetch("/api/config/" + value, {headers, method: "PATCH", body: JSON.stringify({value})})
+                    .then(() => showFeedback());
+            }
+        })
     }
 
-    const updatePing = async () => {
-        patchDialog("/api/config/ping", (value) => ({
-            title: "Optimalen Ping setzen (ms)", placeholder: "Ping", value
-        }));
-    }
+    const updatePing = async () => patchDialog("ping", (value) => ({
+        title: "Optimalen Ping setzen (ms)", placeholder: "Ping", value
+    }));
 
+    const updateDownload = async () => patchDialog("download", (value) => ({
+        title: "Optimalen Down-Speed setzen (Mbit/s)", placeholder: "Down-Speed", value
+    }));
 
-    const updateDownload = async () => {
-        patchDialog("/api/config/download", (value) => ({
-            title: "Optimalen Down-Speed setzen (Mbit/s)", placeholder: "Down-Speed", value
-        }));
-    }
+    const updateUpload = async () => patchDialog("upload", (value) => ({
+        title: "Optimalen Up-Speed setzen (Mbit/s)", placeholder: "Up-Speed", value
+    }));
 
-    const updateUpload = async () => {
-        patchDialog("/api/config/upload", (value) => ({
-            title: "Optimalen Up-Speed setzen (Mbit/s)", placeholder: "Up-Speed", value
-        }));
-    }
 
     const updatePassword = async () => {
         toggleDropdown();
@@ -129,11 +121,10 @@ function DropdownComponent() {
                 })));
     }
 
-    const updateServerManually = () => {
-        patchDialog("/api/config/serverId", (value) => ({
-            title: "Speedtest-Server setzen", placeholder: "Server-ID", type: "number", value: value,
-        }), false);
-    }
+    const updateServerManually = () => patchDialog("serverId", (value) => ({
+        title: "Speedtest-Server setzen", placeholder: "Server-ID", type: "number", value: value,
+    }), false);
+
 
     function togglePause() {
         toggleDropdown();
@@ -160,8 +151,13 @@ function DropdownComponent() {
 
     const showCredits = () => {
         toggleDropdown();
-        setDialog({title: "MySpeed", description: <><a href="https://github.com/gnmyt/myspeed" target="_blank" rel="noreferrer">MySpeed</a> wird von GNMYT bereitgestellt
-                und verwendet die <a href="https://www.speedtest.net/apps/cli" target="_blank" rel="noreferrer">Speedtest-CLI</a> von Ookla.</>, buttonText: "Schließen"});
+        setDialog({
+            title: "MySpeed",
+            description: <><a href="https://github.com/gnmyt/myspeed" target="_blank" rel="noreferrer">MySpeed</a> wird
+                von GNMYT bereitgestellt
+                und verwendet die <a href="https://www.speedtest.net/apps/cli" target="_blank" rel="noreferrer">Speedtest-CLI</a> von Ookla.</>,
+            buttonText: "Schließen"
+        });
     }
 
     const recommendedSettings = async () => {
@@ -222,23 +218,22 @@ function DropdownComponent() {
 
     const updateLevel = async () => {
         toggleDropdown();
-        fetch("/api/config/timeLevel", {headers: headers}).then(res => res.json())
-            .then(level => setDialog({
-                title: "Test-Häufigkeit einstellen",
-                select: true,
-                selectOptions: {
-                    1: "Durchgehend (jede Minute)",
-                    2: "Sehr häufig (alle 30 Minuten)",
-                    3: "Standard (jede Stunde)",
-                    4: "Selten (alle 3 Stunden)",
-                    5: "Sehr selten (alle 6 Stunden)"
-                },
-                value: level.value,
-                onSuccess: value => {
-                    fetch("/api/config/timeLevel", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
-                        .then(() => showFeedback(undefined, false));
-                }
-            }));
+        setDialog({
+            title: "Test-Häufigkeit einstellen",
+            select: true,
+            selectOptions: {
+                1: "Durchgehend (jede Minute)",
+                2: "Sehr häufig (alle 30 Minuten)",
+                3: "Standard (jede Stunde)",
+                4: "Selten (alle 3 Stunden)",
+                5: "Sehr selten (alle 6 Stunden)"
+            },
+            value: config.timeLevel,
+            onSuccess: value => {
+                fetch("/api/config/timeLevel", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
+                    .then(() => showFeedback(undefined, false));
+            }
+        });
     }
 
     return (
