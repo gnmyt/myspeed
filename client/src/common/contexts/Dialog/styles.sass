@@ -1,3 +1,5 @@
+@import "@/common/styles/colors"
+
 .dialog-area
   position: fixed
   top: 0
@@ -16,7 +18,7 @@
 .dialog
   width: 480px
   padding: 15px
-  background-color: #27282B
+  background-color: $dark-gray
   border-radius: 15px
   transition: all 0.2s
   animation: fadeIn 0.2s
@@ -47,25 +49,25 @@
 
 .dialog-text
   font-size: 16pt
-  color: #C9C9C9
+  color: $darker-white
   margin: 0
 
 .dialog-description
   font-size: 16pt
   margin: 10px 2px 2px
-  color: #cccccc
+  color: $darker-white
 
 .dialog-description a
-  color: #45C65A
+  color: $green
 
 .dialog-value
-  color: #45C65A
+  color: $green
 
 .dialog-icon
   cursor: pointer
 
 .dialog-icon:hover
-    color: #B83939
+    color: $red-hover
 
 .dialog-input
   font-size: 18pt
@@ -73,8 +75,8 @@
   font-weight: 700
   margin-top: 15px
   margin-bottom: 15px
-  background-color: #2F3136
-  color: #C9C9C9
+  background-color: $darker-gray
+  color: $darker-white
   border: none
   border-radius: 15px
   text-align: center
@@ -85,20 +87,20 @@
   border: none
   font-weight: 700
   border-radius: 5px
-  color: #27282B
-  background-color: #45C65A
+  color: $dark-gray
+  background-color: $green
   cursor: pointer
   margin-left: 5px
   margin-right: 5px
 
 .dialog-btn:hover
-  background-color: #3EA95A
+  background-color: $green-hover
 
 .dialog-secondary
-  background-color: #C64545
+  background-color: $red
 
 .dialog-secondary:hover
-    background-color: #B83939
+    background-color: $red-hover
 
 .lds-ellipsis
   display: inline-block
@@ -112,7 +114,7 @@
   width: 13px
   height: 13px
   border-radius: 50%
-  background: #fff
+  background: $white
   animation-timing-function: cubic-bezier(0, 1, 1, 0)
 
 .lds-ellipsis div:nth-child(1)
