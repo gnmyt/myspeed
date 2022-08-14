@@ -1,8 +1,8 @@
 import React, {useState, createContext, useContext} from "react";
-import "../style/Dialog.sass";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faClose} from "@fortawesome/free-solid-svg-icons";
-import {SpeedtestContext} from "./SpeedtestContext";
+import {SpeedtestContext} from "../Speedtests";
+import "./styles.sass";
 
 export const DialogContext = createContext();
 
