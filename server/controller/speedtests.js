@@ -39,6 +39,40 @@ module.exports.listByDays = async (days) => {
     return averages;
 }
 
+// Calculates the average speedtests and lists them
+module.exports.listAverage = async (days) => {
+    const averages = await this.listByDays(days);
+    let result = [];
+
+    if (Object.keys(averages).length !== 0)
+        result.push(averages[Object.keys(averages)[0]][0]);
+
+    for (let day in averages) {
+        let avgNumbers = {ping: 0, down: 0, up: 0, time: 0};
+        let currentDay = averages[day];
+
+        currentDay.forEach((current) => {
+            avgNumbers.ping += current.ping;
+            avgNumbers.down += current.download;
+            avgNumbers.up += current.upload;
+            avgNumbers.time += current.time;
+        });
+
+        const created = new Date(currentDay[0].created);
+        result.push({
+            ping: Math.round(avgNumbers["ping"] / currentDay.length),
+            download: parseFloat((avgNumbers["down"] / currentDay.length).toFixed(2)),
+            upload: parseFloat((avgNumbers["up"] / currentDay.length).toFixed(2)),
+            time: Math.round(avgNumbers["time"] / currentDay.length),
+            type: "average",
+            amount: currentDay.length,
+            created: created.getFullYear() + "-" + (created.getMonth() + 1) + "-" + created.getDate()
+        });
+    }
+
+    return result;
+}
+
 // Gets the latest speedtest from the database
 module.exports.latest = async () => {
     let speedtest = await tests.findOne({order: [["created", "DESC"]]});
