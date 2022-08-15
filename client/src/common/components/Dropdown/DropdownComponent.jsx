@@ -3,7 +3,7 @@ import "./styles.sass";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
     faArrowDown,
-    faArrowUp, faClock, faClose, faFileExport,
+    faArrowUp, faCalendarDays, faClock, faClose, faFileExport,
     faGear, faInfo,
     faKey,
     faPause,
@@ -14,6 +14,7 @@ import {
 import {ConfigContext} from "@/common/contexts/Config";
 import {StatusContext} from "@/common/contexts/Status";
 import {DialogContext} from "@/common/contexts/Dialog";
+import {SpeedtestContext} from "@/common/contexts/Speedtests";
 
 let icon;
 
@@ -33,6 +34,7 @@ function DropdownComponent() {
 
     const [config, reloadConfig] = useContext(ConfigContext);
     const [status, updateStatus] = useContext(StatusContext);
+    const updateTests = useContext(SpeedtestContext)[1];
     const [setDialog] = useContext(DialogContext);
 
     let headers = localStorage.getItem("password") ? {password: localStorage.getItem("password")} : {};
@@ -236,6 +238,26 @@ function DropdownComponent() {
         });
     }
 
+    const updateTime = async () => {
+        toggleDropdown();
+        setDialog({
+            title: "Zeige Tests der letzten ...",
+            select: true,
+            selectOptions: {
+                1: "24 Stunden (Standard)",
+                2: "2 Tage (Insgesamt)",
+                3: "7 Tage (Durchschnitt)",
+                4: "30 Tage (Durchschnitt)"
+            },
+            value: localStorage.getItem("testTime") || 1,
+            onSuccess: value => {
+                localStorage.setItem("testTime", value);
+                updateTests();
+                showFeedback(undefined, false);
+            }
+        });
+    }
+
     return (
         <div className="dropdown dropdown-invisible" id="dropdown">
             <div className="dropdown-content">
@@ -271,6 +293,10 @@ function DropdownComponent() {
                     <div className="dropdown-item" onClick={updateLevel}>
                         <FontAwesomeIcon icon={faClock}/>
                         <h3>Häufigkeit einstellen</h3>
+                    </div>
+                    <div className="dropdown-item" onClick={updateTime}>
+                        <FontAwesomeIcon icon={faCalendarDays} />
+                        <h3>Zeitraum festlegen</h3>
                     </div>
                     <div className="dropdown-item" onClick={exportDialog}>
                         <FontAwesomeIcon icon={faFileExport}/>

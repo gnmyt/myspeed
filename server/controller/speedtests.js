@@ -15,16 +15,63 @@ module.exports.get = async (id) => {
 }
 
 // Lists all speedtests from the database
-module.exports.list = async () => {
-    let dbEntries = await tests.findAll({order: [["created", "DESC"]]});
-    let all = [];
+module.exports.list = async (hours = 24) => {
+    let dbEntries = (await tests.findAll({order: [["created", "DESC"]]}))
+        .filter((entry) => new Date(entry.created) > new Date().getTime() - hours * 3600000);
 
+    for (let dbEntry of dbEntries)
+        if (dbEntry.error === null) delete dbEntry.error
+
+    return dbEntries;
+}
+
+// Lists all speedtests from the database grouped by days
+module.exports.listByDays = async (days) => {
+    let dbEntries = (await tests.findAll({order: [["created", "DESC"]]})).filter((entry) => entry.error === null)
+        .filter((entry) => new Date(entry.created) > new Date().getTime() - days * 24 * 3600000);
+
+    let averages = {};
     dbEntries.forEach((entry) => {
-        if (entry.error === null) delete entry.error
-        all.push(entry);
+        const day = new Date(entry.created).toLocaleDateString();
+        if (!averages[day]) averages[day] = [];
+        averages[day].push(entry);
     });
 
-    return all;
+    return averages;
+}
+
+// Calculates the average speedtests and lists them
+module.exports.listAverage = async (days) => {
+    const averages = await this.listByDays(days);
+    let result = [];
+
+    if (Object.keys(averages).length !== 0)
+        result.push(averages[Object.keys(averages)[0]][0]);
+
+    for (let day in averages) {
+        let avgNumbers = {ping: 0, down: 0, up: 0, time: 0};
+        let currentDay = averages[day];
+
+        currentDay.forEach((current) => {
+            avgNumbers.ping += current.ping;
+            avgNumbers.down += current.download;
+            avgNumbers.up += current.upload;
+            avgNumbers.time += current.time;
+        });
+
+        const created = new Date(currentDay[0].created);
+        result.push({
+            ping: Math.round(avgNumbers["ping"] / currentDay.length),
+            download: parseFloat((avgNumbers["down"] / currentDay.length).toFixed(2)),
+            upload: parseFloat((avgNumbers["up"] / currentDay.length).toFixed(2)),
+            time: Math.round(avgNumbers["time"] / currentDay.length),
+            type: "average",
+            amount: currentDay.length,
+            created: created.getFullYear() + "-" + (created.getMonth() + 1) + "-" + created.getDate()
+        });
+    }
+
+    return result;
 }
 
 // Gets the latest speedtest from the database
@@ -41,12 +88,12 @@ module.exports.delete = async (id) => {
     return true;
 }
 
-// Removes speedtests older than 24 hours
+// Removes speedtests older than 30 days
 module.exports.removeOld = async () => {
     await tests.destroy({
         where: {
             created: {
-                [Op.lte]: Sequelize.literal(`datetime('now', '-1 day')`)
+                [Op.lte]: Sequelize.literal(`datetime('now', '-30 days')`)
             }
         }
     });

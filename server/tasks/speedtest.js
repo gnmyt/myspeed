@@ -50,7 +50,7 @@ module.exports.create = async (type = "auto", retried = false) => {
         let upload = roundSpeed(test.upload.bytes, test.upload.elapsed);
         let time = Math.round((test.download.elapsed + test.upload.elapsed) / 1000);
         let testResult = await tests.create(ping, download, upload, time, type);
-        console.log(`Test #${testResult} was executed successfully. 🏓 ${ping} ⬇ ${download}️ ⬆ ${upload}️`);
+        console.log(`Test #${testResult} was executed successfully in ${time}s. 🏓 ${ping} ⬇ ${download}️ ⬆ ${upload}️`);
         createRecommendations().then(() => "");
     } catch (e) {
         if (!retried) return this.create(type, true);

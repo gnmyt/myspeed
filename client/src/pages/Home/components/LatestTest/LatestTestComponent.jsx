@@ -21,7 +21,7 @@ function LatestTestComponent() {
 
     useEffect(() => {
         if (latest) setLatestTestTime(generateRelativeTime(latest.created));
-        const interval = setInterval(() => setLatestTestTime(generateRelativeTime(latest.created || 0)), 1000);
+        const interval = setInterval(() => setLatestTestTime(generateRelativeTime(latest ? latest.created : 0)), 1000);
         return () => clearInterval(interval);
     }, [latest]);
 
