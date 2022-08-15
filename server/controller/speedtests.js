@@ -25,6 +25,20 @@ module.exports.list = async (hours = 24) => {
     return dbEntries;
 }
 
+module.exports.listByDays = async (days) => {
+    let dbEntries = (await tests.findAll({order: [["created", "DESC"]]})).filter((entry) => entry.error === null)
+        .filter((entry) => new Date(entry.created) > new Date().getTime() - days * 24 * 3600000);
+
+    let averages = {};
+    dbEntries.forEach((entry) => {
+        const day = new Date(entry.created).toLocaleDateString();
+        if (!averages[day]) averages[day] = [];
+        averages[day].push(entry);
+    });
+
+    return averages;
+}
+
 // Gets the latest speedtest from the database
 module.exports.latest = async () => {
     let speedtest = await tests.findOne({order: [["created", "DESC"]]});
