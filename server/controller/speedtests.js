@@ -15,16 +15,14 @@ module.exports.get = async (id) => {
 }
 
 // Lists all speedtests from the database
-module.exports.list = async () => {
-    let dbEntries = await tests.findAll({order: [["created", "DESC"]]});
-    let all = [];
+module.exports.list = async (hours = 24) => {
+    let dbEntries = (await tests.findAll({order: [["created", "DESC"]]}))
+        .filter((entry) => new Date(entry.created) > new Date().getTime() - hours * 3600000);
 
-    dbEntries.forEach((entry) => {
-        if (entry.error === null) delete entry.error
-        all.push(entry);
-    });
+    for (let dbEntry of dbEntries)
+        if (dbEntry.error === null) delete dbEntry.error
 
-    return all;
+    return dbEntries;
 }
 
 // Gets the latest speedtest from the database
