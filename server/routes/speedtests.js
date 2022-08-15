@@ -4,7 +4,7 @@ const pauseController = require('../controller/pause');
 
 // List all speedtests
 app.get("/", async (req, res) => {
-    res.json(await tests.list());
+    res.json(await tests.list(req.query.hours || 24));
 });
 
 // Runs a speedtest
