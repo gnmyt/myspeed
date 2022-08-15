@@ -25,6 +25,7 @@ module.exports.list = async (hours = 24) => {
     return dbEntries;
 }
 
+// Lists all speedtests from the database grouped by days
 module.exports.listByDays = async (days) => {
     let dbEntries = (await tests.findAll({order: [["created", "DESC"]]})).filter((entry) => entry.error === null)
         .filter((entry) => new Date(entry.created) > new Date().getTime() - days * 24 * 3600000);
