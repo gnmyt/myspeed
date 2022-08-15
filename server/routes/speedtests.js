@@ -7,6 +7,11 @@ app.get("/", async (req, res) => {
     res.json(await tests.list(req.query.hours || 24));
 });
 
+// List all speedtests by average
+app.get("/averages", async (req, res) => {
+    res.json(await tests.listAverage(req.query.days || 7));
+});
+
 // Runs a speedtest
 app.post("/run", async (req, res) => {
     if (pauseController.currentState) return res.status(410).json({message: "The speedtests are currently paused"});
