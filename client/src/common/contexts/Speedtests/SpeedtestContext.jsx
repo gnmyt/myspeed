@@ -21,7 +21,7 @@ export const SpeedtestProvider = (props) => {
 
     const updateTests = () => {
         let passwordHeaders = localStorage.getItem("password") ? {password: localStorage.getItem("password")} : {}
-        let testTime = localStorage.getItem("testTime");
+        let testTime = localStorage.getItem("testTime") || 1;
 
         fetch("/api/speedtests" + generatePath(parseInt(testTime)), {headers: passwordHeaders})
             .then(res => res.json())
