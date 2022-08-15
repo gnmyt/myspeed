@@ -42,6 +42,7 @@ const Dialog = ({dialog, setDialog}) => {
     }
 
     function submit() {
+        if (!dialog.description && !value) return;
         setDialog();
         hideTooltips(false);
         if (dialog.onSuccess) dialog.onSuccess(value);
