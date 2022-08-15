@@ -18,7 +18,10 @@ Hier wird die Einrichtung für Linux beschrieben. MySpeed lässt sich über vers
     ```
 
 ## Automatischer Deinstallationsprozess
-Keine Lust mehr? Du kannst MySpeed ganz einfach wieder entfernen. Entscheide hier, ob du deine Daten behalten oder löschen möchtest:
+Keine Lust mehr? Du kannst MySpeed ganz einfach wieder entfernen. Entscheide hier, ob du deine Daten behalten oder löschen möchtest.
+
+!!! warn "Führe diese Befehle mit bedacht aus"
+    Das Ausführen der Befehle führt zur Löschung / Deinstallation von MySpeed. Sei dir bitte dessen bewusst.
 
 === "Daten behalten"
     ```sh
