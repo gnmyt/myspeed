@@ -66,11 +66,11 @@ function SpeedtestComponent(props) {
             setDialog({
                 title: "Durchschnittsgeschwindigkeit",
                 buttonText: "Okay",
-                description: <>Anhand von <span className="dialog-value">{props.amount}</span> Tests wurde festgestellt, dass am <span
-                        className="dialog-value">{timeString}</span> durchschnittlich eine Downloadgeschwindigkeit von <span
-                        className="dialog-value">{props.down} Mbit/s</span> und eine Uploadgeschwindigkeit von <span
-                        className="dialog-value">{props.up} Mbit/s</span> bestand. Die Tests haben im Durchschnitt <span
-                        className="dialog-value">{props.duration} Sekunden</span> gedauert.</>
+                description: <><span className="dialog-value">{props.amount}</span> Tests haben ergeben, dass am <span
+                        className="dialog-value">{timeString}</span> eine durchschnittliche Downloadgeschwindigkeit von <span
+                        className="dialog-value">{props.down} Mbit/s</span> und eine Upload-geschwindigkeit von <span
+                        className="dialog-value">{props.up} Mbit/s</span> bestand. Die Tests dauerten im Durchschnitt <span
+                        className="dialog-value">{props.duration} Sekunden</span>.</>
             });
         } else {
             setDialog({
