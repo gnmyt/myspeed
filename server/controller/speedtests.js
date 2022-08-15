@@ -41,12 +41,12 @@ module.exports.delete = async (id) => {
     return true;
 }
 
-// Removes speedtests older than 24 hours
+// Removes speedtests older than 30 days
 module.exports.removeOld = async () => {
     await tests.destroy({
         where: {
             created: {
-                [Op.lte]: Sequelize.literal(`datetime('now', '-1 day')`)
+                [Op.lte]: Sequelize.literal(`datetime('now', '-30 days')`)
             }
         }
     });
