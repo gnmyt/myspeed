@@ -3,7 +3,7 @@ import "./styles.sass";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
     faArrowDown,
-    faArrowUp, faClock, faClose, faFileExport,
+    faArrowUp, faCalendarDays, faClock, faClose, faFileExport,
     faGear, faInfo,
     faKey,
     faPause,
@@ -271,6 +271,10 @@ function DropdownComponent() {
                     <div className="dropdown-item" onClick={updateLevel}>
                         <FontAwesomeIcon icon={faClock}/>
                         <h3>Häufigkeit einstellen</h3>
+                    </div>
+                    <div className="dropdown-item">
+                        <FontAwesomeIcon icon={faCalendarDays} />
+                        <h3>Zeitraum festlegen</h3>
                     </div>
                     <div className="dropdown-item" onClick={exportDialog}>
                         <FontAwesomeIcon icon={faFileExport}/>
