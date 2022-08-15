@@ -8,7 +8,7 @@ function TestArea() {
     const config = useContext(ConfigContext)[0];
     const [speedtests] = useContext(SpeedtestContext);
 
-    if (Object.entries(config).length === 0) return (<></>)
+    if (Object.entries(config).length === 0) return (<></>);
 
     return (
         <div className="speedtest-area">
