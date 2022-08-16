@@ -15,7 +15,7 @@
     "react-dom": "^18.2.0",
     "sass": "^1.54.4",
     "@vitejs/plugin-react": "^2.0.1",
-    "vite": "^3.0.7"
+    "vite": "^3.0.8"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",
