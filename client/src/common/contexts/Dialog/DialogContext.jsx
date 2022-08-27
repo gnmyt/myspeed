@@ -1,13 +1,11 @@
-import React, {useState, createContext, useContext} from "react";
+import React, {useState, createContext} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faClose} from "@fortawesome/free-solid-svg-icons";
-import {SpeedtestContext} from "../Speedtests";
 import "./styles.sass";
 
 export const DialogContext = createContext();
 
 const Dialog = ({dialog, setDialog}) => {
-    const updateTests = useContext(SpeedtestContext)[1];
     const [value, setValue] = useState(dialog.value || "");
 
     document.onkeyup = e => {
@@ -55,39 +53,15 @@ const Dialog = ({dialog, setDialog}) => {
 
     hideTooltips(true);
 
-    if (dialog.speedtest) {
-        dialog.promise.then(res => {
-            if (res.status === 409) {
-                setDialog({
-                    title: "Fehlgeschlagen",
-                    description: "Es läuft bereits ein Speedtest. Bitte gedulde dich ein wenig, bis dieser fertig ist.",
-                    buttonText: "Okay"
-                });
-            } else if (res.status === 410) {
-                setDialog({
-                    title: "Fehlgeschlagen",
-                    description: "Speedtests sind aktuell pausiert. Bitte setze sie fort, wenn du einen machen möchtest.",
-                    buttonText: "Okay"
-                });
-            } else {
-                updateTests();
-                setDialog();
-            }
-        });
-
-        return (
-            <div className="dialog-area">
-                <div className="dialog dialog-speedtest">
-                    <div className="lds-ellipsis">
-                        <div/>
-                        <div/>
-                        <div/>
-                        <div/>
-                    </div>
+    if (dialog.speedtest) return (
+        <div className="dialog-area">
+            <div className="dialog dialog-speedtest">
+                <div className="lds-ellipsis">
+                    <div/><div/><div/><div/>
                 </div>
             </div>
-        )
-    }
+        </div>
+    )
 
     return (
         <div className="dialog-area">
