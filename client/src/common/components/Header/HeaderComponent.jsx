@@ -4,12 +4,16 @@ import {faCircleExclamation, faGaugeHigh, faGear} from "@fortawesome/free-solid-
 import {useContext, useEffect, useState} from "react";
 import DropdownComponent, {toggleDropdown} from "../Dropdown/DropdownComponent";
 import {DialogContext} from "@/common/contexts/Dialog";
+import {StatusContext} from "@/common/contexts/Status";
+import {SpeedtestContext} from "@/common/contexts/Speedtests";
 
 
 function HeaderComponent() {
 
     const [setDialog] = useContext(DialogContext);
     const [icon, setIcon] = useState(faGear);
+    const [status, updateStatus] = useContext(StatusContext);
+    const updateTests = useContext(SpeedtestContext)[1];
     const [updateAvailable, setUpdateAvailable] = useState("");
 
     const headers = localStorage.getItem("password") ? {password: localStorage.getItem("password")} : {}
@@ -20,7 +24,26 @@ function HeaderComponent() {
     }
 
     const startSpeedtest = async () => {
-        setDialog({speedtest: true, promise: fetch("/api/speedtests/run", {headers, method: "POST"})});
+        await updateStatus();
+        if (status.paused) return setDialog({
+            title: "Fehlgeschlagen",
+            description: "Speedtests sind aktuell pausiert. Bitte setze sie fort, wenn du einen machen möchtest.",
+            buttonText: "Okay"
+        });
+
+        if (status.running) return setDialog({
+            title: "Fehlgeschlagen",
+            description: "Es läuft bereits ein Speedtest. Bitte gedulde dich ein wenig, bis dieser fertig ist.",
+            buttonText: "Okay"
+        });
+
+        setDialog({speedtest: true});
+
+        fetch("/api/speedtests/run", {headers, method: "POST"}).then(() => {
+            updateTests();
+            updateStatus();
+            setDialog();
+        });
     }
 
     useEffect(() => {
@@ -56,7 +79,9 @@ function HeaderComponent() {
                                               })}/></div>
                         : <></>}
                     <div className="tooltip-element tooltip-bottom">
-                        <FontAwesomeIcon icon={faGaugeHigh} className="header-icon" onClick={startSpeedtest}/>
+                        <FontAwesomeIcon icon={faGaugeHigh}
+                                         className={"header-icon " + (status.running || status.paused ? "icon-red" : "")}
+                                         onClick={startSpeedtest}/>
                         <span className="tooltip">Speedtest starten</span>
                     </div>
 

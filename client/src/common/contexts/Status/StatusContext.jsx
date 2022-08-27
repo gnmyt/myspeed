@@ -4,7 +4,7 @@ export const StatusContext = createContext();
 
 export const StatusProvider = (props) => {
 
-    const [status, setStatus] = useState({paused: false});
+    const [status, setStatus] = useState({paused: false, running: false});
 
     const updateStatus = () => {
         let headers = localStorage.getItem("password") ? {password: localStorage.getItem("password")} : {}
@@ -15,7 +15,7 @@ export const StatusProvider = (props) => {
 
     useEffect(() => {
         updateStatus();
-        const interval = setInterval(() => updateStatus(), 15000);
+        const interval = setInterval(() => updateStatus(), 5000);
         return () => clearInterval(interval);
     }, []);
 

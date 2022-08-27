@@ -60,6 +60,8 @@ module.exports.create = async (type = "auto", retried = false) => {
     isRunning = false;
 }
 
+module.exports.isRunning = () => isRunning;
+
 module.exports.removeOld = async () => {
     await tests.removeOld();
 }
