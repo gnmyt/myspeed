@@ -55,5 +55,5 @@ clear
 echo -e "$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-" #multicolor
 echo -e "$GREEN✓ Fertig: $NORMAL MySpeed wurde deinstalliert."
 echo -e "$NORMAL Du kannst jederzeit MySpeed wieder installieren. Die ANleitung dazu findest du auf sierra-dev.de/myspeed."
-echo -e "$RED Danke, das du MySpeed genutzt hast!"
+echo -e "$RED Danke, dass du MySpeed genutzt hast!"
 echo -e "$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-" #multicolor
