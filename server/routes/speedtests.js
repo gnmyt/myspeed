@@ -1,6 +1,7 @@
 const app = require('express').Router();
 const tests = require('../controller/speedtests');
 const pauseController = require('../controller/pause');
+const testTask = require("../tasks/speedtest");
 
 // List all speedtests
 app.get("/", async (req, res) => {
@@ -15,14 +16,14 @@ app.get("/averages", async (req, res) => {
 // Runs a speedtest
 app.post("/run", async (req, res) => {
     if (pauseController.currentState) return res.status(410).json({message: "The speedtests are currently paused"});
-    let speedtest = await require("../tasks/speedtest").create("custom");
+    let speedtest = await testTask.create("custom");
     if (speedtest !== undefined) return res.status(409).json({message: "An speedtest is already running"});
     res.json({message: "Speedtest successfully created"});
 });
 
-// Get the current pause status
+// Get the current test status
 app.get("/status", (req, res) => {
-    res.json({paused: pauseController.currentState});
+    res.json({paused: pauseController.currentState, running: testTask.isRunning()});
 });
 
 // Pauses all speedtests
