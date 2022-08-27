@@ -17,7 +17,7 @@ fi
 
 echo -e "$GREEN ---------$BLUE Automatische Deinstallation$GREEN ---------"
 echo -e "$BLUE MySpeed$YELLOW wird nun deinstalliert."
-echo -e "$YELLOW Wenn du das$RED nicht$YELLOW möchtest, kannst du die"
+echo -e "$YELLOW Wenn du$RED abbrechen$YELLOW möchtest, kannst du die"
 echo -e "$YELLOW Deinstallation mit$RED STRG + C$YELLOW abbrechen. "
 echo -e "$GREEN Die Deinstallation beginnt in 5 Sekunden..."
 echo -e "$GREEN ----------------------------------------------"
@@ -54,4 +54,6 @@ fi
 clear
 echo -e "$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-" #multicolor
 echo -e "$GREEN✓ Fertig: $NORMAL MySpeed wurde deinstalliert."
+echo -e "$NORMAL Du kannst MySpeed jederzeit wieder installieren. Die Anleitung dazu findest du auf myspeed.gnmyt.dev/setup/linux."
+echo -e "$RED Danke, dass du MySpeed genutzt hast!"
 echo -e "$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-$GREEN-$NORMAL-" #multicolor
