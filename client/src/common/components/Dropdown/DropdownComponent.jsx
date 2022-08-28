@@ -258,6 +258,14 @@ function DropdownComponent() {
         });
     }
 
+    const showIntegrationInfo = () => setDialog({
+        title: "HealthChecks Integration",
+        description: <>MySpeed verwendet <a href="https://healthchecks.io/" target="_blank">Healthchecks</a>, um
+            dich zu benachrichtigen, wenn dein Internet ausfällt. Um dies zu aktivieren, setze deine Ping URL in das
+            Textfeld ein. Mehr dazu <a href="https://myspeed.gnmyt.dev/instructions/settings/" target="_blank">hier</a></>,
+        buttonText: "Okay"
+    });
+
     return (
         <div className="dropdown dropdown-invisible" id="dropdown">
             <div className="dropdown-content">
