@@ -6,7 +6,8 @@ const configDefaults = {
     "upload": "50",
     "timeLevel": "3",
     "serverId": "none",
-    "password": "none"
+    "password": "none",
+    "healthChecksUrl": "https://hc-ping.com/<uuid>"
 }
 
 module.exports.insertDefaults = async () => {
