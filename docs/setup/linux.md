@@ -49,6 +49,7 @@ Keine Lust mehr? Du kannst MySpeed ganz einfach wieder entfernen. Entscheide hie
 ```sh
 sudo apt-get install wget curl unzip -y #(1)
 
+# Dies brauchst du nur ausführen, wenn du NodeJS noch nicht installiert hast
 curl -sSL https://deb.nodesource.com/setup_16.x | bash
 sudo apt-get install nodejs -y #(2)
 
@@ -64,11 +65,11 @@ NODE_ENV=production node server #(7)
 ```
 
 1. Hier installierst du alle notwendigen Pakete, um das Projekt zu installieren.
-2. Für den Fall, dass du NodeJS noch nicht installiert hast, kannst du das jetzt tun.
+2. Dieser Schritt installiert die neuste Version von NodeJS.
 3. Erstelle nun den Ordner, in welchen du MySpeed installieren möchtest. In diesem Fall ist das der Ordner `/opt/myspeed`.
 4. Jetzt installierst du dir die neuste Version von MySpeed.
 5. Nun entpackst du die gerade heruntergeladene Datei (dann kannst du sie löschen)
-6. Installiere nun alle Abhängigkeiten
+6. Installiere nun alle Abhängigkeiten.
 7. Jetzt wird MySpeed gestartet. MySpeed ist nun unter dem Port 5216 erreichbar. 
    Wenn du planst, MySpeed im Hintergrund laufen zu lassen, dann schau dir den Guide dafür unten an.
 
