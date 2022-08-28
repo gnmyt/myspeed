@@ -3,7 +3,7 @@ import "./styles.sass";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
     faArrowDown,
-    faArrowUp, faCalendarDays, faClock, faClose, faFileExport,
+    faArrowUp, faCalendarDays, faCircleNodes, faClock, faClose, faFileExport,
     faGear, faInfo,
     faKey,
     faPause,
@@ -54,13 +54,13 @@ function DropdownComponent() {
         onSuccess: () => reload ? reloadConfig() : "", onClose: () => reloadConfig()
     });
 
-    const patchDialog = (value, dialog, toggle = true) => {
+    const patchDialog = (key, dialog, toggle = true) => {
         if (toggle) toggleDropdown();
 
         setDialog({
-            ...dialog(config[value]),
+            ...dialog(config[key]),
             onSuccess: value => {
-                fetch("/api/config/" + value, {headers, method: "PATCH", body: JSON.stringify({value})})
+                fetch("/api/config/" + key, {headers, method: "PATCH", body: JSON.stringify({value})})
                     .then(() => showFeedback());
             }
         })
@@ -85,7 +85,7 @@ function DropdownComponent() {
             title: "Neues Passwort festlegen",
             placeholder: "Neues Passwort",
             type: "password",
-            unsetButton: true,
+            unsetButton: localStorage.getItem("password") != null,
             unsetButtonText: "Sperre aufheben",
             onClear: () => {
                 fetch("/api/config/password", {headers: headers, method: "PATCH", body: JSON.stringify({value: "none"})})
@@ -258,6 +258,25 @@ function DropdownComponent() {
         });
     }
 
+    const showIntegrationInfo = () => setDialog({
+        title: "HealthChecks Integration",
+        description: <>MySpeed verwendet <a href="https://healthchecks.io/" target="_blank">Healthchecks</a>, um
+            dich zu benachrichtigen, wenn dein Internet ausfällt. Um dies zu aktivieren, setze deine Ping URL in das
+            Textfeld ein. Mehr dazu <a href="https://myspeed.gnmyt.dev/instructions/settings/" target="_blank">hier</a></>,
+        buttonText: "Okay"
+    });
+
+    const updateIntegration = async () => patchDialog("healthChecksUrl", (value) => ({
+        title: <>HealthChecks Integration <a onClick={showIntegrationInfo}>?</a></>,
+        placeholder: "HealthChecks Server URL", value,
+        buttonText: "Aktualisieren",
+        unsetButton: !value.includes("<uuid>"),
+        unsetButtonText: "Deaktivieren",
+        onClear: () => fetch("/api/config/healthChecksUrl", {headers: headers, method: "PATCH",
+            body: JSON.stringify({value: "https://hc-ping.com/<uuid>"})
+        }).then(() => showFeedback(<>Die Healthchecks wurden deaktiviert</>))
+    }));
+
     return (
         <div className="dropdown dropdown-invisible" id="dropdown">
             <div className="dropdown-content">
@@ -305,6 +324,10 @@ function DropdownComponent() {
                     <div className="dropdown-item" onClick={togglePause}>
                         <FontAwesomeIcon icon={status.paused ? faPlay : faPause}/>
                         <h3>{status.paused ? "Speedtests fortsetzen" : "Speedtests pausieren"}</h3>
+                    </div>
+                    <div className="dropdown-item" onClick={updateIntegration}>
+                        <FontAwesomeIcon icon={faCircleNodes} />
+                        <h3>Healthchecks</h3>
                     </div>
                     <div className="dropdown-item" onClick={showCredits}>
                         <FontAwesomeIcon icon={faInfo}/>
