@@ -106,11 +106,14 @@ NODE_ENV=production node server #(7)
 
 
 ## MySpeed 24/7 installieren
+!!! warning "Wichtig"
+    Du hast das Installationsskript verwendet? Dann brauchst du diesen Schritt gar nicht mehr ausführen.
+
 Die Installation als Systemdienst ist gar nicht mal so schwer. In diesem Fall nutzen wir `systemd`, weil es direkt in den meisten Linux-Distributionen integriert ist.
 
 1. Erstelle eine Datei mit dem Namen `myspeed.service` unter `/etc/systemd/system`. Hier verwenden wir `nano`
    ```sh
-    nano /etc/systemd/system/myspeed.service
+   nano /etc/systemd/system/myspeed.service
    ```
 
 2. Füge nun den Inhalt der Datei ein.
