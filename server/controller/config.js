@@ -34,3 +34,8 @@ module.exports.update = async (key, newValue) => {
     if ((await this.get(key)) === undefined) return undefined;
     return await config.update({value: newValue}, {where: {key: key}});
 }
+
+// Resets a specific config entry to the default value
+module.exports.resetDefault = async (key) => {
+    await this.update(key, configDefaults[key]);
+}
