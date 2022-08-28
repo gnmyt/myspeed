@@ -2,11 +2,24 @@ const speedTest = require('../util/speedtest');
 const tests = require('../controller/speedtests');
 const config = require('../controller/config');
 const recommendations = require("../controller/recommendations");
+let {setState, sendRunning, sendPing, sendError} = require("./healthchecks");
 
 let isRunning = false;
 
 function roundSpeed(bytes, elapsed) {
     return Math.round((bytes * 8 / elapsed) / 10) / 100;
+}
+
+function setRunning(running, sendRequest = true) {
+    isRunning = running;
+
+    if (running) {
+        setState("running");
+        if (sendRequest) sendRunning();
+    } else {
+        setState("ping");
+        if (sendRequest) sendPing();
+    }
 }
 
 async function createRecommendations() {
@@ -24,7 +37,7 @@ async function createRecommendations() {
 }
 
 module.exports.run = async (retryAuto = false) => {
-    isRunning = true;
+    setRunning(true);
     let serverId = (await config.get("serverId")).value;
 
     if (serverId === "none")
@@ -52,12 +65,14 @@ module.exports.create = async (type = "auto", retried = false) => {
         let testResult = await tests.create(ping, download, upload, time, type);
         console.log(`Test #${testResult} was executed successfully in ${time}s. 🏓 ${ping} ⬇ ${download}️ ⬆ ${upload}️`);
         createRecommendations().then(() => "");
+        setRunning(false);
     } catch (e) {
         if (!retried) return this.create(type, true);
         let testResult = await tests.create(-1, -1, -1, null, type, e.message);
+        await sendError(e.message);
+        setRunning(false, false);
         console.log(`Test #${testResult} was not executed successfully. Please try reconnecting to the internet or restarting the software: ` + e.message);
     }
-    isRunning = false;
 }
 
 module.exports.isRunning = () => isRunning;
