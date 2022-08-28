@@ -46,6 +46,12 @@ Hierbei handelt es sich um Einstellungen, die sich auf dein optimales Internet b
     Musst du gerade ein wichtiges Dokument hochladen und MySpeed beeinträchtigt deine Internetgeschwindigkeit sehr? Dann
     kannst du sie hier für eine bestimmte Zeit pausieren. Dies kann gerade bei langsamen Verbindungen relevant sein.
 
+=== ":material-webhook: Healthchecks"
+    MySpeed verwendet [Healthchecks.io](https://healthchecks.io/), um dich zu benachrichtigen, wenn dein Internet ausfällt. 
+    Dabei kannst du entweder den offiziellen Healthchecks Server nutzen oder dir 
+    [selbst deinen eigenen hosten](https://healthchecks.io/docs/self_hosted/). Healthchecks erlaubt es dir, Benachrichtigungen über alle 
+    möglichen Dienste zu erhalten, sollte MySpeed ausfallen oder die Speedtests einen Fehler aufweisen.
+
 ## Interface-Einstellungen
 
 === ":material-key: Passwort ändern"
