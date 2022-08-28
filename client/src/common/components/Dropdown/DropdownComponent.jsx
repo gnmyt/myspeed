@@ -54,13 +54,13 @@ function DropdownComponent() {
         onSuccess: () => reload ? reloadConfig() : "", onClose: () => reloadConfig()
     });
 
-    const patchDialog = (value, dialog, toggle = true) => {
+    const patchDialog = (key, dialog, toggle = true) => {
         if (toggle) toggleDropdown();
 
         setDialog({
-            ...dialog(config[value]),
+            ...dialog(config[key]),
             onSuccess: value => {
-                fetch("/api/config/" + value, {headers, method: "PATCH", body: JSON.stringify({value})})
+                fetch("/api/config/" + key, {headers, method: "PATCH", body: JSON.stringify({value})})
                     .then(() => showFeedback());
             }
         })
