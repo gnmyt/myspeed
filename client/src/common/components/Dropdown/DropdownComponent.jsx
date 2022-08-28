@@ -85,7 +85,7 @@ function DropdownComponent() {
             title: "Neues Passwort festlegen",
             placeholder: "Neues Passwort",
             type: "password",
-            unsetButton: true,
+            unsetButton: localStorage.getItem("password") != null,
             unsetButtonText: "Sperre aufheben",
             onClear: () => {
                 fetch("/api/config/password", {headers: headers, method: "PATCH", body: JSON.stringify({value: "none"})})
