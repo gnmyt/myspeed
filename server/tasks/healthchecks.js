@@ -30,3 +30,18 @@ module.exports.sendPing = async (path, message) => {
         console.error("Could not send ping: " + e.message);
     }
 }
+
+// Sends a ping only if the ping state is active
+module.exports.sendCurrent = async () => {
+    if (currentState === "ping") await this.sendPing();
+}
+
+// Sends an error to the healthcheck server
+module.exports.sendError = async (error = "Unknown error") => {
+    await this.sendPing("fail", error);
+}
+
+// Sends a 'running' ping to the healthcheck server
+module.exports.sendRunning = async () => {
+    await this.sendPing("start");
+}
