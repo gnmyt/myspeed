@@ -52,6 +52,11 @@ Hierbei handelt es sich um Einstellungen, die sich auf dein optimales Internet b
     Ist deine MySpeed-Instanz öffentlich und du möchtest nicht, dass andere oder nur autorisierte Personen deine Internetgeschwindigkeit
     einsehen können? Dann kannst du hier MySpeed mit einem Passwort schützen, welches beim Besuch der Seite eingegeben werden muss.
 
+=== ":material-calendar-month: Zeitraum festlegen"
+    Hier kannst du festlegen, wie viele Tests dir im angegebenen Zeitraum angezeigt werden. Dabei kannst du auswählen zwischen den
+    letzten 24 und 48 Stunden sowie den letzten 7 oder 30 Tagen. Wählst du eines der beiden letzten aus, so werden dir Durchschnitte
+    angezeigt, um das Interface übersichtlich zu gestalten.
+
 === ":material-file-export: Tests exportieren"
     Möchtest du mal sicher gehen und deine Tests auf deinen Computer laden? Dann kannst du hier deine Tests exportieren.
 
