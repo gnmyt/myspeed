@@ -266,6 +266,17 @@ function DropdownComponent() {
         buttonText: "Okay"
     });
 
+    const updateIntegration = async () => patchDialog("healthChecksUrl", (value) => ({
+        title: <>HealthChecks Integration <a onClick={showIntegrationInfo}>?</a></>,
+        placeholder: "HealthChecks Server URL", value,
+        buttonText: "Aktualisieren",
+        unsetButton: !value.includes("<uuid>"),
+        unsetButtonText: "Deaktivieren",
+        onClear: () => fetch("/api/config/healthChecksUrl", {headers: headers, method: "PATCH",
+            body: JSON.stringify({value: "https://hc-ping.com/<uuid>"})
+        }).then(() => showFeedback(<>Die Healthchecks wurden deaktiviert</>))
+    }));
+
     return (
         <div className="dropdown dropdown-invisible" id="dropdown">
             <div className="dropdown-content">
