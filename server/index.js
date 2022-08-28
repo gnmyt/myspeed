@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const timerTask = require('./tasks/timer');
+const healthCheckTask = require('./tasks/healthchecks');
 
 const app = express();
 const port = process.env.port || 5216;
@@ -48,6 +49,9 @@ const run = async () => {
     // Start all timer
     timerTask.startTimer((await config.get("timeLevel")).value);
     setInterval(async () => require('./tasks/speedtest').removeOld(), 60000);
+
+    // Start Healthchecks
+    healthCheckTask.startTimer();
 
     // Make a speedtest
     timerTask.runTask();
