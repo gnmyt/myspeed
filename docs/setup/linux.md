@@ -2,8 +2,18 @@
 Hier wird die Einrichtung für Linux beschrieben. MySpeed lässt sich über verschiedene Wege installieren.
 
 ## Installation mit Docker
-!!! tip "Bald verfügbar"
-    Ein Docker-Image wird in Zukunft folgen. Bitte gedulde dich noch ein wenig!
+!!! help "Hilfe"
+    Du weißt nicht wie man Docker installiert? Dann schau dir mal [diese Anleitung](https://docs.docker.com/engine/install/#server) an
+
+=== "Stabile Version"
+    ```sh
+    docker run -d -p 5216:5216 -v myspeed:/myspeed/data --restart=unless-stopped --name MySpeed germannewsmaker/myspeed
+    ```
+
+=== "Entwicklungsversion"
+    ```sh
+    docker run -d -p 5216:5216 -v myspeed:/myspeed/data --restart=unless-stopped --name MySpeed germannewsmaker/myspeed:development
+    ```
 
 ## Automatische Installation
 
