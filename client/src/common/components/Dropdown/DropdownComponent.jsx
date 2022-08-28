@@ -3,7 +3,7 @@ import "./styles.sass";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
     faArrowDown,
-    faArrowUp, faCalendarDays, faClock, faClose, faFileExport,
+    faArrowUp, faCalendarDays, faCircleNodes, faClock, faClose, faFileExport,
     faGear, faInfo,
     faKey,
     faPause,
@@ -324,6 +324,10 @@ function DropdownComponent() {
                     <div className="dropdown-item" onClick={togglePause}>
                         <FontAwesomeIcon icon={status.paused ? faPlay : faPause}/>
                         <h3>{status.paused ? "Speedtests fortsetzen" : "Speedtests pausieren"}</h3>
+                    </div>
+                    <div className="dropdown-item" onClick={updateIntegration}>
+                        <FontAwesomeIcon icon={faCircleNodes} />
+                        <h3>Healthchecks</h3>
                     </div>
                     <div className="dropdown-item" onClick={showCredits}>
                         <FontAwesomeIcon icon={faInfo}/>
