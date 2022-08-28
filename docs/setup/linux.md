@@ -21,7 +21,7 @@ Hier wird die Einrichtung für Linux beschrieben. MySpeed lässt sich über vers
 
 === "Stabile Version"
     ```sh
-    curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/install.sh | bash
+    curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/install.sh | bash -s --
     ```
 
 === "Entwicklungsversion"
