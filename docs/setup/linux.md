@@ -74,8 +74,36 @@ NODE_ENV=production node server #(7)
    Wenn du planst, MySpeed im Hintergrund laufen zu lassen, dann schau dir den Guide dafür unten an.
 
 ## MySpeed vom Source-Code installieren
-!!! tip "Bald verfügbar"
-    Diese Anleitung wird bald verfügbar sein.
+!!! warning "Achtung"
+    Dieser Prozess installiert die neuste Entwicklungsversion von MySpeed. Fehler können auftreten.
+
+```sh
+sudo apt-get install git curl -y #(1)
+
+# Dies brauchst du nur ausführen, wenn du NodeJS noch nicht installiert hast
+curl -sSL https://deb.nodesource.com/setup_16.x | bash
+sudo apt-get install nodejs -y #(2)
+
+mkdir /opt/myspeed && cd /opt/myspeed #(3)
+
+git clone https://github.com/gnmyt/myspeed.git . #(4)
+
+npm install #(5)
+
+cd client && npm install && npm run build && cd .. && mv client/build . #(6)
+
+NODE_ENV=production node server #(7)
+```
+
+1. Hier installierst du alle notwendigen Pakete, um das Projekt zu installieren.
+2. Dieser Schritt installiert die neuste Version von NodeJS.
+3. Erstelle nun den Ordner, in welchen du MySpeed installieren möchtest. In diesem Fall ist das der Ordner `/opt/myspeed`.
+4. Klone nun das MySpeed Repository, um Zugriff auf den Code zu erhalten.
+5. Installiere nun alle Abhängigkeiten des Servers.
+6. Jetzt kompilierst du die Oberfläche von MySpeed und verschiebst sie in den Ordner wo MySpeed sie lesen kann.
+7. Jetzt wird MySpeed gestartet. MySpeed ist nun unter dem Port 5216 erreichbar.
+   Wenn du planst, MySpeed im Hintergrund laufen zu lassen, dann schau dir den Guide dafür unten an.
+
 
 ## MySpeed 24/7 installieren
 Die Installation als Systemdienst ist gar nicht mal so schwer. In diesem Fall nutzen wir `systemd`, weil es direkt in den meisten Linux-Distributionen integriert ist.
