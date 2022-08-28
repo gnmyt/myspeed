@@ -1,7 +1,9 @@
 const axios = require("axios");
 const config = require('../controller/config');
+const schedule = require('node-schedule');
 
 let currentState = "ping";
+let job;
 
 // Sets the current state (running = no pings, ping = send pings)
 module.exports.setState = (state = "ping") => {
@@ -44,4 +46,9 @@ module.exports.sendError = async (error = "Unknown error") => {
 // Sends a 'running' ping to the healthcheck server
 module.exports.sendRunning = async () => {
     await this.sendPing("start");
+}
+
+// Starts a timer which sends a ping every minute
+module.exports.startTimer = () => {
+    job = schedule.scheduleJob('* * * * *', () => this.sendCurrent());
 }
