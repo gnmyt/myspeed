@@ -1,3 +1,4 @@
+const axios = require("axios");
 const config = require('../controller/config');
 
 let currentState = "ping";
@@ -14,4 +15,18 @@ const getHealthChecksUrl = async () => {
     if (url.endsWith("/")) url = url.substring(0, url.length - 1);
 
     return url;
+}
+
+// Send a ping to the provided healthcheck server
+module.exports.sendPing = async (path, message) => {
+    let url = await getHealthChecksUrl();
+    if (url == null) return;
+    if (path) url += "/" + path;
+
+    try {
+        const response = await axios.post(url, message, {headers: {"user-agent": "MySpeed/HealthAgent"}});
+        if (response.data.includes("not found")) await config.resetDefault("healthChecksUrl");
+    } catch (e) {
+        console.error("Could not send ping: " + e.message);
+    }
 }
