@@ -52,3 +52,11 @@ module.exports.sendRunning = async () => {
 module.exports.startTimer = () => {
     job = schedule.scheduleJob('* * * * *', () => this.sendCurrent());
 }
+
+// Stops the timer
+module.exports.stopTimer = () => {
+    if (job !== undefined) {
+        job.cancel();
+        job = undefined;
+    }
+}
