@@ -1,6 +1,7 @@
 const app = require('express').Router();
 const config = require('../controller/config');
 const timer = require('../tasks/timer');
+const cron = require('cron-validator');
 
 // Gets all config entries
 app.get("/", async (req, res) => {
@@ -24,7 +25,7 @@ app.get("/:key", async (req, res) => {
 app.patch("/:key", async (req, res) => {
     if (!req.body.value) return res.status(400).json({message: "You need to provide the new value"});
 
-    if ((req.params.key === "ping" || req.params.key === "download" || req.params.key === "upload" || req.params.key === "timeLevel") && isNaN(req.body.value))
+    if ((req.params.key === "ping" || req.params.key === "download" || req.params.key === "upload") && isNaN(req.body.value))
         return res.status(400).json({message: "You need to provide a number in order to change this"});
 
     if (req.params.key === "ping")
@@ -32,11 +33,14 @@ app.patch("/:key", async (req, res) => {
 
     if (req.params.key === "password" && req.body.value !== "none") req.body.value = await require('bcrypt').hash(req.body.value, 10);
 
+    if (req.params.key === "cron" && !cron.isValidCron(req.body.value.toString()))
+        return res.status(500).json({message: "Not a valid cron expression"});
+
     if (!await config.update(req.params.key, req.body.value)) return res.status(404).json({message: "The provided key does not exist"});
 
-    if (req.params.key === "timeLevel") {
+    if (req.params.key === "cron") {
         timer.stopTimer();
-        timer.startTimer(req.body.value);
+        timer.startTimer(req.body.value.toString());
     }
 
     res.json({message: `The key '${req.params.key}' has been successfully updated`});

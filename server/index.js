@@ -47,7 +47,7 @@ const run = async () => {
     await config.insertDefaults();
 
     // Start all timer
-    timerTask.startTimer((await config.get("timeLevel")).value);
+    timerTask.startTimer((await config.get("cron")).value);
     setInterval(async () => require('./tasks/speedtest').removeOld(), 60000);
 
     // Start Healthchecks
