@@ -61,7 +61,7 @@ function DropdownComponent() {
             ...dialog(config[key]),
             onSuccess: value => {
                 fetch("/api/config/" + key, {headers, method: "PATCH", body: JSON.stringify({value})})
-                    .then(() => showFeedback());
+                    .then(res => showFeedback(!res.ok ? "Deine Änderungen wurden nicht übernommen. Überprüfe deine Eingabe." : undefined));
             }
         })
     }
