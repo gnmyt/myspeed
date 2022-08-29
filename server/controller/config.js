@@ -4,7 +4,7 @@ const configDefaults = {
     "ping": "25",
     "download": "100",
     "upload": "50",
-    "timeLevel": "3",
+    "cron": "0 * * * *",
     "serverId": "none",
     "password": "none",
     "healthChecksUrl": "https://hc-ping.com/<uuid>"
