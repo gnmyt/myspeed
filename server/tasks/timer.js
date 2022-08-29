@@ -1,10 +1,12 @@
 const pauseController = require('../controller/pause');
 const schedule = require('node-schedule');
+const {isValidCron} = require("cron-validator");
 
 let job;
 
-module.exports.startTimer = (timeLevel) => {
-    job = schedule.scheduleJob(getRuleFromLevel(timeLevel), () => this.runTask());
+module.exports.startTimer = (cron) => {
+    if (!isValidCron(cron)) return;
+    job = schedule.scheduleJob(cron, () => this.runTask());
 }
 
 module.exports.runTask = async () => {
