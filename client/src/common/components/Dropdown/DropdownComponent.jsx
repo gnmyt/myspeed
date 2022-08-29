@@ -218,6 +218,10 @@ function DropdownComponent() {
         });
     }
 
+    const updateCronManually = () => patchDialog("cron", (value) => ({
+        title: <>Test-Häufigkeit einstellen <a href="https://crontab.guru/" target="_blank">?</a></>, placeholder: "Cron-Regel", value: value,
+    }), false);
+
     const updateCron = async () => {
         toggleDropdown();
         setDialog({
@@ -231,6 +235,9 @@ function DropdownComponent() {
                 "0 0,6,12,18 * * *": "Sehr selten (alle 6 Stunden)"
             },
             value: config.cron,
+            unsetButton: true,
+            unsetButtonText: "Manuell festlegen",
+            onClear: updateCronManually,
             onSuccess: value => {
                 fetch("/api/config/cron", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
                     .then(() => showFeedback());
