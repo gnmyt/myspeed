@@ -11,21 +11,21 @@ import {getIconBySpeed} from "@/common/utils/TestUtil";
 
 function LatestTestComponent() {
     const status = useContext(StatusContext)[0];
-    const [latest, setLatest] = useState({ping: "-", download: "-", upload: "-"});
+    const [latest, setLatest] = useState({});
     const [latestTestTime, setLatestTestTime] = useState("-");
     const [setDialog] = useContext(DialogContext);
     const [speedtests] = useContext(SpeedtestContext);
     const config = useContext(ConfigContext)[0];
 
-    useEffect(() => setLatest(speedtests[0]), [speedtests]);
+    useEffect(() => {
+        setLatest(Object.keys(speedtests).length !== 0 ? speedtests[0] : {ping: "N/A", download: "N/A", upload: "N/A"});
+    }, [speedtests]);
 
     useEffect(() => {
         if (latest) setLatestTestTime(generateRelativeTime(latest.created));
         const interval = setInterval(() => setLatestTestTime(generateRelativeTime(latest ? latest.created : 0)), 1000);
         return () => clearInterval(interval);
     }, [latest]);
-
-    if (!latest) return <></>;
 
     if (Object.entries(config).length === 0) return (<></>);
 
