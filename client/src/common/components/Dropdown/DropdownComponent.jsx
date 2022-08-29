@@ -218,22 +218,22 @@ function DropdownComponent() {
         });
     }
 
-    const updateLevel = async () => {
+    const updateCron = async () => {
         toggleDropdown();
         setDialog({
             title: "Test-Häufigkeit einstellen",
             select: true,
             selectOptions: {
-                1: "Durchgehend (jede Minute)",
-                2: "Sehr häufig (alle 30 Minuten)",
-                3: "Standard (jede Stunde)",
-                4: "Selten (alle 3 Stunden)",
-                5: "Sehr selten (alle 6 Stunden)"
+                "* * * * *": "Durchgehend (jede Minute)",
+                "0,30 * * * *": "Sehr häufig (alle 30 Minuten)",
+                "0 * * * *": "Standard (jede Stunde)",
+                "0 0,3,6,9,12,15,18,21 * * *": "Selten (alle 3 Stunden)",
+                "0 0,6,12,18 * * *": "Sehr selten (alle 6 Stunden)"
             },
-            value: config.timeLevel,
+            value: config.cron,
             onSuccess: value => {
-                fetch("/api/config/timeLevel", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
-                    .then(() => showFeedback(undefined, false));
+                fetch("/api/config/cron", {headers: headers, method: "PATCH", body: JSON.stringify({value: value})})
+                    .then(() => showFeedback());
             }
         });
     }
@@ -309,7 +309,7 @@ function DropdownComponent() {
                         <FontAwesomeIcon icon={faKey}/>
                         <h3>Passwort ändern</h3>
                     </div>
-                    <div className="dropdown-item" onClick={updateLevel}>
+                    <div className="dropdown-item" onClick={updateCron}>
                         <FontAwesomeIcon icon={faClock}/>
                         <h3>Häufigkeit einstellen</h3>
                     </div>
