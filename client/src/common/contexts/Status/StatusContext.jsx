@@ -1,16 +1,14 @@
 import React, {useState, createContext, useEffect} from "react";
+import {jsonRequest} from "@/common/utils/RequestUtil";
 
-export const StatusContext = createContext();
+export const StatusContext = createContext({});
 
 export const StatusProvider = (props) => {
 
     const [status, setStatus] = useState({paused: false, running: false});
 
     const updateStatus = () => {
-        let headers = localStorage.getItem("password") ? {password: localStorage.getItem("password")} : {}
-        fetch("/api/speedtests/status", {headers})
-            .then(res => res.json())
-            .then(tests => setStatus(tests))
+        jsonRequest("/speedtests/status").then(status => setStatus(status))
     }
 
     useEffect(() => {
