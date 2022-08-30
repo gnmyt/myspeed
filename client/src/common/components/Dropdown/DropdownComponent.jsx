@@ -141,7 +141,7 @@ function DropdownComponent() {
             value: config.cron,
             unsetButton: "Manuell festlegen",
             onClear: updateCronManually,
-            onSuccess: value => patchRequest("/config/cron", {value: value}).then(showFeedback)
+            onSuccess: value => patchRequest("/config/cron", {value}).then(() => showFeedback())
         });
     }
 
