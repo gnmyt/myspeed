@@ -13,7 +13,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sass": "^1.54.5",
+    "sass": "^1.54.6",
     "@vitejs/plugin-react": "^2.0.1",
     "vite": "^3.0.9"
   },
