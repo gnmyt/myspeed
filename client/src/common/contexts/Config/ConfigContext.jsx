@@ -1,7 +1,9 @@
 import React, {useState, createContext, useEffect, useContext} from "react";
 import {DialogContext} from "../Dialog";
+import {request} from "@/common/utils/RequestUtil";
+import {passwordRequiredDialog} from "@/common/contexts/Config/dialog";
 
-export const ConfigContext = createContext();
+export const ConfigContext = createContext({});
 
 export const ConfigProvider = (props) => {
 
@@ -9,32 +11,15 @@ export const ConfigProvider = (props) => {
     const [setDialog] = useContext(DialogContext);
 
     const reloadConfig = () => {
-        let passwordHeaders = localStorage.getItem("password") ? {password: localStorage.getItem("password")} : {}
-        fetch("/api/config", {headers: passwordHeaders})
-            .then(res => {
-                if (!res.ok) throw new Error();
-                return res;
+        request("/config").then(res => {
+                if (!res.ok) throw "No connection to server";
+                return res.json();
             })
-            .then(res => res.json())
             .then(result => setConfig(result))
-            .catch(() => setDialog({
-                title: "Passwort erforderlich",
-                placeholder: "Dein Passwort",
-                description: localStorage.getItem("password") ? <span className="icon-red">Das von dir eingegebene Passwort ist falsch</span> : "",
-                type: "password",
-                buttonText: "Fertig",
-                onClose: () => window.location.reload(),
-                onSuccess: (value) => {
-                    localStorage.setItem("password", value);
-                    window.location.reload();
-                }
-            }));
+            .catch(() => setDialog(passwordRequiredDialog));
     }
 
-    useEffect(() => {
-        reloadConfig();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    useEffect(reloadConfig, []);
 
     return (
         <ConfigContext.Provider value={[config, reloadConfig]}>
