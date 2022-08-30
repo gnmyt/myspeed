@@ -8,6 +8,7 @@ import {SpeedtestContext} from "@/common/contexts/Speedtests";
 import {ConfigContext} from "@/common/contexts/Config";
 import "./styles.sass";
 import {getIconBySpeed} from "@/common/utils/TestUtil";
+import {downloadInfo, latestTestInfo, uploadInfo} from "@/pages/Home/components/LatestTest/utils/dialogs";
 
 function LatestTestComponent() {
     const status = useContext(StatusContext)[0];
@@ -34,9 +35,8 @@ function LatestTestComponent() {
             {/* Ping */}
             <div className="inner-container">
                 <div className="container-header">
-                    <FontAwesomeIcon onClick={() => setDialog({title: "Ping", description: "Der Ping zeigt dir, wie schnell der jeweilige Anbieter antwortet. " +
-                            "Umso kürzer die Zeit, desto besser.", buttonText: "Okay"})}
-                                     icon={faPingPongPaddleBall} className={"container-icon help-icon icon-" + getIconBySpeed(latest.ping, config.ping, false)}/>
+                    <FontAwesomeIcon onClick={() => setDialog(pingInfo)} icon={faPingPongPaddleBall}
+                                     className={"container-icon help-icon icon-" + getIconBySpeed(latest.ping, config.ping, false)}/>
                     <h2 className="container-text">Ping<span className="container-subtext">ms</span></h2>
                 </div>
                 <div className="container-main">
@@ -47,9 +47,8 @@ function LatestTestComponent() {
             {/* Download */}
             <div className="inner-container">
                 <div className="container-header">
-                    <FontAwesomeIcon onClick={() => setDialog({title: "Download-Geschwindigkeit", description: "Die Downloadgeschwindigkeit wirkt sich " +
-                            "auf dein Surferlebnis aus. Umso mehr du bekommst, desto schneller kann dein Computer Daten empfangen.", buttonText: "Okay"})}
-                                     icon={faArrowDown} className={"container-icon help-icon icon-" + getIconBySpeed(latest.download, config.download, true)}/>
+                    <FontAwesomeIcon onClick={() => setDialog(downloadInfo)} icon={faArrowDown}
+                                     className={"container-icon help-icon icon-" + getIconBySpeed(latest.download, config.download, true)}/>
                     <h2 className="container-text">Download<span className="container-subtext">Mbit/s</span></h2>
                 </div>
                 <div className="container-main">
@@ -62,9 +61,8 @@ function LatestTestComponent() {
             {/* Upload */}
             <div className="inner-container">
                 <div className="container-header">
-                    <FontAwesomeIcon onClick={() => setDialog({title: "Upload-Geschwindigkeit", description: "Die Uploadgeschwindigkeit wirkt sich " +
-                            "auf dein Surferlebnis aus. Umso mehr du bekommst, desto schneller kann dein Computer Daten senden.", buttonText: "Okay"})}
-                                     icon={faArrowUp} className={"container-icon help-icon icon-" + getIconBySpeed(latest.upload, config.upload, true)}/>
+                    <FontAwesomeIcon onClick={() => setDialog(uploadInfo)} icon={faArrowUp}
+                                     className={"container-icon help-icon icon-" + getIconBySpeed(latest.upload, config.upload, true)}/>
                     <h2 className="container-text">Upload<span className="container-subtext">Mbit/s</span></h2>
                 </div>
                 <div className="container-main">
@@ -75,11 +73,8 @@ function LatestTestComponent() {
             {/* Latest update */}
             <div className="inner-container">
                 <div className="container-header">
-                    <FontAwesomeIcon onClick={() => setDialog({title: "Letzter Test", description: "Dies ist die Zeit, die dir zeigt, wann der letzte Test " +
-                            "ausgeführt wurde. In diesem Fall wurde der letzte Test am " + new Date(latest.created).toLocaleDateString("de-DE") + " um " +
-                            new Date(latest.created).toLocaleTimeString("de-DE", {hour: "2-digit", minute: "2-digit"}) + " ausgeführt.",
-                        buttonText: "Okay"})}
-                        icon={faClockRotateLeft} className="container-icon icon-blue help-icon"/>
+                    <FontAwesomeIcon onClick={() => setDialog(latestTestInfo(latest))} icon={faClockRotateLeft}
+                                     className="container-icon icon-blue help-icon"/>
                     <h2 className="container-text">Letzter Test<span className="container-subtext">vor</span></h2>
                 </div>
                 <div className="container-main">
