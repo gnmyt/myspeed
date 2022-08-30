@@ -63,12 +63,13 @@ function HeaderComponent() {
                                                   description: updateInfo(updateAvailable)
                                               })}/></div> : <></>}
 
-                    <div className="tooltip-element tooltip-bottom">
+                    {!status.paused ? <div className="tooltip-element tooltip-bottom">
                         <FontAwesomeIcon icon={faGaugeHigh}
-                                         className={"header-icon " + (status.running || status.paused ? "test-running" : "")}
+                                         className={"header-icon " + (status.running ? "test-running" : "")}
                                          onClick={startSpeedtest}/>
                         <span className="tooltip">{status.running ? "Speedtest läuft" : "Speedtest starten"}</span>
-                    </div>
+                    </div> : <></>}
+
 
                     <div className="tooltip-element tooltip-bottom" id="open-header">
                         <FontAwesomeIcon icon={icon} className="header-icon" onClick={switchDropdown}/>
