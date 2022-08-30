@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from "react";
+import React, {useContext, useEffect, useRef} from "react";
 import "./styles.sass";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
@@ -14,6 +14,8 @@ import {creditsInfo, healthChecksInfo, recommendationsError, recommendationsInfo
 import {exportOptions, selectOptions, timeOptions} from "@/common/components/Dropdown/utils/options";
 
 let icon;
+
+export const isOpen = () => !document.getElementById("dropdown").classList.contains("dropdown-invisible");
 
 export const toggleDropdown = (setIcon) => {
     if (setIcon) icon = setIcon;
@@ -32,14 +34,25 @@ function DropdownComponent() {
     const [status, updateStatus] = useContext(StatusContext);
     const updateTests = useContext(SpeedtestContext)[1];
     const [setDialog] = useContext(DialogContext);
+    const ref = useRef();
 
     useEffect(() => {
         const onPress = event => {
-            if (event.code === "Escape" && !document.getElementById("dropdown").classList.contains("dropdown-invisible"))
+            if (event.code === "Escape" && isOpen())
                 toggleDropdown(icon);
         }
         document.addEventListener("keyup", onPress);
         return () => document.removeEventListener("keyup", onPress);
+    }, []);
+
+    useEffect(() => {
+        const onClick = event => {
+            let headerIcon = event.composedPath()[1].id || event.composedPath()[2].id;
+            if (isOpen() && !ref.current.contains(event.target) && headerIcon !== "open-header")
+                toggleDropdown(icon);
+        }
+        document.addEventListener("mousedown", onClick);
+        return () => document.removeEventListener("mousedown", onClick);
     }, []);
 
     const showFeedback = (customText, reload = true) => setDialog({
@@ -216,7 +229,7 @@ function DropdownComponent() {
     ];
 
     return (
-        <div className="dropdown dropdown-invisible" id="dropdown">
+        <div className="dropdown dropdown-invisible" id="dropdown" ref={ref}>
             <div className="dropdown-content">
                 <h2>Einstellungen</h2>
                 <div className="dropdown-entries">
