@@ -1,9 +1,9 @@
-import React, {useState, createContext} from "react";
+import React, {useState, createContext, useEffect} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faClose} from "@fortawesome/free-solid-svg-icons";
 import "./styles.sass";
 
-export const DialogContext = createContext();
+export const DialogContext = createContext({});
 
 const Dialog = ({dialog, setDialog}) => {
     const [value, setValue] = useState(dialog.value || "");
@@ -23,26 +23,14 @@ const Dialog = ({dialog, setDialog}) => {
         setValue(e.target.value);
     }
 
-    function hideTooltips(state) {
-        Array.from(document.getElementsByClassName("tooltip")).forEach(element => {
-            if (state && !element.classList.contains("tooltip-invisible")) {
-                element.classList.add("tooltip-invisible");
-            } else if (!state && element.classList.contains("tooltip-invisible")) {
-                element.classList.remove("tooltip-invisible");
-            }
-        });
-    }
-
     function closeDialog() {
         setDialog();
-        hideTooltips(false);
         if (dialog.onClose) dialog.onClose();
     }
 
     function submit() {
         if (!dialog.description && !value) return;
         setDialog();
-        hideTooltips(false);
         if (dialog.onSuccess) dialog.onSuccess(value);
     }
 
@@ -50,8 +38,6 @@ const Dialog = ({dialog, setDialog}) => {
         setDialog();
         if (dialog.onClear) dialog.onClear();
     }
-
-    hideTooltips(true);
 
     if (dialog.speedtest) return (
         <div className="dialog-area">
@@ -92,6 +78,17 @@ const Dialog = ({dialog, setDialog}) => {
 
 export const DialogProvider = (props) => {
     const [dialog, setDialog] = useState();
+
+    const hideTooltips = (state) => Array.from(document.getElementsByClassName("tooltip")).forEach(element => {
+        if (state && !element.classList.contains("tooltip-invisible"))
+            element.classList.add("tooltip-invisible");
+        if (!state && element.classList.contains("tooltip-invisible"))
+            element.classList.remove("tooltip-invisible");
+    });
+
+    useEffect(() => {
+        hideTooltips(dialog);
+    }, [dialog]);
 
     return (
         <DialogContext.Provider value={[setDialog]}>
