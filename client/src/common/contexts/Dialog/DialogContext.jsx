@@ -1,4 +1,4 @@
-import React, {useState, createContext, useEffect} from "react";
+import React, {useState, createContext, useEffect, useRef} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faClose} from "@fortawesome/free-solid-svg-icons";
 import "./styles.sass";
@@ -7,8 +7,11 @@ export const DialogContext = createContext({});
 
 const Dialog = ({dialog, setDialog}) => {
     const [value, setValue] = useState(dialog.value || "");
+    const ref = useRef();
 
     document.onkeyup = e => {
+        if (ref.current == null) return;
+        console.log(ref)
         if (e.key === "Enter") {
             e.preventDefault();
             submit();
@@ -50,7 +53,7 @@ const Dialog = ({dialog, setDialog}) => {
     )
 
     return (
-        <div className="dialog-area">
+        <div className="dialog-area" ref={ref}>
             <div className="dialog">
                 <div className="dialog-header">
                     <h4 className="dialog-text">{dialog.title}</h4>
