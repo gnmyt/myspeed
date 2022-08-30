@@ -1,12 +1,13 @@
 import React, {useState, createContext, useEffect} from "react";
+import {jsonRequest} from "@/common/utils/RequestUtil";
 
-export const SpeedtestContext = createContext();
+export const SpeedtestContext = createContext({});
 
 export const SpeedtestProvider = (props) => {
 
     const [speedtests, setSpeedtests] = useState({});
 
-    const generatePath = (level) => {
+    const generatePath = (level = 1) => {
         switch (level) {
             case 1:
                 return "?hours=24";
@@ -19,14 +20,9 @@ export const SpeedtestProvider = (props) => {
         }
     }
 
-    const updateTests = () => {
-        let passwordHeaders = localStorage.getItem("password") ? {password: localStorage.getItem("password")} : {}
-        let testTime = localStorage.getItem("testTime") || 1;
+    const updateTests = () => jsonRequest("/speedtests" + generatePath(parseInt(localStorage.getItem("testTime") || 1)))
+        .then(tests => setSpeedtests(tests));
 
-        fetch("/api/speedtests" + generatePath(parseInt(testTime)), {headers: passwordHeaders})
-            .then(res => res.json())
-            .then(tests => setSpeedtests(tests))
-    }
 
     useEffect(() => {
         updateTests();
