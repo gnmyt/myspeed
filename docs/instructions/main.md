@@ -1,4 +1,4 @@
-# Die Startseite
+# Die Oberfläche
 
 Die Oberfläche von MySpeed ist vom Grund auf so konzipiert, dass sie einfach zu bedienen ist. Um mögliche Verwirrungen
 jedoch zu vermeiden, wird alles hier noch einmal erklärt.

@@ -57,5 +57,5 @@ nav:
       - Windows: setup/windows.md
   - Fehlerbehebung: troubleshooting.md
   - Handhabung:
-      - Die Startseite: instructions/main.md
+      - Die Oberfläche: instructions/main.md
       - Einstellungen: instructions/settings.md
