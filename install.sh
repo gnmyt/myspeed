@@ -108,10 +108,10 @@ then
     echo -e "$YELLOWℹ \"node\" ist nicht installiert.$NORMAL Die Installation wird gestartet..."
     sleep 2
     clear
-    echo -e "$PURPLEℹ Wird heruntergeladen..."
+    echo -e "$PURPLEℹ Wird heruntergeladen...$NORMAL"
     curl -sSL https://deb.nodesource.com/setup_16.x | bash
     clear
-    echo -e "$PURPLEℹ Wird installiert..."
+    echo -e "$PURPLEℹ Wird installiert...$NORMAL"
     apt-get install nodejs -y
 fi
 
