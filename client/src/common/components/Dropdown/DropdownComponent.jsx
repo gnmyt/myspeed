@@ -12,6 +12,7 @@ import {SpeedtestContext} from "@/common/contexts/Speedtests";
 import {downloadRequest, jsonRequest, patchRequest, postRequest} from "@/common/utils/RequestUtil";
 import {creditsInfo, healthChecksInfo, recommendationsError, recommendationsInfo} from "@/common/components/Dropdown/utils/infos";
 import {exportOptions, selectOptions, timeOptions} from "@/common/components/Dropdown/utils/options";
+import {parseCron, stringifyCron} from "@/common/components/Dropdown/utils/utils";
 
 let icon;
 
@@ -60,12 +61,12 @@ function DropdownComponent() {
         onSuccess: () => reload ? reloadConfig() : "", onClose: () => reloadConfig()
     });
 
-    const patchDialog = async (key, dialog, toggle = true) => {
+    const patchDialog = async (key, dialog, toggle = true, postValue = (val) => val) => {
         if (toggle) toggleDropdown();
 
         setDialog({
             ...(await dialog(config[key])),
-            onSuccess: value => patchRequest(`/config/${key}`, {value})
+            onSuccess: value => patchRequest(`/config/${key}`, {value: postValue(value)})
                 .then(res => showFeedback(!res.ok ? "Deine Änderungen wurden nicht übernommen. Überprüfe deine Eingabe." : undefined))
         })
     }
@@ -148,7 +149,9 @@ function DropdownComponent() {
         title: <>Test-Häufigkeit einstellen <a href="https://crontab.guru/" target="_blank">?</a></>,
         placeholder: "Cron-Regel",
         value: value,
-    }), false);
+        updateDescription: (val) => <>Nächster Test: <span className="dialog-value">{parseCron(val)}</span></>,
+        description: <>Nächster Test: <span className="dialog-value">{parseCron(value)}</span></>,
+    }), false, (val) => stringifyCron(val));
 
     const updateTime = async () => {
         toggleDropdown();
