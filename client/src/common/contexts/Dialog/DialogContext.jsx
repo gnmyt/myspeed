@@ -11,7 +11,6 @@ const Dialog = ({dialog, setDialog}) => {
 
     document.onkeyup = e => {
         if (ref.current == null) return;
-        console.log(ref)
         if (e.key === "Enter") {
             e.preventDefault();
             submit();
