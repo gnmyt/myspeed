@@ -67,15 +67,15 @@ function DropdownComponent() {
     }
 
     const updatePing = async () => patchDialog("ping", (value) => ({
-        title: "Optimalen Ping setzen (ms)", placeholder: "Ping", value
+        title: "Optimalen Ping setzen (ms)", placeholder: "Ping (ms)", value
     }));
 
     const updateDownload = async () => patchDialog("download", (value) => ({
-        title: "Optimalen Down-Speed setzen (Mbit/s)", placeholder: "Down-Speed", value
+        title: "Optimalen Down-Speed setzen (Mbit/s)", placeholder: "Down-Speed (Mbit/s)", value
     }));
 
     const updateUpload = async () => patchDialog("upload", (value) => ({
-        title: "Optimalen Up-Speed setzen (Mbit/s)", placeholder: "Up-Speed", value
+        title: "Optimalen Up-Speed setzen (Mbit/s)", placeholder: "Up-Speed (Mbit/s)", value
     }));
 
 
