@@ -61,63 +61,13 @@ function DropdownComponent() {
         title: "Optimalen Ping setzen (ms)", placeholder: "Ping (ms)", value
     }));
 
-    const updateDownload = async () => patchDialog("download", (value) => ({
-        title: "Optimalen Down-Speed setzen (Mbit/s)", placeholder: "Down-Speed (Mbit/s)", value
-    }));
-
     const updateUpload = async () => patchDialog("upload", (value) => ({
         title: "Optimalen Up-Speed setzen (Mbit/s)", placeholder: "Up-Speed (Mbit/s)", value
     }));
 
-    const updatePassword = async () => {
-        toggleDropdown();
-        setDialog({
-            title: "Neues Passwort festlegen",
-            placeholder: "Neues Passwort",
-            type: "password",
-            unsetButton: localStorage.getItem("password") != null ? "Sperre aufheben" : undefined,
-            onClear: () => patchRequest("/config/password", {value: "none"})
-                .then(() => showFeedback(<>Die Passwortsperre wurde aufgehoben und das festgelegte Passwort wurde
-                    entfernt.</>, false))
-                .then(() => localStorage.removeItem("password")),
-            onSuccess: (value) => patchRequest("/config/password", {value})
-                .then(() => showFeedback(undefined, false))
-                .then(() => localStorage.setItem("password", value))
-        })
-    }
-
-    const updateServer = () => patchDialog("serverId", async (value) => ({
-        title: "Speedtest-Server setzen",
-        select: true,
-        selectOptions: await jsonRequest("/info/server"),
-        unsetButton: "Manuell festlegen",
-        onClear: updateServerManually,
-        value
+    const updateDownload = async () => patchDialog("download", (value) => ({
+        title: "Optimalen Down-Speed setzen (Mbit/s)", placeholder: "Down-Speed (Mbit/s)", value
     }));
-
-    const updateServerManually = () => patchDialog("serverId", (value) => ({
-        title: "Speedtest-Server setzen", placeholder: "Server-ID", type: "number", value: value,
-    }), false);
-
-    const togglePause = () => {
-        toggleDropdown();
-        if (!status.paused) {
-            setDialog({
-                title: "Speedtests pausieren für...",
-                placeholder: "Stunden",
-                type: "number",
-                buttonText: "Pausieren",
-                unsetButton: "Manuell freigeben",
-                onClear: () => postRequest("/speedtests/pause", {resumeIn: -1}).then(updateStatus),
-                onSuccess: (hours) => postRequest("/speedtests/pause", {resumeIn: hours}).then(updateStatus)
-            });
-        } else postRequest("/speedtests/continue").then(updateStatus);
-    }
-
-    const showCredits = () => {
-        toggleDropdown();
-        setDialog({title: "MySpeed", description: creditsInfo, buttonText: "Schließen"});
-    }
 
     const recommendedSettings = async () => {
         toggleDropdown();
@@ -138,23 +88,35 @@ function DropdownComponent() {
         } else setDialog({title: "Automatische Empfehlungen", description: recommendationsError, buttonText: "Okay"});
     }
 
-    function exportDialog() {
+    const updateServer = () => patchDialog("serverId", async (value) => ({
+        title: "Speedtest-Server setzen",
+        select: true,
+        selectOptions: await jsonRequest("/info/server"),
+        unsetButton: "Manuell festlegen",
+        onClear: updateServerManually,
+        value
+    }));
+
+    const updateServerManually = () => patchDialog("serverId", (value) => ({
+        title: "Speedtest-Server setzen", placeholder: "Server-ID", type: "number", value: value,
+    }), false);
+
+    const updatePassword = async () => {
         toggleDropdown();
         setDialog({
-            select: true,
-            title: "Speedtests exportieren",
-            buttonText: "Herunterladen",
-            value: "json",
-            selectOptions: exportOptions,
-            onSuccess: value => downloadRequest("/export/" + value)
-        });
+            title: "Neues Passwort festlegen",
+            placeholder: "Neues Passwort",
+            type: "password",
+            unsetButton: localStorage.getItem("password") != null ? "Sperre aufheben" : undefined,
+            onClear: () => patchRequest("/config/password", {value: "none"})
+                .then(() => showFeedback(<>Die Passwortsperre wurde aufgehoben und das festgelegte Passwort wurde
+                    entfernt.</>, false))
+                .then(() => localStorage.removeItem("password")),
+            onSuccess: (value) => patchRequest("/config/password", {value})
+                .then(() => showFeedback(undefined, false))
+                .then(() => localStorage.setItem("password", value))
+        })
     }
-
-    const updateCronManually = () => patchDialog("cron", (value) => ({
-        title: <>Test-Häufigkeit einstellen <a href="https://crontab.guru/" target="_blank">?</a></>,
-        placeholder: "Cron-Regel",
-        value: value,
-    }), false);
 
     const updateCron = async () => {
         toggleDropdown();
@@ -168,6 +130,12 @@ function DropdownComponent() {
             onSuccess: value => patchRequest("/config/cron", {value: value}).then(showFeedback)
         });
     }
+
+    const updateCronManually = () => patchDialog("cron", (value) => ({
+        title: <>Test-Häufigkeit einstellen <a href="https://crontab.guru/" target="_blank">?</a></>,
+        placeholder: "Cron-Regel",
+        value: value,
+    }), false);
 
     const updateTime = async () => {
         toggleDropdown();
@@ -184,11 +152,32 @@ function DropdownComponent() {
         });
     }
 
-    const showIntegrationInfo = () => setDialog({
-        title: "HealthChecks Integration",
-        description: healthChecksInfo,
-        buttonText: "Okay"
-    });
+    function exportDialog() {
+        toggleDropdown();
+        setDialog({
+            select: true,
+            title: "Speedtests exportieren",
+            buttonText: "Herunterladen",
+            value: "json",
+            selectOptions: exportOptions,
+            onSuccess: value => downloadRequest("/export/" + value)
+        });
+    }
+
+    const togglePause = () => {
+        toggleDropdown();
+        if (!status.paused) {
+            setDialog({
+                title: "Speedtests pausieren für...",
+                placeholder: "Stunden",
+                type: "number",
+                buttonText: "Pausieren",
+                unsetButton: "Manuell freigeben",
+                onClear: () => postRequest("/speedtests/pause", {resumeIn: -1}).then(updateStatus),
+                onSuccess: (hours) => postRequest("/speedtests/pause", {resumeIn: hours}).then(updateStatus)
+            });
+        } else postRequest("/speedtests/continue").then(updateStatus);
+    }
 
     const updateIntegration = async () => patchDialog("healthChecksUrl", (value) => ({
         title: <>HealthChecks Integration <a onClick={showIntegrationInfo}>?</a></>,
@@ -198,6 +187,17 @@ function DropdownComponent() {
         onClear: () => patchDialog("/config/healthChecksUrl", {value: "https://hc-ping.com/<uuid>"})
             .then(() => showFeedback(<>Die Healthchecks wurden deaktiviert</>))
     }));
+
+    const showIntegrationInfo = () => setDialog({
+        title: "HealthChecks Integration",
+        description: healthChecksInfo,
+        buttonText: "Okay"
+    });
+
+    const showCredits = () => {
+        toggleDropdown();
+        setDialog({title: "MySpeed", description: creditsInfo, buttonText: "Schließen"});
+    }
 
     const options = [
         {run: updatePing, icon: faPingPongPaddleBall, text: "Optimaler Ping"},
