@@ -57,6 +57,8 @@ function LatestTestComponent() {
                 </div>
             </div>
 
+            <div className="mobile-break"></div>
+
             {/* Upload */}
             <div className="inner-container">
                 <div className="container-header">
