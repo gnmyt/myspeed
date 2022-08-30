@@ -70,7 +70,7 @@ function HeaderComponent() {
                         <span className="tooltip">Speedtest starten</span>
                     </div>
 
-                    <div className="tooltip-element tooltip-bottom">
+                    <div className="tooltip-element tooltip-bottom" id="open-header">
                         <FontAwesomeIcon icon={icon} className="header-icon" onClick={switchDropdown}/>
                         <span className="tooltip">Einstellungen</span>
                     </div>
