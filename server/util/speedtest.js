@@ -21,7 +21,7 @@ module.exports = async (serverId, binary_path = './bin/speedtest' + (process.pla
         const line = buffer.toString().replace("\n", "");
         if (!line.startsWith("{")) return;
 
-        let data;
+        let data = {};
         try {
             data = JSON.parse(line);
         } catch (e) {
