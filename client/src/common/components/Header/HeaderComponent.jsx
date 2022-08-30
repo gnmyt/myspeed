@@ -1,6 +1,6 @@
 import "./styles.sass";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCircleExclamation, faGaugeHigh, faGear} from "@fortawesome/free-solid-svg-icons";
+import {faCircleArrowUp, faGaugeHigh, faGear} from "@fortawesome/free-solid-svg-icons";
 import {useContext, useEffect, useState} from "react";
 import DropdownComponent, {toggleDropdown} from "../Dropdown/DropdownComponent";
 import {DialogContext} from "@/common/contexts/Dialog";
@@ -56,7 +56,7 @@ function HeaderComponent() {
                 <h2>Netzwerkanalyse</h2>
                 <div className="header-right">
                     {updateAvailable ?
-                        <div><FontAwesomeIcon icon={faCircleExclamation} className="header-icon icon-orange"
+                        <div><FontAwesomeIcon icon={faCircleArrowUp} className="header-icon icon-orange update-icon"
                                               onClick={() => setDialog({
                                                   title: "Update verfügbar",
                                                   buttonText: "Okay",
