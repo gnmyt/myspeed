@@ -22,6 +22,7 @@ const Dialog = ({dialog, setDialog}) => {
     }
 
     function updateValue(e) {
+        if (dialog.updateDescription) dialog.description = dialog.updateDescription(e.target.value);
         setValue(e.target.value);
     }
 
