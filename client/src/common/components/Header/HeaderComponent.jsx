@@ -65,9 +65,9 @@ function HeaderComponent() {
 
                     <div className="tooltip-element tooltip-bottom">
                         <FontAwesomeIcon icon={faGaugeHigh}
-                                         className={"header-icon " + (status.running || status.paused ? "icon-red" : "")}
+                                         className={"header-icon " + (status.running || status.paused ? "test-running" : "")}
                                          onClick={startSpeedtest}/>
-                        <span className="tooltip">Speedtest starten</span>
+                        <span className="tooltip">{status.running ? "Speedtest läuft" : "Speedtest starten"}</span>
                     </div>
 
                     <div className="tooltip-element tooltip-bottom" id="open-header">
