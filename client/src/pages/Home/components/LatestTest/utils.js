@@ -14,5 +14,5 @@ export function generateRelativeTime(created) {
         return Math.floor(diff / 3600) === 1 ? "1 Stunde" : `${Math.floor(diff / 3600)} Stunden`
     }
 
-    return "Einer langen Zeit"
+    return "N/A"
 }

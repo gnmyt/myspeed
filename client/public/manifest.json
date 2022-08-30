@@ -9,6 +9,12 @@
       "type": "image/x-icon"
     },
     {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable"
+    },
+    {
       "src": "logo.png",
       "type": "image/png",
       "sizes": "512x512"
@@ -16,5 +22,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#232835"
+  "theme_color": "#232835",
+  "background_color": "#232835"
 }

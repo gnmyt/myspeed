@@ -1,8 +1,12 @@
 import react from '@vitejs/plugin-react'
 import path from "path";
+import {VitePWA} from "vite-plugin-pwa";
 
 export default {
-    plugins: [react()],
+    plugins: [
+        VitePWA({ injectRegister: 'auto' }),
+        react()
+    ],
     build: {
         outDir: 'build'
     },

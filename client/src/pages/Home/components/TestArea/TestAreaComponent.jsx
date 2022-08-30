@@ -3,12 +3,15 @@ import {ConfigContext} from "@/common/contexts/Config";
 import {SpeedtestContext} from "@/common/contexts/Speedtests";
 import Speedtest from "../Speedtest";
 import {getIconBySpeed} from "@/common/utils/TestUtil";
+import "./styles.sass";
 
 function TestArea() {
     const config = useContext(ConfigContext)[0];
     const [speedtests] = useContext(SpeedtestContext);
 
     if (Object.entries(config).length === 0) return (<></>);
+
+    if (speedtests.length === 0) return <h2 className="error-text">Es liegen aktuell keine Tests vor</h2>
 
     return (
         <div className="speedtest-area">

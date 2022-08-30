@@ -36,6 +36,7 @@
   position: relative
 
 .tooltip-element .tooltip
+  pointer-events: none
   font-size: 16pt
   opacity: 0
   bottom: 120%
@@ -74,7 +75,13 @@
   .speedtest
     width: 40rem
 
+@media (max-width: 900px)
+  .tooltip-element .tooltip
+    font-size: 14pt
+
 @media (max-width: 730px)
+  .tooltip-element .tooltip
+    font-size: 11pt
   .speedtest
     width: 33rem
 
@@ -90,9 +97,10 @@
 @media (max-width: 475px)
   .tooltip-element .tooltip
     font-size: 12pt
+    padding: 5px 4px
   .speedtest
     width: 18rem
 
-@media (max-width: 320px)
+@media (max-width: 360px)
   .speedtest
     width: 16rem

@@ -7,18 +7,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free-solid": "^5.0.13",
-    "@fortawesome/fontawesome-svg-core": "^6.1.2",
-    "@fortawesome/free-solid-svg-icons": "^6.1.2",
+    "@fortawesome/fontawesome-svg-core": "^6.2.0",
+    "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@vitejs/plugin-react": "^2.0.1",
+    "cron-parser": "^4.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sass": "^1.54.5",
-    "@vitejs/plugin-react": "^2.0.1",
-    "vite": "^3.0.9"
+    "sass": "^1.54.6",
+    "vite": "^3.0.9",
+    "vite-plugin-pwa": "^0.12.3"
   },
   "devDependencies": {
-    "@types/react": "^18.0.17",
+    "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6"
   }
 }

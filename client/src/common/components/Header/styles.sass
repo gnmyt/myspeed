@@ -32,10 +32,30 @@
   transform: scale(1.1)
   color: $green
 
-.icon-red:hover
-  color: $red-hover
+.test-running
+  animation: pulse 2s infinite
+  border-radius: 150px
+  color: $green
 
-@media (max-width: 425px)
+.test-running:hover
+  color: $green-hover
+
+.update-icon
+  animation: pulse-update 2s infinite
+  border-radius: 150px
+
+.update-icon:hover
+  color: $orange-hover
+
+@keyframes pulse-update
+  0%
+    box-shadow: 0 0 0 0 $orange
+  70%
+    box-shadow: 0 0 0 10px #CCA92C00
+  100%
+    box-shadow: 0 0 0 0 #CCA92C00
+
+@media (max-width: 460px)
   .header-main
     justify-content: center
   .header-main div
@@ -48,14 +68,8 @@
     height: 20px
 
 
-@media (max-width: 280px)
-  .header-main
-    justify-content: center
+@media (max-width: 360px)
   .header-main h2
-    margin-left: 0
     font-size: 16pt
     text-overflow: ellipsis
     overflow: hidden
-  .header-icon
-    width: 16px
-    height: 16px
