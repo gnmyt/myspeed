@@ -82,7 +82,7 @@ const Dialog = ({dialog, setDialog}) => {
                 </div>
                 <div className="dialog-buttons">
                     {dialog.unsetButton ? <button className="dialog-btn dialog-secondary"
-                                                  onClick={clear}>{dialog.unsetButtonText || "Entfernen"}</button> : ""}
+                                                  onClick={clear}>{dialog.unsetButton || "Entfernen"}</button> : ""}
                     <button className="dialog-btn" onClick={submit}>{dialog.buttonText || "Aktualisieren"}</button>
                 </div>
             </div>
