@@ -7,9 +7,7 @@ export const StatusProvider = (props) => {
 
     const [status, setStatus] = useState({paused: false, running: false});
 
-    const updateStatus = () => {
-        jsonRequest("/speedtests/status").then(status => setStatus(status))
-    }
+    const updateStatus = () => jsonRequest("/speedtests/status").then(status => setStatus(status));
 
     useEffect(() => {
         updateStatus();
