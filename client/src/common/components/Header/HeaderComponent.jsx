@@ -6,18 +6,15 @@ import DropdownComponent, {toggleDropdown} from "../Dropdown/DropdownComponent";
 import {DialogContext} from "@/common/contexts/Dialog";
 import {StatusContext} from "@/common/contexts/Status";
 import {SpeedtestContext} from "@/common/contexts/Speedtests";
-
+import {jsonRequest, postRequest} from "@/common/utils/RequestUtil";
+import {updateInfo} from "@/common/components/Header/utils/infos";
 
 function HeaderComponent() {
-
     const [setDialog] = useContext(DialogContext);
     const [icon, setIcon] = useState(faGear);
     const [status, updateStatus] = useContext(StatusContext);
     const updateTests = useContext(SpeedtestContext)[1];
     const [updateAvailable, setUpdateAvailable] = useState("");
-
-    const headers = localStorage.getItem("password") ? {password: localStorage.getItem("password")} : {}
-    headers['content-type'] = 'application/json'
 
     function switchDropdown() {
         toggleDropdown(setIcon);
@@ -39,23 +36,18 @@ function HeaderComponent() {
 
         setDialog({speedtest: true});
 
-        fetch("/api/speedtests/run", {headers, method: "POST"}).then(() => {
-            updateTests();
-            updateStatus();
-            setDialog();
-        });
+        postRequest("/speedtests/run").then(updateTests).then(updateStatus).then(setDialog);
     }
 
     useEffect(() => {
-        fetch("/api/info/version", {headers})
-            .then(res => res.json())
-            .then(version => {
-                if (version.remote.localeCompare(version.local, undefined,
-                    {numeric: true, sensitivity: 'base'}) === 1)
-                    setUpdateAvailable(version.remote);
-            });
+        async function updateVersion() {
+            const version = await jsonRequest("/info/version");
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+            if (version.remote.localeCompare(version.local, undefined, {numeric: true, sensitivity: 'base'}) === 1)
+                setUpdateAvailable(version.remote);
+        }
+
+        updateVersion();
     }, []);
 
     return (
@@ -68,16 +60,9 @@ function HeaderComponent() {
                                               onClick={() => setDialog({
                                                   title: "Update verfügbar",
                                                   buttonText: "Okay",
-                                                  description: <>Ein Update auf die Version {updateAvailable} ist
-                                                      verfügbar. Sieh dir <a target="_blank"
-                                                                             href="https://github.com/gnmyt/myspeed/releases/latest"
-                                                                             rel="noreferrer">die Änderungen
-                                                          an</a> und <a target="_blank"
-                                                                        href="https://myspeed.gnmyt.dev/setup/linux/"
-                                                                        rel="noreferrer">lade dir das Update
-                                                          herunter</a>.</>
-                                              })}/></div>
-                        : <></>}
+                                                  description: updateInfo(updateAvailable)
+                                              })}/></div> : <></>}
+
                     <div className="tooltip-element tooltip-bottom">
                         <FontAwesomeIcon icon={faGaugeHigh}
                                          className={"header-icon " + (status.running || status.paused ? "icon-red" : "")}
@@ -89,13 +74,11 @@ function HeaderComponent() {
                         <FontAwesomeIcon icon={icon} className="header-icon" onClick={switchDropdown}/>
                         <span className="tooltip">Einstellungen</span>
                     </div>
-
                 </div>
             </div>
             <DropdownComponent/>
         </header>
     )
-
 }
 
 export default HeaderComponent;
