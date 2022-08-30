@@ -8,7 +8,7 @@ import {SpeedtestContext} from "@/common/contexts/Speedtests";
 import {ConfigContext} from "@/common/contexts/Config";
 import "./styles.sass";
 import {getIconBySpeed} from "@/common/utils/TestUtil";
-import {downloadInfo, latestTestInfo, uploadInfo} from "@/pages/Home/components/LatestTest/utils/dialogs";
+import {downloadInfo, latestTestInfo, pingInfo, uploadInfo} from "@/pages/Home/components/LatestTest/utils/dialogs";
 
 function LatestTestComponent() {
     const status = useContext(StatusContext)[0];
