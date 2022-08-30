@@ -40,6 +40,21 @@
 .test-running:hover
   color: $green-hover
 
+.update-icon
+  animation: pulse-update 2s infinite
+  border-radius: 150px
+
+.update-icon:hover
+  color: $orange-hover
+
+@keyframes pulse-update
+  0%
+    box-shadow: 0 0 0 0 $orange
+  70%
+    box-shadow: 0 0 0 10px #CCA92C00
+  100%
+    box-shadow: 0 0 0 0 #CCA92C00
+
 @media (max-width: 460px)
   .header-main
     justify-content: center
