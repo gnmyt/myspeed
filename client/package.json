@@ -1,6 +1,6 @@
 {
   "name": "client",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
