@@ -54,6 +54,7 @@ module.exports.run = async (retryAuto = false) => {
 }
 
 module.exports.create = async (type = "auto", retried = false) => {
+    if ((await config.get("acceptOoklaLicense")).value === 'false') return;
     if (isRunning && !retried) return 500;
 
     try {
