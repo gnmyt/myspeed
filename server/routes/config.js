@@ -23,10 +23,13 @@ app.get("/:key", async (req, res) => {
 
 // Updates a specific config entry
 app.patch("/:key", async (req, res) => {
-    if (!req.body.value) return res.status(400).json({message: "You need to provide the new value"});
+    if (!req.body.value.toString()) return res.status(400).json({message: "You need to provide the new value"});
 
     if ((req.params.key === "ping" || req.params.key === "download" || req.params.key === "upload") && isNaN(req.body.value))
         return res.status(400).json({message: "You need to provide a number in order to change this"});
+
+    if (req.params.key === "acceptOoklaLicense" && typeof req.body.value !== "boolean")
+        return res.status(400).json({message: "You need to provide a boolean value"});
 
     if (req.params.key === "ping")
         req.body.value = req.body.value.toString().split(".")[0];
@@ -36,7 +39,7 @@ app.patch("/:key", async (req, res) => {
     if (req.params.key === "cron" && !cron.isValidCron(req.body.value.toString()))
         return res.status(500).json({message: "Not a valid cron expression"});
 
-    if (!await config.update(req.params.key, req.body.value)) return res.status(404).json({message: "The provided key does not exist"});
+    if (!await config.update(req.params.key, req.body.value.toString())) return res.status(404).json({message: "The provided key does not exist"});
 
     if (req.params.key === "cron") {
         timer.stopTimer();

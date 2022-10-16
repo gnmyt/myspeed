@@ -34,7 +34,7 @@ function HeaderComponent() {
             buttonText: "Okay"
         });
 
-        setDialog({speedtest: true});
+        setDialog({speedtest: true, disableCloseButton: true});
 
         postRequest("/speedtests/run").then(updateTests).then(updateStatus).then(setDialog);
     }

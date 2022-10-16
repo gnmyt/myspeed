@@ -15,7 +15,7 @@ const Dialog = ({dialog, setDialog}) => {
             e.preventDefault();
             submit();
         }
-        if (e.key === "Escape") {
+        if (e.key === "Escape" && !dialog.disableCloseButton) {
             e.preventDefault();
             closeDialog();
         }
@@ -57,7 +57,7 @@ const Dialog = ({dialog, setDialog}) => {
             <div className="dialog">
                 <div className="dialog-header">
                     <h4 className="dialog-text">{dialog.title}</h4>
-                    <FontAwesomeIcon icon={faClose} className="dialog-text dialog-icon" onClick={closeDialog}/>
+                    {!dialog.disableCloseButton ? <FontAwesomeIcon icon={faClose} className="dialog-text dialog-icon" onClick={closeDialog}/> : <></>}
                 </div>
                 <div className="dialog-main">
                     {dialog.description ? <h3 className="dialog-description">{dialog.description}</h3> : ""}
