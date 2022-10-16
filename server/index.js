@@ -10,6 +10,8 @@ const port = process.env.port || 5216;
 require('./config/createFolder');
 require('./config/loadServers');
 
+process.on('uncaughtException', err => require('./config/errorHandler')(err));
+
 // Register middlewares
 app.use(express.json());
 app.use("/api/*", require('./middlewares/password'));
