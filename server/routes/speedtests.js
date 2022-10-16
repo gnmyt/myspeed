@@ -1,6 +1,7 @@
 const app = require('express').Router();
 const tests = require('../controller/speedtests');
 const pauseController = require('../controller/pause');
+const config = require('../controller/config');
 const testTask = require("../tasks/speedtest");
 
 // List all speedtests
@@ -16,6 +17,7 @@ app.get("/averages", async (req, res) => {
 // Runs a speedtest
 app.post("/run", async (req, res) => {
     if (pauseController.currentState) return res.status(410).json({message: "The speedtests are currently paused"});
+    if ((await config.get("acceptOoklaLicense")).value === 'false') return res.status(410).json({message: "You need to accept the ookla license first"});
     let speedtest = await testTask.create("custom");
     if (speedtest !== undefined) return res.status(409).json({message: "An speedtest is already running"});
     res.json({message: "Speedtest successfully created"});
