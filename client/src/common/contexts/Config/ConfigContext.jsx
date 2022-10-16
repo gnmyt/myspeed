@@ -12,9 +12,9 @@ export const ConfigProvider = (props) => {
 
     const reloadConfig = () => {
         request("/config").then(res => {
-                if (!res.ok) throw "No connection to server";
-                return res.json();
-            })
+            if (!res.ok) throw "No connection to server";
+            return res.json();
+        })
             .then(result => setConfig(result))
             .catch(() => setDialog(passwordRequiredDialog));
     }
