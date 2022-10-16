@@ -8,10 +8,11 @@ const OOKLA_PRIVACY_URL = OOKLA_ABOUT_URL + "/privacy";
 export const passwordRequiredDialog = {
     title: "Passwort erforderlich",
     placeholder: "Dein Passwort",
-    description: localStorage.getItem("password") ? <span className="icon-red">Das von dir eingegebene Passwort ist falsch</span> : "",
+    description: localStorage.getItem("password") ?
+        <span className="icon-red">Das von dir eingegebene Passwort ist falsch</span> : "",
     type: "password",
     buttonText: "Fertig",
-    onClose: () => window.location.reload(),
+    disableCloseButton: true,
     onSuccess: (value) => {
         localStorage.setItem("password", value);
         window.location.reload();
