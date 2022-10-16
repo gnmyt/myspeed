@@ -1,7 +1,7 @@
 import React, {useState, createContext, useEffect, useContext} from "react";
 import {DialogContext} from "../Dialog";
 import {request} from "@/common/utils/RequestUtil";
-import {passwordRequiredDialog} from "@/common/contexts/Config/dialog";
+import {acceptDialog, passwordRequiredDialog} from "@/common/contexts/Config/dialog";
 
 export const ConfigContext = createContext({});
 
@@ -18,6 +18,11 @@ export const ConfigProvider = (props) => {
             .then(result => setConfig(result))
             .catch(() => setDialog(passwordRequiredDialog));
     }
+
+    useEffect(() => {
+        if (config.acceptOoklaLicense !== undefined && config.acceptOoklaLicense === "false")
+            setDialog(acceptDialog);
+    }, [config]);
 
     useEffect(reloadConfig, []);
 
