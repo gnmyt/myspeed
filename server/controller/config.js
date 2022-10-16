@@ -7,6 +7,7 @@ const configDefaults = {
     "cron": "0 * * * *",
     "serverId": "none",
     "password": "none",
+    "acceptOoklaLicense": "false",
     "healthChecksUrl": "https://hc-ping.com/<uuid>"
 }
 
