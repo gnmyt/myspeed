@@ -1,0 +1,14 @@
+const fs = require("fs");
+const filePath = process.cwd() + "/data/logs/error.log";
+
+// Writes the errors into the error.log file
+module.exports = (error) => {
+    const date = new Date().toLocaleString();
+    const lineStarter = fs.existsSync(filePath) ? "\n\n" : "";
+
+    fs.writeFile(filePath, lineStarter + "## " + date + "\n" + error, {flag: 'a+'}, err => {
+        if (err) console.error("Could not save error log file.", error);
+    });
+
+    process.exit(1);
+}
