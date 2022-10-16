@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const neededFolder = ["data", "bin"];
+const neededFolder = ["data", "bin", "data/logs"];
 
 neededFolder.forEach(folder => {
     if (!fs.existsSync(folder)) {
