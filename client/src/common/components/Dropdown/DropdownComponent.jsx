@@ -3,7 +3,7 @@ import "./styles.sass";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
     faArrowDown, faArrowUp, faCalendarDays, faCircleNodes, faClock, faClose, faFileExport,
-    faGear, faInfo, faKey, faPause, faPingPongPaddleBall, faPlay, faServer, faWandMagicSparkles
+    faGear, faGlobeEurope, faInfo, faKey, faPause, faPingPongPaddleBall, faPlay, faServer, faWandMagicSparkles
 } from "@fortawesome/free-solid-svg-icons";
 import {ConfigContext} from "@/common/contexts/Config";
 import {StatusContext} from "@/common/contexts/Status";
@@ -11,8 +11,9 @@ import {DialogContext} from "@/common/contexts/Dialog";
 import {SpeedtestContext} from "@/common/contexts/Speedtests";
 import {downloadRequest, jsonRequest, patchRequest, postRequest} from "@/common/utils/RequestUtil";
 import {creditsInfo, healthChecksInfo, recommendationsError, recommendationsInfo} from "@/common/components/Dropdown/utils/infos";
-import {exportOptions, selectOptions, timeOptions} from "@/common/components/Dropdown/utils/options";
+import {exportOptions, languageOptions, selectOptions, timeOptions} from "@/common/components/Dropdown/utils/options";
 import {parseCron, stringifyCron} from "@/common/components/Dropdown/utils/utils";
+import {changeLanguage} from "i18next";
 
 let icon;
 
@@ -210,6 +211,14 @@ function DropdownComponent() {
         buttonText: "Okay"
     });
 
+    const updateLanguage = () => setDialog({
+        title: "Sprache ändern",
+        select: true,
+        selectOptions: languageOptions,
+        value: localStorage.getItem("language") || "en",
+        onSuccess: value => changeLanguage(value, showFeedback())
+    });
+
     const showCredits = () => {
         toggleDropdown();
         setDialog({title: "MySpeed", description: creditsInfo, buttonText: "Schließen"});
@@ -228,6 +237,7 @@ function DropdownComponent() {
         {run: exportDialog, icon: faFileExport, text: "Tests exportieren"},
         {run: togglePause, icon: status.paused ? faPlay : faPause, text: "Tests " + (status.paused ? "fortsetzen" : "pausieren")},
         {run: updateIntegration, icon: faCircleNodes, text: "Healthchecks"},
+        {run: updateLanguage, icon: faGlobeEurope, text: "Sprache ändern"},
         {run: showCredits, icon: faInfo, text: "Info"}
     ];
 
