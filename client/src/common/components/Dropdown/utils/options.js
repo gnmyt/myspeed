@@ -13,6 +13,11 @@ export const selectOptions = {
     "0 0,6,12,18 * * *": "Sehr selten (alle 6 Stunden)"
 }
 
+export const languageOptions = {
+    "en": "English",
+    "de": "Deutsch"
+}
+
 export const exportOptions = {
     json: "JSON-Datei",
     csv: "CSV-Datei"
