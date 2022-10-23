@@ -48,6 +48,6 @@ Hier beantworten wir dir die Fragen, die möglicherweise auftreten könnten.
 ??? question "Wie setze ich mein Passwort zurück?"
     Du hast dein MySpeed-Passwort vergessen? Das passiert, kein Problem. Zum zurücksetzen navigiere in den Installationsort (`cd /opt/myspeed`) und führe den folgenden Befehl aus:
     ```sh
-    node -e "const db = require('better-sqlite3')('data/storage.db'); db.prepare('UPDATE config SET value = ? WHERE key = ?').run('none', 'password');"
+    node -e "const {Sequelize} = require('sequelize');const db = new Sequelize({dialect: 'sqlite', storage: 'data/storage.db'});db.query('UPDATE config SET value=? WHERE key=?', {replacements: ['none', 'password']})"
     ```    
     Dann kannst du die Seite erneut aufrufen und dein Passwort manuell festlegen :)
