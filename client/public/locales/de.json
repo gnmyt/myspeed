@@ -64,5 +64,14 @@
     "new_update": "Update verfügbar",
     "paused": "Speedtests sind aktuell pausiert. Bitte setze sie fort, wenn du einen machen möchtest.",
     "running": "Es läuft bereits ein Speedtest. Bitte gedulde dich ein wenig, bis dieser fertig ist."
+  },
+  "latest": {
+    "ping": "Ping",
+    "ping_unit": "ms",
+    "down": "Download",
+    "speed_unit": "Mbit/s",
+    "up": "Upload",
+    "latest": "Letzter Test",
+    "before": "vor"
   }
 }
