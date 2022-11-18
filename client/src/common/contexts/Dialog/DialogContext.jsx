@@ -2,6 +2,7 @@ import React, {useState, createContext, useEffect, useRef} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faClose} from "@fortawesome/free-solid-svg-icons";
 import "./styles.sass";
+import {t} from "i18next";
 
 export const DialogContext = createContext({});
 
@@ -71,8 +72,8 @@ const Dialog = ({dialog, setDialog}) => {
                 </div>
                 <div className="dialog-buttons">
                     {dialog.unsetButton ? <button className="dialog-btn dialog-secondary"
-                                                  onClick={clear}>{dialog.unsetButton || "Entfernen"}</button> : ""}
-                    <button className="dialog-btn" onClick={submit}>{dialog.buttonText || "Aktualisieren"}</button>
+                                                  onClick={clear}>{dialog.unsetButton || t("dialog.unset")}</button> : ""}
+                    <button className="dialog-btn" onClick={submit}>{dialog.buttonText || t("dialog.update")}</button>
                 </div>
             </div>
         </div>
