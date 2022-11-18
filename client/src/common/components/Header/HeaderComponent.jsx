@@ -8,6 +8,7 @@ import {StatusContext} from "@/common/contexts/Status";
 import {SpeedtestContext} from "@/common/contexts/Speedtests";
 import {jsonRequest, postRequest} from "@/common/utils/RequestUtil";
 import {updateInfo} from "@/common/components/Header/utils/infos";
+import {t} from "i18next";
 
 function HeaderComponent() {
     const [setDialog] = useContext(DialogContext);
@@ -23,15 +24,15 @@ function HeaderComponent() {
     const startSpeedtest = async () => {
         await updateStatus();
         if (status.paused) return setDialog({
-            title: "Fehlgeschlagen",
-            description: "Speedtests sind aktuell pausiert. Bitte setze sie fort, wenn du einen machen möchtest.",
-            buttonText: "Okay"
+            title: t("failed"),
+            description: t("header.paused"),
+            buttonText: t("dialog.okay")
         });
 
         if (status.running) return setDialog({
-            title: "Fehlgeschlagen",
-            description: "Es läuft bereits ein Speedtest. Bitte gedulde dich ein wenig, bis dieser fertig ist.",
-            buttonText: "Okay"
+            title: t("failed"),
+            description: t("header.running"),
+            buttonText: t("dialog.okay")
         });
 
         setDialog({speedtest: true, disableCloseButton: true});
@@ -53,13 +54,13 @@ function HeaderComponent() {
     return (
         <header>
             <div className="header-main">
-                <h2>Netzwerkanalyse</h2>
+                <h2>{t("header.title")}</h2>
                 <div className="header-right">
                     {updateAvailable ?
                         <div><FontAwesomeIcon icon={faCircleArrowUp} className="header-icon icon-orange update-icon"
                                               onClick={() => setDialog({
-                                                  title: "Update verfügbar",
-                                                  buttonText: "Okay",
+                                                  title: t("header.new_update"),
+                                                  buttonText: t("dialog.okay"),
                                                   description: updateInfo(updateAvailable)
                                               })}/></div> : <></>}
 
@@ -67,13 +68,13 @@ function HeaderComponent() {
                         <FontAwesomeIcon icon={faGaugeHigh}
                                          className={"header-icon " + (status.running ? "test-running" : "")}
                                          onClick={startSpeedtest}/>
-                        <span className="tooltip">{status.running ? "Speedtest läuft" : "Speedtest starten"}</span>
+                        <span className="tooltip">{t("header." + (status.running ? "running_tooltip" : "start_tooltip"))}</span>
                     </div> : <></>}
 
 
                     <div className="tooltip-element tooltip-bottom" id="open-header">
                         <FontAwesomeIcon icon={icon} className="header-icon" onClick={switchDropdown}/>
-                        <span className="tooltip">Einstellungen</span>
+                        <span className="tooltip">{t("dropdown.settings")}</span>
                     </div>
                 </div>
             </div>
