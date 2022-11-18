@@ -1,4 +1,5 @@
 {
+  "failed": "Fehlgeschlagen",
   "dialog": {
     "okay": "Okay",
     "apply": "Ja, übernehmen",
@@ -54,5 +55,13 @@
     "healthchecks_url": "HealthChecks Server URL",
     "healthchecks_activated": "Die Healthchecks wurden deaktiviert",
     "language": "Sprache ändern"
+  },
+  "header": {
+    "title": "Netzwerkanalyse",
+    "running_tooltip": "Speedtest läuft",
+    "start_tooltip": "Speedtest starten",
+    "new_update": "Update verfügbar",
+    "paused": "Speedtests sind aktuell pausiert. Bitte setze sie fort, wenn du einen machen möchtest.",
+    "running": "Es läuft bereits ein Speedtest. Bitte gedulde dich ein wenig, bis dieser fertig ist."
   }
 }
