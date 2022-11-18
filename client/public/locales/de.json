@@ -4,7 +4,8 @@
     "okay": "Okay",
     "apply": "Ja, übernehmen",
     "update": "Aktualisieren",
-    "close": "Schließen"
+    "close": "Schließen",
+    "unset": "Entfernen"
   },
   "dropdown": {
     "settings": "Einstellungen",
