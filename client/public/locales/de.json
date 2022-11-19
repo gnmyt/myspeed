@@ -110,6 +110,22 @@
     "credits": "<Link>MySpeed</Link> wird von GNMYT bereitgestellt und verwendet die <CLILink>Speedtest-CLI</CLILink> von Ookla.",
     "recommendations_error": "Du musst mindestens 10 Tests machen, damit ein Durchschnitt ermittelt werden kann. Ob die Tests manuell oder automatisch durchgeführt wurden ist egal.",
     "recommendations_info": "Anhand der letzten 10 Testergebnisse wurde festgestellt, dass der optimale Ping bei <Bold>{{ping}} ms</Bold>, der Download bei <Bold>{{down}} Mbit/s</Bold> und der Upload bei <Bold>{{up}} Mbit/s</Bold> liegt. Orientiere dich am besten an deinem Internetvertrag und übernehme es nur, wenn es mit dem übereinstimmt.",
-    "update": "Ein Update auf die Version {{version}} ist verfügbar. Sieh dir <Changes>die Änderungen an</Changes> und <DLLink>lade dir das Update herunter</DLLink>."
+    "update": "Ein Update auf die Version {{version}} ist verfügbar. Sieh dir <Changes>die Änderungen an</Changes> und <DLLink>lade dir das Update herunter</DLLink>.",
+    "down": {
+      "title": "Download-Geschwindigkeit",
+      "description": "Die Downloadgeschwindigkeit wirkt sich auf dein Surferlebnis aus. Umso mehr du bekommst, desto schneller kann dein Computer Daten empfangen."
+    },
+    "ping": {
+      "title": "Ping",
+      "description": "Der Ping zeigt dir, wie schnell der jeweilige Anbieter antwortet. Umso kürzer die Zeit, desto besser."
+    },
+    "up": {
+      "title": "Upload-Geschwindigkeit",
+      "description": "Die Uploadgeschwindigkeit wirkt sich auf dein Surferlebnis aus. Umso mehr du bekommst, desto schneller kann dein Computer Daten senden."
+    },
+    "latest": {
+      "title": "Letzter Test",
+      "description": "Dies ist die Zeit, die dir zeigt, wann der letzte Test ausgeführt wurde. In diesem Fall wurde der letzte Test am <Bold>{{date}}</Bold> um <Bold>{{time}}</Bold> ausgeführt."
+    }
   }
 }
