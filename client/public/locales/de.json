@@ -134,9 +134,17 @@
     "minute": "1 Minute",
     "minutes": "{{minutes}} Minuten",
     "hour": "1 Stunde",
-    "hours": "{{hours}} Stunden"
+    "hours": "{{hours}} Stunden",
+    "on": "Am",
+    "at": "Um"
   },
   "test": {
-    "not_available": "Es liegen aktuell keine Tests vor"
+    "not_available": "Es liegen aktuell keine Tests vor",
+    "unknown_error": "Unbekannter Fehler:",
+    "failed": "Test fehlgeschlagen",
+    "recheck": "Bitte überprüfe weitestgehend, ob das öfters passiert.",
+    "delete": "Test löschen",
+    "average": "Durchschnittsgeschwindigkeit",
+    "result": "Testergebnis"
   }
 }
