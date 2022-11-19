@@ -33,7 +33,7 @@
     "upload_placeholder": "Up-Speed (Mbit/s)",
     "download_title": "Optimalen Down-Speed setzen (Mbit/s)",
     "download_placeholder": "Down-Speed (Mbit/s)",
-    "recommendations_title":  "Automatische Empfehlungen",
+    "recommendations_title": "Automatische Empfehlungen",
     "recommendations_set": "Automatische Empfehlungen setzen?",
     "server_title": "Speedtest-Server setzen",
     "manually": "Manuell festlegen",
@@ -73,5 +73,11 @@
     "up": "Upload",
     "latest": "Letzter Test",
     "before": "vor"
+  },
+  "info": {
+    "healthchecks": "MySpeed verwendet <HCLink>HealthChecks</HCLink>, um dich zu benachrichtigen, wenn dein Internet ausfällt. Um dies zu aktivieren, setze deine Ping URL in das Textfeld ein. Mehr dazu <WIKILink>hier</WIKILink>",
+    "credits": "<Link>MySpeed</Link> wird von GNMYT bereitgestellt und verwendet die <CLILink>Speedtest-CLI</CLILink> von Ookla.",
+    "recommendations_error": "Du musst mindestens 10 Tests machen, damit ein Durchschnitt ermittelt werden kann. Ob die Tests manuell oder automatisch durchgeführt wurden ist egal.",
+    "recommendations_info": "Anhand der letzten 10 Testergebnisse wurde festgestellt, dass der optimale Ping bei <Bold>{{ping}} ms</Bold>, der Download bei <Bold>{{down}} Mbit/s</Bold> und der Upload bei <Bold>{{up}} Mbit/s</Bold> liegt. Orientiere dich am besten an deinem Internetvertrag und übernehme es nur, wenn es mit dem übereinstimmt."
   }
 }
