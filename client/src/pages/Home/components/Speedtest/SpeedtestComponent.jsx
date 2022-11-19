@@ -38,10 +38,10 @@ function SpeedtestComponent(props) {
 
     const showInfoDialog = () => {
         if (props.type === "average") {
-            setDialog({title: t("test.average"), buttonText: t("dialog.okay"), description: averageResultDialog(timeString, props)});
+            setDialog({title: t("test.average.title"), buttonText: t("dialog.okay"), description: averageResultDialog(timeString, props)});
         } else {
             setDialog({
-                title: t("test.result"),
+                title: t("test.result.title"),
                 description: resultDialog(props),
                 buttonText: t("dialog.okay"),
                 unsetButton: t("test.delete"),
