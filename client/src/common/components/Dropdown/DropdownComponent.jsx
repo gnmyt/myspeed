@@ -137,7 +137,7 @@ function DropdownComponent() {
         setDialog({
             title: t("update.cron_title"),
             select: true,
-            selectOptions: selectOptions,
+            selectOptions: selectOptions(),
             value: config.cron,
             unsetButton: t("update.manually"),
             onClear: updateCronManually,
@@ -158,7 +158,7 @@ function DropdownComponent() {
         setDialog({
             title: t("update.time_title"),
             select: true,
-            selectOptions: timeOptions,
+            selectOptions: timeOptions(),
             value: localStorage.getItem("testTime") || 1,
             onSuccess: value => {
                 localStorage.setItem("testTime", value);
@@ -175,7 +175,7 @@ function DropdownComponent() {
             title: t("update.export_title"),
             buttonText: t("update.download"),
             value: "json",
-            selectOptions: exportOptions,
+            selectOptions: exportOptions(),
             onSuccess: value => downloadRequest("/export/" + value)
         });
     }
