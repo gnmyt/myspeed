@@ -127,5 +127,13 @@
       "title": "Letzter Test",
       "description": "Dies ist die Zeit, die dir zeigt, wann der letzte Test ausgeführt wurde. In diesem Fall wurde der letzte Test am <Bold>{{date}}</Bold> um <Bold>{{time}}</Bold> ausgeführt."
     }
+  },
+  "time": {
+    "now": "Gerade eben",
+    "seconds": "{{seconds}} Sekunden",
+    "minute": "1 Minute",
+    "minutes": "{{minutes}} Minuten",
+    "hour": "1 Stunde",
+    "hours": "{{hours}} Stunden"
   }
 }
