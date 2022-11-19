@@ -135,5 +135,8 @@
     "minutes": "{{minutes}} Minuten",
     "hour": "1 Stunde",
     "hours": "{{hours}} Stunden"
+  },
+  "test": {
+    "not_available": "Es liegen aktuell keine Tests vor"
   }
 }
