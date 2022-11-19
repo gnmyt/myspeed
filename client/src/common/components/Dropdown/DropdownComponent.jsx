@@ -206,21 +206,24 @@ function DropdownComponent() {
 
     const showIntegrationInfo = () => setDialog({
         title: t("update.healthchecks"),
-        description: healthChecksInfo,
+        description: healthChecksInfo(),
         buttonText: t("dialog.okay")
     });
 
-    const updateLanguage = () => setDialog({
-        title: t("update.language"),
-        select: true,
-        selectOptions: languageOptions,
-        value: localStorage.getItem("language") || "en",
-        onSuccess: value => changeLanguage(value, showFeedback())
-    });
+    const updateLanguage = () => {
+        toggleDropdown();
+        setDialog({
+            title: t("update.language"),
+            select: true,
+            selectOptions: languageOptions,
+            value: localStorage.getItem("language") || "en",
+            onSuccess: value => changeLanguage(value, showFeedback())
+        });
+    }
 
     const showCredits = () => {
         toggleDropdown();
-        setDialog({title: "MySpeed", description: creditsInfo, buttonText: t("dialog.close")});
+        setDialog({title: "MySpeed", description: creditsInfo(), buttonText: t("dialog.close")});
     }
 
     const options = [
@@ -234,7 +237,7 @@ function DropdownComponent() {
         {run: updateCron, icon: faClock, text: t("dropdown.cron")},
         {run: updateTime, icon: faCalendarDays, text: t("dropdown.time")},
         {run: exportDialog, icon: faFileExport, text: t("dropdown.export")},
-        {run: togglePause, icon: status.paused ? faPlay : faPause, text: status.paused ? t("dropdown.resume_tests") : t("dropdown.pause_tests")},
+        {run: togglePause, icon: status.paused ? faPlay : faPause, text: t("dropdown." + (status.paused ? "resume_tests" : "pause_tests"))},
         {run: updateIntegration, icon: faCircleNodes, text: t("dropdown.healthchecks")},
         {run: updateLanguage, icon: faGlobeEurope, text: t("dropdown.language")},
         {run: showCredits, icon: faInfo, text: t("dropdown.info")}
