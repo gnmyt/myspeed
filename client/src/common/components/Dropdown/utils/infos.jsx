@@ -1,16 +1,13 @@
-export const healthChecksInfo = <>MySpeed verwendet <a href="https://healthchecks.io/" target="_blank">Healthchecks</a>,
-    um dich zu benachrichtigen, wenn dein Internet ausfällt. Um dies zu aktivieren, setze deine Ping URL in das Textfeld
-    ein. Mehr dazu <a href="https://myspeed.gnmyt.dev/instructions/settings/" target="_blank">hier</a></>;
+import {PROJECT_URL, PROJECT_WIKI} from "@/index";
+import {Trans} from "react-i18next";
+const HEALTHCHECKS_URL = "https://healthchecks.io/";
+const CLI_URL = "https://www.speedtest.net/apps/cli";
 
-export const creditsInfo = <><a href="https://github.com/gnmyt/myspeed" target="_blank"
-                                rel="noreferrer">MySpeed</a> wird von GNMYT bereitgestellt und verwendet die <a
-    href="https://www.speedtest.net/apps/cli" target="_blank" rel="noreferrer">Speedtest-CLI</a> von Ookla.</>;
+export const healthChecksInfo = () => <Trans components={{HCLink: <a href={HEALTHCHECKS_URL} target="_blank"/>,
+    WIKILink: <a href={PROJECT_WIKI + "/instructions/settings"} target="_blank"/>}}>info.healthchecks</Trans>
 
-export const recommendationsError = <>Du musst mindestens 10 Tests machen, damit ein Durchschnitt ermittelt werden kann.
-    Ob die Tests manuell oder automatisch durchgeführt wurden ist egal.</>;
+export const creditsInfo = () => <Trans components={{Link: <a href={PROJECT_URL} target="_blank" />,
+    CLILink: <a href={CLI_URL} target="_blank"/>}}>info.credits</Trans>
 
-export const recommendationsInfo = (ping, download, upload) => <>Anhand der letzten 10 Testergebnisse wurde
-    festgestellt, dass der optimale Ping bei <span className="dialog-value">{ping} ms</span>, der Download bei <span
-        className="dialog-value">{download} Mbit/s </span>und der Upload bei <span
-        className="dialog-value">{upload} Mbit/s</span> liegt. <br/>Orientiere dich am besten an deinem Internetvertrag
-    und übernehme es nur, wenn es mit dem übereinstimmt.</>;
+export const recommendationsInfo = (ping, down, up) => <Trans components={{Bold: <span className="dialog-value" />}}
+                                                              values={{ping, down, up}}>info.recommendations_info</Trans>
