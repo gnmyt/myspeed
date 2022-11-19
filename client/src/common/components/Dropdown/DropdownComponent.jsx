@@ -10,7 +10,7 @@ import {StatusContext} from "@/common/contexts/Status";
 import {DialogContext} from "@/common/contexts/Dialog";
 import {SpeedtestContext} from "@/common/contexts/Speedtests";
 import {downloadRequest, jsonRequest, patchRequest, postRequest} from "@/common/utils/RequestUtil";
-import {creditsInfo, healthChecksInfo, recommendationsError, recommendationsInfo} from "@/common/components/Dropdown/utils/infos";
+import {creditsInfo, healthChecksInfo, recommendationsInfo} from "@/common/components/Dropdown/utils/infos";
 import {exportOptions, languageOptions, selectOptions, timeOptions} from "@/common/components/Dropdown/utils/options";
 import {parseCron, stringifyCron} from "@/common/components/Dropdown/utils/utils";
 import {changeLanguage, t} from "i18next";
