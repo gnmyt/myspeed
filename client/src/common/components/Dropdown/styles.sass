@@ -1,5 +1,10 @@
 @import "@/common/styles/colors"
 
+.dropdown
+  visibility: visible
+  opacity: 1
+  transition: opacity 0.1s linear
+
 .dropdown-content
   float: right
   margin-right: 10%
@@ -16,6 +21,8 @@
 
 .dropdown-invisible
   visibility: hidden
+  opacity: 0
+  transition: visibility 0s 0.1s, opacity 0.1s linear
 
 .dropdown-content h2
   color: $darker-white
