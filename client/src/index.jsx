@@ -1,24 +1,10 @@
 import React from 'react';
 import ReactDOM from "react-dom/client";
-import i18n from "i18next";
-import {initReactI18next} from "react-i18next";
-import LanguageDetector from 'i18next-browser-languagedetector';
-import HttpApi from 'i18next-http-backend';
-
 import App from './App';
+import i18n from './i18n';
 
-
-i18n.use(initReactI18next).use(LanguageDetector).use(HttpApi).init({
-    supportedLngs: ['en', 'de'],
-    fallbackLng: 'en',
-    backend: {
-      loadPath: '/locales/{{lng}}.json'
-    },
-    detection: {
-        order: ['localStorage', 'htmlTag'],
-        lookupLocalStorage: 'language'
-    }
-});
+export const PROJECT_URL = "https://github.com/gnmyt/myspeed";
+export const PROJECT_WIKI = "https://myspeed.gnmyt.dev";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
