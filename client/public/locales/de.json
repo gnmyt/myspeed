@@ -159,5 +159,15 @@
       "average": "Durchschnitt",
       "auto": "Automatisiert"
     }
+  },
+  "errors": {
+    "network_unreachable": "Die Internetverbindung scheint unterbrochen gewesen zu sein",
+    "took_too_long": "Der Test hat zu lange gedauert und wurde abgebrochen",
+    "no_permission": "MySpeed hat keine Berechtigung, diesen Test zu starten",
+    "resource_unavailable": "Der Test konnte nicht durchgeführt werden, da die Ressource vorübergehend nicht verfügbar ist",
+    "no_route": "Der Test konnte nicht durchgeführt werden, da keine Route zum Host existiert",
+    "connection_refused": "Der Test konnte nicht durchgeführt werden, da die Verbindung abgelehnt wurde",
+    "timed_out": "Die Internetverbindung scheint unterbrochen gewesen zu sein",
+    "config": "Die Konfigurationsdatei konnte nicht geladen werden"
   }
 }
