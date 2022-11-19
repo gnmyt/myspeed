@@ -100,7 +100,7 @@ function DropdownComponent() {
                     showFeedback();
                 }
             });
-        } else setDialog({title: t("dialog.recommendations_title"), description: recommendationsError, buttonText: t("dialog.okay")});
+        } else setDialog({title: t("update.recommendations_title"), description: t("info.recommendations_error"), buttonText: t("dialog.okay")});
     }
 
     const updateServer = () => patchDialog("serverId", async (value) => ({
