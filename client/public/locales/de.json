@@ -2,10 +2,21 @@
   "failed": "Fehlgeschlagen",
   "dialog": {
     "okay": "Okay",
+    "done": "Fertig",
     "apply": "Ja, übernehmen",
     "update": "Aktualisieren",
     "close": "Schließen",
-    "unset": "Entfernen"
+    "unset": "Entfernen",
+    "password": {
+      "title": "Passwort erforderlich",
+      "placeholder": "Dein Passwort",
+      "wrong": "Das von dir eingegebene Passwort ist falsch"
+    },
+    "accept": {
+      "title": "Nutzungsbedingungen akzeptieren",
+      "description": "Mit dem Klick auf <Bold>Akzeptieren</Bold> bestätigst du, dass du die <EULA>EULA</EULA>, <Privacy>Datenschutzerklärung</Privacy> und <Terms>Nutzungsbedingungen</Terms>  von Ookla gelesen hast und diesen zustimmst.",
+      "button": "Akzeptieren"
+    }
   },
   "dropdown": {
     "settings": "Einstellungen",
