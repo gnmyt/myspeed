@@ -57,7 +57,7 @@ function SpeedtestComponent(props) {
                     <FontAwesomeIcon icon={props.error ? faInfo : faClockRotateLeft}
                                      className={"container-icon help-icon icon-" + (props.error ? "error" : "blue")}
                                      onClick={props.error ? showErrorDialog : showInfoDialog}/>
-                    <span className="tooltip">{tooltips[props.type]}</span>
+                    <span className="tooltip">{tooltips()[props.type]}</span>
                 </div>
                 <h2 className="date-text">{(t("time." + (isAverage ? "on" : "at"))) + " " + timeString}</h2>
             </div>
