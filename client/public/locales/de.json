@@ -11,6 +11,7 @@
     "settings": "Einstellungen",
     "changes_applied": "Deine Änderungen wurden übernommen.",
     "changes_unsaved": "Deine Änderungen wurden nicht übernommen. Überprüfe deine Eingabe.",
+    "invalid": "Eingabe ungültig",
     "ping": "Optimaler Ping",
     "upload": "Optimaler Up-Speed",
     "download": "Optimaler Down-Speed",
