@@ -24,13 +24,13 @@ function SpeedtestComponent(props) {
         + (String(isAverage ? (props.time.getMonth() + 1) : props.time.getMinutes()).padStart(2, '0'));
 
     if (props.error) {
-        for (let errorsKey in errors)
-            if (props.error.includes(errorsKey)) errorMessage = errors[errorsKey];
+        for (let errorsKey in errors())
+            if (props.error.includes(errorsKey)) errorMessage = errors()[errorsKey];
     }
 
     const showErrorDialog = () => setDialog({
         title: t("test.failed"),
-        description: errorMessage + "." + t("test.recheck"),
+        description: errorMessage + ". " + t("test.recheck"),
         buttonText: t("dialog.okay"),
         unsetButton: t("test.delete"),
         onClear: () => deleteRequest(`/speedtests/${props.id}`).then(updateTests)
