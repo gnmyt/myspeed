@@ -26,6 +26,25 @@
     "language": "Sprache ändern",
     "info": "Info"
   },
+  "options": {
+    "time": {
+      "24hours": "24 Stunden (Standard)",
+      "2days": "2 Tage (Insgesamt)",
+      "7days": "7 Tage (Durchschnitt)",
+      "30days": "30 Tage (Durchschnitt)"
+    },
+    "cron": {
+      "continuous": "Durchgehend (jede Minute)",
+      "frequent": "Sehr häufig (alle 30 Minuten)",
+      "default": "Standard (jede Stunde)",
+      "rare": "Selten (alle 3 Stunden)",
+      "really_rare": "Sehr selten (alle 6 Stunden)"
+    },
+    "export": {
+      "json": "JSON-Datei",
+      "csv": "CSV-Datei"
+    }
+  },
   "update": {
     "ping_title": "Optimalen Ping setzen (ms)",
     "ping_placeholder": "Ping (ms)",
