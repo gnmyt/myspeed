@@ -10,6 +10,7 @@ const Dialog = ({dialog, setDialog}) => {
     if (!dialog) return;
 
     const [value, setValue] = useState(dialog.value || "");
+
     const ref = useRef();
 
     document.onkeyup = e => {
@@ -32,7 +33,7 @@ const Dialog = ({dialog, setDialog}) => {
     function closeSlow() {
         if (ref.current == null) return;
         ref.current.classList.add("dialog-hidden");
-        setTimeout(() => setDialog(), 300);
+        setTimeout(() => setDialog(), 150);
     }
 
     function closeDialog() {
@@ -43,12 +44,12 @@ const Dialog = ({dialog, setDialog}) => {
     function submit() {
         if (!dialog.description && !value) return;
         closeSlow();
-        if (dialog.onSuccess) dialog.onSuccess(value);
+        if (dialog.onSuccess) setTimeout(() => dialog.onSuccess(value), 160);
     }
 
     function clear() {
         closeSlow();
-        if (dialog.onClear) dialog.onClear();
+        if (dialog.onClear) setTimeout(() => dialog.onClear(), 160);
     }
 
     if (dialog.speedtest) return (
