@@ -1,3 +1,5 @@
+import {t} from "i18next";
+
 export function generateRelativeTime(created) {
     let currentDate = new Date().getTime();
     let date = new Date(Date.parse(created)).getTime();
@@ -5,13 +7,13 @@ export function generateRelativeTime(created) {
     const diff = (currentDate - date) / 1000;
 
     if (diff < 5) {
-        return "Gerade eben"
+        return t("time.now");
     } else if (diff < 60) {
-        return diff === 1 ? "1 Sekunde" : `${Math.floor(diff)} Sekunden`
+        return t("time.seconds", {replace: {seconds: Math.floor(diff)}});
     } else if (diff < 3600) {
-        return Math.floor(diff / 60) === 1 ? "1 Minute" : `${Math.floor(diff / 60)} Minuten`
+        return Math.floor(diff / 60) === 1 ? t("time.minute") : t("time.minutes", {replace: {minutes: Math.floor(diff / 60)}});
     } else if (diff < 86400) {
-        return Math.floor(diff / 3600) === 1 ? "1 Stunde" : `${Math.floor(diff / 3600)} Stunden`
+        return Math.floor(diff / 3600) === 1 ? t("time.hour") : t("time.hours", {replace: {hours: Math.floor(diff / 3600)}});
     }
 
     return "N/A"

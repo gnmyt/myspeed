@@ -3,16 +3,17 @@ import "./styles.sass";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
     faArrowDown, faArrowUp, faCalendarDays, faCircleNodes, faClock, faClose, faFileExport,
-    faGear, faInfo, faKey, faPause, faPingPongPaddleBall, faPlay, faServer, faWandMagicSparkles
+    faGear, faGlobeEurope, faInfo, faKey, faPause, faPingPongPaddleBall, faPlay, faServer, faWandMagicSparkles
 } from "@fortawesome/free-solid-svg-icons";
 import {ConfigContext} from "@/common/contexts/Config";
 import {StatusContext} from "@/common/contexts/Status";
 import {DialogContext} from "@/common/contexts/Dialog";
 import {SpeedtestContext} from "@/common/contexts/Speedtests";
 import {downloadRequest, jsonRequest, patchRequest, postRequest} from "@/common/utils/RequestUtil";
-import {creditsInfo, healthChecksInfo, recommendationsError, recommendationsInfo} from "@/common/components/Dropdown/utils/infos";
-import {exportOptions, selectOptions, timeOptions} from "@/common/components/Dropdown/utils/options";
+import {creditsInfo, healthChecksInfo, recommendationsInfo} from "@/common/components/Dropdown/utils/infos";
+import {exportOptions, languageOptions, selectOptions, timeOptions} from "@/common/components/Dropdown/utils/options";
 import {parseCron, stringifyCron} from "@/common/components/Dropdown/utils/utils";
+import {changeLanguage, t} from "i18next";
 
 let icon;
 
@@ -57,7 +58,7 @@ function DropdownComponent() {
     }, []);
 
     const showFeedback = (customText, reload = true) => setDialog({
-        title: "MySpeed", description: customText || <>Deine Änderungen wurden übernommen.</>, buttonText: "Okay",
+        title: "MySpeed", description: customText || t('dropdown.changes_applied'), buttonText: t('dialog.okay'),
         onSuccess: () => reload ? reloadConfig() : "", onClose: () => reloadConfig()
     });
 
@@ -67,20 +68,20 @@ function DropdownComponent() {
         setDialog({
             ...(await dialog(config[key])),
             onSuccess: value => patchRequest(`/config/${key}`, {value: postValue(value)})
-                .then(res => showFeedback(!res.ok ? "Deine Änderungen wurden nicht übernommen. Überprüfe deine Eingabe." : undefined))
+                .then(res => showFeedback(!res.ok ? t("dropdown.changes_unsaved") : undefined))
         })
     }
 
     const updatePing = async () => patchDialog("ping", (value) => ({
-        title: "Optimalen Ping setzen (ms)", placeholder: "Ping (ms)", value
+        title: t("update.ping_title"), placeholder: t("update.ping_placeholder"), value
     }));
 
     const updateUpload = async () => patchDialog("upload", (value) => ({
-        title: "Optimalen Up-Speed setzen (Mbit/s)", placeholder: "Up-Speed (Mbit/s)", value
+        title: t("update.upload_title"), placeholder: t("update.upload_placeholder"), value
     }));
 
     const updateDownload = async () => patchDialog("download", (value) => ({
-        title: "Optimalen Down-Speed setzen (Mbit/s)", placeholder: "Down-Speed (Mbit/s)", value
+        title: t("update.download_title"), placeholder: t("update.download_placeholder"), value
     }));
 
     const recommendedSettings = async () => {
@@ -89,9 +90,9 @@ function DropdownComponent() {
 
         if (!result.message) {
             setDialog({
-                title: "Automatische Empfehlungen setzen?",
+                title: t("update.recommendations_set"),
                 description: recommendationsInfo(result.ping, result.download, result.upload),
-                buttonText: "Ja, übernehmen",
+                buttonText: t("dialog.apply"),
                 onSuccess: async () => {
                     await patchRequest("/config/ping", {value: result.ping});
                     await patchRequest("/config/download", {value: result.download});
@@ -99,32 +100,31 @@ function DropdownComponent() {
                     showFeedback();
                 }
             });
-        } else setDialog({title: "Automatische Empfehlungen", description: recommendationsError, buttonText: "Okay"});
+        } else setDialog({title: t("update.recommendations_title"), description: t("info.recommendations_error"), buttonText: t("dialog.okay")});
     }
 
     const updateServer = () => patchDialog("serverId", async (value) => ({
-        title: "Speedtest-Server setzen",
+        title: t("update.server_title"),
         select: true,
         selectOptions: await jsonRequest("/info/server"),
-        unsetButton: "Manuell festlegen",
+        unsetButton: t("update.manually"),
         onClear: updateServerManually,
         value
     }));
 
     const updateServerManually = () => patchDialog("serverId", (value) => ({
-        title: "Speedtest-Server setzen", placeholder: "Server-ID", type: "number", value: value,
+        title: t("update.manual_server_title"), placeholder: t("update.manual_server_id"), type: "number", value: value,
     }), false);
 
     const updatePassword = async () => {
         toggleDropdown();
         setDialog({
-            title: "Neues Passwort festlegen",
-            placeholder: "Neues Passwort",
+            title: t("update.new_password"),
+            placeholder: t("update.password_placeholder"),
             type: "password",
             unsetButton: localStorage.getItem("password") != null ? "Sperre aufheben" : undefined,
             onClear: () => patchRequest("/config/password", {value: "none"})
-                .then(() => showFeedback(<>Die Passwortsperre wurde aufgehoben und das festgelegte Passwort wurde
-                    entfernt.</>, false))
+                .then(() => showFeedback(t("update.password_removed"), false))
                 .then(() => localStorage.removeItem("password")),
             onSuccess: (value) => patchRequest("/config/password", {value})
                 .then(() => showFeedback(undefined, false))
@@ -135,30 +135,30 @@ function DropdownComponent() {
     const updateCron = async () => {
         toggleDropdown();
         setDialog({
-            title: "Test-Häufigkeit einstellen",
+            title: t("update.cron_title"),
             select: true,
-            selectOptions: selectOptions,
+            selectOptions: selectOptions(),
             value: config.cron,
-            unsetButton: "Manuell festlegen",
+            unsetButton: t("update.manually"),
             onClear: updateCronManually,
             onSuccess: value => patchRequest("/config/cron", {value}).then(() => showFeedback())
         });
     }
 
     const updateCronManually = () => patchDialog("cron", (value) => ({
-        title: <>Test-Häufigkeit einstellen <a href="https://crontab.guru/" target="_blank">?</a></>,
-        placeholder: "Cron-Regel",
+        title: <>{t("update.cron_title")} <a href="https://crontab.guru/" target="_blank">?</a></>,
+        placeholder: t("update.cron_rules"),
         value: value,
-        updateDescription: (val) => <>Nächster Test: <span className="dialog-value">{parseCron(val)}</span></>,
-        description: <>Nächster Test: <span className="dialog-value">{parseCron(value)}</span></>,
+        updateDescription: (val) => <>{t("update.cron_next_test")} <span className="dialog-value">{parseCron(val)}</span></>,
+        description: <>{t("update.cron_next_test")} <span className="dialog-value">{parseCron(value)}</span></>,
     }), false, (val) => stringifyCron(val));
 
     const updateTime = async () => {
         toggleDropdown();
         setDialog({
-            title: "Zeige Tests der letzten ...",
+            title: t("update.time_title"),
             select: true,
-            selectOptions: timeOptions,
+            selectOptions: timeOptions(),
             value: localStorage.getItem("testTime") || 1,
             onSuccess: value => {
                 localStorage.setItem("testTime", value);
@@ -172,10 +172,10 @@ function DropdownComponent() {
         toggleDropdown();
         setDialog({
             select: true,
-            title: "Speedtests exportieren",
-            buttonText: "Herunterladen",
+            title: t("update.export_title"),
+            buttonText: t("update.download"),
             value: "json",
-            selectOptions: exportOptions,
+            selectOptions: exportOptions(),
             onSuccess: value => downloadRequest("/export/" + value)
         });
     }
@@ -184,11 +184,11 @@ function DropdownComponent() {
         toggleDropdown();
         if (!status.paused) {
             setDialog({
-                title: "Speedtests pausieren für...",
-                placeholder: "Stunden",
+                title: t("update.pause_title"),
+                placeholder: t("update.hours"),
                 type: "number",
-                buttonText: "Pausieren",
-                unsetButton: "Manuell freigeben",
+                buttonText: t("update.pause"),
+                unsetButton: t("update.release_manually"),
                 onClear: () => postRequest("/speedtests/pause", {resumeIn: -1}).then(updateStatus),
                 onSuccess: (hours) => postRequest("/speedtests/pause", {resumeIn: hours}).then(updateStatus)
             });
@@ -196,45 +196,57 @@ function DropdownComponent() {
     }
 
     const updateIntegration = async () => patchDialog("healthChecksUrl", (value) => ({
-        title: <>HealthChecks Integration <a onClick={showIntegrationInfo}>?</a></>,
-        placeholder: "HealthChecks Server URL", value,
-        buttonText: "Aktualisieren",
+        title: <>{t("update.healthchecks")} <a onClick={showIntegrationInfo}>?</a></>,
+        placeholder: t("update.healthchecks_url"), value,
+        buttonText: t("dialog.update"),
         unsetButton: !value.includes("<uuid>") ? "Deaktivieren" : undefined,
         onClear: () => patchDialog("/config/healthChecksUrl", {value: "https://hc-ping.com/<uuid>"})
-            .then(() => showFeedback(<>Die Healthchecks wurden deaktiviert</>))
+            .then(() => showFeedback(t("update.healthchecks_activated")))
     }));
 
     const showIntegrationInfo = () => setDialog({
-        title: "HealthChecks Integration",
-        description: healthChecksInfo,
-        buttonText: "Okay"
+        title: t("update.healthchecks"),
+        description: healthChecksInfo(),
+        buttonText: t("dialog.okay")
     });
+
+    const updateLanguage = () => {
+        toggleDropdown();
+        setDialog({
+            title: t("update.language"),
+            select: true,
+            selectOptions: languageOptions,
+            value: localStorage.getItem("language") || "en",
+            onSuccess: value => changeLanguage(value, showFeedback())
+        });
+    }
 
     const showCredits = () => {
         toggleDropdown();
-        setDialog({title: "MySpeed", description: creditsInfo, buttonText: "Schließen"});
+        setDialog({title: "MySpeed", description: creditsInfo(), buttonText: t("dialog.close")});
     }
 
     const options = [
-        {run: updatePing, icon: faPingPongPaddleBall, text: "Optimaler Ping"},
-        {run: updateUpload, icon: faArrowUp, text: "Optimaler Up-Speed"},
-        {run: updateDownload, icon: faArrowDown, text: "Optimaler Down-Speed"},
-        {run: recommendedSettings, icon: faWandMagicSparkles, text: "Optimale Werte"},
+        {run: updatePing, icon: faPingPongPaddleBall, text: t("dropdown.ping")},
+        {run: updateUpload, icon: faArrowUp, text: t("dropdown.upload")},
+        {run: updateDownload, icon: faArrowDown, text: t("dropdown.download")},
+        {run: recommendedSettings, icon: faWandMagicSparkles, text: t("dropdown.recommendations")},
         {hr: true, key: 1},
-        {run: updateServer, icon: faServer, text: "Server wechseln"},
-        {run: updatePassword, icon: faKey, text: "Passwort ändern"},
-        {run: updateCron, icon: faClock, text: "Häufigkeit einstellen"},
-        {run: updateTime, icon: faCalendarDays, text: "Zeitraum festlegen"},
-        {run: exportDialog, icon: faFileExport, text: "Tests exportieren"},
-        {run: togglePause, icon: status.paused ? faPlay : faPause, text: "Tests " + (status.paused ? "fortsetzen" : "pausieren")},
-        {run: updateIntegration, icon: faCircleNodes, text: "Healthchecks"},
-        {run: showCredits, icon: faInfo, text: "Info"}
+        {run: updateServer, icon: faServer, text: t("dropdown.server")},
+        {run: updatePassword, icon: faKey, text: t("dropdown.password")},
+        {run: updateCron, icon: faClock, text: t("dropdown.cron")},
+        {run: updateTime, icon: faCalendarDays, text: t("dropdown.time")},
+        {run: exportDialog, icon: faFileExport, text: t("dropdown.export")},
+        {run: togglePause, icon: status.paused ? faPlay : faPause, text: t("dropdown." + (status.paused ? "resume_tests" : "pause_tests"))},
+        {run: updateIntegration, icon: faCircleNodes, text: t("dropdown.healthchecks")},
+        {run: updateLanguage, icon: faGlobeEurope, text: t("dropdown.language")},
+        {run: showCredits, icon: faInfo, text: t("dropdown.info")}
     ];
 
     return (
         <div className="dropdown dropdown-invisible" id="dropdown" ref={ref}>
             <div className="dropdown-content">
-                <h2>Einstellungen</h2>
+                <h2>{t("dropdown.settings")}</h2>
                 <div className="dropdown-entries">
                     {options.map(entry => !entry.hr ? (
                         <div className="dropdown-item" onClick={entry.run} key={entry.run}>

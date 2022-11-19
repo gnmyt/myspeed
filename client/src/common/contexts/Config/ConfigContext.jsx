@@ -16,12 +16,12 @@ export const ConfigProvider = (props) => {
             return res.json();
         })
             .then(result => setConfig(result))
-            .catch(() => setDialog(passwordRequiredDialog));
+            .catch(() => setDialog(passwordRequiredDialog()));
     }
 
     useEffect(() => {
         if (config.acceptOoklaLicense !== undefined && config.acceptOoklaLicense === "false")
-            setDialog(acceptDialog);
+            setDialog(acceptDialog());
     }, [config]);
 
     useEffect(reloadConfig, []);

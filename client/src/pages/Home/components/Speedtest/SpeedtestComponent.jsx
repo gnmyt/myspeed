@@ -11,43 +11,40 @@ import "./styles.sass";
 import {averageResultDialog, resultDialog} from "@/pages/Home/components/Speedtest/utils/infos";
 import {errors} from "@/pages/Home/components/Speedtest/utils/errors";
 import {tooltips} from "@/pages/Home/components/Speedtest/utils/tooltips";
+import {t} from "i18next";
 
 function SpeedtestComponent(props) {
     const [setDialog] = useContext(DialogContext);
     const updateTests = useContext(SpeedtestContext)[1];
 
-    let errorMessage = "Unbekannter Fehler: " + props.error;
+    let errorMessage = t("test.unknown_error") + " " + props.error;
 
     let isAverage = props.type === "average";
     let timeString = (String(isAverage ? props.time.getDate() : props.time.getHours()).padStart(2, '0')) + (isAverage ? "." : ":")
         + (String(isAverage ? (props.time.getMonth() + 1) : props.time.getMinutes()).padStart(2, '0'));
 
     if (props.error) {
-        for (let errorsKey in errors)
-            if (props.error.includes(errorsKey)) errorMessage = errors[errorsKey];
+        for (let errorsKey in errors())
+            if (props.error.includes(errorsKey)) errorMessage = errors()[errorsKey];
     }
 
     const showErrorDialog = () => setDialog({
-        title: "Test fehlgeschlagen",
-        description: errorMessage + ". Bitte überprüfe weitestgehend, ob das öfters passiert.",
-        buttonText: "Okay",
-        unsetButton: "Test löschen",
+        title: t("test.failed"),
+        description: errorMessage + ". " + t("test.recheck"),
+        buttonText: t("dialog.okay"),
+        unsetButton: t("test.delete"),
         onClear: () => deleteRequest(`/speedtests/${props.id}`).then(updateTests)
     });
 
     const showInfoDialog = () => {
         if (props.type === "average") {
-            setDialog({
-                title: "Durchschnittsgeschwindigkeit",
-                buttonText: "Okay",
-                description: averageResultDialog(timeString, props)
-            });
+            setDialog({title: t("test.average.title"), buttonText: t("dialog.okay"), description: averageResultDialog(timeString, props)});
         } else {
             setDialog({
-                title: "Testergebnis",
+                title: t("test.result.title"),
                 description: resultDialog(props),
-                buttonText: "Okay",
-                unsetButton: "Test löschen",
+                buttonText: t("dialog.okay"),
+                unsetButton: t("test.delete"),
                 onClear: () => deleteRequest(`/speedtests/${props.id}`).then(updateTests)
             });
         }
@@ -60,9 +57,9 @@ function SpeedtestComponent(props) {
                     <FontAwesomeIcon icon={props.error ? faInfo : faClockRotateLeft}
                                      className={"container-icon help-icon icon-" + (props.error ? "error" : "blue")}
                                      onClick={props.error ? showErrorDialog : showInfoDialog}/>
-                    <span className="tooltip">{tooltips[props.type]}</span>
+                    <span className="tooltip">{tooltips()[props.type]}</span>
                 </div>
-                <h2 className="date-text">{(isAverage ? "Am " : "Um ") + timeString}</h2>
+                <h2 className="date-text">{(t("time." + (isAverage ? "on" : "at"))) + " " + timeString}</h2>
             </div>
             <div className="speedtest-row">
                 <FontAwesomeIcon icon={props.error ? faClose : faPingPongPaddleBall}

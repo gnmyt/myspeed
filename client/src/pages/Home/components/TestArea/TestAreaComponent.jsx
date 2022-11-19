@@ -4,6 +4,7 @@ import {SpeedtestContext} from "@/common/contexts/Speedtests";
 import Speedtest from "../Speedtest";
 import {getIconBySpeed} from "@/common/utils/TestUtil";
 import "./styles.sass";
+import {t} from "i18next";
 
 function TestArea() {
     const config = useContext(ConfigContext)[0];
@@ -11,7 +12,7 @@ function TestArea() {
 
     if (Object.entries(config).length === 0) return (<></>);
 
-    if (speedtests.length === 0) return <h2 className="error-text">Es liegen aktuell keine Tests vor</h2>
+    if (speedtests.length === 0) return <h2 className="error-text">{t("test.not_available")}</h2>
 
     return (
         <div className="speedtest-area">

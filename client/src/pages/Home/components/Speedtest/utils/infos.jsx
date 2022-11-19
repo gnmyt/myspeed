@@ -1,13 +1,12 @@
 import React from "react";
+import {Trans} from "react-i18next";
+import {t} from "i18next";
 
-export const averageResultDialog = (timeString, props) => <><span className="dialog-value">{props.amount}</span> Tests haben
-    ergeben, dass am <span className="dialog-value">{timeString}</span> eine durchschnittliche Downloadgeschwindigkeit
-    von <span className="dialog-value">{props.down} Mbit/s</span> und eine Upload-geschwindigkeit von <span
-        className="dialog-value">{props.up} Mbit/s</span> bestand. Die Tests dauerten im Durchschnitt <span
-        className="dialog-value">{props.duration} Sekunden</span>.</>;
+export const averageResultDialog = (timeString, props) => <Trans components={{Bold: <span className="dialog-value"/> }}
+                                                                 values={{amount: props.amount, date: timeString, down: props.down,
+                                                                     up: props.up, duration: props.duration}}>test.average.description</Trans>
 
-export const resultDialog = (props) => <>Dieser Test erreichte eine maximale Downloadgeschwindigkeit von <span
-    className="dialog-value">{props.down} Mbit/s </span>und eine maximale Uploadgeschwindigkeit von <span
-    className="dialog-value">{props.up} Mbit/s</span>. Er wurde <span
-    className="dialog-value">{props.type === "custom" ? "von dir" : "automatisch"}</span> angelegt und hat <span
-    className="dialog-value">{props.duration} Sekunden</span> gedauert.</>
+export const resultDialog = (props) => <Trans components={{Bold: <span className="dialog-value"/> }}
+                                              values={{down: props.down, up: props.up,
+                                                  type: t("test.result." + (props.type === "custom" ? "from_you" : "automatic")),
+                                                  duration: props.duration}}>test.result.description</Trans>

@@ -1,28 +1,16 @@
-export const downloadInfo = {
-    title: "Download-Geschwindigkeit",
-    description: "Die Downloadgeschwindigkeit wirkt sich auf dein Surferlebnis aus. Umso mehr du bekommst, desto schneller kann dein Computer Daten empfangen.",
-    buttonText: "Okay"
-};
+import {t} from "i18next";
+import {Trans} from "react-i18next";
 
-export const pingInfo = {
-    title: "Ping",
-    description: "Der Ping zeigt dir, wie schnell der jeweilige Anbieter antwortet. Umso kürzer die Zeit, desto besser.",
-    buttonText: "Okay"
-}
+export const downloadInfo = () => ({title: t("info.down.title"), description: t("info.down.description"), buttonText: t("dialog.okay")});
 
-export const uploadInfo = {
-    title: "Upload-Geschwindigkeit",
-    description: "Die Uploadgeschwindigkeit wirkt sich auf dein Surferlebnis aus. Umso mehr du bekommst, desto schneller kann dein Computer Daten senden.",
-    buttonText: "Okay"
-}
+export const pingInfo = () => ({title: t("info.ping.title"), description: t("info.ping.description"), buttonText: t("dialog.okay")});
+
+export const uploadInfo = () => ({title: t("info.up.title"), description: t("info.up.description"), buttonText: t("dialog.okay")});
 
 export const latestTestInfo = (latest) => ({
-    title: "Letzter Test",
-    description: <>Dies ist die Zeit, die dir zeigt, wann der letzte Test ausgeführt wurde. In
-        diesem Fall wurde der letzte Test am <span
-            className="dialog-value">{new Date(latest.created).toLocaleDateString("de-DE")}</span> um <span
-            className="dialog-value">{new Date(latest.created).toLocaleTimeString("de-DE", {
-            hour: "2-digit", minute: "2-digit"
-        })}</span> ausgeführt.</>,
-    buttonText: "Okay"
+    title: t("info.latest.title"),
+    description: <Trans components={{Bold: <span className="dialog-value"/>}} values={{date: new Date(latest.created).toLocaleDateString(),
+                            time: new Date(latest.created).toLocaleTimeString(undefined, {hour: "2-digit", minute: "2-digit"})}}>
+        info.latest.description</Trans>,
+    buttonText: t("dialog.okay")
 });

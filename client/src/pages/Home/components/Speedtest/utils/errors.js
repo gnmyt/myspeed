@@ -1,10 +1,12 @@
-export const errors = {
-    "Network unreachable": "Die Internetverbindung scheint unterbrochen gewesen zu sein",
-    "Timeout occurred in connect": "Der Test hat zu lange gedauert und wurde abgebrochen",
-    "permission denied": "MySpeed hat keine Berechtigung, diesen Test zu starten",
-    "Resource temporarily unavailable": "Der Test konnte nicht durchgeführt werden, da die Ressource vorübergehend nicht verfügbar ist",
-    "No route to host": "Der Test konnte nicht durchgeführt werden, da keine Route zum Host existiert",
-    "Connection refused": "Der Test konnte nicht durchgeführt werden, da die Verbindung abgelehnt wurde",
-    "timed out": "Der Test konnte nicht durchgeführt werden, da die Verbindung zu lange gedauert hat",
-    "Could not retrieve or read configuration": "Die Konfigurationsdatei konnte nicht geladen werden",
-}
+import {t} from "i18next";
+
+export const errors = () => ({
+    "Network unreachable": t("errors.network_unreachable"),
+    "Timeout occurred in connect": t("errors.took_too_long"),
+    "permission denied": t("errors.no_permission"),
+    "Resource temporarily unavailable": t("errors.resource_unavailable"),
+    "No route to host": t("errors.no_route"),
+    "Connection refused": t("errors.connection_refused"),
+    "timed out": t("errors.timed_out"),
+    "Could not retrieve or read configuration": t("errors.config"),
+});

@@ -1,31 +1,30 @@
 import {patchRequest} from "@/common/utils/RequestUtil";
+import {t} from "i18next";
+import {Trans} from "react-i18next";
 
 const OOKLA_ABOUT_URL = "https://www.speedtest.net/about";
 const OOKLA_TERMS_URL = OOKLA_ABOUT_URL + "/terms";
 const OOKLA_EULA_URL = OOKLA_ABOUT_URL + "/eula";
 const OOKLA_PRIVACY_URL = OOKLA_ABOUT_URL + "/privacy";
 
-export const passwordRequiredDialog = {
-    title: "Passwort erforderlich",
-    placeholder: "Dein Passwort",
-    description: localStorage.getItem("password") ?
-        <span className="icon-red">Das von dir eingegebene Passwort ist falsch</span> : "",
+export const passwordRequiredDialog = () => ({
+    title: t("dialog.password.title"),
+    placeholder: t("dialog.password.placeholder"),
+    description: localStorage.getItem("password") ? <span className="icon-red">{t("dialog.password.wrong")}</span> : "",
     type: "password",
-    buttonText: "Fertig",
+    buttonText: t("dialog.done"),
     disableCloseButton: true,
     onSuccess: (value) => {
         localStorage.setItem("password", value);
         window.location.reload();
     }
-}
+});
 
-export const acceptDialog = {
-    title: "Nutzungsbedingungen akzeptieren",
-    description: <>Mit dem Klick auf <span className="dialog-value">Akzeptieren</span> bestätigst du, dass du die <a
-        href={OOKLA_EULA_URL} target="_blank">EULA</a>, <a href={OOKLA_PRIVACY_URL}
-                                                           target="_blank">Datenschutzerklärung</a> und <a
-        href={OOKLA_TERMS_URL} target="_blank">Nutzungsbedingungen</a> von Ookla gelesen hast und diesen zustimmst.</>,
-    buttonText: "Akzeptieren",
+export const acceptDialog = () => ({
+    title: t("dialog.accept.title"),
+    description: <Trans components={{Bold: <span className="dialog-value"/>, EULA: <a href={OOKLA_EULA_URL} target="_blank"/>,
+        Privacy: <a href={OOKLA_PRIVACY_URL} target="_blank"/>, Terms: <a href={OOKLA_TERMS_URL} target="_blank"/> }}>dialog.accept.description</Trans>,
+    buttonText: t("dialog.accept.button"),
     disableCloseButton: true,
     onSuccess: () => patchRequest("/config/acceptOoklaLicense", {value: true})
-}
+});

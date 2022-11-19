@@ -1,0 +1,173 @@
+{
+  "failed": "Fehlgeschlagen",
+  "dialog": {
+    "okay": "Okay",
+    "done": "Fertig",
+    "apply": "Ja, übernehmen",
+    "update": "Aktualisieren",
+    "close": "Schließen",
+    "unset": "Entfernen",
+    "password": {
+      "title": "Passwort erforderlich",
+      "placeholder": "Dein Passwort",
+      "wrong": "Das von dir eingegebene Passwort ist falsch"
+    },
+    "accept": {
+      "title": "Nutzungsbedingungen akzeptieren",
+      "description": "Mit dem Klick auf <Bold>Akzeptieren</Bold> bestätigst du, dass du die <EULA>EULA</EULA>, <Privacy>Datenschutzerklärung</Privacy> und <Terms>Nutzungsbedingungen</Terms>  von Ookla gelesen hast und diesen zustimmst.",
+      "button": "Akzeptieren"
+    }
+  },
+  "dropdown": {
+    "settings": "Einstellungen",
+    "changes_applied": "Deine Änderungen wurden übernommen.",
+    "changes_unsaved": "Deine Änderungen wurden nicht übernommen. Überprüfe deine Eingabe.",
+    "invalid": "Eingabe ungültig",
+    "ping": "Optimaler Ping",
+    "upload": "Optimaler Up-Speed",
+    "download": "Optimaler Down-Speed",
+    "recommendations": "Optimale Werte",
+    "server": "Server wechseln",
+    "password": "Passwort ändern",
+    "cron": "Häufigkeit einstellen",
+    "time": "Zeitraum festlegen",
+    "export": "Tests exportieren",
+    "pause_tests": "Tests pausieren",
+    "resume_tests": "Tests fortsetzen",
+    "healthchecks": "Healthchecks",
+    "language": "Sprache ändern",
+    "info": "Info"
+  },
+  "options": {
+    "time": {
+      "24hours": "24 Stunden (Standard)",
+      "2days": "2 Tage (Insgesamt)",
+      "7days": "7 Tage (Durchschnitt)",
+      "30days": "30 Tage (Durchschnitt)"
+    },
+    "cron": {
+      "continuous": "Durchgehend (jede Minute)",
+      "frequent": "Sehr häufig (alle 30 Minuten)",
+      "default": "Standard (jede Stunde)",
+      "rare": "Selten (alle 3 Stunden)",
+      "really_rare": "Sehr selten (alle 6 Stunden)"
+    },
+    "export": {
+      "json": "JSON-Datei",
+      "csv": "CSV-Datei"
+    }
+  },
+  "update": {
+    "ping_title": "Optimalen Ping setzen (ms)",
+    "ping_placeholder": "Ping (ms)",
+    "upload_title": "Optimalen Up-Speed setzen (Mbit/s)",
+    "upload_placeholder": "Up-Speed (Mbit/s)",
+    "download_title": "Optimalen Down-Speed setzen (Mbit/s)",
+    "download_placeholder": "Down-Speed (Mbit/s)",
+    "recommendations_title": "Automatische Empfehlungen",
+    "recommendations_set": "Automatische Empfehlungen setzen?",
+    "server_title": "Speedtest-Server setzen",
+    "manually": "Manuell festlegen",
+    "manual_server_title": "Speedtest-Server setzen",
+    "manual_server_id": "Server-ID",
+    "new_password": "Neues Passwort festlegen",
+    "password_placeholder": "Neues Passwort",
+    "password_removed": "Die Passwortsperre wurde aufgehoben und das festgelegte Passwort wurde entfernt.",
+    "cron_title": "Test-Häufigkeit einstellen",
+    "cron_rules": "Cron-Regel",
+    "cron_next_test": "Nächster Test:",
+    "time_title": "Zeige Tests der letzten ...",
+    "export_title": "Speedtests exportieren",
+    "download": "Herunterladen",
+    "pause_title": "Speedtests pausieren für...",
+    "hours": "Stunden",
+    "pause": "Pausieren",
+    "release_manually": "Manuell freigeben",
+    "healthchecks": "HealthChecks Integration",
+    "healthchecks_url": "HealthChecks Server URL",
+    "healthchecks_activated": "Die Healthchecks wurden deaktiviert",
+    "language": "Sprache ändern"
+  },
+  "header": {
+    "title": "Netzwerkanalyse",
+    "running_tooltip": "Speedtest läuft",
+    "start_tooltip": "Speedtest starten",
+    "new_update": "Update verfügbar",
+    "paused": "Speedtests sind aktuell pausiert. Bitte setze sie fort, wenn du einen machen möchtest.",
+    "running": "Es läuft bereits ein Speedtest. Bitte gedulde dich ein wenig, bis dieser fertig ist."
+  },
+  "latest": {
+    "ping": "Ping",
+    "ping_unit": "ms",
+    "down": "Download",
+    "speed_unit": "Mbit/s",
+    "up": "Upload",
+    "latest": "Letzter Test",
+    "before": "vor"
+  },
+  "info": {
+    "healthchecks": "MySpeed verwendet <HCLink>HealthChecks</HCLink>, um dich zu benachrichtigen, wenn dein Internet ausfällt. Um dies zu aktivieren, setze deine Ping URL in das Textfeld ein. Mehr dazu <WIKILink>hier</WIKILink>",
+    "credits": "<Link>MySpeed</Link> wird von GNMYT bereitgestellt und verwendet die <CLILink>Speedtest-CLI</CLILink> von Ookla.",
+    "recommendations_error": "Du musst mindestens 10 Tests machen, damit ein Durchschnitt ermittelt werden kann. Ob die Tests manuell oder automatisch durchgeführt wurden ist egal.",
+    "recommendations_info": "Anhand der letzten 10 Testergebnisse wurde festgestellt, dass der optimale Ping bei <Bold>{{ping}} ms</Bold>, der Download bei <Bold>{{down}} Mbit/s</Bold> und der Upload bei <Bold>{{up}} Mbit/s</Bold> liegt. Orientiere dich am besten an deinem Internetvertrag und übernehme es nur, wenn es mit dem übereinstimmt.",
+    "update": "Ein Update auf die Version {{version}} ist verfügbar. Sieh dir <Changes>die Änderungen an</Changes> und <DLLink>lade dir das Update herunter</DLLink>.",
+    "down": {
+      "title": "Download-Geschwindigkeit",
+      "description": "Die Downloadgeschwindigkeit wirkt sich auf dein Surferlebnis aus. Umso mehr du bekommst, desto schneller kann dein Computer Daten empfangen."
+    },
+    "ping": {
+      "title": "Ping",
+      "description": "Der Ping zeigt dir, wie schnell der jeweilige Anbieter antwortet. Umso kürzer die Zeit, desto besser."
+    },
+    "up": {
+      "title": "Upload-Geschwindigkeit",
+      "description": "Die Uploadgeschwindigkeit wirkt sich auf dein Surferlebnis aus. Umso mehr du bekommst, desto schneller kann dein Computer Daten senden."
+    },
+    "latest": {
+      "title": "Letzter Test",
+      "description": "Dies ist die Zeit, die dir zeigt, wann der letzte Test ausgeführt wurde. In diesem Fall wurde der letzte Test am <Bold>{{date}}</Bold> um <Bold>{{time}}</Bold> ausgeführt."
+    }
+  },
+  "time": {
+    "now": "Gerade eben",
+    "seconds": "{{seconds}} Sekunden",
+    "minute": "1 Minute",
+    "minutes": "{{minutes}} Minuten",
+    "hour": "1 Stunde",
+    "hours": "{{hours}} Stunden",
+    "on": "Am",
+    "at": "Um"
+  },
+  "test": {
+    "not_available": "Es liegen aktuell keine Tests vor",
+    "unknown_error": "Unbekannter Fehler:",
+    "failed": "Test fehlgeschlagen",
+    "recheck": "Bitte überprüfe weitestgehend, ob das öfters passiert.",
+    "delete": "Test löschen",
+    "average": {
+      "title": "Durchschnittsgeschwindigkeit",
+      "description": "<Bold>{{amount}}</Bold> Tests haben ergeben, dass am <Bold>{{date}}</Bold> eine durchschnittliche Downloadgeschwindigkeit von <Bold>{{down}} Mbit/s</Bold> und eine Upload-geschwindigkeit von <Bold>{{up}} Mbit/s</Bold> bestand. Die Tests dauerten im Durchschnitt <Bold>{{duration}} Sekunden</Bold>."
+    },
+    "result": {
+      "title": "Testergebnis",
+      "description": "Dieser Test erreichte eine maximale Downloadgeschwindigkeit von <Bold>{{down}} Mbit/s</Bold> und eine maximale Uploadgeschwindigkeit von <Bold>{{up}} Mbit/s</Bold>. Er wurde <Bold>{{type}}</Bold> angelegt und hat <Bold>{{duration}} Sekunden</Bold> gedauert.",
+      "from_you": "von dir",
+      "automatic": "automatisch"
+    },
+    "tooltips": {
+      "custom": "Benutzerdefiniert",
+      "average": "Durchschnitt",
+      "auto": "Automatisiert"
+    }
+  },
+  "errors": {
+    "network_unreachable": "Die Internetverbindung scheint unterbrochen gewesen zu sein",
+    "took_too_long": "Der Test hat zu lange gedauert und wurde abgebrochen",
+    "no_permission": "MySpeed hat keine Berechtigung, diesen Test zu starten",
+    "resource_unavailable": "Der Test konnte nicht durchgeführt werden, da die Ressource vorübergehend nicht verfügbar ist",
+    "no_route": "Der Test konnte nicht durchgeführt werden, da keine Route zum Host existiert",
+    "connection_refused": "Der Test konnte nicht durchgeführt werden, da die Verbindung abgelehnt wurde",
+    "timed_out": "Die Internetverbindung scheint unterbrochen gewesen zu sein",
+    "config": "Die Konfigurationsdatei konnte nicht geladen werden"
+  }
+}

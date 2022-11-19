@@ -1,0 +1,173 @@
+{
+  "failed": "Failed",
+  "dialog": {
+    "okay": "Okay",
+    "done": "Done",
+    "apply": "Yes, apply",
+    "update": "Update",
+    "close": "Close",
+    "unset": "Remove",
+    "password": {
+      "title": "Password required",
+      "placeholder": "Your password",
+      "wrong": "The password you entered is incorrect"
+    },
+    "accept": {
+      "title": "Accept Terms",
+      "description": "By clicking <Bold>Accept</Bold>, you acknowledge that you have read and agree to Ookla's <EULA>EULA</EULA>, <Privacy>Privacy Statement</Privacy> and <Terms>Terms of Use</Terms>.",
+      "button": "Accept"
+    }
+  },
+  "dropdown": {
+    "settings": "Settings",
+    "changes_applied": "Your changes have been applied.",
+    "changes_unsaved": "Your changes were not applied. Check your input.",
+    "invalid": "Input invalid",
+    "ping": "Optimal ping",
+    "upload": "Optimal up-speed",
+    "download": "Optimal down-speed",
+    "recommendations": "Recommendations",
+    "server": "Change Server",
+    "password": "Change password",
+    "cron": "Set frequency",
+    "time": "Set period",
+    "export": "Export tests",
+    "pause_tests": "Pause tests",
+    "resume_tests": "Resume tests",
+    "healthchecks": "Healthchecks",
+    "language": "Change language",
+    "info": "Info"
+  },
+  "options": {
+    "time": {
+      "24hours": "24 hours (default)",
+      "2days": "2 days (Total)",
+      "7days": "7 days (average)",
+      "30days": "30 days (average)"
+    },
+    "cron": {
+      "continuous": "Continuous (every minute)",
+      "frequent": "Very often (every 30 minutes)",
+      "default": "Default (every hour)",
+      "rare": "Rarely (every 3 hours)",
+      "really_rare": "Very rarely (every 6 hours)"
+    },
+    "export": {
+      "json": "JSON file",
+      "csv": "CSV file"
+    }
+  },
+  "update": {
+    "ping_title": "Set optimal ping (ms)",
+    "ping_placeholder": "Ping (ms)",
+    "upload_title": "Set optimal up-speed (Mbps)",
+    "upload_placeholder": "Up speed (Mbps)",
+    "download_title": "Set optimal down-speed (Mbps)",
+    "download_placeholder": "Down speed (Mbps)",
+    "recommendations_title": "Automatic recommendations",
+    "recommendations_set": "Set automatic recommendations?",
+    "server_title": "Set speedtest server",
+    "manually": "Set manually",
+    "manual_server_title": "Set speedtest server",
+    "manual_server_id": "Server ID",
+    "new_password": "Set a new password",
+    "password_placeholder": "New password",
+    "password_removed": "The password lock has been removed and the set password has been removed.",
+    "cron_title": "Set test frequency",
+    "cron_rules": "Cron rule",
+    "cron_next_test": "Next Test:",
+    "time_title": "Show tests of the last ...",
+    "export_title": "Export speedtests",
+    "download": "Download",
+    "pause_title": "Pause speedtests for...",
+    "hours": "Hours",
+    "pause": "Pause",
+    "release_manually": "Release manually",
+    "healthchecks": "HealthChecks Integration",
+    "healthchecks_url": "HealthChecks Server URL",
+    "healthchecks_activated": "The health checks have been disabled",
+    "language": "Change language"
+  },
+  "header": {
+    "title": "Network Analysis",
+    "running_tooltip": "Speedtest running",
+    "start_tooltip": "Start speedtest",
+    "new_update": "Update available",
+    "paused": "Speedtests are currently paused. Please continue them if you want to do one.",
+    "running": "A speed test is already running. Please be patient until it is finished."
+  },
+  "latest": {
+    "ping": "Ping",
+    "ping_unit": "ms",
+    "down": "Download",
+    "speed_unit": "Mbps",
+    "up": "Upload",
+    "latest": "Last test",
+    "before": "before"
+  },
+  "info": {
+    "healthchecks": "MySpeed uses <HCLink>HealthChecks</HCLink> to notify you when your internet is down. To enable this, put your ping URL in the text box. Read more <WIKILink>here</WIKILink>",
+    "credits": "<Link>MySpeed</Link> is provided by GNMYT and uses the <CLILink>Speedtest CLI</CLILink> from Ookla.",
+    "recommendations_error": "You have to do at least 10 tests to get an average. It doesn't matter if the tests were done manually or automatically.",
+    "recommendations_info": "Based on the last 10 test results, it was found that the optimal ping was <Bold>{{ping}} ms</Bold>, the download at <Bold>{{down}} Mbit/s</Bold> and the upload at <Bold>{{up}} Mbit/s</Bold>. It is best to orientate yourself on your internet contract and only adopt it if it matches that.",
+    "update": "An update to version {{version}} is available. See <Changes>the changes</Changes> and <DLLink>download the update</DLLink>.",
+    "down": {
+      "title": "Download speed",
+      "description": "Download speed affects your browsing experience. The more you get, the faster your computer can receive data."
+    },
+    "ping": {
+      "title": "Ping",
+      "description": "The ping shows you how fast the respective provider responds. The shorter the time, the better."
+    },
+    "up": {
+      "title": "Upload speed",
+      "description": "Upload speed affects your browsing experience. The more you get, the faster your computer can send data."
+    },
+    "latest": {
+      "title": "Last test",
+      "description": "This is the time that shows you when the last test was run. In this case, the last test was run on <Bold>{{date}}</Bold> at <Bold>{{time}}</Bold>."
+    }
+  },
+  "time": {
+    "now": "Just now",
+    "seconds": "{{seconds}} seconds",
+    "minute": "1 minute",
+    "minutes": "{{minutes}} minutes",
+    "hour": "1 hour",
+    "hours": "{{hours}} hours",
+    "on": "On",
+    "at": "At"
+  },
+  "test": {
+    "not_available": "There are currently no tests available",
+    "unknown_error": "Unknown error:",
+    "failed": "Test failed",
+    "recheck": "Please check as far as possible if this happens often.",
+    "delete": "Delete Test",
+    "average": {
+      "title": "Average Speed",
+      "description": "<Bold>{{amount}}</Bold> Tests have shown that on <Bold>{{date}}</Bold> an average download speed of <Bold>{{down}} Mbps </Bold> and an upload speed of <Bold>{{up}} Mbps</Bold> was passed. The tests took an average of <Bold>{{duration}} Seconds</Bold>."
+    },
+    "result": {
+      "title": "Test result",
+      "description": "This test achieved a maximum download speed of <Bold>{{down}} Mbps</Bold> and a maximum upload speed of <Bold>{{up}} Mbps</Bold>. It was created <Bold>{{type}}</Bold> and took <Bold>{{duration}} Seconds</Bold>.",
+      "from_you": "by you",
+      "automatic": "automatically"
+    },
+    "tooltips": {
+      "custom": "Custom",
+      "average": "Average",
+      "auto": "Automated"
+    }
+  },
+  "errors": {
+    "network_unreachable": "The Internet connection seems to have been interrupted",
+    "took_too_long": "The test took too long and was canceled",
+    "no_permission": "MySpeed has no permission to start this test",
+    "resource_unavailable": "The test could not be performed because the resource is temporarily unavailable",
+    "no_route": "The test could not be performed because there is no route to the host",
+    "connection_refused": "The test could not be performed because the connection was rejected",
+    "timed_out": "The Internet connection seems to have been interrupted",
+    "config": "The configuration file could not be loaded"
+  }
+}

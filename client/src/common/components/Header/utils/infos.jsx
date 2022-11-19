@@ -1,5 +1,5 @@
-export const updateInfo = (update) => <>Ein Update auf die Version {update} ist verfügbar. Sieh dir <a target="_blank"
-                                                                                                       href="https://github.com/gnmyt/myspeed/releases/latest"
-                                                                                                       rel="noreferrer">die
-    Änderungen an</a> und <a target="_blank" href="https://myspeed.gnmyt.dev/setup/linux/" rel="noreferrer">lade dir das
-    Update herunter</a>.</>;
+import {Trans} from "react-i18next";
+import {PROJECT_URL, PROJECT_WIKI} from "@/index";
+
+export const updateInfo = (version) => <Trans values={{version}} components={{Changes: <a href={PROJECT_URL + "/releases/latest"} target="_blank"/>,
+    DLLink: <a href={PROJECT_WIKI + "/setup/linux"} target="_blank"/>}}>info.update</Trans>
