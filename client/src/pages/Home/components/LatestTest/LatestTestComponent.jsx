@@ -36,7 +36,7 @@ function LatestTestComponent() {
             {/* Ping */}
             <div className="inner-container">
                 <div className="container-header">
-                    <FontAwesomeIcon onClick={() => setDialog(pingInfo)} icon={faPingPongPaddleBall}
+                    <FontAwesomeIcon onClick={() => setDialog(pingInfo())} icon={faPingPongPaddleBall}
                                      className={"container-icon help-icon icon-" + getIconBySpeed(latest.ping, config.ping, false)}/>
                     <h2 className="container-text">{t("latest.ping")}<span className="container-subtext">{t("latest.ping_unit")}</span></h2>
                 </div>
@@ -48,7 +48,7 @@ function LatestTestComponent() {
             {/* Download */}
             <div className="inner-container">
                 <div className="container-header">
-                    <FontAwesomeIcon onClick={() => setDialog(downloadInfo)} icon={faArrowDown}
+                    <FontAwesomeIcon onClick={() => setDialog(downloadInfo())} icon={faArrowDown}
                                      className={"container-icon help-icon icon-" + getIconBySpeed(latest.download, config.download, true)}/>
                     <h2 className="container-text">{t("latest.down")}<span className="container-subtext">{t("latest.speed_unit")}</span></h2>
                 </div>
@@ -62,7 +62,7 @@ function LatestTestComponent() {
             {/* Upload */}
             <div className="inner-container">
                 <div className="container-header">
-                    <FontAwesomeIcon onClick={() => setDialog(uploadInfo)} icon={faArrowUp}
+                    <FontAwesomeIcon onClick={() => setDialog(uploadInfo())} icon={faArrowUp}
                                      className={"container-icon help-icon icon-" + getIconBySpeed(latest.upload, config.upload, true)}/>
                     <h2 className="container-text">{t("latest.up")}<span className="container-subtext">{t("latest.speed_unit")}</span></h2>
                 </div>
