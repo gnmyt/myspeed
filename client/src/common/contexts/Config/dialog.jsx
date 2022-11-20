@@ -12,7 +12,7 @@ export const passwordRequiredDialog = () => ({
     placeholder: t("dialog.password.placeholder"),
     description: localStorage.getItem("password") ? <span className="icon-red">{t("dialog.password.wrong")}</span> : "",
     type: "password",
-    buttonText: t("dialog.done"),
+    buttonText: t("dialog.login"),
     disableCloseButton: true,
     onSuccess: (value) => {
         localStorage.setItem("password", value);
