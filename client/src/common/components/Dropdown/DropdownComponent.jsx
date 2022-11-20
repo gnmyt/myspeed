@@ -11,7 +11,7 @@ import {DialogContext} from "@/common/contexts/Dialog";
 import {SpeedtestContext} from "@/common/contexts/Speedtests";
 import {downloadRequest, jsonRequest, patchRequest, postRequest} from "@/common/utils/RequestUtil";
 import {creditsInfo, healthChecksInfo, recommendationsInfo} from "@/common/components/Dropdown/utils/infos";
-import {exportOptions, languageOptions, selectOptions, timeOptions} from "@/common/components/Dropdown/utils/options";
+import {exportOptions, languageOptions, levelOptions, selectOptions, timeOptions} from "@/common/components/Dropdown/utils/options";
 import {parseCron, stringifyCron} from "@/common/components/Dropdown/utils/utils";
 import {changeLanguage, t} from "i18next";
 
@@ -118,7 +118,7 @@ function DropdownComponent() {
     const updatePassword = async () => {
         toggleDropdown();
         setDialog({
-            title: t("update.new_password"),
+            title: <>{t("update.new_password")} » <a onClick={updatePasswordLevel}>{t("update.level")}</a></>,
             placeholder: t("update.password_placeholder"),
             type: "password",
             unsetButton: localStorage.getItem("password") != null ? "Sperre aufheben" : undefined,
@@ -130,6 +130,10 @@ function DropdownComponent() {
                 .then(() => localStorage.setItem("password", value))
         })
     }
+
+    const updatePasswordLevel = () => patchDialog("passwordLevel", async (value) => ({
+        title: t("update.level_title"), select: true, selectOptions: levelOptions(), value
+    }), false);
 
     const updateCron = async () => {
         toggleDropdown();
