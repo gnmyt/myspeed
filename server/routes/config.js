@@ -2,31 +2,30 @@ const app = require('express').Router();
 const config = require('../controller/config');
 const timer = require('../tasks/timer');
 const cron = require('cron-validator');
+const password = require('../middlewares/password');
 
 // Gets all config entries
-app.get("/", async (req, res) => {
+app.get("/", password(true), async (req, res) => {
     let configValues = {};
     (await config.list()).forEach(row => {
-        if (row.key !== "password") configValues[row.key] = row.value;
+        if (row.key !== "password" && !(req.viewMode && ["healthChecksUrl", "serverId", "cron", "passwordLevel"].includes(row.key)))
+            configValues[row.key] = row.value;
     });
+    configValues['viewMode'] = req.viewMode;
+
     if (Object.keys(configValues).length === 0) return res.status(404).json({message: "Hmm. There are no config values. Weird..."});
     res.json(configValues);
 });
 
-// Gets a specific config entry
-app.get("/:key", async (req, res) => {
-    let row = await config.get(req.params.key);
-    if (row === null) return res.status(404).json({message: "Config value not found"});
-    if (row.key === "password") return res.status(403).json({message: "Really?"});
-    res.json({key: row.key, value: row.value});
-});
-
 // Updates a specific config entry
-app.patch("/:key", async (req, res) => {
+app.patch("/:key", password(false), async (req, res) => {
     if (!req.body.value.toString()) return res.status(400).json({message: "You need to provide the new value"});
 
     if ((req.params.key === "ping" || req.params.key === "download" || req.params.key === "upload") && isNaN(req.body.value))
         return res.status(400).json({message: "You need to provide a number in order to change this"});
+
+    if (req.params.key === "passwordLevel" && !["none", "read"].includes(req.body.value))
+        return res.status(400).json({message: "You need to provide either none or read-access"});
 
     if (req.params.key === "acceptOoklaLicense" && typeof req.body.value !== "boolean")
         return res.status(400).json({message: "You need to provide a boolean value"});

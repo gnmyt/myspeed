@@ -7,7 +7,10 @@ import {t} from "i18next";
 export const DialogContext = createContext({});
 
 const Dialog = ({dialog, setDialog}) => {
+    if (!dialog) return;
+
     const [value, setValue] = useState(dialog.value || "");
+
     const ref = useRef();
 
     document.onkeyup = e => {
@@ -27,24 +30,30 @@ const Dialog = ({dialog, setDialog}) => {
         setValue(e.target.value);
     }
 
+    function closeSlow() {
+        if (ref.current == null) return;
+        ref.current.classList.add("dialog-hidden");
+        setTimeout(() => setDialog(), 150);
+    }
+
     function closeDialog() {
-        setDialog();
+        closeSlow();
         if (dialog.onClose) dialog.onClose();
     }
 
     function submit() {
         if (!dialog.description && !value) return;
-        setDialog();
-        if (dialog.onSuccess) dialog.onSuccess(value);
+        closeSlow();
+        if (dialog.onSuccess) setTimeout(() => dialog.onSuccess(value), 160);
     }
 
     function clear() {
-        setDialog();
-        if (dialog.onClear) dialog.onClear();
+        closeSlow();
+        if (dialog.onClear) setTimeout(() => dialog.onClear(), 160);
     }
 
     if (dialog.speedtest) return (
-        <div className="dialog-area">
+        <div className="dialog-area" ref={ref}>
             <div className="dialog dialog-speedtest">
                 <div className="lds-ellipsis">
                     <div/><div/><div/><div/>
@@ -96,7 +105,7 @@ export const DialogProvider = (props) => {
 
     return (
         <DialogContext.Provider value={[setDialog]}>
-            {dialog ? <Dialog dialog={dialog} setDialog={setDialog}/> : <></>}
+            <Dialog dialog={dialog} setDialog={setDialog}/>
             {props.children}
         </DialogContext.Provider>
     )

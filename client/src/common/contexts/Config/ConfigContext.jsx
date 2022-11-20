@@ -1,7 +1,7 @@
-import React, {useState, createContext, useEffect, useContext} from "react";
+import React, {createContext, useContext, useEffect, useState} from "react";
 import {DialogContext} from "../Dialog";
 import {request} from "@/common/utils/RequestUtil";
-import {acceptDialog, passwordRequiredDialog} from "@/common/contexts/Config/dialog";
+import {acceptDialog, apiErrorDialog, passwordRequiredDialog} from "@/common/contexts/Config/dialog";
 
 export const ConfigContext = createContext({});
 
@@ -11,13 +11,21 @@ export const ConfigProvider = (props) => {
     const [setDialog] = useContext(DialogContext);
 
     const reloadConfig = () => {
-        request("/config").then(res => {
-            if (!res.ok) throw "No connection to server";
-            return res.json();
+        request("/config").then(async res => {
+            if (res.status === 401) throw 1;
+            if (!res.ok) throw 2;
+            
+            try {
+                return JSON.parse(await res.text());
+            } catch (e) {
+                throw 2;
+            }
         })
             .then(result => setConfig(result))
-            .catch(() => setDialog(passwordRequiredDialog()));
+            .catch((code) => setDialog(code === 1 ? passwordRequiredDialog() : apiErrorDialog()));
     }
+
+    const checkConfig = async () => (await request("/config")).json();
 
     useEffect(() => {
         if (config.acceptOoklaLicense !== undefined && config.acceptOoklaLicense === "false")
@@ -27,7 +35,7 @@ export const ConfigProvider = (props) => {
     useEffect(reloadConfig, []);
 
     return (
-        <ConfigContext.Provider value={[config, reloadConfig]}>
+        <ConfigContext.Provider value={[config, reloadConfig, checkConfig]}>
             {props.children}
         </ConfigContext.Provider>
     )

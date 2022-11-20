@@ -7,6 +7,11 @@ export const timeOptions = () => ({
     4: t("options.time.30days")
 });
 
+export const levelOptions = () => ({
+    "none": t("options.level.no_access"),
+    "read": t("options.level.read_access")
+});
+
 export const selectOptions = () => ({
     "* * * * *": t("options.cron.continuous"),
     "0,30 * * * *": t("options.cron.frequent"),

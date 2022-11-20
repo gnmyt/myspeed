@@ -12,6 +12,11 @@
   transition: all 0.5s
   animation: fadeIn 0.5s
 
+.speedtest-hidden
+  visibility: hidden
+  opacity: 0
+  animation: fadeOut 0.3s
+
 .speedtest-row
   display: flex
   align-items: center
@@ -36,6 +41,7 @@
   position: relative
 
 .tooltip-element .tooltip
+  user-select: none
   pointer-events: none
   font-size: 16pt
   opacity: 0

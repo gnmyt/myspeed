@@ -11,7 +11,7 @@ import {DialogContext} from "@/common/contexts/Dialog";
 import {SpeedtestContext} from "@/common/contexts/Speedtests";
 import {downloadRequest, jsonRequest, patchRequest, postRequest} from "@/common/utils/RequestUtil";
 import {creditsInfo, healthChecksInfo, recommendationsInfo} from "@/common/components/Dropdown/utils/infos";
-import {exportOptions, languageOptions, selectOptions, timeOptions} from "@/common/components/Dropdown/utils/options";
+import {exportOptions, languageOptions, levelOptions, selectOptions, timeOptions} from "@/common/components/Dropdown/utils/options";
 import {parseCron, stringifyCron} from "@/common/components/Dropdown/utils/utils";
 import {changeLanguage, t} from "i18next";
 
@@ -63,13 +63,12 @@ function DropdownComponent() {
     });
 
     const patchDialog = async (key, dialog, toggle = true, postValue = (val) => val) => {
-        if (toggle) toggleDropdown();
+        toggle ? toggleDropdown() : setDialog();
 
-        setDialog({
-            ...(await dialog(config[key])),
+        setTimeout(async () => setDialog({...(await dialog(config[key])),
             onSuccess: value => patchRequest(`/config/${key}`, {value: postValue(value)})
                 .then(res => showFeedback(!res.ok ? t("dropdown.changes_unsaved") : undefined))
-        })
+        }), 160);
     }
 
     const updatePing = async () => patchDialog("ping", (value) => ({
@@ -119,7 +118,7 @@ function DropdownComponent() {
     const updatePassword = async () => {
         toggleDropdown();
         setDialog({
-            title: t("update.new_password"),
+            title: <>{t("update.new_password")} » <a onClick={updatePasswordLevel}>{t("update.level")}</a></>,
             placeholder: t("update.password_placeholder"),
             type: "password",
             unsetButton: localStorage.getItem("password") != null ? "Sperre aufheben" : undefined,
@@ -131,6 +130,10 @@ function DropdownComponent() {
                 .then(() => localStorage.setItem("password", value))
         })
     }
+
+    const updatePasswordLevel = () => patchDialog("passwordLevel", async (value) => ({
+        title: t("update.level_title"), select: true, selectOptions: levelOptions(), value
+    }), false);
 
     const updateCron = async () => {
         toggleDropdown();
@@ -200,7 +203,7 @@ function DropdownComponent() {
         placeholder: t("update.healthchecks_url"), value,
         buttonText: t("dialog.update"),
         unsetButton: !value.includes("<uuid>") ? "Deaktivieren" : undefined,
-        onClear: () => patchDialog("/config/healthChecksUrl", {value: "https://hc-ping.com/<uuid>"})
+        onClear: () => patchRequest("/config/healthChecksUrl", {value: "https://hc-ping.com/<uuid>"})
             .then(() => showFeedback(t("update.healthchecks_activated")))
     }));
 
@@ -235,12 +238,12 @@ function DropdownComponent() {
         {run: updateServer, icon: faServer, text: t("dropdown.server")},
         {run: updatePassword, icon: faKey, text: t("dropdown.password")},
         {run: updateCron, icon: faClock, text: t("dropdown.cron")},
-        {run: updateTime, icon: faCalendarDays, text: t("dropdown.time")},
+        {run: updateTime, icon: faCalendarDays, text: t("dropdown.time"), allowView: true},
         {run: exportDialog, icon: faFileExport, text: t("dropdown.export")},
         {run: togglePause, icon: status.paused ? faPlay : faPause, text: t("dropdown." + (status.paused ? "resume_tests" : "pause_tests"))},
         {run: updateIntegration, icon: faCircleNodes, text: t("dropdown.healthchecks")},
-        {run: updateLanguage, icon: faGlobeEurope, text: t("dropdown.language")},
-        {run: showCredits, icon: faInfo, text: t("dropdown.info")}
+        {run: updateLanguage, icon: faGlobeEurope, text: t("dropdown.language"), allowView: true},
+        {run: showCredits, icon: faInfo, text: t("dropdown.info"), allowView: true}
     ];
 
     return (
@@ -248,14 +251,16 @@ function DropdownComponent() {
             <div className="dropdown-content">
                 <h2>{t("dropdown.settings")}</h2>
                 <div className="dropdown-entries">
-                    {options.map(entry => !entry.hr ? (
-                        <div className="dropdown-item" onClick={entry.run} key={entry.run}>
-                            <FontAwesomeIcon icon={entry.icon}/>
-                            <h3>{entry.text}</h3>
-                        </div>
-                    ) : <div className="center" key={entry.key}>
-                        <hr className="dropdown-hr"/>
-                    </div>)}
+                    {options.map(entry => {
+                        if (!config.viewMode || (config.viewMode && entry.allowView)) {
+                            if (!entry.hr) {
+                                return (<div className="dropdown-item" onClick={entry.run} key={entry.run}>
+                                    <FontAwesomeIcon icon={entry.icon}/>
+                                    <h3>{entry.text}</h3>
+                                </div>);
+                            } else return (<div className="center" key={entry.key}><hr className="dropdown-hr"/></div>);
+                        }
+                    })}
                 </div>
             </div>
         </div>

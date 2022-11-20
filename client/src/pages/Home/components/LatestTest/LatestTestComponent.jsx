@@ -14,7 +14,7 @@ import {t} from "i18next";
 function LatestTestComponent() {
     const status = useContext(StatusContext)[0];
     const [latest, setLatest] = useState({});
-    const [latestTestTime, setLatestTestTime] = useState("-");
+    const [latestTestTime, setLatestTestTime] = useState("N/A");
     const [setDialog] = useContext(DialogContext);
     const [speedtests] = useContext(SpeedtestContext);
     const config = useContext(ConfigContext)[0];
@@ -41,7 +41,7 @@ function LatestTestComponent() {
                     <h2 className="container-text">{t("latest.ping")}<span className="container-subtext">{t("latest.ping_unit")}</span></h2>
                 </div>
                 <div className="container-main">
-                    <h2>{latest.ping === -1 ? "-" : latest.ping}</h2>
+                    <h2>{latest.ping === -1 ? "N/A" : latest.ping}</h2>
                 </div>
             </div>
 
@@ -53,7 +53,7 @@ function LatestTestComponent() {
                     <h2 className="container-text">{t("latest.down")}<span className="container-subtext">{t("latest.speed_unit")}</span></h2>
                 </div>
                 <div className="container-main">
-                    <h2>{latest.download === -1 ? "-" : latest.download}</h2>
+                    <h2>{latest.download === -1 ? "N/A" : latest.download}</h2>
                 </div>
             </div>
 
@@ -67,7 +67,7 @@ function LatestTestComponent() {
                     <h2 className="container-text">{t("latest.up")}<span className="container-subtext">{t("latest.speed_unit")}</span></h2>
                 </div>
                 <div className="container-main">
-                    <h2>{latest.upload === -1 ? "-" : latest.upload}</h2>
+                    <h2>{latest.upload === -1 ? "N/A" : latest.upload}</h2>
                 </div>
             </div>
 

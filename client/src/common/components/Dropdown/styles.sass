@@ -1,11 +1,17 @@
 @import "@/common/styles/colors"
 
+.dropdown
+  visibility: visible
+  opacity: 1
+  transition: opacity 0.1s linear
+  user-select: none
+
 .dropdown-content
   float: right
   margin-right: 10%
   display: inline-block
   position: absolute
-  width: 320px
+  width: auto
   overflow: auto
   border-radius: 10px
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2)
@@ -16,6 +22,8 @@
 
 .dropdown-invisible
   visibility: hidden
+  opacity: 0
+  transition: visibility 0s 0.1s, opacity 0.1s linear
 
 .dropdown-content h2
   color: $darker-white
