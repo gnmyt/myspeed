@@ -12,9 +12,11 @@ import {averageResultDialog, resultDialog} from "@/pages/Home/components/Speedte
 import {errors} from "@/pages/Home/components/Speedtest/utils/errors";
 import {tooltips} from "@/pages/Home/components/Speedtest/utils/tooltips";
 import {t} from "i18next";
+import {ConfigContext} from "@/common/contexts/Config";
 
 function SpeedtestComponent(props) {
     const [setDialog] = useContext(DialogContext);
+    const [config] = useContext(ConfigContext);
     const updateTests = useContext(SpeedtestContext)[1];
 
     const ref = useRef();
@@ -52,7 +54,7 @@ function SpeedtestComponent(props) {
                 title: t("test.result.title"),
                 description: resultDialog(props),
                 buttonText: t("dialog.okay"),
-                unsetButton: t("test.delete"),
+                unsetButton: !config.viewMode ? t("test.delete") : undefined,
                 onClear: () => deleteRequest(`/speedtests/${props.id}`).then(fadeOut)
             });
         }
