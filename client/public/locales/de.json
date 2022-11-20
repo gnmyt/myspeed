@@ -14,8 +14,8 @@
       "wrong": "Das von dir eingegebene Passwort ist falsch"
     },
     "accept": {
-      "title": "Nutzungsbedingungen akzeptieren",
-      "description": "Mit dem Klick auf <Bold>Akzeptieren</Bold> bestätigst du, dass du die <EULA>EULA</EULA>, <Privacy>Datenschutzerklärung</Privacy> und <Terms>Nutzungsbedingungen</Terms>  von Ookla gelesen hast und diesen zustimmst.",
+      "title": "Wir brauchen deine Genehmigung",
+      "description": "Wir nutzen Dienste von Ookla. Mit dem Klick auf <Bold>Akzeptieren</Bold> bestätigst du, dass du die <EULA>EULA</EULA>, <Privacy>Datenschutzerklärung</Privacy> und <Terms>Nutzungsbedingungen</Terms>  von Ookla gelesen hast und diesen zustimmst.",
       "button": "Akzeptieren"
     },
     "api": {
@@ -25,7 +25,7 @@
   },
   "dropdown": {
     "settings": "Einstellungen",
-    "changes_applied": "Deine Änderungen wurden übernommen.",
+    "changes_applied": "Die Änderungen wurden gespeichert.",
     "changes_unsaved": "Deine Änderungen wurden nicht übernommen. Überprüfe deine Eingabe.",
     "invalid": "Eingabe ungültig",
     "ping": "Optimaler Ping",
@@ -41,7 +41,7 @@
     "resume_tests": "Tests fortsetzen",
     "healthchecks": "Healthchecks",
     "language": "Sprache ändern",
-    "info": "Info"
+    "info": "Infos zum Projekt"
   },
   "options": {
     "time": {
@@ -69,7 +69,7 @@
     "upload_placeholder": "Up-Speed (Mbit/s)",
     "download_title": "Optimalen Down-Speed setzen (Mbit/s)",
     "download_placeholder": "Down-Speed (Mbit/s)",
-    "recommendations_title": "Automatische Empfehlungen",
+    "recommendations_title": "Optimale Empfehlungen",
     "recommendations_set": "Automatische Empfehlungen setzen?",
     "server_title": "Speedtest-Server setzen",
     "manually": "Manuell festlegen",
@@ -99,7 +99,7 @@
     "start_tooltip": "Speedtest starten",
     "new_update": "Update verfügbar",
     "paused": "Speedtests sind aktuell pausiert. Bitte setze sie fort, wenn du einen machen möchtest.",
-    "running": "Es läuft bereits ein Speedtest. Bitte gedulde dich ein wenig, bis dieser fertig ist."
+    "running": "Es läuft bereits ein Speedtest. Bitte warte noch einen Moment."
   },
   "latest": {
     "ping": "Ping",
@@ -130,7 +130,7 @@
     },
     "latest": {
       "title": "Letzter Test",
-      "description": "Dies ist die Zeit, die dir zeigt, wann der letzte Test ausgeführt wurde. In diesem Fall wurde der letzte Test am <Bold>{{date}}</Bold> um <Bold>{{time}}</Bold> ausgeführt."
+      "description": "Dies ist die Zeit, die dir zeigt, wann der letzte Test ausgeführt wurde. In diesem Fall fand der letzte am <Bold>{{date}}</Bold> um <Bold>{{time}}</Bold> statt."
     }
   },
   "time": {
@@ -147,7 +147,7 @@
     "not_available": "Es liegen aktuell keine Tests vor",
     "unknown_error": "Unbekannter Fehler:",
     "failed": "Test fehlgeschlagen",
-    "recheck": "Bitte überprüfe weitestgehend, ob das öfters passiert.",
+    "recheck": "Bitte überprüfe weitestgehend, ob das öfter passiert.",
     "delete": "Test löschen",
     "average": {
       "title": "Durchschnittsgeschwindigkeit",
@@ -166,13 +166,13 @@
     }
   },
   "errors": {
-    "network_unreachable": "Die Internetverbindung scheint unterbrochen gewesen zu sein",
+    "network_unreachable": "Die Internetverbindung war in der Zeit des Tests instabil",
     "took_too_long": "Der Test hat zu lange gedauert und wurde abgebrochen",
     "no_permission": "MySpeed hat keine Berechtigung, diesen Test zu starten",
-    "resource_unavailable": "Der Test konnte nicht durchgeführt werden, da die Ressource vorübergehend nicht verfügbar ist",
-    "no_route": "Der Test konnte nicht durchgeführt werden, da keine Route zum Host existiert",
+    "resource_unavailable": "Der Test konnte nicht durchgeführt werden, da die Ressource vorübergehend nicht verfügbar war",
+    "no_route": "Der Test konnte nicht durchgeführt werden, da keine Route zum Host existierte",
     "connection_refused": "Der Test konnte nicht durchgeführt werden, da die Verbindung abgelehnt wurde",
-    "timed_out": "Die Internetverbindung scheint unterbrochen gewesen zu sein",
+    "timed_out": "Die Internetverbindung war in der Zeit des Tests instabil",
     "config": "Die Konfigurationsdatei konnte nicht geladen werden"
   }
 }

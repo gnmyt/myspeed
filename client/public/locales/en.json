@@ -14,8 +14,8 @@
       "wrong": "The password you entered is incorrect"
     },
     "accept": {
-      "title": "Accept Terms",
-      "description": "By clicking <Bold>Accept</Bold>, you acknowledge that you have read and agree to Ookla's <EULA>EULA</EULA>, <Privacy>Privacy Statement</Privacy> and <Terms>Terms of Use</Terms>.",
+      "title": "We need your permission",
+      "description": "We use services from Ookla. By clicking <Bold>Accept</Bold>, you acknowledge that you have read and agree to Ookla's <EULA>EULA</EULA>, <Privacy>Privacy Statement</Privacy> and <Terms>Terms of Use</Terms>.",
       "button": "Accept"
     },
     "api": {
@@ -25,7 +25,7 @@
   },
   "dropdown": {
     "settings": "Settings",
-    "changes_applied": "Your changes have been applied.",
+    "changes_applied": "Your changes have been saved.",
     "changes_unsaved": "Your changes were not applied. Check your input.",
     "invalid": "Input invalid",
     "ping": "Optimal ping",
@@ -41,7 +41,7 @@
     "resume_tests": "Resume tests",
     "healthchecks": "Healthchecks",
     "language": "Change language",
-    "info": "Info"
+    "info": "About the project"
   },
   "options": {
     "time": {
@@ -69,7 +69,7 @@
     "upload_placeholder": "Up speed (Mbps)",
     "download_title": "Set optimal down-speed (Mbps)",
     "download_placeholder": "Down speed (Mbps)",
-    "recommendations_title": "Automatic recommendations",
+    "recommendations_title": "Optimal recommendations",
     "recommendations_set": "Set automatic recommendations?",
     "server_title": "Set speedtest server",
     "manually": "Set manually",
@@ -99,7 +99,7 @@
     "start_tooltip": "Start speedtest",
     "new_update": "Update available",
     "paused": "Speedtests are currently paused. Please continue them if you want to do one.",
-    "running": "A speed test is already running. Please be patient until it is finished."
+    "running": "A speedtest is already running. Please wait a moment."
   },
   "latest": {
     "ping": "Ping",
@@ -114,7 +114,7 @@
     "healthchecks": "MySpeed uses <HCLink>HealthChecks</HCLink> to notify you when your internet is down. To enable this, put your ping URL in the text box. Read more <WIKILink>here</WIKILink>",
     "credits": "<Link>MySpeed</Link> is provided by GNMYT and uses the <CLILink>Speedtest CLI</CLILink> from Ookla.",
     "recommendations_error": "You have to do at least 10 tests to get an average. It doesn't matter if the tests were done manually or automatically.",
-    "recommendations_info": "Based on the last 10 test results, it was found that the optimal ping was <Bold>{{ping}} ms</Bold>, the download at <Bold>{{down}} Mbit/s</Bold> and the upload at <Bold>{{up}} Mbit/s</Bold>. It is best to orientate yourself on your internet contract and only adopt it if it matches that.",
+    "recommendations_info": "Based on the last 10 tests, it was found that the optimal ping was <Bold>{{ping}} ms</Bold>, the download at <Bold>{{down}} Mbit/s</Bold> and the upload at <Bold>{{up}} Mbit/s</Bold>. It is best to orientate yourself on your internet contract and only adopt it if it matches that.",
     "update": "An update to version {{version}} is available. See <Changes>the changes</Changes> and <DLLink>download the update</DLLink>.",
     "down": {
       "title": "Download speed",
@@ -130,7 +130,7 @@
     },
     "latest": {
       "title": "Last test",
-      "description": "This is the time that shows you when the last test was run. In this case, the last test was run on <Bold>{{date}}</Bold> at <Bold>{{time}}</Bold>."
+      "description": "This is the time that shows you when the last test was run. In this case, the last one took place on <Bold>{{date}}</Bold> at <Bold>{{time}}</Bold>."
     }
   },
   "time": {
@@ -166,13 +166,13 @@
     }
   },
   "errors": {
-    "network_unreachable": "The Internet connection seems to have been interrupted",
+    "network_unreachable": "Internet connection was unstable during the time of the test",
     "took_too_long": "The test took too long and was canceled",
     "no_permission": "MySpeed has no permission to start this test",
-    "resource_unavailable": "The test could not be performed because the resource is temporarily unavailable",
-    "no_route": "The test could not be performed because there is no route to the host",
+    "resource_unavailable": "The test could not be performed because the resource was temporarily unavailable",
+    "no_route": "The test could not be performed because there was no route to the host",
     "connection_refused": "The test could not be performed because the connection was rejected",
-    "timed_out": "The Internet connection seems to have been interrupted",
+    "timed_out": "Internet connection was unstable during the time of the test",
     "config": "The configuration file could not be loaded"
   }
 }
