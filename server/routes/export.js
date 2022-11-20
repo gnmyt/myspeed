@@ -12,10 +12,10 @@ app.get("/csv", async (req, res) => {
     let list = await tests.list();
     let fields = Object.keys(list[0]);
 
-    let replacer = (key, value) => value === null ? '' : value
+    let replacer = (key, value) => value === null ? '' : value;
 
     let csv = list.map(row => fields.map(fieldName => JSON.stringify(row[fieldName], replacer)).join(','));
-    csv.unshift(fields.join(','))
+    csv.unshift('"' + fields.join('","') + '"');
     csv = csv.join('\r\n');
 
     res.send(csv);
