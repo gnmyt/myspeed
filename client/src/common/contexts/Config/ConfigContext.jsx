@@ -13,16 +13,16 @@ export const ConfigProvider = (props) => {
     const reloadConfig = () => {
         request("/config").then(async res => {
             if (res.status === 401) throw 1;
-            if (!res.ok) throw 5;
+            if (!res.ok) throw 2;
             
             try {
                 return JSON.parse(await res.text());
             } catch (e) {
-                throw 5;
+                throw 2;
             }
         })
             .then(result => setConfig(result))
-            .catch((code) => setDialog(code === 5 ? apiErrorDialog() : passwordRequiredDialog()));
+            .catch((code) => setDialog(code === 1 ? passwordRequiredDialog() : apiErrorDialog()));
     }
 
     useEffect(() => {
