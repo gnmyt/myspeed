@@ -1,7 +1,7 @@
 import React, {useState, createContext, useEffect, useContext} from "react";
 import {DialogContext} from "../Dialog";
 import {request} from "@/common/utils/RequestUtil";
-import {acceptDialog, passwordRequiredDialog} from "@/common/contexts/Config/dialog";
+import {acceptDialog, apiErrorDialog, passwordRequiredDialog} from "@/common/contexts/Config/dialog";
 
 export const ConfigContext = createContext({});
 
@@ -12,11 +12,12 @@ export const ConfigProvider = (props) => {
 
     const reloadConfig = () => {
         request("/config").then(res => {
-            if (!res.ok) throw "No connection to server";
+            if (res.status === 401) throw 1;
+            if (!res.ok) throw 5;
             return res.json();
         })
             .then(result => setConfig(result))
-            .catch(() => setDialog(passwordRequiredDialog()));
+            .catch((code) => setDialog(code === 5 ? apiErrorDialog() : passwordRequiredDialog()));
     }
 
     useEffect(() => {
