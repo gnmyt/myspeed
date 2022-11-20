@@ -1,6 +1,6 @@
 import "./styles.sass";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCircleArrowUp, faGaugeHigh, faGear} from "@fortawesome/free-solid-svg-icons";
+import {faCircleArrowUp, faGaugeHigh, faGear, faLock} from "@fortawesome/free-solid-svg-icons";
 import {useContext, useEffect, useState} from "react";
 import DropdownComponent, {toggleDropdown} from "../Dropdown/DropdownComponent";
 import {DialogContext} from "@/common/contexts/Dialog";
@@ -9,17 +9,31 @@ import {SpeedtestContext} from "@/common/contexts/Speedtests";
 import {jsonRequest, postRequest} from "@/common/utils/RequestUtil";
 import {updateInfo} from "@/common/components/Header/utils/infos";
 import {t} from "i18next";
+import {ConfigContext} from "@/common/contexts/Config";
 
 function HeaderComponent() {
     const [setDialog] = useContext(DialogContext);
     const [icon, setIcon] = useState(faGear);
     const [status, updateStatus] = useContext(StatusContext);
     const updateTests = useContext(SpeedtestContext)[1];
+    const [config, reloadConfig] = useContext(ConfigContext);
     const [updateAvailable, setUpdateAvailable] = useState("");
 
     function switchDropdown() {
         toggleDropdown(setIcon);
     }
+
+    const showPasswordDialog = () => setDialog({
+        title: t("header.admin_login"),
+        placeholder: t("dialog.password.placeholder"),
+        description: localStorage.getItem("password") ? <span className="icon-red">{t("dialog.password.wrong")}</span> : "",
+        type: "password",
+        buttonText: t("dialog.login"),
+        onSuccess: (value) => {
+            localStorage.setItem("password", value);
+            reloadConfig();
+        }
+    });
 
     const startSpeedtest = async () => {
         await updateStatus();
@@ -41,6 +55,7 @@ function HeaderComponent() {
     }
 
     useEffect(() => {
+        if (Object.keys(config).length === 0) return;
         async function updateVersion() {
             const version = await jsonRequest("/info/version");
 
@@ -48,8 +63,8 @@ function HeaderComponent() {
                 setUpdateAvailable(version.remote);
         }
 
-        updateVersion();
-    }, []);
+        if (!config.viewMode) updateVersion();
+    }, [config]);
 
     return (
         <header>
@@ -64,13 +79,17 @@ function HeaderComponent() {
                                                   description: updateInfo(updateAvailable)
                                               })}/></div> : <></>}
 
-                    {!status.paused ? <div className="tooltip-element tooltip-bottom">
+                    {!(status.paused || config.viewMode) ? <div className="tooltip-element tooltip-bottom">
                         <FontAwesomeIcon icon={faGaugeHigh}
                                          className={"header-icon " + (status.running ? "test-running" : "")}
                                          onClick={startSpeedtest}/>
                         <span className="tooltip">{t("header." + (status.running ? "running_tooltip" : "start_tooltip"))}</span>
                     </div> : <></>}
 
+                    {(config.viewMode ? <div className="tooltip-element tooltip-bottom">
+                        <FontAwesomeIcon icon={faLock} className={"header-icon"} onClick={showPasswordDialog}/>
+                        <span className="tooltip">{t("header.admin_login")}</span>
+                    </div> : <></>)}
 
                     <div className="tooltip-element tooltip-bottom" id="open-header">
                         <FontAwesomeIcon icon={icon} className="header-icon" onClick={switchDropdown}/>
