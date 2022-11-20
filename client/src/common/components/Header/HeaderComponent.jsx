@@ -16,7 +16,7 @@ function HeaderComponent() {
     const [icon, setIcon] = useState(faGear);
     const [status, updateStatus] = useContext(StatusContext);
     const updateTests = useContext(SpeedtestContext)[1];
-    const [config, reloadConfig] = useContext(ConfigContext);
+    const [config, reloadConfig, checkConfig] = useContext(ConfigContext);
     const [updateAvailable, setUpdateAvailable] = useState("");
 
     function switchDropdown() {
@@ -32,6 +32,10 @@ function HeaderComponent() {
         onSuccess: (value) => {
             localStorage.setItem("password", value);
             reloadConfig();
+            checkConfig().then((config) => config?.viewMode ? showPasswordDialog() : false).catch(() => showPasswordDialog());
+        },
+        onClose: () => {
+            localStorage.removeItem("password");
         }
     });
 
