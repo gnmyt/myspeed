@@ -203,7 +203,7 @@ function DropdownComponent() {
         placeholder: t("update.healthchecks_url"), value,
         buttonText: t("dialog.update"),
         unsetButton: !value.includes("<uuid>") ? "Deaktivieren" : undefined,
-        onClear: () => patchDialog("/config/healthChecksUrl", {value: "https://hc-ping.com/<uuid>"})
+        onClear: () => patchRequest("/config/healthChecksUrl", {value: "https://hc-ping.com/<uuid>"})
             .then(() => showFeedback(t("update.healthchecks_activated")))
     }));
 
