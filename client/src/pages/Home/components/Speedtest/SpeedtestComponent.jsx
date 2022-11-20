@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useRef} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
     faArrowDown, faArrowUp, faClockRotateLeft, faClose,
@@ -17,6 +17,8 @@ function SpeedtestComponent(props) {
     const [setDialog] = useContext(DialogContext);
     const updateTests = useContext(SpeedtestContext)[1];
 
+    const ref = useRef();
+
     let errorMessage = t("test.unknown_error") + " " + props.error;
 
     let isAverage = props.type === "average";
@@ -33,8 +35,14 @@ function SpeedtestComponent(props) {
         description: errorMessage + ". " + t("test.recheck"),
         buttonText: t("dialog.okay"),
         unsetButton: t("test.delete"),
-        onClear: () => deleteRequest(`/speedtests/${props.id}`).then(updateTests)
+        onClear: () => deleteRequest(`/speedtests/${props.id}`).then(fadeOut)
     });
+
+    const fadeOut = () => {
+        if (ref.current == null) return;
+        ref.current.classList.add("speedtest-hidden");
+        setTimeout(() => updateTests(), 300);
+    }
 
     const showInfoDialog = () => {
         if (props.type === "average") {
@@ -45,13 +53,13 @@ function SpeedtestComponent(props) {
                 description: resultDialog(props),
                 buttonText: t("dialog.okay"),
                 unsetButton: t("test.delete"),
-                onClear: () => deleteRequest(`/speedtests/${props.id}`).then(updateTests)
+                onClear: () => deleteRequest(`/speedtests/${props.id}`).then(fadeOut)
             });
         }
     }
 
     return (
-        <div className="speedtest">
+        <div className="speedtest" ref={ref}>
             <div className="date">
                 <div className="tooltip-element">
                     <FontAwesomeIcon icon={props.error ? faInfo : faClockRotateLeft}
