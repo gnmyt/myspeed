@@ -25,6 +25,8 @@ export const ConfigProvider = (props) => {
             .catch((code) => setDialog(code === 1 ? passwordRequiredDialog() : apiErrorDialog()));
     }
 
+    const checkConfig = async () => (await request("/config")).json();
+
     useEffect(() => {
         if (config.acceptOoklaLicense !== undefined && config.acceptOoklaLicense === "false")
             setDialog(acceptDialog());
@@ -33,7 +35,7 @@ export const ConfigProvider = (props) => {
     useEffect(reloadConfig, []);
 
     return (
-        <ConfigContext.Provider value={[config, reloadConfig]}>
+        <ConfigContext.Provider value={[config, reloadConfig, checkConfig]}>
             {props.children}
         </ConfigContext.Provider>
     )
