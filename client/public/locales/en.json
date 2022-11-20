@@ -7,6 +7,7 @@
     "update": "Update",
     "close": "Close",
     "unset": "Remove",
+    "retry": "Try again",
     "password": {
       "title": "Password required",
       "placeholder": "Your password",
@@ -16,6 +17,10 @@
       "title": "Accept Terms",
       "description": "By clicking <Bold>Accept</Bold>, you acknowledge that you have read and agree to Ookla's <EULA>EULA</EULA>, <Privacy>Privacy Statement</Privacy> and <Terms>Terms of Use</Terms>.",
       "button": "Accept"
+    },
+    "api": {
+      "title": "API not reachable",
+      "description": "MySpeed could not reach the API of this instance. Please try again later."
     }
   },
   "dropdown": {
