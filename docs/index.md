@@ -19,4 +19,5 @@ Auch wenn es möglich ist, das System auf einem normalen Rechner zu installieren
 ## :heart: Und ein großes Danke an ...
 - [Sierra Devoplers](https://sierra-dev.de/myspeed) für die dort erstellte Seite 
 - [Ookla](https://www.ookla.com/) für die Testdaten und das großartige Testnetzwerk
+- [Alle Übersetzer](https://crowdin.com/project/myspeed) für das anbieten in verschiedenen Sprachen
 - [Alle Mitwirkende](https://github.com/gnmyt/myspeed/graphs/contributors) für ihre Hilfe und die Arbeit in das Projekt
