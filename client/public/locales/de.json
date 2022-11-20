@@ -8,6 +8,7 @@
     "close": "Schließen",
     "unset": "Entfernen",
     "retry": "Erneut versuchen",
+    "login": "Anmelden",
     "password": {
       "title": "Passwort erforderlich",
       "placeholder": "Dein Passwort",
@@ -60,6 +61,10 @@
     "export": {
       "json": "JSON-Datei",
       "csv": "CSV-Datei"
+    },
+    "level": {
+      "no_access": "Kein Zugriff",
+      "read_access": "Nur Lesezugriff"
     }
   },
   "update": {
@@ -78,6 +83,8 @@
     "new_password": "Neues Passwort festlegen",
     "password_placeholder": "Neues Passwort",
     "password_removed": "Die Passwortsperre wurde aufgehoben und das festgelegte Passwort wurde entfernt.",
+    "level": "Stufe ändern",
+    "level_title": "Rechte für Besucher",
     "cron_title": "Test-Häufigkeit einstellen",
     "cron_rules": "Cron-Regel",
     "cron_next_test": "Nächster Test:",
@@ -99,7 +106,8 @@
     "start_tooltip": "Speedtest starten",
     "new_update": "Update verfügbar",
     "paused": "Speedtests sind aktuell pausiert. Bitte setze sie fort, wenn du einen machen möchtest.",
-    "running": "Es läuft bereits ein Speedtest. Bitte warte noch einen Moment."
+    "running": "Es läuft bereits ein Speedtest. Bitte warte noch einen Moment.",
+    "admin_login": "Admin-Login"
   },
   "latest": {
     "ping": "Ping",
