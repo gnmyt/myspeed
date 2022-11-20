@@ -7,6 +7,7 @@
     "update": "Aktualisieren",
     "close": "Schließen",
     "unset": "Entfernen",
+    "retry": "Erneut versuchen",
     "password": {
       "title": "Passwort erforderlich",
       "placeholder": "Dein Passwort",
@@ -16,6 +17,10 @@
       "title": "Nutzungsbedingungen akzeptieren",
       "description": "Mit dem Klick auf <Bold>Akzeptieren</Bold> bestätigst du, dass du die <EULA>EULA</EULA>, <Privacy>Datenschutzerklärung</Privacy> und <Terms>Nutzungsbedingungen</Terms>  von Ookla gelesen hast und diesen zustimmst.",
       "button": "Akzeptieren"
+    },
+    "api": {
+      "title": "API nicht erreichbar",
+      "description": "MySpeed konnte die API dieser Instanz nicht erreichen. Bitte versuche es später erneut."
     }
   },
   "dropdown": {
