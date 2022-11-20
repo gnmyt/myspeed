@@ -20,6 +20,14 @@ export const passwordRequiredDialog = () => ({
     }
 });
 
+export const apiErrorDialog = () => ({
+    title: t("dialog.api.title"),
+    description: <span className="icon-red">{t("dialog.api.description")}</span>,
+    buttonText: t("dialog.retry"),
+    disableCloseButton: true,
+    onSuccess: () => window.location.reload()
+});
+
 export const acceptDialog = () => ({
     title: t("dialog.accept.title"),
     description: <Trans components={{Bold: <span className="dialog-value"/>, EULA: <a href={OOKLA_EULA_URL} target="_blank"/>,
