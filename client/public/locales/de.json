@@ -126,7 +126,7 @@
     "update": "Ein Update auf die Version {{version}} ist verfügbar. Sieh dir <Changes>die Änderungen an</Changes> und <DLLink>lade dir das Update herunter</DLLink>.",
     "down": {
       "title": "Download-Geschwindigkeit",
-      "description": "Die Downloadgeschwindigkeit wirkt sich auf dein Surferlebnis aus. Umso mehr du bekommst, desto schneller kann dein Computer Daten empfangen."
+      "description": "Die Download-Geschwindigkeit wirkt sich auf dein Surferlebnis aus. Umso mehr du bekommst, desto schneller kann dein Computer Daten empfangen."
     },
     "ping": {
       "title": "Ping",
@@ -134,7 +134,7 @@
     },
     "up": {
       "title": "Upload-Geschwindigkeit",
-      "description": "Die Uploadgeschwindigkeit wirkt sich auf dein Surferlebnis aus. Umso mehr du bekommst, desto schneller kann dein Computer Daten senden."
+      "description": "Die Upload-Geschwindigkeit wirkt sich auf dein Surferlebnis aus. Umso mehr du bekommst, desto schneller kann dein Computer Daten senden."
     },
     "latest": {
       "title": "Letzter Test",
@@ -159,11 +159,11 @@
     "delete": "Test löschen",
     "average": {
       "title": "Durchschnittsgeschwindigkeit",
-      "description": "<Bold>{{amount}}</Bold> Tests haben ergeben, dass am <Bold>{{date}}</Bold> eine durchschnittliche Downloadgeschwindigkeit von <Bold>{{down}} Mbit/s</Bold> und eine Upload-geschwindigkeit von <Bold>{{up}} Mbit/s</Bold> bestand. Die Tests dauerten im Durchschnitt <Bold>{{duration}} Sekunden</Bold>."
+      "description": "<Bold>{{amount}}</Bold> Tests haben ergeben, dass am <Bold>{{date}}</Bold> eine durchschnittliche Download-Geschwindigkeit von <Bold>{{down}} Mbit/s</Bold> und eine Upload-Geschwindigkeit von <Bold>{{up}} Mbit/s</Bold> bestand. Die Tests dauerten im Durchschnitt <Bold>{{duration}} Sekunden</Bold>."
     },
     "result": {
       "title": "Testergebnis",
-      "description": "Dieser Test erreichte eine maximale Downloadgeschwindigkeit von <Bold>{{down}} Mbit/s</Bold> und eine maximale Uploadgeschwindigkeit von <Bold>{{up}} Mbit/s</Bold>. Er wurde <Bold>{{type}}</Bold> angelegt und hat <Bold>{{duration}} Sekunden</Bold> gedauert.",
+      "description": "Dieser Test erreichte eine maximale Download-Geschwindigkeit von <Bold>{{down}} Mbit/s</Bold> und eine maximale Upload-Geschwindigkeit von <Bold>{{up}} Mbit/s</Bold>. Er wurde <Bold>{{type}}</Bold> angelegt und hat <Bold>{{duration}} Sekunden</Bold> gedauert.",
       "from_you": "von dir",
       "automatic": "automatisch"
     },
