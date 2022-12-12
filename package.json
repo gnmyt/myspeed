@@ -18,7 +18,7 @@
     "node-schedule": "^2.1.0",
     "sequelize": "^6.26.0",
     "tmp": "^0.2.1",
-    "sqlite3": "^5.1.2"
+    "sqlite3": "^5.1.4"
   },
   "devDependencies": {
     "concurrently": "^7.6.0",
