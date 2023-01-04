@@ -20,7 +20,7 @@
     "react-dom": "^18.2.0",
     "sass": "^1.57.1",
     "vite": "^4.0.3",
-    "vite-plugin-pwa": "^0.14.0"
+    "vite-plugin-pwa": "^0.14.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
