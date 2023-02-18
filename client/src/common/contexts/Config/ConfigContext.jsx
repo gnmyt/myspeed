@@ -1,5 +1,5 @@
 import React, {createContext, useContext, useEffect, useState} from "react";
-import {DialogContext} from "../Dialog";
+import {InputDialogContext} from "../InputDialog";
 import {request} from "@/common/utils/RequestUtil";
 import {acceptDialog, apiErrorDialog, passwordRequiredDialog} from "@/common/contexts/Config/dialog";
 
@@ -8,7 +8,7 @@ export const ConfigContext = createContext({});
 export const ConfigProvider = (props) => {
 
     const [config, setConfig] = useState({});
-    const [setDialog] = useContext(DialogContext);
+    const [setDialog] = useContext(InputDialogContext);
 
     const reloadConfig = () => {
         request("/config").then(async res => {
