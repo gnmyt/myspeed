@@ -4,7 +4,7 @@ import {
     faArrowDown, faArrowUp, faClockRotateLeft, faClose,
     faInfo, faPingPongPaddleBall
 } from "@fortawesome/free-solid-svg-icons";
-import {DialogContext} from "@/common/contexts/Dialog";
+import {InputDialogContext} from "@/common/contexts/InputDialog";
 import {SpeedtestContext} from "@/common/contexts/Speedtests";
 import {deleteRequest} from "@/common/utils/RequestUtil";
 import "./styles.sass";
@@ -15,7 +15,7 @@ import {t} from "i18next";
 import {ConfigContext} from "@/common/contexts/Config";
 
 function SpeedtestComponent(props) {
-    const [setDialog] = useContext(DialogContext);
+    const [setDialog] = useContext(InputDialogContext);
     const [config] = useContext(ConfigContext);
     const updateTests = useContext(SpeedtestContext)[1];
 
