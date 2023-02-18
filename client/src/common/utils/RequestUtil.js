@@ -22,22 +22,22 @@ export const jsonRequest = async (path, headers = {}) => {
 }
 
 // Run a POST request and post some values
-export const postRequest = async (path, body, headers = {}) => {
+export const postRequest = async (path, body = {}, headers = {}) => {
     return await request(path, "POST", body, headers);
 }
 
 // Run a PATCH request update a resource
-export const patchRequest = async (path, body, headers = {}) => {
+export const patchRequest = async (path, body = {}, headers = {}) => {
     return await request(path, "PATCH", body, headers);
 }
 
 // Run a DELETE request and delete a resource
-export const deleteRequest = async (path, body, headers = {}) => {
+export const deleteRequest = async (path, body = {}, headers = {}) => {
     return await request(path, "DELETE", body, headers);
 }
 
 // Download a specific file from the response output
-export const downloadRequest = async (path, body, headers = {}) => {
+export const downloadRequest = async (path, body = {}, headers = {}) => {
     const file = await request(path, "GET", body, headers);
     let element = document.createElement('a');
     let url = file.headers.get('Content-Disposition').split('filename=')[1];
