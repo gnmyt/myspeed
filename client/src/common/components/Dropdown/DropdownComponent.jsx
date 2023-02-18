@@ -7,7 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import {ConfigContext} from "@/common/contexts/Config";
 import {StatusContext} from "@/common/contexts/Status";
-import {DialogContext} from "@/common/contexts/Dialog";
+import {InputDialogContext} from "@/common/contexts/InputDialog";
 import {SpeedtestContext} from "@/common/contexts/Speedtests";
 import {downloadRequest, jsonRequest, patchRequest, postRequest} from "@/common/utils/RequestUtil";
 import {creditsInfo, healthChecksInfo, recommendationsInfo} from "@/common/components/Dropdown/utils/infos";
@@ -35,7 +35,7 @@ function DropdownComponent() {
     const [config, reloadConfig] = useContext(ConfigContext);
     const [status, updateStatus] = useContext(StatusContext);
     const updateTests = useContext(SpeedtestContext)[1];
-    const [setDialog] = useContext(DialogContext);
+    const [setDialog] = useContext(InputDialogContext);
     const ref = useRef();
 
     useEffect(() => {
