@@ -3,7 +3,7 @@ import {faArrowDown, faArrowUp, faClockRotateLeft, faPingPongPaddleBall} from "@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {generateRelativeTime} from "./utils";
 import {StatusContext} from "@/common/contexts/Status";
-import {DialogContext} from "@/common/contexts/Dialog";
+import {InputDialogContext} from "@/common/contexts/InputDialog";
 import {SpeedtestContext} from "@/common/contexts/Speedtests";
 import {ConfigContext} from "@/common/contexts/Config";
 import "./styles.sass";
@@ -15,7 +15,7 @@ function LatestTestComponent() {
     const status = useContext(StatusContext)[0];
     const [latest, setLatest] = useState({});
     const [latestTestTime, setLatestTestTime] = useState("N/A");
-    const [setDialog] = useContext(DialogContext);
+    const [setDialog] = useContext(InputDialogContext);
     const [speedtests] = useContext(SpeedtestContext);
     const config = useContext(ConfigContext)[0];
 
