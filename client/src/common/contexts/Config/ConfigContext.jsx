@@ -30,7 +30,6 @@ export const ConfigProvider = (props) => {
 
     useEffect(() => {
         if (config.acceptOoklaLicense !== undefined && config.acceptOoklaLicense === "false" && !dialogShown) {
-            console.log(config)
             setDialogShown(true);
             setDialog(acceptDialog());
         }
