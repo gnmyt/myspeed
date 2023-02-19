@@ -7,8 +7,8 @@ export const DialogProvider = (props) => {
     const areaRef = useRef();
     const ref = useRef();
 
-    const close = () => {
-        if (props.disableClosing) return;
+    const close = (force = false) => {
+        if (props.disableClosing && !force) return;
         hideTooltips(false);
         areaRef.current?.classList.add("dialog-area-hidden");
         ref.current?.classList.add("dialog-hidden");
