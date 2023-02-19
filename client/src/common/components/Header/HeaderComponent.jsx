@@ -3,18 +3,20 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCircleArrowUp, faGaugeHigh, faGear, faLock} from "@fortawesome/free-solid-svg-icons";
 import {useContext, useEffect, useState} from "react";
 import DropdownComponent, {toggleDropdown} from "../Dropdown/DropdownComponent";
-import {DialogContext} from "@/common/contexts/Dialog";
+import {InputDialogContext} from "@/common/contexts/InputDialog";
 import {StatusContext} from "@/common/contexts/Status";
 import {SpeedtestContext} from "@/common/contexts/Speedtests";
 import {jsonRequest, postRequest} from "@/common/utils/RequestUtil";
 import {updateInfo} from "@/common/components/Header/utils/infos";
 import {t} from "i18next";
 import {ConfigContext} from "@/common/contexts/Config";
+import {SpeedtestDialog} from "@/common/components/SpeedtestDialog";
 
 function HeaderComponent() {
-    const [setDialog] = useContext(DialogContext);
+    const [setDialog] = useContext(InputDialogContext);
     const [icon, setIcon] = useState(faGear);
     const [status, updateStatus] = useContext(StatusContext);
+    const [startedManually, setStartedManually] = useState(false);
     const updateTests = useContext(SpeedtestContext)[1];
     const [config, reloadConfig, checkConfig] = useContext(ConfigContext);
     const [updateAvailable, setUpdateAvailable] = useState("");
@@ -53,9 +55,9 @@ function HeaderComponent() {
             buttonText: t("dialog.okay")
         });
 
-        setDialog({speedtest: true, disableCloseButton: true});
+        setStartedManually(true);
 
-        postRequest("/speedtests/run").then(updateTests).then(updateStatus).then(setDialog);
+        postRequest("/speedtests/run").then(updateTests).then(updateStatus).then(() => setStartedManually(false));
     }
 
     useEffect(() => {
@@ -72,6 +74,7 @@ function HeaderComponent() {
 
     return (
         <header>
+            <SpeedtestDialog isOpen={startedManually}/>
             <div className="header-main">
                 <h2>{t("header.title")}</h2>
                 <div className="header-right">

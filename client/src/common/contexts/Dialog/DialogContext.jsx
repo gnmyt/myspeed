@@ -1,96 +1,26 @@
-import React, {useState, createContext, useEffect, useRef} from "react";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faClose} from "@fortawesome/free-solid-svg-icons";
+import React, {createContext, useEffect, useRef} from "react";
 import "./styles.sass";
-import {t} from "i18next";
 
 export const DialogContext = createContext({});
 
-const Dialog = ({dialog, setDialog}) => {
-    if (!dialog) return;
-
-    const [value, setValue] = useState(dialog.value || "");
-
+export const DialogProvider = (props) => {
+    const areaRef = useRef();
     const ref = useRef();
 
-    document.onkeyup = e => {
-        if (ref.current == null) return;
-        if (e.key === "Enter") {
-            e.preventDefault();
-            submit();
-        }
-        if (e.key === "Escape" && !dialog.disableCloseButton) {
-            e.preventDefault();
-            closeDialog();
-        }
+    const close = () => {
+        if (props.disableClosing) return;
+        hideTooltips(false);
+        areaRef.current?.classList.add("dialog-area-hidden");
+        ref.current?.classList.add("dialog-hidden");
     }
 
-    function updateValue(e) {
-        if (dialog.updateDescription) dialog.description = dialog.updateDescription(e.target.value);
-        setValue(e.target.value);
+    const onClose = (e) => {
+        if (e.animationName === "fadeOut") props?.close();
     }
 
-    function closeSlow() {
-        if (ref.current == null) return;
-        ref.current.classList.add("dialog-hidden");
-        setTimeout(() => setDialog(), 150);
+    const handleKeyDown = (e) => {
+        if (e.code === "Enter" && props.submit) props.submit();
     }
-
-    function closeDialog() {
-        closeSlow();
-        if (dialog.onClose) dialog.onClose();
-    }
-
-    function submit() {
-        if (!dialog.description && !value) return;
-        closeSlow();
-        if (dialog.onSuccess) setTimeout(() => dialog.onSuccess(value), 160);
-    }
-
-    function clear() {
-        closeSlow();
-        if (dialog.onClear) setTimeout(() => dialog.onClear(), 160);
-    }
-
-    if (dialog.speedtest) return (
-        <div className="dialog-area" ref={ref}>
-            <div className="dialog dialog-speedtest">
-                <div className="lds-ellipsis">
-                    <div/><div/><div/><div/>
-                </div>
-            </div>
-        </div>
-    )
-
-    return (
-        <div className="dialog-area" ref={ref}>
-            <div className="dialog">
-                <div className="dialog-header">
-                    <h4 className="dialog-text">{dialog.title}</h4>
-                    {!dialog.disableCloseButton ? <FontAwesomeIcon icon={faClose} className="dialog-text dialog-icon" onClick={closeDialog}/> : <></>}
-                </div>
-                <div className="dialog-main">
-                    {dialog.description ? <h3 className="dialog-description">{dialog.description}</h3> : ""}
-                    {dialog.placeholder ? <input className="dialog-input" type={dialog.type ? dialog.type : "text"}
-                                                 placeholder={dialog.placeholder} value={value}
-                                                 onChange={updateValue}/> : ""}
-                    {dialog.select ? <select value={value} onChange={updateValue} className="dialog-input">
-                        {Object.keys(dialog.selectOptions).map(key => <option key={key}
-                                                                              value={key}>{dialog.selectOptions[key]}</option>)}
-                    </select> : ""}
-                </div>
-                <div className="dialog-buttons">
-                    {dialog.unsetButton ? <button className="dialog-btn dialog-secondary"
-                                                  onClick={clear}>{dialog.unsetButton || t("dialog.unset")}</button> : ""}
-                    <button className="dialog-btn" onClick={submit}>{dialog.buttonText || t("dialog.update")}</button>
-                </div>
-            </div>
-        </div>
-    )
-}
-
-export const DialogProvider = (props) => {
-    const [dialog, setDialog] = useState();
 
     const hideTooltips = (state) => Array.from(document.getElementsByClassName("tooltip")).forEach(element => {
         if (state && !element.classList.contains("tooltip-invisible"))
@@ -100,13 +30,21 @@ export const DialogProvider = (props) => {
     });
 
     useEffect(() => {
-        hideTooltips(dialog);
-    }, [dialog]);
+        const handleClick = (event) => {
+            if (!ref.current?.contains(event.target)) close();
+        }
+
+        document.addEventListener("mousedown", handleClick);
+    }, [ref]);
 
     return (
-        <DialogContext.Provider value={[setDialog]}>
-            <Dialog dialog={dialog} setDialog={setDialog}/>
-            {props.children}
+        <DialogContext.Provider value={close}>
+            <div className="dialog-area" ref={areaRef}>
+                <div className={"dialog" + (props.customClass ? " " + props.customClass : "")} ref={ref}
+                     onAnimationEnd={onClose} onKeyDown={handleKeyDown}>
+                    {props.children}
+                </div>
+            </div>
         </DialogContext.Provider>
     )
 }

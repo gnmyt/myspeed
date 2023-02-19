@@ -14,27 +14,24 @@
   z-index: 10
   justify-content: center
   backdrop-filter: blur(2px)
+  transition: all 0.2s
+  animation: opacity 0.3s
 
-.dialog-hidden
-  visibility: hidden
+.dialog-area-hidden
   opacity: 0
-  animation: fadeOut 0.3s
+  animation: opacity 0.3s reverse
 
 .dialog
-  width: 480px
   padding: 15px
   background-color: $dark-gray
   border-radius: 15px
   transition: all 0.2s
   animation: fadeIn 0.3s
 
-.dialog-speedtest
-  display: flex
-  justify-content: center
-  align-content: center
-  align-items: center
-  width: 70px
-  height: 70px
+.dialog-hidden
+  visibility: hidden
+  opacity: 0
+  animation: fadeOut 0.3s
 
 .dialog-header
   display: flex
@@ -78,18 +75,6 @@
 .dialog-icon:hover
     color: $red-hover
 
-.dialog-input
-  font-size: 18pt
-  padding: 15px
-  font-weight: 700
-  margin-top: 15px
-  margin-bottom: 15px
-  background-color: $darker-gray
-  color: $darker-white
-  border: none
-  border-radius: 15px
-  text-align: center
-
 .dialog-btn
   font-size: 16pt
   padding: 8px 15px
@@ -110,53 +95,3 @@
 
 .dialog-secondary:hover
     background-color: $red-hover
-
-.lds-ellipsis
-  display: inline-block
-  position: relative
-  width: 80px
-  height: 80px
-
-.lds-ellipsis div
-  position: absolute
-  top: 33px
-  width: 13px
-  height: 13px
-  border-radius: 50%
-  background: $white
-  animation-timing-function: cubic-bezier(0, 1, 1, 0)
-
-.lds-ellipsis div:nth-child(1)
-  left: 8px
-  animation: lds-ellipsis1 0.6s infinite
-
-.lds-ellipsis div:nth-child(2)
-  left: 8px
-  animation: lds-ellipsis2 0.6s infinite
-
-.lds-ellipsis div:nth-child(3)
-  left: 32px
-  animation: lds-ellipsis2 0.6s infinite
-
-.lds-ellipsis div:nth-child(4)
-  left: 56px
-  animation: lds-ellipsis3 0.6s infinite
-
-@keyframes lds-ellipsis1
-  0%
-    transform: scale(0)
-  100%
-    transform: scale(1)
-
-@keyframes lds-ellipsis3
-  0%
-    transform: scale(1)
-  100%
-    transform: scale(0)
-
-
-@keyframes lds-ellipsis2
-  0%
-    transform: translate(0, 0)
-  100%
-    transform: translate(24px, 0)
