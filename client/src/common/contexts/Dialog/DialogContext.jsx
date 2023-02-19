@@ -41,7 +41,7 @@ export const DialogProvider = (props) => {
         <DialogContext.Provider value={close}>
             <div className="dialog-area" ref={areaRef}>
                 <div className={"dialog" + (props.customClass ? " " + props.customClass : "")} ref={ref}
-                     onAnimationEnd={onClose} onKeyDown={handleKeyDown}>
+                     onAnimationEnd={onClose} onKeyDown={handleKeyDown} onAnimationStart={() => hideTooltips(true)}>
                     {props.children}
                 </div>
             </div>
