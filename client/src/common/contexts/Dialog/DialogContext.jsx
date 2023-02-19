@@ -9,12 +9,12 @@ export const DialogProvider = (props) => {
 
     const close = (force = false) => {
         if (props.disableClosing && !force) return;
-        hideTooltips(false);
         areaRef.current?.classList.add("dialog-area-hidden");
         ref.current?.classList.add("dialog-hidden");
     }
 
     const onClose = (e) => {
+        hideTooltips(false);
         if (e.animationName === "fadeOut") props?.close();
     }
 
