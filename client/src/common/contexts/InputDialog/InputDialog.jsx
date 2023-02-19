@@ -28,13 +28,13 @@ const DialogArea = ({dialog}) => {
     }
 
     function closeDialog() {
-        if (dialog.onClose) dialog.onClose();
         close();
+        if (dialog.onClose) dialog.onClose();
     }
 
     function submit() {
         if (!dialog.description && !value) return;
-        close();
+        close(true);
         if (dialog.onSuccess) dialog.onSuccess(value);
     }
 
@@ -93,7 +93,7 @@ export const InputDialogProvider = (props) => {
     return (
         <InputDialogContext.Provider value={[updateDialog]}>
             {dialog && (
-                <DialogProvider close={handleClose} customClass="input-dialog">
+                <DialogProvider close={handleClose} customClass="input-dialog" disableClosing={dialog.disableCloseButton}>
                     <DialogArea dialog={dialog} />
                 </DialogProvider>
             )}
