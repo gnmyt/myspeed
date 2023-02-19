@@ -14,6 +14,7 @@ process.on('uncaughtException', err => require('./config/errorHandler')(err));
 
 // Register middlewares
 app.use(express.json());
+app.use(require('./middlewares/error'));
 
 // Register routes
 app.use("/api/config", require('./routes/config'));

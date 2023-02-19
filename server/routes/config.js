@@ -19,7 +19,7 @@ app.get("/", password(true), async (req, res) => {
 
 // Updates a specific config entry
 app.patch("/:key", password(false), async (req, res) => {
-    if (!req.body.value.toString()) return res.status(400).json({message: "You need to provide the new value"});
+    if (!req.body.value?.toString()) return res.status(400).json({message: "You need to provide the new value"});
 
     if ((req.params.key === "ping" || req.params.key === "download" || req.params.key === "upload") && isNaN(req.body.value))
         return res.status(400).json({message: "You need to provide a number in order to change this"});
