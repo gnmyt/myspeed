@@ -14,8 +14,10 @@ export const DialogProvider = (props) => {
     }
 
     const onClose = (e) => {
-        hideTooltips(false);
-        if (e.animationName === "fadeOut") props?.close();
+        if (e.animationName === "fadeOut") {
+            hideTooltips(false);
+            props?.close();
+        }
     }
 
     const handleKeyDown = (e) => {
