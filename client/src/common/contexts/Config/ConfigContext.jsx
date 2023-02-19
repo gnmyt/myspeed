@@ -9,6 +9,7 @@ export const ConfigProvider = (props) => {
 
     const [config, setConfig] = useState({});
     const [setDialog] = useContext(InputDialogContext);
+    const [dialogShown, setDialogShown] = useState(false);
 
     const reloadConfig = () => {
         request("/config").then(async res => {
@@ -21,15 +22,18 @@ export const ConfigProvider = (props) => {
                 throw 2;
             }
         })
-            .then(result => setConfig(result))
+            .then(result => config !== result ? setConfig(result) : null)
             .catch((code) => setDialog(code === 1 ? passwordRequiredDialog() : apiErrorDialog()));
     }
 
     const checkConfig = async () => (await request("/config")).json();
 
     useEffect(() => {
-        if (config.acceptOoklaLicense !== undefined && config.acceptOoklaLicense === "false")
+        if (config.acceptOoklaLicense !== undefined && config.acceptOoklaLicense === "false" && !dialogShown) {
+            console.log(config)
+            setDialogShown(true);
             setDialog(acceptDialog());
+        }
     }, [config]);
 
     useEffect(reloadConfig, []);
