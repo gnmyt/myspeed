@@ -9,7 +9,11 @@ export const InputDialogContext = createContext({});
 
 const DialogArea = ({dialog}) => {
     const close = useContext(DialogContext);
-    const [value, setValue] = useState(dialog.value || "");
+    const [value, setValue] = useState("");
+
+    useEffect(() => {
+        if (dialog.value) setValue(dialog.value);
+    }, [dialog.value]);
 
     document.onkeyup = e => {
         if (e.key === "Enter") {
