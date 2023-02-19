@@ -72,28 +72,18 @@ const DialogArea = ({dialog}) => {
 export const InputDialogProvider = (props) => {
     const [dialog, setDialog] = useState();
     const [isDialogOpen, setIsDialogOpen] = useState(false);
-    const [newDialog, setNewDialog] = useState();
-    const [nextDialog, setNextDialog] = useState();
+    const [dialogList, setDialogList] = useState([]);
 
-    const updateDialog = (newDialog) => setNewDialog(newDialog);
+    const updateDialog = (newDialog) => newDialog ? setDialogList([...dialogList, newDialog]) : "";
 
     useEffect(() => {
-        if (!newDialog) return;
-
-        if (isDialogOpen) {
-            setNextDialog(newDialog);
-        } else {
-            setDialog(newDialog);
+        if (dialogList.length === 0) return;
+        if ((!isDialogOpen && dialogList[0]) || dialogList[0].replace) {
+            setDialog(dialogList[0]);
+            setDialogList(dialogList.slice(1));
             setIsDialogOpen(true);
         }
-    }, [newDialog]);
-
-    useEffect(() => {
-        if (!isDialogOpen && nextDialog) {
-            setDialog(nextDialog);
-            setNextDialog();
-        }
-    }, [isDialogOpen]);
+    }, [isDialogOpen, dialogList]);
 
     const handleClose = () => {
         setIsDialogOpen(false);
