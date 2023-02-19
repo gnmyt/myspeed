@@ -132,7 +132,7 @@ function DropdownComponent() {
     }
 
     const updatePasswordLevel = () => patchDialog("passwordLevel", async (value) => ({
-        title: t("update.level_title"), select: true, selectOptions: levelOptions(), value
+        title: t("update.level_title"), select: true, selectOptions: levelOptions(), value, replace: true
     }), false);
 
     const updateCron = async () => {
@@ -153,7 +153,7 @@ function DropdownComponent() {
         placeholder: t("update.cron_rules"),
         value: value,
         updateDescription: (val) => <>{t("update.cron_next_test")} <span className="dialog-value">{parseCron(val)}</span></>,
-        description: <>{t("update.cron_next_test")} <span className="dialog-value">{parseCron(value)}</span></>,
+        description: <>{t("update.cron_next_test")} <span className="dialog-value">{parseCron(value)}</span></>
     }), false, (val) => stringifyCron(val));
 
     const updateTime = async () => {
@@ -210,7 +210,8 @@ function DropdownComponent() {
     const showIntegrationInfo = () => setDialog({
         title: t("update.healthchecks"),
         description: healthChecksInfo(),
-        buttonText: t("dialog.okay")
+        buttonText: t("dialog.okay"),
+        replace: true
     });
 
     const updateLanguage = () => {
