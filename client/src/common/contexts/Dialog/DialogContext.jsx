@@ -7,15 +7,17 @@ export const DialogProvider = (props) => {
     const areaRef = useRef();
     const ref = useRef();
 
-    const close = () => {
-        if (props.disableClosing) return;
-        hideTooltips(false);
+    const close = (force = false) => {
+        if (props.disableClosing && !force) return;
         areaRef.current?.classList.add("dialog-area-hidden");
         ref.current?.classList.add("dialog-hidden");
     }
 
     const onClose = (e) => {
-        if (e.animationName === "fadeOut") props?.close();
+        if (e.animationName === "fadeOut") {
+            hideTooltips(false);
+            props?.close();
+        }
     }
 
     const handleKeyDown = (e) => {
@@ -41,7 +43,7 @@ export const DialogProvider = (props) => {
         <DialogContext.Provider value={close}>
             <div className="dialog-area" ref={areaRef}>
                 <div className={"dialog" + (props.customClass ? " " + props.customClass : "")} ref={ref}
-                     onAnimationEnd={onClose} onKeyDown={handleKeyDown}>
+                     onAnimationEnd={onClose} onKeyDown={handleKeyDown} onAnimationStart={() => hideTooltips(true)}>
                     {props.children}
                 </div>
             </div>

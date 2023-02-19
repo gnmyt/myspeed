@@ -9,7 +9,11 @@ export const InputDialogContext = createContext({});
 
 const DialogArea = ({dialog}) => {
     const close = useContext(DialogContext);
-    const [value, setValue] = useState(dialog.value || "");
+    const [value, setValue] = useState("");
+
+    useEffect(() => {
+        if (dialog.value) setValue(dialog.value);
+    }, [dialog.value]);
 
     document.onkeyup = e => {
         if (e.key === "Enter") {
@@ -28,13 +32,13 @@ const DialogArea = ({dialog}) => {
     }
 
     function closeDialog() {
-        if (dialog.onClose) dialog.onClose();
         close();
+        if (dialog.onClose) dialog.onClose();
     }
 
     function submit() {
         if (!dialog.description && !value) return;
-        close();
+        close(true);
         if (dialog.onSuccess) dialog.onSuccess(value);
     }
 
@@ -93,7 +97,7 @@ export const InputDialogProvider = (props) => {
     return (
         <InputDialogContext.Provider value={[updateDialog]}>
             {dialog && (
-                <DialogProvider close={handleClose} customClass="input-dialog">
+                <DialogProvider close={handleClose} customClass="input-dialog" disableClosing={dialog.disableCloseButton}>
                     <DialogArea dialog={dialog} />
                 </DialogProvider>
             )}
