@@ -29,14 +29,14 @@ export const Dialog = () => {
             </div>
             <div className="chooser-dialog">
                 <div className="chooser-item" onClick={() => setSelected(0)}>
-                    <img src={ListImage} alt="Test-Übersicht"
+                    <img src={ListImage} alt={t("test.views.list")}
                          className={"dialog-thumbnail" + (selected === 0 ? " thumbnail-selected" : "")}/>
-                    <p>Test-Übersicht</p>
+                    <p>{t("test.views.list")}</p>
                 </div>
                 <div className="chooser-item" onClick={() => setSelected(1)}>
-                    <img src={StatisticImage} alt="Test-Statistik"
+                    <img src={StatisticImage} alt={t("test.views.statistic")}
                          className={"dialog-thumbnail" + (selected === 1 ? " thumbnail-selected" : "")}/>
-                    <p>Test-Statistik</p>
+                    <p>{t("test.views.statistic")}</p>
                 </div>
             </div>
             <div className="dialog-buttons">
