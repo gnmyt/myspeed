@@ -1,0 +1,39 @@
+@import "@/common/styles/colors"
+
+.chooser-dialog
+  display: flex
+  justify-content: center
+  align-items: center
+  padding: 2rem 3.5rem
+  gap: 1rem
+
+.chooser-item
+  display: flex
+  flex-direction: column
+  align-items: center
+
+.dialog-thumbnail
+  width: 192px
+  height: 108px
+  border-radius: 0.75rem
+  border: 0.2rem solid $darker-gray
+
+.thumbnail-selected
+  border: 0.2rem solid $green
+
+.chooser-item:hover
+  cursor: pointer
+
+  & .dialog-thumbnail
+    border: 0.2rem solid $green-hover
+
+.chooser-item p
+  margin-top: 0.3rem
+  margin-bottom: 0
+  font-size: 14pt
+  color: $white
+
+@media screen and (max-width: 30rem)
+  .chooser-dialog
+    flex-direction: column
+    padding: 2rem 5rem
