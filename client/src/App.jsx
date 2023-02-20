@@ -5,11 +5,21 @@ import {SpeedtestProvider} from "./common/contexts/Speedtests";
 import {ConfigProvider} from "./common/contexts/Config";
 import {StatusProvider} from "./common/contexts/Status";
 import {InputDialogProvider} from "@/common/contexts/InputDialog/InputDialog";
-import {useState} from "react";
+import {useContext, useState} from "react";
 import i18n from './i18n';
 import Loading from "@/pages/Loading";
 import "@/common/styles/spinner.sass";
 import Error from "@/pages/Error";
+import {ViewContext, ViewProvider} from "@/common/contexts/View";
+
+const MainContent = () => {
+    const [view] = useContext(ViewContext);
+    return (
+        <main>
+            {view === 0 && <Home/>}
+        </main>
+    );
+}
 
 const App = () => {
     const [translationsLoaded, setTranslationsLoaded] = useState(false);
@@ -24,14 +34,14 @@ const App = () => {
             {translationError && <Error text="Failed to load translations"/>}
             {translationsLoaded && !translationError && <SpeedtestProvider>
                 <InputDialogProvider>
-                    <ConfigProvider>
-                        <StatusProvider>
-                            <HeaderComponent/>
-                            <main>
-                                <Home/>
-                            </main>
-                        </StatusProvider>
-                    </ConfigProvider>
+                    <ViewProvider>
+                        <ConfigProvider>
+                            <StatusProvider>
+                                <HeaderComponent/>
+                                <MainContent/>
+                            </StatusProvider>
+                        </ConfigProvider>
+                    </ViewProvider>
                 </InputDialogProvider>
             </SpeedtestProvider>}
         </>
