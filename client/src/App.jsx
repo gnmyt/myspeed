@@ -11,12 +11,16 @@ import Loading from "@/pages/Loading";
 import "@/common/styles/spinner.sass";
 import Error from "@/pages/Error";
 import {ViewContext, ViewProvider} from "@/common/contexts/View";
+import Statistics from "@/pages/Statistics";
+import {t} from "i18next";
 
 const MainContent = () => {
     const [view] = useContext(ViewContext);
     return (
         <main>
             {view === 0 && <Home/>}
+            {view === 1 && <Statistics/>}
+            {view !== 0 && view !== 1 && <Error text={t("errors.invalid_view")} disableReload={true}/>}
         </main>
     );
 }
