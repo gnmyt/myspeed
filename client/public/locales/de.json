@@ -173,6 +173,10 @@
       "custom": "Benutzerdefiniert",
       "average": "Durchschnitt",
       "auto": "Automatisiert"
+    },
+    "views": {
+      "list": "Test-Übersicht",
+      "statistic": "Test-Statistik"
     }
   },
   "errors": {
