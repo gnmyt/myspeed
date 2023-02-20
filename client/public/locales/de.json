@@ -183,6 +183,7 @@
     "no_route": "Der Test konnte nicht durchgeführt werden, da keine Route zum Host existierte",
     "connection_refused": "Der Test konnte nicht durchgeführt werden, da die Verbindung abgelehnt wurde",
     "timed_out": "Die Internetverbindung war in der Zeit des Tests instabil",
-    "config": "Die Konfigurationsdatei konnte nicht geladen werden"
+    "config": "Die Konfigurationsdatei konnte nicht geladen werden",
+    "invalid_view": "Ungültige Ansicht"
   }
 }
