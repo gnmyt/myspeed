@@ -42,6 +42,7 @@
     "resume_tests": "Tests fortsetzen",
     "healthchecks": "Healthchecks",
     "language": "Sprache ändern",
+    "view": "Ansicht wechseln",
     "info": "Infos zum Projekt"
   },
   "options": {
@@ -98,7 +99,8 @@
     "healthchecks": "HealthChecks Integration",
     "healthchecks_url": "HealthChecks Server URL",
     "healthchecks_activated": "Die Healthchecks wurden deaktiviert",
-    "language": "Sprache ändern"
+    "language": "Sprache ändern",
+    "view_title": "Ansicht wechseln"
   },
   "header": {
     "title": "Netzwerkanalyse",
