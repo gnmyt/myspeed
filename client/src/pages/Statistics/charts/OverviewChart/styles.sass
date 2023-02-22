@@ -1,0 +1,56 @@
+@import "@/common/styles/colors"
+
+.overview-items
+  display: flex
+  justify-content: center
+  flex-direction: column
+  width: 100%
+  overflow-y: clip
+
+.overview-item
+  display: flex
+  justify-content: space-between
+
+.overview-item .info-area
+  display: flex
+  justify-content: center
+  align-content: center
+  align-items: center
+  gap: 1rem
+
+  & svg
+    width: 2.5rem
+    height: 2.5rem
+    color: $white
+
+.overview-item .info-area .text-area
+  & h2
+    margin: 0
+    color: $white
+  & p
+    margin: 0
+    color: $darker-white
+
+.overview-item h2
+  color: $green
+
+@media screen and (max-width: 1500px)
+  .overview-item
+    flex-wrap: wrap
+    flex-direction: row
+
+@media screen and (max-width: 1400px)
+  .info-area svg
+    display: none
+  .overview-item .info-area h2
+    display: inline-block
+    width: 15rem
+    white-space: nowrap
+    overflow: hidden !important
+    text-overflow: ellipsis
+  .overview-item .info-area .text-area p
+    display: none
+
+@media screen and (max-width: 1000px)
+  .overview-item .info-area h2
+    width: 10rem
