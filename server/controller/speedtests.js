@@ -74,6 +74,48 @@ module.exports.listAverage = async (days) => {
     return result;
 }
 
+const mapFixed = (entries, type) => ({
+    min: Math.min(...entries.map((entry) => entry[type])),
+    max: Math.max(...entries.map((entry) => entry[type])),
+    avg: parseFloat((entries.reduce((a, b) => a + b[type], 0) / entries.length).toFixed(2))
+});
+
+const mapRounded = (entries, type) => ({
+    min: Math.min(...entries.map((entry) => entry[type])),
+    max: Math.max(...entries.map((entry) => entry[type])),
+    avg: Math.round(entries.reduce((a, b) => a + b[type], 0) / entries.length)
+});
+
+module.exports.listStatistics = async (days) => {
+    let dbEntries = (await tests.findAll({order: [["created", "DESC"]]}))
+        .filter((entry) => new Date(entry.created) > new Date().getTime() - (days <= 30 ? days : 30 ) * 24 * 3600000);
+
+    let avgEntries = [];
+    if (days >= 3) avgEntries = await this.listAverage(days);
+
+    let notFailed = dbEntries.filter((entry) => entry.error === null);
+
+    return {
+        tests: {
+            total: dbEntries.length,
+            failed: dbEntries.length - notFailed.length,
+            custom: dbEntries.filter((entry) => entry.type === "custom").length
+        },
+        ping: mapRounded(notFailed, "ping"),
+        download: mapFixed(notFailed, "download"),
+        upload: mapFixed(notFailed, "upload"),
+        time: mapRounded(notFailed, "time"),
+        data: {
+            ping: days >= 3 ? avgEntries.map((entry) => entry.ping) : notFailed.map((entry) => entry.ping),
+            download: days >= 3 ? avgEntries.map((entry) => entry.download) : notFailed.map((entry) => entry.download),
+            upload: days >= 3 ? avgEntries.map((entry) => entry.upload) : notFailed.map((entry) => entry.upload),
+            time: days >= 3 ? avgEntries.map((entry) => entry.time) : notFailed.map((entry) => entry.time)
+        },
+        labels: days >= 3 ? avgEntries.map((entry) => new Date(entry.created).toLocaleDateString())
+            : notFailed.map((entry) => new Date(entry.created).toLocaleTimeString([], {hour: "2-digit", minute: "2-digit"}))
+    };
+}
+
 // Gets the latest speedtest from the database
 module.exports.latest = async () => {
     let speedtest = await tests.findOne({order: [["created", "DESC"]]});
