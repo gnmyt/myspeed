@@ -15,6 +15,10 @@ app.get("/averages", password(true), async (req, res) => {
     res.json(await tests.listAverage(req.query.days || 7));
 });
 
+app.get("/statistics", password(true), async (req, res) => {
+    res.json(await tests.listStatistics(req.query.days || 1));
+});
+
 // Runs a speedtest
 app.post("/run", password(false), async (req, res) => {
     if (pauseController.currentState) return res.status(410).json({message: "The speedtests are currently paused"});
