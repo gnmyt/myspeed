@@ -1,0 +1,1 @@
+export {AverageChart as default} from './AverageChart';
