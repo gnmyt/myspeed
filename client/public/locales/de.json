@@ -109,7 +109,11 @@
     "new_update": "Update verfügbar",
     "paused": "Speedtests sind aktuell pausiert. Bitte setze sie fort, wenn du einen machen möchtest.",
     "running": "Es läuft bereits ein Speedtest. Bitte warte noch einen Moment.",
-    "admin_login": "Admin-Login"
+    "admin_login": "Admin-Login",
+    "beta": {
+      "title": "Beta-Version",
+      "description": "Diese Funktion befindet sich noch in der Beta-Phase. Wenn du Fehler findest, melde sie bitte <Link>hier</Link>."
+    }
   },
   "latest": {
     "ping": "Ping",
@@ -177,6 +181,13 @@
     "views": {
       "list": "Test-Übersicht",
       "statistic": "Test-Statistik"
+    },
+    "overview": {
+      "title": "Test-Übersicht der letzten {{amount}}",
+      "1": "24 Stunden",
+      "2": "2 Tage",
+      "3": "7 Tage",
+      "4": "30 Tage"
     }
   },
   "errors": {
@@ -189,5 +200,40 @@
     "timed_out": "Die Internetverbindung war in der Zeit des Tests instabil",
     "config": "Die Konfigurationsdatei konnte nicht geladen werden",
     "invalid_view": "Ungültige Ansicht"
+  },
+  "statistics": {
+    "overview": {
+      "total_title": "Insgesamte Tests",
+      "total_description": "Die Anzahl der ausgeführten Tests",
+      "failed_title": "Fehlgeschlagene Tests",
+      "failed_description": "Die Anzahl der fehlgeschlagenen Tests",
+      "average_title": "Durchschnittsdauer",
+      "average_description": "Die durchschnittliche Dauer der Tests"
+    },
+    "failed": {
+      "title": "Fehlgeschlagene Tests",
+      "success": "Erfolgreich",
+      "failed": "Fehlgeschlagen",
+      "label": "Tests"
+    },
+    "speed": {
+      "title": "Geschwindigkeit"
+    },
+    "manual": {
+      "title": "Manuelle Tests",
+      "yes": "Manuell erstellt",
+      "no": "Automatisch erstellt"
+    },
+    "duration": {
+      "title": "Testdauer",
+      "label": "Anzahl"
+    },
+    "values": {
+      "min": "Mindestens",
+      "max": "Höchstens",
+      "avg": "Durchschnitt",
+      "down": "Download-Werte",
+      "up": "Upload-Werte"
+    }
   }
 }
