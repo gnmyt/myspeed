@@ -21,19 +21,23 @@ const chartOptions = {
 
 const DurationChart = (props) => {
 
-    const [data, setData] = useState({
+    const chartData = {
         labels: [],
         datasets: [{
             label: t("statistics.duration.label"),
             data: [],
             backgroundColor: ['#45C65A', '#456AC6', '#C64545', '#C6C645', '#C645C6'],
             borderWidth: 0,
-        },],
-    });
+        }],
+    };
+
+    const [data, setData] = useState({});
 
     useEffect(() => {
+        if (!props.time) return;
+
         const frequencies = {};
-        let tempData = {...data};
+        const tempData = {...chartData};
         props.time.forEach(second => {
             frequencies[second] ? frequencies[second]++ : frequencies[second] = 1;
         });
@@ -42,15 +46,16 @@ const DurationChart = (props) => {
             tempData.labels.push(t("time.seconds", {replace: {seconds: second.toString()}}));
             tempData.datasets[0].data.push(frequencies[second]);
         }
-        setData(tempData);
 
-    }, []);
+        setData(tempData);
+    }, [props.time]);
+
+    if (Object.keys(data).length === 0) return <></>;
 
     return (
         <StatisticContainer title={t("statistics.duration.title")} size="small" center={true}>
             <PolarArea data={data} options={chartOptions}/>
         </StatisticContainer>
-
     );
 
 }
