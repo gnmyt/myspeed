@@ -55,6 +55,7 @@ export const Statistics = () => {
 
     if (!statistics) return <></>;
     if (!tests) return <></>;
+    if (tests.length === 0) return <h2 className="error-text">{t("test.not_available")}</h2>;
 
     return (
         <div className="statistic-area">
