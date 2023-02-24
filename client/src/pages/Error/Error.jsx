@@ -7,6 +7,7 @@ export const Error = (props) => {
     const [reloadTimer, setReloadTimer] = useState(5);
 
     useEffect(() => {
+        if (props.disableReload) return;
         const interval = setInterval(() => {
             if (reloadTimer > 0) {
                 setReloadTimer(reloadTimer - 1)
@@ -19,10 +20,11 @@ export const Error = (props) => {
     }, [reloadTimer]);
 
     return (
-        <div className="error-page">
+        <div className={"error-page" + (props.disableReload ? " no-reload" : "")}>
             <FontAwesomeIcon icon={faExclamationTriangle} size="8x"/>
             <h1>{props.text}</h1>
-            <h2>Reloading {reloadTimer !== 0 ? <>in <span>{reloadTimer}</span> seconds</> : <span>now</span>}...</h2>
+            {!props.disableReload && <h2>Reloading {reloadTimer !== 0 ? <>in <span>{reloadTimer}</span> seconds</> :
+                <span>now</span>}...</h2>}
         </div>
     )
 }

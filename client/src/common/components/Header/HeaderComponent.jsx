@@ -11,6 +11,9 @@ import {updateInfo} from "@/common/components/Header/utils/infos";
 import {t} from "i18next";
 import {ConfigContext} from "@/common/contexts/Config";
 import {SpeedtestDialog} from "@/common/components/SpeedtestDialog";
+import {ViewContext} from "@/common/contexts/View";
+import {Trans} from "react-i18next";
+import {PROJECT_URL} from "@/index";
 
 function HeaderComponent() {
     const [setDialog] = useContext(InputDialogContext);
@@ -20,6 +23,7 @@ function HeaderComponent() {
     const updateTests = useContext(SpeedtestContext)[1];
     const [config, reloadConfig, checkConfig] = useContext(ConfigContext);
     const [updateAvailable, setUpdateAvailable] = useState("");
+    const [view] = useContext(ViewContext);
 
     function switchDropdown() {
         toggleDropdown(setIcon);
@@ -76,7 +80,11 @@ function HeaderComponent() {
         <header>
             <SpeedtestDialog isOpen={startedManually}/>
             <div className="header-main">
-                <h2>{t("header.title")}</h2>
+                <h2>{t("header.title")} {view === 1 && <span className="beta-span" onClick={() => setDialog({
+                    title: t("header.beta.title"),
+                    description: <Trans components={{Link: <a href={PROJECT_URL+"/issues/new/choose"} target="_blank" />}}>header.beta.description</Trans>,
+                    buttonText: t("dialog.okay")
+                })}>BETA</span>}</h2>
                 <div className="header-right">
                     {updateAvailable ?
                         <div><FontAwesomeIcon icon={faCircleArrowUp} className="header-icon icon-orange update-icon"

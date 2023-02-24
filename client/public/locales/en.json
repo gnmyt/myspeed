@@ -42,6 +42,7 @@
     "resume_tests": "Resume tests",
     "healthchecks": "Healthchecks",
     "language": "Change language",
+    "view": "Switch view",
     "info": "About the project"
   },
   "options": {
@@ -98,7 +99,8 @@
     "healthchecks": "HealthChecks Integration",
     "healthchecks_url": "HealthChecks Server URL",
     "healthchecks_activated": "The health checks have been disabled",
-    "language": "Change language"
+    "language": "Change language",
+    "view_title": "Switch view"
   },
   "header": {
     "title": "Network Analysis",
@@ -107,7 +109,11 @@
     "new_update": "Update available",
     "paused": "Speedtests are currently paused. Please continue them if you want to do one.",
     "running": "A speedtest is already running. Please wait a moment.",
-    "admin_login": "Admin Login"
+    "admin_login": "Admin Login",
+    "beta": {
+      "title": "Beta Version",
+      "description": "This feature is still in beta. If you find any bugs, please report them <Link>here</Link>."
+    }
   },
   "latest": {
     "ping": "Ping",
@@ -171,6 +177,17 @@
       "custom": "Custom",
       "average": "Average",
       "auto": "Automated"
+    },
+    "views": {
+      "list": "Test Overview",
+      "statistic": "Test statistics"
+    },
+    "overview": {
+      "title": "Test overview of the last {{amount}}",
+      "1": "24 hours",
+      "2": "2 days",
+      "3": "7 days",
+      "4": "30 days"
     }
   },
   "errors": {
@@ -181,6 +198,42 @@
     "no_route": "The test could not be performed because there was no route to the host",
     "connection_refused": "The test could not be performed because the connection was rejected",
     "timed_out": "Internet connection was unstable during the time of the test",
-    "config": "The configuration file could not be loaded"
+    "config": "The configuration file could not be loaded",
+    "invalid_view": "Invalid view"
+  },
+  "statistics": {
+    "overview": {
+      "total_title": "Total tests",
+      "total_description": "The number of executed tests",
+      "failed_title": "Failed tests",
+      "failed_description": "The number of failed tests",
+      "average_title": "Average duration",
+      "average_description": "The average duration of the tests"
+    },
+    "failed": {
+      "title": "Failed tests",
+      "success": "Successful",
+      "failed": "Failed",
+      "label": "Tests"
+    },
+    "speed": {
+      "title": "Speed"
+    },
+    "manual": {
+      "title": "Manual tests",
+      "yes": "Created manually",
+      "no": "Created automatically"
+    },
+    "duration": {
+      "title": "Test duration",
+      "label": "Amount"
+    },
+    "values": {
+      "min": "Minimum",
+      "max": "Maximum",
+      "avg": "Average",
+      "down": "Download values",
+      "up": "Upload values"
+    }
   }
 }

@@ -1,0 +1,43 @@
+@import "@/common/styles/colors"
+
+.stats-container
+  display: flex
+  flex-direction: column
+  min-width: 16rem
+  border: 1px solid $gray
+  border-radius: 1rem
+  cursor: crosshair
+  transition: all 0.2s ease-in-out
+  animation: 0.3s fadeIn
+  flex: 1 0 15%
+
+.stats-container:hover
+  background-color: $darker-gray
+  border: 1px solid $white
+  transform: scale(1.05)
+
+.stats-header
+  color: $white
+  font-size: 16pt
+  border-radius: 1rem 1rem 0 0
+  padding: 0.75rem 0.5rem 0.5rem 1rem
+
+.stats-content
+  display: flex
+  padding-bottom: 1rem
+  padding-left: 1.5rem
+  height: 14rem
+  padding-right: 1.5rem
+
+.container-center
+  justify-content: center
+  align-items: center
+
+.container-small
+  flex: 1 0 5%
+
+.container-normal
+  flex: 1 0 30%
+
+.container-large
+  flex: 1 0 35%

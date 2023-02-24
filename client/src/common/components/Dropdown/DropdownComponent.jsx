@@ -1,8 +1,7 @@
-import React, {useContext, useEffect, useRef} from "react";
+import React, {useContext, useEffect, useRef, useState} from "react";
 import "./styles.sass";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
-    faArrowDown, faArrowUp, faCalendarDays, faCircleNodes, faClock, faClose, faFileExport,
+    faArrowDown, faArrowUp, faCalendarDays, faCircleNodes, faClock, faClose, faFileExport, faChartSimple,
     faGear, faGlobeEurope, faInfo, faKey, faPause, faPingPongPaddleBall, faPlay, faServer, faWandMagicSparkles
 } from "@fortawesome/free-solid-svg-icons";
 import {ConfigContext} from "@/common/contexts/Config";
@@ -11,9 +10,14 @@ import {InputDialogContext} from "@/common/contexts/InputDialog";
 import {SpeedtestContext} from "@/common/contexts/Speedtests";
 import {downloadRequest, jsonRequest, patchRequest, postRequest} from "@/common/utils/RequestUtil";
 import {creditsInfo, healthChecksInfo, recommendationsInfo} from "@/common/components/Dropdown/utils/infos";
-import {exportOptions, languageOptions, levelOptions, selectOptions, timeOptions} from "@/common/components/Dropdown/utils/options";
+import {
+    exportOptions, languageOptions, levelOptions,
+    selectOptions, timeOptions
+} from "@/common/components/Dropdown/utils/options";
 import {parseCron, stringifyCron} from "@/common/components/Dropdown/utils/utils";
 import {changeLanguage, t} from "i18next";
+import ViewDialog from "@/common/components/ViewDialog";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 let icon;
 
@@ -36,6 +40,7 @@ function DropdownComponent() {
     const [status, updateStatus] = useContext(StatusContext);
     const updateTests = useContext(SpeedtestContext)[1];
     const [setDialog] = useContext(InputDialogContext);
+    const [showViewDialog, setShowViewDialog] = useState(false);
     const ref = useRef();
 
     useEffect(() => {
@@ -225,6 +230,11 @@ function DropdownComponent() {
         });
     }
 
+    const updateView = () => {
+        toggleDropdown();
+        setShowViewDialog(true);
+    }
+
     const showCredits = () => {
         toggleDropdown();
         setDialog({title: "MySpeed", description: creditsInfo(), buttonText: t("dialog.close")});
@@ -243,29 +253,36 @@ function DropdownComponent() {
         {run: exportDialog, icon: faFileExport, text: t("dropdown.export")},
         {run: togglePause, icon: status.paused ? faPlay : faPause, text: t("dropdown." + (status.paused ? "resume_tests" : "pause_tests"))},
         {run: updateIntegration, icon: faCircleNodes, text: t("dropdown.healthchecks")},
+        {hr: true, key: 2},
         {run: updateLanguage, icon: faGlobeEurope, text: t("dropdown.language"), allowView: true},
+        {run: updateView, icon: faChartSimple, allowView: true, text: t("dropdown.view")},
         {run: showCredits, icon: faInfo, text: t("dropdown.info"), allowView: true}
     ];
 
     return (
-        <div className="dropdown dropdown-invisible" id="dropdown" ref={ref}>
-            <div className="dropdown-content">
-                <h2>{t("dropdown.settings")}</h2>
-                <div className="dropdown-entries">
-                    {options.map(entry => {
-                        if (!config.viewMode || (config.viewMode && entry.allowView)) {
-                            if (!entry.hr) {
-                                return (<div className="dropdown-item" onClick={entry.run} key={entry.run}>
-                                    <FontAwesomeIcon icon={entry.icon}/>
-                                    <h3>{entry.text}</h3>
+        <>
+            {showViewDialog && <ViewDialog onClose={() => setShowViewDialog(false)}/>}
+            <div className="dropdown dropdown-invisible" id="dropdown" ref={ref}>
+                <div className="dropdown-content">
+                    <h2>{t("dropdown.settings")}</h2>
+                    <div className="dropdown-entries">
+                        {options.map(entry => {
+                            if (!config.viewMode || (config.viewMode && entry.allowView)) {
+                                if (!entry.hr) {
+                                    return (<div className="dropdown-item" onClick={entry.run} key={entry.run}>
+                                        <FontAwesomeIcon icon={entry.icon}/>
+                                        <h3>{entry.text}</h3>
+                                    </div>);
+                                } else return (<div className="center" key={entry.key}>
+                                    <hr className="dropdown-hr"/>
                                 </div>);
-                            } else return (<div className="center" key={entry.key}><hr className="dropdown-hr"/></div>);
-                        }
-                    })}
+                            }
+                        })}
+                    </div>
                 </div>
             </div>
-        </div>
-    )
+        </>
+    );
 }
 
 export default DropdownComponent;
