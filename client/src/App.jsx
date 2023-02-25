@@ -13,6 +13,7 @@ import Error from "@/pages/Error";
 import {ViewContext, ViewProvider} from "@/common/contexts/View";
 import Statistics from "@/pages/Statistics";
 import {t} from "i18next";
+import {ToastNotificationProvider} from "@/common/contexts/ToastNotification";
 
 const MainContent = () => {
     const [view] = useContext(ViewContext);
@@ -37,16 +38,18 @@ const App = () => {
             {!translationsLoaded && !translationError && <Loading/>}
             {translationError && <Error text="Failed to load translations"/>}
             {translationsLoaded && !translationError && <SpeedtestProvider>
-                <InputDialogProvider>
-                    <ViewProvider>
-                        <ConfigProvider>
-                            <StatusProvider>
-                                <HeaderComponent/>
-                                <MainContent/>
-                            </StatusProvider>
-                        </ConfigProvider>
-                    </ViewProvider>
-                </InputDialogProvider>
+                <ToastNotificationProvider>
+                    <InputDialogProvider>
+                        <ViewProvider>
+                            <ConfigProvider>
+                                <StatusProvider>
+                                    <HeaderComponent/>
+                                    <MainContent/>
+                                </StatusProvider>
+                            </ConfigProvider>
+                        </ViewProvider>
+                    </InputDialogProvider>
+                </ToastNotificationProvider>
             </SpeedtestProvider>}
         </>
     );
