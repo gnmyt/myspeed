@@ -1,0 +1,97 @@
+@import "@/common/styles/colors"
+
+.toast-notification
+  position: fixed
+  bottom: 2rem
+  right: 1rem
+  z-index: 5
+  background-color: $darker-gray
+  border-radius: 0.5rem
+  animation: 0.5s moveIn
+  cursor: pointer
+
+.toast-hidden
+  visibility: hidden
+  transition: all 0s 0.5s
+  animation: 0.5s moveOut
+
+.toast-green
+  border: 1px solid $green
+
+  & .toast-content svg
+    color: $green
+
+.toast-green:hover
+  border-color: $green-hover
+
+  & .toast-content svg
+    color: $green-hover
+
+.toast-red
+  border: 1px solid $red
+
+  & .toast-content svg
+    color: $red
+
+.toast-red:hover
+  border-color: $red-hover
+
+  & .toast-content svg
+    color: $red-hover
+
+.toast-content
+  display: flex
+  align-items: center
+  padding: 1rem 1rem
+  color: $white
+  font-size: 14px
+  font-weight: 500
+
+.toast-content svg
+  margin-right: 1rem
+  width: 2rem
+  height: 2rem
+
+.toast-content h2
+  margin: 0
+  font-size: 1.4rem
+
+
+@keyframes moveIn
+  0%
+    transform: translateX(100%)
+  60%
+    transform: translateX(-10%)
+  100%
+    transform: translateX(0)
+
+@keyframes moveOut
+  0%
+    transform: translateX(0)
+  60%
+    transform: translateX(-10%)
+  100%
+    transform: translateX(100%)
+
+
+@media screen and (max-width: 425px)
+  .toast-notification
+    bottom: 1rem
+    right: 1rem
+    left: 1rem
+
+  @keyframes moveIn
+    0%
+      transform: translateY(100%)
+    60%
+      transform: translateY(-10%)
+    100%
+      transform: translateY(0)
+
+  @keyframes moveOut
+    0%
+      transform: translateY(0)
+    60%
+      transform: translateY(-10%)
+    100%
+      transform: translateY(100%)
