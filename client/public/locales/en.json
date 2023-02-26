@@ -27,6 +27,7 @@
   "dropdown": {
     "settings": "Settings",
     "changes_applied": "Your changes have been saved.",
+    "view_changed": "The view has been changed.",
     "changes_unsaved": "Your changes were not applied. Check your input.",
     "invalid": "Input invalid",
     "ping": "Optimal ping",
@@ -163,6 +164,7 @@
     "failed": "Test failed",
     "recheck": "Please check as far as possible if this happens often.",
     "delete": "Delete Test",
+    "deleted": "The test has been deleted",
     "average": {
       "title": "Average Speed",
       "description": "<Bold>{{amount}}</Bold> Tests have shown that on <Bold>{{date}}</Bold> an average download speed of <Bold>{{down}} Mbps </Bold> and an upload speed of <Bold>{{up}} Mbps</Bold> was passed. The tests took an average of <Bold>{{duration}} Seconds</Bold>."
