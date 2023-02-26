@@ -27,6 +27,7 @@
   "dropdown": {
     "settings": "Einstellungen",
     "changes_applied": "Die Änderungen wurden gespeichert.",
+    "view_changed": "Die Ansicht wurde gewechselt.",
     "changes_unsaved": "Deine Änderungen wurden nicht übernommen. Überprüfe deine Eingabe.",
     "invalid": "Eingabe ungültig",
     "ping": "Optimaler Ping",
@@ -163,6 +164,7 @@
     "failed": "Test fehlgeschlagen",
     "recheck": "Bitte überprüfe weitestgehend, ob das öfter passiert.",
     "delete": "Test löschen",
+    "deleted": "Der Test wurde gelöscht",
     "average": {
       "title": "Durchschnittsgeschwindigkeit",
       "description": "<Bold>{{amount}}</Bold> Tests haben ergeben, dass am <Bold>{{date}}</Bold> eine durchschnittliche Download-Geschwindigkeit von <Bold>{{down}} Mbit/s</Bold> und eine Upload-Geschwindigkeit von <Bold>{{up}} Mbit/s</Bold> bestand. Die Tests dauerten im Durchschnitt <Bold>{{duration}} Sekunden</Bold>."
