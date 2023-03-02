@@ -10,6 +10,7 @@ export const InputDialogContext = createContext({});
 const DialogArea = ({dialog}) => {
     const close = useContext(DialogContext);
     const [value, setValue] = useState("");
+    const [error, setError] = useState(false);
 
     useEffect(() => {
         if (dialog.value) setValue(dialog.value);
@@ -37,7 +38,10 @@ const DialogArea = ({dialog}) => {
     }
 
     function submit() {
-        if (!dialog.description && !value) return;
+        if (!dialog.description && !value) {
+            setError(true);
+            return;
+        }
         close(true);
         if (dialog.onSuccess) dialog.onSuccess(value);
     }
@@ -56,7 +60,8 @@ const DialogArea = ({dialog}) => {
             </div>
             <div className="dialog-main">
                 {dialog.description ? <h3 className="dialog-description">{dialog.description}</h3> : ""}
-                {dialog.placeholder ? <input className="dialog-input" type={dialog.type ? dialog.type : "text"}
+                {dialog.placeholder ? <input className={"dialog-input" + (error ? " input-error" : "")}
+                                             type={dialog.type ? dialog.type : "text"}
                                              placeholder={dialog.placeholder} value={value}
                                              onChange={updateValue}/> : ""}
                 {dialog.select ? <select value={value} onChange={updateValue} className="dialog-input">
@@ -97,8 +102,9 @@ export const InputDialogProvider = (props) => {
     return (
         <InputDialogContext.Provider value={[updateDialog]}>
             {dialog && (
-                <DialogProvider close={handleClose} customClass="input-dialog" disableClosing={dialog.disableCloseButton}>
-                    <DialogArea dialog={dialog} />
+                <DialogProvider close={handleClose} customClass="input-dialog"
+                                disableClosing={dialog.disableCloseButton}>
+                    <DialogArea dialog={dialog}/>
                 </DialogProvider>
             )}
             {props.children}

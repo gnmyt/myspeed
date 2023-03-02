@@ -2,7 +2,7 @@ import React, {useContext, useRef} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
     faArrowDown, faArrowUp, faClockRotateLeft, faClose,
-    faInfo, faPingPongPaddleBall
+    faInfo, faPingPongPaddleBall, faTrashCan
 } from "@fortawesome/free-solid-svg-icons";
 import {InputDialogContext} from "@/common/contexts/InputDialog";
 import {SpeedtestContext} from "@/common/contexts/Speedtests";
@@ -13,9 +13,11 @@ import {errors} from "@/pages/Home/components/Speedtest/utils/errors";
 import {tooltips} from "@/pages/Home/components/Speedtest/utils/tooltips";
 import {t} from "i18next";
 import {ConfigContext} from "@/common/contexts/Config";
+import {ToastNotificationContext} from "@/common/contexts/ToastNotification";
 
 function SpeedtestComponent(props) {
     const [setDialog] = useContext(InputDialogContext);
+    const updateToast = useContext(ToastNotificationContext);
     const [config] = useContext(ConfigContext);
     const updateTests = useContext(SpeedtestContext)[1];
 
@@ -43,6 +45,7 @@ function SpeedtestComponent(props) {
     const fadeOut = () => {
         if (ref.current == null) return;
         ref.current.classList.add("speedtest-hidden");
+        updateToast(t("test.deleted"), "green", faTrashCan);
         setTimeout(() => updateTests(), 300);
     }
 

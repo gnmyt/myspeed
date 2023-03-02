@@ -1,8 +1,25 @@
 import React, {useContext, useEffect, useRef, useState} from "react";
 import "./styles.sass";
 import {
-    faArrowDown, faArrowUp, faCalendarDays, faCircleNodes, faClock, faClose, faFileExport, faChartSimple,
-    faGear, faGlobeEurope, faInfo, faKey, faPause, faPingPongPaddleBall, faPlay, faServer, faWandMagicSparkles
+    faArrowDown,
+    faArrowUp,
+    faCalendarDays,
+    faCircleNodes,
+    faClock,
+    faClose,
+    faFileExport,
+    faChartSimple,
+    faGear,
+    faGlobeEurope,
+    faInfo,
+    faKey,
+    faPause,
+    faPingPongPaddleBall,
+    faPlay,
+    faServer,
+    faWandMagicSparkles,
+    faCheck,
+    faExclamationTriangle
 } from "@fortawesome/free-solid-svg-icons";
 import {ConfigContext} from "@/common/contexts/Config";
 import {StatusContext} from "@/common/contexts/Status";
@@ -18,6 +35,7 @@ import {parseCron, stringifyCron} from "@/common/components/Dropdown/utils/utils
 import {changeLanguage, t} from "i18next";
 import ViewDialog from "@/common/components/ViewDialog";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {ToastNotificationContext} from "@/common/contexts/ToastNotification";
 
 let icon;
 
@@ -39,6 +57,7 @@ function DropdownComponent() {
     const [config, reloadConfig] = useContext(ConfigContext);
     const [status, updateStatus] = useContext(StatusContext);
     const updateTests = useContext(SpeedtestContext)[1];
+    const updateToast = useContext(ToastNotificationContext);
     const [setDialog] = useContext(InputDialogContext);
     const [showViewDialog, setShowViewDialog] = useState(false);
     const ref = useRef();
@@ -62,17 +81,19 @@ function DropdownComponent() {
         return () => document.removeEventListener("mousedown", onClick);
     }, []);
 
-    const showFeedback = (customText, reload = true) => setDialog({
-        title: "MySpeed", description: customText || t('dropdown.changes_applied'), buttonText: t('dialog.okay'),
-        onSuccess: () => reload ? reloadConfig() : "", onClose: () => reloadConfig()
-    });
+    const showFeedback = (customText = "dropdown.changes_applied", reload = true) => {
+        updateToast(t(customText), customText === "dropdown.changes_unsaved" ? "red" : "green",
+            customText === "dropdown.changes_unsaved" ? faExclamationTriangle : faCheck);
+
+        if (reload) reloadConfig();
+    }
 
     const patchDialog = async (key, dialog, toggle = true, postValue = (val) => val) => {
         toggle ? toggleDropdown() : setDialog();
 
         setTimeout(async () => setDialog({...(await dialog(config[key])),
             onSuccess: value => patchRequest(`/config/${key}`, {value: postValue(value)})
-                .then(res => showFeedback(!res.ok ? t("dropdown.changes_unsaved") : undefined))
+                .then(res => showFeedback(!res.ok ? "dropdown.changes_unsaved" : undefined))
         }), 160);
     }
 
@@ -128,7 +149,7 @@ function DropdownComponent() {
             type: "password",
             unsetButton: localStorage.getItem("password") != null ? "Sperre aufheben" : undefined,
             onClear: () => patchRequest("/config/password", {value: "none"})
-                .then(() => showFeedback(t("update.password_removed"), false))
+                .then(() => showFeedback("update.password_removed", false))
                 .then(() => localStorage.removeItem("password")),
             onSuccess: (value) => patchRequest("/config/password", {value})
                 .then(() => showFeedback(undefined, false))
@@ -209,7 +230,7 @@ function DropdownComponent() {
         buttonText: t("dialog.update"),
         unsetButton: !value.includes("<uuid>") ? "Deaktivieren" : undefined,
         onClear: () => patchRequest("/config/healthChecksUrl", {value: "https://hc-ping.com/<uuid>"})
-            .then(() => showFeedback(t("update.healthchecks_activated")))
+            .then(() => showFeedback("update.healthchecks_activated"))
     }));
 
     const showIntegrationInfo = () => setDialog({
@@ -226,7 +247,7 @@ function DropdownComponent() {
             select: true,
             selectOptions: languageOptions,
             value: localStorage.getItem("language") || "en",
-            onSuccess: value => changeLanguage(value, showFeedback())
+            onSuccess: value => changeLanguage(value, () => showFeedback())
         });
     }
 

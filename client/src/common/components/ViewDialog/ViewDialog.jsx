@@ -1,24 +1,24 @@
 import {DialogContext, DialogProvider} from "@/common/contexts/Dialog";
-import {InputDialogContext} from "@/common/contexts/InputDialog";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faClose} from "@fortawesome/free-solid-svg-icons";
+import {faClose, faWindowRestore} from "@fortawesome/free-solid-svg-icons";
 import React, {useContext, useState} from "react";
 import {ViewContext} from "@/common/contexts/View";
 import ListImage from "./images/list.png";
 import StatisticImage from "./images/statistic.png";
 import {t} from "i18next";
 import "./styles.sass";
+import {ToastNotificationContext} from "@/common/contexts/ToastNotification";
 
 export const Dialog = () => {
     const close = useContext(DialogContext);
-    const [setDialog] = useContext(InputDialogContext);
+    const updateToast = useContext(ToastNotificationContext);
     const [view, setView] = useContext(ViewContext);
     const [selected, setSelected] = useState(view);
 
     const submitForm = () => {
         close();
         setView(selected);
-        setDialog({title: "MySpeed", description: t('dropdown.changes_applied'), buttonText: t('dialog.okay')});
+        updateToast(t('dropdown.view_changed'), "green", faWindowRestore);
     }
 
     return (
