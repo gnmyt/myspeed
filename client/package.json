@@ -15,7 +15,7 @@
     "cron-parser": "^4.8.1",
     "i18next": "^22.4.11",
     "i18next-browser-languagedetector": "^7.0.1",
-    "i18next-http-backend": "^2.1.1",
+    "i18next-http-backend": "^2.2.0",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
