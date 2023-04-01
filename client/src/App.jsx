@@ -14,6 +14,7 @@ import {ViewContext, ViewProvider} from "@/common/contexts/View";
 import Statistics from "@/pages/Statistics";
 import {t} from "i18next";
 import {ToastNotificationProvider} from "@/common/contexts/ToastNotification";
+import Nodes from "@/pages/Nodes";
 
 const MainContent = () => {
     const [view] = useContext(ViewContext);
@@ -21,7 +22,8 @@ const MainContent = () => {
         <main>
             {view === 0 && <Home/>}
             {view === 1 && <Statistics/>}
-            {view !== 0 && view !== 1 && <Error text={t("errors.invalid_view")} disableReload={true}/>}
+            {view === 2 && <Nodes/>}
+            {view !== 0 && view !== 1 && view !== 2 && <Error text={t("errors.invalid_view")} disableReload={true}/>}
         </main>
     );
 }
