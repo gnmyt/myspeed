@@ -31,8 +31,8 @@ welchen Reverse Proxy du verwendet hast.
     Füge nun folgenden Inhalt in die Datei ein:
     ```nginx
     server {
-        listen 80; # Support for IPv4
-        listen [::]:80; # Support for IPv6
+        listen 80;
+        listen [::]:80;
 
         server_name deine-domain.de;
 
