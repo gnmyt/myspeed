@@ -21,7 +21,7 @@
     "sqlite3": "^5.1.6"
   },
   "devDependencies": {
-    "concurrently": "^7.6.0",
+    "concurrently": "^8.0.1",
     "nodemon": "^2.0.22"
   }
 }
