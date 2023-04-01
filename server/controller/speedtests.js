@@ -15,8 +15,10 @@ module.exports.get = async (id) => {
 }
 
 // Lists all speedtests from the database
-module.exports.list = async (hours = 24) => {
-    let dbEntries = (await tests.findAll({order: [["created", "DESC"]]}))
+module.exports.list = async (hours = 24, start, limit) => {
+    const whereClause = start ? {id: {[Op.lt]: start}} : undefined;
+
+    let dbEntries = (await tests.findAll({where: whereClause, order: [["created", "DESC"]], limit}))
         .filter((entry) => new Date(entry.created) > new Date().getTime() - hours * 3600000);
 
     for (let dbEntry of dbEntries)
