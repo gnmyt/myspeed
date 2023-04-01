@@ -1,5 +1,5 @@
 site_name: MySpeed Dokumentation
-copyright: Copyright &copy; 2021 - 2022 Mathias Wagner
+copyright: Copyright &copy; 2021 - 2023 Mathias Wagner
 
 repo_name: MySpeed
 repo_url: https://github.com/gnmyt/myspeed
@@ -12,6 +12,7 @@ theme:
   features:
     - toc.integrate
     - content.code.annotate
+    - content.code.copy
   favicon: assets/images/logo.png
   palette:
     - media: "(prefers-color-scheme: light)"
@@ -55,6 +56,8 @@ nav:
   - Einrichtung:
       - Linux: setup/linux.md
       - Windows: setup/windows.md
+  - Guides:
+      - Konfiguration eines Reverse-Proxies: guides/reverse-proxy.md
   - Fehlerbehebung: troubleshooting.md
   - Handhabung:
       - Die Oberfläche: instructions/main.md
