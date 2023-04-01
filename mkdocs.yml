@@ -55,6 +55,8 @@ nav:
   - Einrichtung:
       - Linux: setup/linux.md
       - Windows: setup/windows.md
+  - Guides:
+      - Konfiguration eines Reverse-Proxies: guides/reverse-proxy.md
   - Fehlerbehebung: troubleshooting.md
   - Handhabung:
       - Die Oberfläche: instructions/main.md
