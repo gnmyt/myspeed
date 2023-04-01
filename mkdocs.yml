@@ -12,6 +12,7 @@ theme:
   features:
     - toc.integrate
     - content.code.annotate
+    - content.code.copy
   favicon: assets/images/logo.png
   palette:
     - media: "(prefers-color-scheme: light)"
