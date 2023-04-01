@@ -80,7 +80,7 @@ In diesem Abschnitt wird erklärt, wie du ein SSL Zertifikat von Let's Encrypt f
 !!! tip "Verwendest du Cloudflare?"
     Wenn du Cloudflare verwendest und nicht extra ein SSL Zertifikat von Let's Encrypt einrichten möchtest, kannst du
     auch einfach die Cloudflare Proxy Funktion aktivieren. Das genügt in den meisten Fällen vollkommen. Wenn du
-    dich für diese Variante entscheidest, kannst du diesen Abschnitt überspringen.
+    dich für den Cloudflare Proxy entscheidest, kannst du diesen Abschnitt überspringen.
 
 === "nginx"
     Zuerst musst du Certbot installieren. Hierfür verwenden wir `apt`.
