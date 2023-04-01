@@ -5,7 +5,6 @@ import React, {useContext, useState} from "react";
 import {ViewContext} from "@/common/contexts/View";
 import ListImage from "./images/list.png";
 import StatisticImage from "./images/statistic.png";
-import NodeImage from "./images/node.png";
 import {t} from "i18next";
 import "./styles.sass";
 import {ToastNotificationContext} from "@/common/contexts/ToastNotification";
@@ -38,11 +37,6 @@ export const Dialog = () => {
                     <img src={StatisticImage} alt={t("test.views.statistic")}
                          className={"dialog-thumbnail" + (selected === 1 ? " thumbnail-selected" : "")}/>
                     <p className={selected === 1 ? "text-selected" : ""}>{t("test.views.statistic")}</p>
-                </div>
-                <div className="chooser-item" onClick={() => setSelected(2)}>
-                    <img src={NodeImage} alt={t("test.views.node")}
-                            className={"dialog-thumbnail" + (selected === 2 ? " thumbnail-selected" : "")}/>
-                    <p className={selected === 2 ? "text-selected" : ""}>{t("test.views.node")}</p>
                 </div>
             </div>
             <div className="dialog-buttons">

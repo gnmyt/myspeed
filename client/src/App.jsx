@@ -22,8 +22,7 @@ const MainContent = () => {
         <main>
             {view === 0 && <Home/>}
             {view === 1 && <Statistics/>}
-            {view === 2 && <Nodes/>}
-            {view !== 0 && view !== 1 && view !== 2 && <Error text={t("errors.invalid_view")} disableReload={true}/>}
+            {view !== 0 && view !== 1 && <Error text={t("errors.invalid_view")} disableReload={true}/>}
         </main>
     );
 }
