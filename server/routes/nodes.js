@@ -50,8 +50,8 @@ app.get("/:nodeId/*", async (req, res) => {
         body: req.method === "GET" ? undefined : req.body
     }).then(async api => {
         res.status(api.status).json(await api.json());
-    }).catch(err => {
-        res.status(500).json({message: "Internal server error", err});
+    }).catch(() => {
+        res.status(500).json({message: "Internal server error"});
     });
 });
 
