@@ -67,7 +67,7 @@ export const Statistics = () => {
 
             <ManualChart tests={statistics.tests}/>
 
-            <DurationChart time={statistics.data.time}/>
+            <DurationChart time={statistics.data?.time}/>
             <PingChart labels={statistics.labels} data={statistics.data}/>
 
             <AverageChart title={t("statistics.values.down")} data={statistics.download}/>
