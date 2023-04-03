@@ -243,6 +243,14 @@
     "create": "Hinzufügen",
     "created": "Der Server wurde erfolgreich hinzugefügt",
     "password_required": "Für diese Node ist ein Passwort erforderlich",
+    "placeholder": {
+      "name": "MySpeed Instanz",
+      "url": "https://dein-server.de"
+    },
+    "group": {
+      "name": "Servername",
+      "url": "Serveradresse"
+    },
     "delete": {
       "title": "Server löschen",
       "description": "Der Server <Bold>{{name}}</Bold> (#{{id}}) wird gelöscht. Diese Aktion kann nicht rückgängig gemacht werden. Möchtest du fortfahren?",
