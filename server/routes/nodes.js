@@ -8,20 +8,23 @@ app.get("/", async (req, res) => {
 
 // Create a node
 app.put("/", async (req, res) => {
-    if (!req.body.name || !req.body.url || !req.body.password) return res.status(400).json({message: "Missing parameters"});
+    if (!req.body.name || !req.body.url) return res.status(400).json({message: "Missing parameters"});
 
     const url = req.body.url.replace(/\/+$/, "");
 
-    fetch(url + "/api/config", {headers: {password: req.body.password}}).then(async api => {
+    const headers = req.body.password ? {password: req.body.password} : {};
+
+    fetch(url + "/api/config", {headers}).then(async api => {
         if (api.status !== 200)
-            return res.status(400).json({message: "Invalid URL or password"});
+            return res.status(400).json({message: "Invalid URL", type: "INVALID_URL"});
 
         if ((await api.json()).viewMode)
-            return res.status(400).json({message: "Invalid URL or password"});
+            return res.status(400).json({message: "Invalid password", type: "PASSWORD_REQUIRED"});
 
-        res.json({id: (await nodes.create(req.body.name, url, req.body.password)).id});
-    }).catch(async () => {
-        res.status(400).json({message: "Invalid URL or password"});
+        res.json({id: (await nodes.create(req.body.name, url, req.body.password)).id, type: "NODE_CREATED"});
+    }).catch(async (error) => {
+        console.log(error)
+        res.status(400).json({message: "Invalid URL", type: "INVALID_URL"});
     });
 });
 
@@ -35,7 +38,7 @@ app.delete("/:nodeId", async (req, res) => {
 });
 
 // Get information from the node
-app.get("/:nodeId/*", async (req, res) => {
+app.all("/:nodeId/*", async (req, res) => {
     const node = await nodes.get(req.params.nodeId);
     if (node === null) return res.status(404).json({message: "Node not found"});
 
@@ -47,7 +50,8 @@ app.get("/:nodeId/*", async (req, res) => {
     fetch(url, {
         method: req.method,
         headers: req.headers,
-        body: req.method === "GET" ? undefined : req.body
+        body: req.method === "GET" ? undefined : req.body,
+        signal: req.signal
     }).then(async api => {
         res.status(api.status).json(await api.json());
     }).catch(() => {
