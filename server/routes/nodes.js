@@ -8,7 +8,7 @@ app.get("/", async (req, res) => {
 
 // Create a node
 app.put("/", async (req, res) => {
-    if (!req.body.name || !req.body.url) return res.status(400).json({message: "Missing parameters"});
+    if (!req.body.name || !req.body.url) return res.status(400).json({message: "Missing parameters", type: "MISSING_PARAMETERS"});
 
     const url = req.body.url.replace(/\/+$/, "");
 
@@ -22,8 +22,7 @@ app.put("/", async (req, res) => {
             return res.status(400).json({message: "Invalid password", type: "PASSWORD_REQUIRED"});
 
         res.json({id: (await nodes.create(req.body.name, url, req.body.password)).id, type: "NODE_CREATED"});
-    }).catch(async (error) => {
-        console.log(error)
+    }).catch(async () => {
         res.status(400).json({message: "Invalid URL", type: "INVALID_URL"});
     });
 });
