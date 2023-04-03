@@ -104,7 +104,7 @@
     "view_title": "Switch view"
   },
   "header": {
-    "title": "Network Analysis",
+    "title": "MySpeed",
     "running_tooltip": "Speedtest running",
     "start_tooltip": "Start speedtest",
     "new_update": "Update available",
@@ -236,6 +236,18 @@
       "avg": "Average",
       "down": "Download values",
       "up": "Upload values"
+    }
+  },
+  "nodes": {
+    "add": "Add server",
+    "create": "Add",
+    "created": "The server has been successfully added",
+    "password_required": "This node requires a password",
+    "delete": {
+      "title": "Delete server",
+      "description": "The server <Bold>{{name}}</Bold> (#{{id}}) will be deleted. This action cannot be undone. Do you want to continue?",
+      "yes": "Yes, delete",
+      "success": "The server has been deleted successfully"
     }
   }
 }
