@@ -72,7 +72,7 @@ const DialogArea = ({dialog}) => {
             <div className="dialog-buttons">
                 {dialog.unsetButton ? <button className="dialog-btn dialog-secondary"
                                               onClick={clear}>{dialog.unsetButton || t("dialog.unset")}</button> : ""}
-                <button className="dialog-btn" onClick={submit}>{dialog.buttonText || t("dialog.update")}</button>
+                <button className={"dialog-btn"+(dialog.mainRed ? " dialog-secondary" : "")} onClick={submit}>{dialog.buttonText || t("dialog.update")}</button>
             </div>
         </>
     )
