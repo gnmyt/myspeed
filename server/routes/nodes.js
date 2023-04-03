@@ -50,7 +50,7 @@ app.all("/:nodeId/*", async (req, res) => {
     fetch(url, {
         method: req.method,
         headers: req.headers,
-        body: req.method === "GET" ? undefined : req.body,
+        body: req.method === "GET" ? undefined : JSON.stringify(req.body),
         signal: req.signal
     }).then(async api => {
         res.status(api.status).json(await api.json());
