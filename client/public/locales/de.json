@@ -104,7 +104,7 @@
     "view_title": "Ansicht wechseln"
   },
   "header": {
-    "title": "Netzwerkanalyse",
+    "title": "MySpeed",
     "running_tooltip": "Speedtest läuft",
     "start_tooltip": "Speedtest starten",
     "new_update": "Update verfügbar",
@@ -236,6 +236,18 @@
       "avg": "Durchschnitt",
       "down": "Download-Werte",
       "up": "Upload-Werte"
+    }
+  },
+  "nodes": {
+    "add": "Server hinzufügen",
+    "create": "Hinzufügen",
+    "created": "Der Server wurde erfolgreich hinzugefügt",
+    "password_required": "Für diese Node ist ein Passwort erforderlich",
+    "delete": {
+      "title": "Server löschen",
+      "description": "Der Server <Bold>{{name}}</Bold> (#{{id}}) wird gelöscht. Diese Aktion kann nicht rückgängig gemacht werden. Möchtest du fortfahren?",
+      "yes": "Ja, löschen",
+      "success": "Der Server wurde erfolgreich gelöscht"
     }
   }
 }
