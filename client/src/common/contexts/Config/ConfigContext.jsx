@@ -2,11 +2,13 @@ import React, {createContext, useContext, useEffect, useState} from "react";
 import {InputDialogContext} from "../InputDialog";
 import {request} from "@/common/utils/RequestUtil";
 import {acceptDialog, apiErrorDialog, passwordRequiredDialog} from "@/common/contexts/Config/dialog";
+import {NodeContext} from "@/common/contexts/Node";
 
 export const ConfigContext = createContext({});
 
 export const ConfigProvider = (props) => {
 
+    const [nodes, updateNodes, currentNode, updateCurrentNode] = useContext(NodeContext);
     const [config, setConfig] = useState({});
     const [setDialog] = useContext(InputDialogContext);
     const [dialogShown, setDialogShown] = useState(false);
@@ -23,7 +25,14 @@ export const ConfigProvider = (props) => {
             }
         })
             .then(result => config !== result ? setConfig(result) : null)
-            .catch((code) => setDialog(code === 1 ? passwordRequiredDialog() : apiErrorDialog()));
+            .catch((code) => {
+                if (currentNode === 0) {
+                    setDialog(code === 1 ? passwordRequiredDialog() : apiErrorDialog());
+                } else {
+                    updateCurrentNode(0);
+                    props.showNodePage(true);
+                }
+            });
     }
 
     const checkConfig = async () => (await request("/config")).json();
