@@ -12,6 +12,6 @@ module.exports = db.define("nodes", {
     },
     password: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     }
 }, {createdAt: false, updatedAt: false});
