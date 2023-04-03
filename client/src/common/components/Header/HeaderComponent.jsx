@@ -1,6 +1,12 @@
 import "./styles.sass";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCircleArrowUp, faGaugeHigh, faGear, faLock} from "@fortawesome/free-solid-svg-icons";
+import {
+    faCircleArrowUp,
+    faGaugeHigh,
+    faGear,
+    faLock,
+    faServer
+} from "@fortawesome/free-solid-svg-icons";
 import {useContext, useEffect, useState} from "react";
 import DropdownComponent, {toggleDropdown} from "../Dropdown/DropdownComponent";
 import {InputDialogContext} from "@/common/contexts/InputDialog";
@@ -12,10 +18,10 @@ import {t} from "i18next";
 import {ConfigContext} from "@/common/contexts/Config";
 import {SpeedtestDialog} from "@/common/components/SpeedtestDialog";
 import {ViewContext} from "@/common/contexts/View";
-import {Trans} from "react-i18next";
-import {PROJECT_URL} from "@/index";
+import {NodeContext} from "@/common/contexts/Node";
 
-function HeaderComponent() {
+function HeaderComponent(props) {
+    const [nodes, updateNodes, currentNode, updateCurrentNode] = useContext(NodeContext);
     const [setDialog] = useContext(InputDialogContext);
     const [icon, setIcon] = useState(faGear);
     const [status, updateStatus] = useContext(StatusContext);
@@ -76,15 +82,14 @@ function HeaderComponent() {
         if (!config.viewMode) updateVersion();
     }, [config]);
 
+    const getNodeName = () =>
+        currentNode === "0" ? t("header.title") : nodes?.find(node => node.id === currentNode)?.name || t("header.title");
+
     return (
         <header>
             <SpeedtestDialog isOpen={startedManually}/>
             <div className="header-main">
-                <h2>{t("header.title")} {view === 1 && <span className="beta-span" onClick={() => setDialog({
-                    title: t("header.beta.title"),
-                    description: <Trans components={{Link: <a href={PROJECT_URL+"/issues/new/choose"} target="_blank" />}}>header.beta.description</Trans>,
-                    buttonText: t("dialog.okay")
-                })}>BETA</span>}</h2>
+                <h2 onClick={() => props.showNodePage(true)}><FontAwesomeIcon icon={faServer} /> {getNodeName()}</h2>
                 <div className="header-right">
                     {updateAvailable ?
                         <div><FontAwesomeIcon icon={faCircleArrowUp} className="header-icon icon-orange update-icon"
