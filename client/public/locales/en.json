@@ -243,6 +243,14 @@
     "create": "Add",
     "created": "The server has been successfully added",
     "password_required": "This node requires a password",
+    "placeholder": {
+      "name": "MySpeed instance",
+      "url": "https://your-server.com"
+    },
+    "group": {
+      "name": "Server name",
+      "url": "Server address"
+    },
     "delete": {
       "title": "Delete server",
       "description": "The server <Bold>{{name}}</Bold> (#{{id}}) will be deleted. This action cannot be undone. Do you want to continue?",
