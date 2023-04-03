@@ -44,7 +44,7 @@ export const Dialog = () => {
         });
     }
 
-    const validateNode = async () => {
+    const createNode = async () => {
         const response = await (await baseRequest("/nodes", "PUT", {
             name: serverName,
             url: serverUrl
@@ -64,12 +64,6 @@ export const Dialog = () => {
         }
     }
 
-    const createNode = () => {
-        validateNode();
-        console.log(serverName);
-        console.log(serverUrl);
-    }
-
     return (
         <>
             <div className="dialog-header">
@@ -78,13 +72,13 @@ export const Dialog = () => {
             </div>
             <div className="server-dialog">
                 <div className="server-group">
-                    <h2><FontAwesomeIcon icon={faCircleInfo}/> Servername</h2>
-                    <input type="text" className="server-input" placeholder="MySpeed Instanz" value={serverName}
+                    <h2><FontAwesomeIcon icon={faCircleInfo}/> {t("nodes.group.name")}</h2>
+                    <input type="text" className="server-input" placeholder={t("nodes.placeholder.name")} value={serverName}
                            onChange={(event) => setServerName(event.target.value)}/>
                 </div>
                 <div className={"server-group" + (invalidUrl ? " server-error" : "")}>
-                    <h2><FontAwesomeIcon icon={faServer}/> Serveradresse</h2>
-                    <input type="text" className="server-input" placeholder="https://dein-server.de" value={serverUrl}
+                    <h2><FontAwesomeIcon icon={faServer}/> {t("nodes.group.url")}</h2>
+                    <input type="text" className="server-input" placeholder={t("nodes.placeholder.url")} value={serverUrl}
                            onChange={(event) => {
                                setServerUrl(event.target.value);
                                setInvalidUrl(false);
