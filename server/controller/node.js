@@ -19,3 +19,13 @@ module.exports.delete = async (nodeId) => {
 module.exports.get = async (nodeId) => {
     return await nodes.findOne({where: {id: nodeId}});
 }
+
+// Update the name of the node entry
+module.exports.updateName = async (nodeId, name) => {
+    return await nodes.update({name: name}, {where: {id: nodeId}});
+}
+
+// Update the password of the node entry
+module.exports.updatePassword = async (nodeId, password) => {
+    return await nodes.update({password: password}, {where: {id: nodeId}});
+}
