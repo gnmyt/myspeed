@@ -53,6 +53,9 @@ app.all("/:nodeId/*", password(false), async (req, res) => {
         body: req.method === "GET" ? undefined : JSON.stringify(req.body),
         signal: req.signal
     }).then(async api => {
+        if (api.headers.get("content-disposition"))
+            res.setHeader("content-disposition", api.headers.get("content-disposition"));
+
         res.status(api.status).json(await api.json());
     }).catch(() => {
         res.status(500).json({message: "Internal server error"});
