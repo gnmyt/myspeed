@@ -3,8 +3,9 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
     faArrowDown,
     faArrowUp,
-    faCircleNotch, faClock,
-    faExclamationTriangle,
+    faCircleNotch,
+    faClock,
+    faExclamationTriangle, faKey,
     faServer,
     faTableTennisPaddleBall
 } from "@fortawesome/free-solid-svg-icons";
@@ -25,28 +26,28 @@ export const NodeContainer = (node) => {
     const updateToast = useContext(ToastNotificationContext);
     const [setDialog] = useContext(InputDialogContext);
     const [nodeData, setNodeData] = useState(null);
-    const [nodeError, setNodeError] = useState(false);
+    const [nodeError, setNodeError] = useState(undefined);
 
     const prefix = node.currentNode ? "" : "/nodes/" + node.id;
 
     const updateData = async () => {
-        if (nodeData) return;
         const testRequest = await baseRequest(prefix + "/speedtests?limit=1");
 
-        if (!testRequest.ok) return setNodeError(true);
+        if (!testRequest.ok) return setNodeError("SERVER_NOT_REACHABLE");
         const tests = await testRequest.json();
 
-        if (tests.length < 0) return setNodeError(true);
+        if (tests.length < 0) return setNodeError("SERVER_NOT_REACHABLE");
 
         const configRequest = await baseRequest(prefix + "/config");
 
-        if (!configRequest.ok) return setNodeError(true);
+        if (!configRequest.ok) return setNodeError("SERVER_NOT_REACHABLE");
         const config = await configRequest.json();
 
-        if (config.viewMode) return setNodeError(true);
+        if (config.viewMode) return setNodeError("PASSWORD_CHANGED");
 
-        if (tests[0] === undefined) return setNodeData({failed: true});
+        if (tests[0] === undefined) return setNodeData({pending: true});
 
+        setNodeError(undefined);
         setNodeData({
             ping: tests[0]?.ping,
             download: Math.round(tests[0]?.download),
@@ -57,14 +58,37 @@ export const NodeContainer = (node) => {
         });
     }
 
+    const updatePassword = (wrong = false) => {
+        setDialog({
+            title: t("nodes.password_outdated"),
+            type: "password",
+            description: wrong ? <span className="icon-red">{t("dialog.password.wrong")}</span> : t("nodes.update_password"),
+            placeholder: t("dialog.password.placeholder"),
+            buttonText: t("dialog.update"),
+            onSuccess: async (password) => {
+                const res = await (await baseRequest(`/nodes/${node.id}/password`, "PATCH", {password: password})).json();
+
+                if (res.type === "PASSWORD_UPDATED") {
+                    updateData().catch(() => setNodeError("SERVER_NOT_REACHABLE"));
+                    updateToast(t("nodes.password_updated"), "green", faKey);
+                } else {
+                    updatePassword(true);
+                }
+            }
+        });
+    }
+
     useEffect(() => {
-        updateData();
-        const interval = setInterval(() => updateData(), 10000);
+        updateData().catch(() => setNodeError("SERVER_NOT_REACHABLE"));
+        const interval = setInterval(() => updateData().catch(() => setNodeError("SERVER_NOT_REACHABLE")), 10000);
         return () => clearInterval(interval);
     }, []);
 
     const switchNode = () => {
-        if (nodeError || !nodeData) return;
+        if (nodeError || !nodeData) {
+            if (nodeError === "PASSWORD_CHANGED") updatePassword();
+            return;
+        }
 
         node.setShowNodePage(false);
         updateCurrentNode(node.id);
@@ -101,15 +125,26 @@ export const NodeContainer = (node) => {
             </div>
             <div className="speed-area">
 
-                {nodeError && (<><FontAwesomeIcon icon={faExclamationTriangle} className="speed-icon icon-red"/></>)}
+                {nodeError === "SERVER_NOT_REACHABLE" && (<div className="icon-text">
+                    <h2>{t("nodes.messages.not_reachable")}</h2>
+                    <FontAwesomeIcon icon={faExclamationTriangle} className="speed-icon icon-red"/>
+                </div>)}
+
+                {nodeError === "PASSWORD_CHANGED" && (<div className="icon-text">
+                    <h2>{t("nodes.messages.password_changed")}</h2>
+                    <FontAwesomeIcon icon={faKey} className="speed-icon icon-red"/>
+                </div>)}
 
                 {!nodeError && !nodeData && (
                     <FontAwesomeIcon icon={faCircleNotch} className="speed-icon" spin={true}/>)}
 
-                {nodeData && nodeData.failed && (
-                    <FontAwesomeIcon icon={faClock} className="speed-icon icon-blue"/>)}
+                {nodeData && nodeData.pending && !nodeError && (<div className="icon-text">
+                        <h2>{t("nodes.messages.tests_pending")}</h2>
+                        <FontAwesomeIcon icon={faClock} className="speed-icon icon-blue"/>
+                </div>
+                )}
 
-                {nodeData && !nodeData.failed && (
+                {nodeData && !nodeData.pending && !nodeError && (
                     <>
                         <div className="speed-item">
                             <FontAwesomeIcon icon={faTableTennisPaddleBall}
