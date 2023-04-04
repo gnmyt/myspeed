@@ -11,6 +11,7 @@
   border-radius: 15px
 
 .server-dialog
+  transition: all 0.3s ease-in-out
   padding-left: 1rem
   padding-right: 1rem
   padding-top: 1rem
@@ -35,3 +36,12 @@
   .server-input
     border: 1px solid $red
     color: $red
+
+@media screen and (max-width: 425px)
+  .server-dialog
+    padding-left: 0.5rem
+    padding-right: 0.5rem
+  .server-group h2
+    font-size: 16pt
+  .server-input
+    font-size: 16pt
