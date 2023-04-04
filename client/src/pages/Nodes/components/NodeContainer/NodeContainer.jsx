@@ -5,7 +5,8 @@ import {
     faArrowUp,
     faCircleNotch,
     faClock,
-    faExclamationTriangle, faKey,
+    faExclamationTriangle,
+    faKey,
     faServer,
     faTableTennisPaddleBall
 } from "@fortawesome/free-solid-svg-icons";
@@ -62,7 +63,8 @@ export const NodeContainer = (node) => {
         setDialog({
             title: t("nodes.password_outdated"),
             type: "password",
-            description: wrong ? <span className="icon-red">{t("dialog.password.wrong")}</span> : t("nodes.update_password"),
+            description: wrong ?
+                <span className="icon-red">{t("dialog.password.wrong")}</span> : t("nodes.update_password"),
             placeholder: t("dialog.password.placeholder"),
             buttonText: t("dialog.update"),
             onSuccess: async (password) => {
@@ -141,8 +143,7 @@ export const NodeContainer = (node) => {
                 {nodeData && nodeData.pending && !nodeError && (<div className="icon-text">
                         <h2>{t("nodes.messages.tests_pending")}</h2>
                         <FontAwesomeIcon icon={faClock} className="speed-icon icon-blue"/>
-                </div>
-                )}
+                    </div>)}
 
                 {nodeData && !nodeData.pending && !nodeError && (
                     <>
