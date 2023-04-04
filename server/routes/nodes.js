@@ -37,6 +37,38 @@ app.delete("/:nodeId", password(false), async (req, res) => {
     res.json({message: "Node successfully deleted"});
 });
 
+// Update the node name
+app.patch("/:nodeId/name", password(false), async (req, res) => {
+    if (!req.body.name) return res.status(400).json({message: "Missing parameters", type: "MISSING_PARAMETERS"});
+
+    const node = await nodes.get(req.params.nodeId);
+    if (node === null) return res.status(404).json({message: "Node not found"});
+
+    await nodes.updateName(req.params.nodeId, req.body.name);
+    res.json({message: "Node name successfully updated"});
+});
+
+// Update the node password
+app.patch("/:nodeId/password", password(false), async (req, res) => {
+    if (!req.body.password) return res.status(400).json({message: "Missing parameters", type: "MISSING_PARAMETERS"});
+
+    const node = await nodes.get(req.params.nodeId);
+    if (node === null) return res.status(404).json({message: "Node not found"});
+
+    fetch(node.url + "/api/config", {headers: {password: req.body.password}}).then(async api => {
+        if (api.status !== 200)
+            return res.status(400).json({message: "Invalid URL", type: "INVALID_URL"});
+
+        if ((await api.json()).viewMode)
+            return res.status(400).json({message: "Invalid password", type: "PASSWORD_REQUIRED"});
+
+        await nodes.updatePassword(req.params.nodeId, req.body.password);
+        res.json({message: "Node password successfully updated", type: "PASSWORD_UPDATED"});
+    }).catch(async () => {
+        res.status(400).json({message: "Invalid URL", type: "INVALID_URL"});
+    });
+});
+
 // Get information from the node
 app.all("/:nodeId/*", password(false), async (req, res) => {
     const node = await nodes.get(req.params.nodeId);
