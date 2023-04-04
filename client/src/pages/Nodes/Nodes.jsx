@@ -1,14 +1,18 @@
 import "./styles.sass";
 import NodeHeader from "@/pages/Nodes/components/NodeHeader";
 import NodeContainer from "@/pages/Nodes/components/NodeContainer";
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {NodeContext} from "@/common/contexts/Node";
 import {t} from "i18next";
 import CreateNodeDialog from "@/pages/Nodes/components/CreateNodeDialog";
 
 export const Nodes = (props) => {
-    const [nodes] = useContext(NodeContext);
+    const [nodes, updateNodes] = useContext(NodeContext);
     const [createDialogOpen, setCreateDialogOpen] = useState(false);
+
+    useEffect(() => {
+        updateNodes();
+    }, []);
 
     return (
         <div className="node-page">
