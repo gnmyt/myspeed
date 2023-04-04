@@ -1,20 +1,23 @@
-import React, {useState, createContext, useEffect} from "react";
+import React, {useState, createContext, useEffect, useContext} from "react";
 import {baseRequest} from "@/common/utils/RequestUtil";
+import {ConfigContext} from "@/common/contexts/Config";
 
 export const NodeContext = createContext({});
 
 export const NodeProvider = (props) => {
 
-    const [nodes, setNodes] = useState(null);
+    const [config] = useContext(ConfigContext);
+    const [nodes, setNodes] = useState([]);
     const [currentNode, setCurrentNode] = useState(parseInt(localStorage.getItem("currentNode")) || 0);
 
-    const updateNodes = () => baseRequest("/nodes").then(nodes => nodes.json()).then(nodes => setNodes(nodes));
+    const updateNodes = async () => baseRequest("/nodes").then(async nodes => {
+        if (nodes.ok) setNodes(await nodes.json());
+    });
 
     useEffect(() => {
-        updateNodes();
-        const interval = setInterval(() => updateNodes(), 60000);
-        return () => clearInterval(interval);
-    }, []);
+        if (Object.keys(config).length === 0) return;
+        if (!config.viewMode) updateNodes();
+    }, [config]);
 
     const updateCurrentNode = (node) => {
         localStorage.setItem("currentNode", node);
