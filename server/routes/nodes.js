@@ -1,13 +1,14 @@
 const app = require('express').Router();
 const nodes = require('../controller/node');
+const password = require("../middlewares/password");
 
 // List all nodes
-app.get("/", async (req, res) => {
+app.get("/", password(false), async (req, res) => {
     return res.json(await nodes.list(true));
 });
 
 // Create a node
-app.put("/", async (req, res) => {
+app.put("/", password(false), async (req, res) => {
     if (!req.body.name || !req.body.url) return res.status(400).json({message: "Missing parameters", type: "MISSING_PARAMETERS"});
 
     const url = req.body.url.replace(/\/+$/, "");
@@ -28,7 +29,7 @@ app.put("/", async (req, res) => {
 });
 
 // Delete a node
-app.delete("/:nodeId", async (req, res) => {
+app.delete("/:nodeId", password(false), async (req, res) => {
     const node = await nodes.get(req.params.nodeId);
     if (node === null) return res.status(404).json({message: "Node not found"});
 
@@ -37,7 +38,7 @@ app.delete("/:nodeId", async (req, res) => {
 });
 
 // Get information from the node
-app.all("/:nodeId/*", async (req, res) => {
+app.all("/:nodeId/*", password(false), async (req, res) => {
     const node = await nodes.get(req.params.nodeId);
     if (node === null) return res.status(404).json({message: "Node not found"});
 
