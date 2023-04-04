@@ -17,11 +17,12 @@ import {updateInfo} from "@/common/components/Header/utils/infos";
 import {t} from "i18next";
 import {ConfigContext} from "@/common/contexts/Config";
 import {SpeedtestDialog} from "@/common/components/SpeedtestDialog";
-import {ViewContext} from "@/common/contexts/View";
 import {NodeContext} from "@/common/contexts/Node";
 
 function HeaderComponent(props) {
-    const [nodes, updateNodes, currentNode, updateCurrentNode] = useContext(NodeContext);
+    const nodes = useContext(NodeContext)[0];
+    const currentNode = useContext(NodeContext)[2];
+
     const [setDialog] = useContext(InputDialogContext);
     const [icon, setIcon] = useState(faGear);
     const [status, updateStatus] = useContext(StatusContext);
@@ -29,7 +30,6 @@ function HeaderComponent(props) {
     const updateTests = useContext(SpeedtestContext)[1];
     const [config, reloadConfig, checkConfig] = useContext(ConfigContext);
     const [updateAvailable, setUpdateAvailable] = useState("");
-    const [view] = useContext(ViewContext);
 
     function switchDropdown() {
         toggleDropdown(setIcon);
@@ -85,11 +85,14 @@ function HeaderComponent(props) {
     const getNodeName = () =>
         currentNode === "0" ? t("header.title") : nodes?.find(node => node.id === currentNode)?.name || t("header.title");
 
+    if (Object.keys(config).length === 0) return <></>;
+
     return (
         <header>
             <SpeedtestDialog isOpen={startedManually}/>
             <div className="header-main">
-                <h2 onClick={() => props.showNodePage(true)}><FontAwesomeIcon icon={faServer} /> {getNodeName()}</h2>
+                {config.viewMode ? <h2>{t("header.title")}</h2> : <h2 onClick={() => props.showNodePage(true)} className="h2-click"><FontAwesomeIcon icon={faServer} /> {getNodeName()}</h2>}
+
                 <div className="header-right">
                     {updateAvailable ?
                         <div><FontAwesomeIcon icon={faCircleArrowUp} className="header-icon icon-orange update-icon"
