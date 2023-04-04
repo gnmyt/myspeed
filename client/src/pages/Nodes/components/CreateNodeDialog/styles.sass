@@ -1,0 +1,47 @@
+@import "@/common/styles/colors"
+
+.server-input
+  font-size: 18pt
+  padding: 15px
+  font-weight: 700
+  margin-top: 15px
+  background-color: $darker-gray
+  color: $darker-white
+  border: none
+  border-radius: 15px
+
+.server-dialog
+  transition: all 0.3s ease-in-out
+  padding-left: 1rem
+  padding-right: 1rem
+  padding-top: 1rem
+  display: flex
+  flex-direction: column
+
+.server-group
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+  margin: 0 0 15px 0
+
+.server-group h2
+  margin: 0
+  color: $green
+  font-weight: 700
+  display: flex
+  align-items: center
+  gap: 0.5rem
+
+.server-error
+  .server-input
+    border: 1px solid $red
+    color: $red
+
+@media screen and (max-width: 425px)
+  .server-dialog
+    padding-left: 0.5rem
+    padding-right: 0.5rem
+  .server-group h2
+    font-size: 16pt
+  .server-input
+    font-size: 16pt

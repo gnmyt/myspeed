@@ -14,6 +14,8 @@ import {ViewContext, ViewProvider} from "@/common/contexts/View";
 import Statistics from "@/pages/Statistics";
 import {t} from "i18next";
 import {ToastNotificationProvider} from "@/common/contexts/ToastNotification";
+import Nodes from "@/pages/Nodes";
+import {NodeProvider} from "@/common/contexts/Node";
 
 const MainContent = () => {
     const [view] = useContext(ViewContext);
@@ -30,6 +32,8 @@ const App = () => {
     const [translationsLoaded, setTranslationsLoaded] = useState(false);
     const [translationError, setTranslationError] = useState(false);
 
+    const [showNodePage, setShowNodePage] = useState(false);
+
     i18n.on("initialized", () => setTranslationsLoaded(true));
     i18n.on("failedLoading", () => setTranslationError(true));
 
@@ -37,20 +41,24 @@ const App = () => {
         <>
             {!translationsLoaded && !translationError && <Loading/>}
             {translationError && <Error text="Failed to load translations"/>}
-            {translationsLoaded && !translationError && <SpeedtestProvider>
+            <InputDialogProvider>
                 <ToastNotificationProvider>
-                    <InputDialogProvider>
-                        <ViewProvider>
-                            <ConfigProvider>
-                                <StatusProvider>
-                                    <HeaderComponent/>
-                                    <MainContent/>
-                                </StatusProvider>
-                            </ConfigProvider>
-                        </ViewProvider>
-                    </InputDialogProvider>
+                    <ConfigProvider showNodePage={setShowNodePage}>
+                    <NodeProvider>
+                        {translationsLoaded && !translationError && showNodePage &&
+                            <Nodes setShowNodePage={setShowNodePage}/>}
+                        {translationsLoaded && !translationError && !showNodePage && <SpeedtestProvider>
+                            <ViewProvider>
+                                    <StatusProvider>
+                                        <HeaderComponent showNodePage={setShowNodePage}/>
+                                        <MainContent/>
+                                    </StatusProvider>
+                            </ViewProvider>
+                        </SpeedtestProvider>}
+                    </NodeProvider>
+                    </ConfigProvider>
                 </ToastNotificationProvider>
-            </SpeedtestProvider>}
+            </InputDialogProvider>
         </>
     );
 }

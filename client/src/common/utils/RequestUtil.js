@@ -1,4 +1,8 @@
-const API_ROOT = "/api";
+const getApiRoot = () => {
+    if (localStorage.getItem("currentNode") !== null && localStorage.getItem("currentNode") !== "0") {
+        return "/api/nodes/" + localStorage.getItem("currentNode");
+    } else return "/api";
+}
 
 // Get the default headers of the request
 const getHeaders = () => {
@@ -8,9 +12,17 @@ const getHeaders = () => {
     return headers;
 }
 
+// Run a plain request with all default values using the base path
+export const baseRequest = async (path, method = "GET", body = {}, headers = {}) => {
+    return await fetch("/api" + path, {
+        headers: {...getHeaders(), ...headers}, method,
+        body: method !== "GET" ? JSON.stringify(body) : undefined
+    });
+}
+
 // Run a plain request with all default values
 export const request = async (path, method = "GET", body = {}, headers = {}) => {
-    return await fetch(API_ROOT + path, {
+    return await fetch(getApiRoot() + path, {
         headers: {...getHeaders(), ...headers}, method,
         body: method !== "GET" ? JSON.stringify(body) : undefined
     });

@@ -16,16 +16,22 @@ const DialogArea = ({dialog}) => {
         if (dialog.value) setValue(dialog.value);
     }, [dialog.value]);
 
-    document.onkeyup = e => {
-        if (e.key === "Enter") {
-            e.preventDefault();
-            submit();
+    useEffect(() => {
+        document.onkeyup = e => {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                submit();
+            }
+            if (e.key === "Escape" && !dialog.disableCloseButton) {
+                e.preventDefault();
+                closeDialog();
+            }
         }
-        if (e.key === "Escape" && !dialog.disableCloseButton) {
-            e.preventDefault();
-            closeDialog();
+
+        return () => {
+            document.onkeyup = null;
         }
-    }
+    });
 
     function updateValue(e) {
         if (dialog.updateDescription) dialog.description = dialog.updateDescription(e.target.value);
@@ -72,7 +78,7 @@ const DialogArea = ({dialog}) => {
             <div className="dialog-buttons">
                 {dialog.unsetButton ? <button className="dialog-btn dialog-secondary"
                                               onClick={clear}>{dialog.unsetButton || t("dialog.unset")}</button> : ""}
-                <button className="dialog-btn" onClick={submit}>{dialog.buttonText || t("dialog.update")}</button>
+                <button className={"dialog-btn"+(dialog.mainRed ? " dialog-secondary" : "")} onClick={submit}>{dialog.buttonText || t("dialog.update")}</button>
             </div>
         </>
     )

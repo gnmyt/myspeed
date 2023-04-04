@@ -7,7 +7,10 @@ const password = require('../middlewares/password');
 
 // List all speedtests
 app.get("/", password(true), async (req, res) => {
-    res.json(await tests.list(req.query.hours || 24));
+    if (req.query.limit && isNaN(req.query.limit))
+        return res.status(400).json({message: "You need to provide a correct number in the limit parameter"});
+
+    res.json(await tests.list(req.query.hours || 24, req.query.start, req.query.limit));
 });
 
 // List all speedtests by average

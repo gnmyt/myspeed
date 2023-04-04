@@ -6,7 +6,6 @@ import {acceptDialog, apiErrorDialog, passwordRequiredDialog} from "@/common/con
 export const ConfigContext = createContext({});
 
 export const ConfigProvider = (props) => {
-
     const [config, setConfig] = useState({});
     const [setDialog] = useContext(InputDialogContext);
     const [dialogShown, setDialogShown] = useState(false);
@@ -15,15 +14,20 @@ export const ConfigProvider = (props) => {
         request("/config").then(async res => {
             if (res.status === 401) throw 1;
             if (!res.ok) throw 2;
-            
+
             try {
                 return JSON.parse(await res.text());
             } catch (e) {
                 throw 2;
             }
-        })
-            .then(result => config !== result ? setConfig(result) : null)
-            .catch((code) => setDialog(code === 1 ? passwordRequiredDialog() : apiErrorDialog()));
+        }).then(result => {
+            if (config !== result)
+                result.viewMode && localStorage.getItem("currentNode") !== null && localStorage.getItem("currentNode") !== "0"
+                    ? props.showNodePage(true) : setConfig(result);
+        }).catch((code) => {
+            localStorage.getItem("currentNode") !== null && localStorage.getItem("currentNode") !== "0"
+                ? props.showNodePage(true) : setDialog(code === 1 ? passwordRequiredDialog() : apiErrorDialog());
+        });
     }
 
     const checkConfig = async () => (await request("/config")).json();

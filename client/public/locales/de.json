@@ -104,7 +104,7 @@
     "view_title": "Ansicht wechseln"
   },
   "header": {
-    "title": "Netzwerkanalyse",
+    "title": "MySpeed",
     "running_tooltip": "Speedtest läuft",
     "start_tooltip": "Speedtest starten",
     "new_update": "Update verfügbar",
@@ -236,6 +236,35 @@
       "avg": "Durchschnitt",
       "down": "Download-Werte",
       "up": "Upload-Werte"
+    }
+  },
+  "nodes": {
+    "add": "Server hinzufügen",
+    "create": "Hinzufügen",
+    "this_server": "Dieser Server",
+    "created": "Der Server wurde erfolgreich hinzugefügt",
+    "password_required": "Für diese Node ist ein Passwort erforderlich",
+    "update_password": "Bitte aktualisiere das Passwort dieser Node",
+    "password_outdated": "Passwort veraltet",
+    "password_updated": "Das Passwort wurde erfolgreich aktualisiert",
+    "placeholder": {
+      "name": "MySpeed Instanz",
+      "url": "https://dein-server.de"
+    },
+    "group": {
+      "name": "Servername",
+      "url": "Serveradresse"
+    },
+    "delete": {
+      "title": "Server löschen",
+      "description": "Der Server <Bold>{{name}}</Bold> (#{{id}}) wird gelöscht. Diese Aktion kann nicht rückgängig gemacht werden. Möchtest du fortfahren?",
+      "yes": "Ja, löschen",
+      "success": "Der Server wurde erfolgreich gelöscht"
+    },
+    "messages": {
+      "not_reachable": "Server ist nicht erreichbar",
+      "password_changed": "Passwort wurde geändert",
+      "tests_pending": "Testergebnisse ausstehend"
     }
   }
 }

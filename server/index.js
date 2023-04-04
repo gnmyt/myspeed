@@ -22,6 +22,7 @@ app.use("/api/speedtests", require('./routes/speedtests'));
 app.use("/api/info", require('./routes/system'));
 app.use("/api/export", require('./routes/export'));
 app.use("/api/recommendations", require('./routes/recommendations'));
+app.use("/api/nodes", require('./routes/nodes'));
 app.use("/api*", (req, res) => res.status(404).json({message: "Route not found"}));
 
 // Enable production

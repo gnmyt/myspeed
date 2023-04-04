@@ -1,0 +1,55 @@
+@import "@/common/styles/colors"
+
+.node-page
+  min-height: 100vh
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  color: $white
+  text-align: center
+  margin: 0
+  gap: 0.7rem
+
+.node-page hr
+  margin: 0
+
+.node-area
+  display: flex
+  flex-direction: column
+  gap: 1.5rem
+  margin-top: 1rem
+
+.node-add
+  width: 53rem
+  border: 2px dashed #696C73
+  border-radius: 15px
+  cursor: pointer
+
+.node-add h1
+  font-size: 24pt
+  font-weight: 700
+  margin: 1rem
+  color: $darker-white
+
+.node-add:hover
+  border: 2px dashed $green-hover
+
+  h1
+    color: $white
+
+@media screen and (max-width: 862px)
+  .node-add
+    width: calc(20vw + 11rem)
+    border: 2px dashed #696C73
+    border-radius: 15px
+    cursor: pointer
+
+  .node-add h1
+    font-size: 22pt
+
+  .node-add:hover
+    border: 2px dashed $green-hover
+
+    h1
+      color: $white
