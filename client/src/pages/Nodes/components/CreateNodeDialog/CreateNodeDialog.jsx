@@ -14,7 +14,7 @@ export const Dialog = () => {
 
     const [invalidUrl, setInvalidUrl] = useState(false);
 
-    const [nodes, updateNodes, currentNode, updateCurrentNode] = useContext(NodeContext);
+    const updateNodes = useContext(NodeContext)[1];
     const [setDialog] = useContext(InputDialogContext);
     const updateToast = useContext(ToastNotificationContext);
 
