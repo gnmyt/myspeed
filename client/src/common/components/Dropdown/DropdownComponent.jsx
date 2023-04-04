@@ -25,7 +25,7 @@ import {ConfigContext} from "@/common/contexts/Config";
 import {StatusContext} from "@/common/contexts/Status";
 import {InputDialogContext} from "@/common/contexts/InputDialog";
 import {SpeedtestContext} from "@/common/contexts/Speedtests";
-import {downloadRequest, jsonRequest, patchRequest, postRequest} from "@/common/utils/RequestUtil";
+import {baseRequest, downloadRequest, jsonRequest, patchRequest, postRequest} from "@/common/utils/RequestUtil";
 import {creditsInfo, healthChecksInfo, recommendationsInfo} from "@/common/components/Dropdown/utils/infos";
 import {
     exportOptions, languageOptions, levelOptions,
@@ -36,6 +36,7 @@ import {changeLanguage, t} from "i18next";
 import ViewDialog from "@/common/components/ViewDialog";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {ToastNotificationContext} from "@/common/contexts/ToastNotification";
+import {NodeContext} from "@/common/contexts/Node";
 
 let icon;
 
@@ -56,6 +57,7 @@ export const toggleDropdown = (setIcon) => {
 function DropdownComponent() {
     const [config, reloadConfig] = useContext(ConfigContext);
     const [status, updateStatus] = useContext(StatusContext);
+    const currentNode = useContext(NodeContext)[2];
     const updateTests = useContext(SpeedtestContext)[1];
     const updateToast = useContext(ToastNotificationContext);
     const [setDialog] = useContext(InputDialogContext);
@@ -153,7 +155,10 @@ function DropdownComponent() {
                 .then(() => localStorage.removeItem("password")),
             onSuccess: (value) => patchRequest("/config/password", {value})
                 .then(() => showFeedback(undefined, false))
-                .then(() => localStorage.setItem("password", value))
+                .then(() => {
+                    currentNode !== 0 ? baseRequest("/nodes/" + currentNode + "/password", "PATCH",
+                        {password: value}) : localStorage.setItem("password", value);
+                })
         })
     }
 
