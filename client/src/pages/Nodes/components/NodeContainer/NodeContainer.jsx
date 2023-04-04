@@ -16,9 +16,12 @@ import {baseRequest} from "@/common/utils/RequestUtil";
 import {t} from "i18next";
 import {Trans} from "react-i18next";
 import {getIconBySpeed} from "@/common/utils/TestUtil";
+import {ConfigContext} from "@/common/contexts/Config";
 
 export const NodeContainer = (node) => {
-    const [nodes, updateNodes, currentNode, updateCurrentNode] = useContext(NodeContext);
+    const updateNodes = useContext(NodeContext)[1];
+    const updateCurrentNode = useContext(NodeContext)[3];
+    const reloadConfig = useContext(ConfigContext)[1];
     const updateToast = useContext(ToastNotificationContext);
     const [setDialog] = useContext(InputDialogContext);
     const [nodeData, setNodeData] = useState(null);
@@ -65,6 +68,7 @@ export const NodeContainer = (node) => {
 
         node.setShowNodePage(false);
         updateCurrentNode(node.id);
+        reloadConfig();
     }
 
     const onContext = (event) => {
