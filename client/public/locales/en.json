@@ -241,6 +241,7 @@
   "nodes": {
     "add": "Add server",
     "create": "Add",
+    "this_server": "This server",
     "created": "The server has been successfully added",
     "password_required": "This node requires a password",
     "update_password": "Please update the password of this node",

@@ -19,7 +19,7 @@ export const Nodes = (props) => {
             {createDialogOpen && <CreateNodeDialog onClose={() => setCreateDialogOpen(false)}/>}
             <NodeHeader/>
             <div className="node-area">
-                <NodeContainer name={"Dieser Server"} url={location.href} currentNode={true}
+                <NodeContainer name={t("nodes.this_server")} url={location.href} currentNode={true}
                                setShowNodePage={props.setShowNodePage} id={0}/>
 
                 {nodes.map(node => <NodeContainer {...node} key={node.id} setShowNodePage={props.setShowNodePage} />)}

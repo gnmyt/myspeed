@@ -241,6 +241,7 @@
   "nodes": {
     "add": "Server hinzufügen",
     "create": "Hinzufügen",
+    "this_server": "Dieser Server",
     "created": "Der Server wurde erfolgreich hinzugefügt",
     "password_required": "Für diese Node ist ein Passwort erforderlich",
     "update_password": "Bitte aktualisiere das Passwort dieser Node",
