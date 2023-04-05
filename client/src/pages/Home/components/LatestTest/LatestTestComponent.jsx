@@ -39,7 +39,8 @@ function LatestTestComponent() {
                 <div className="container-header">
                     <FontAwesomeIcon onClick={() => setDialog(pingInfo())} icon={faPingPongPaddleBall}
                                      className={"container-icon help-icon icon-" + getIconBySpeed(latest.ping, config.ping, false)}/>
-                    <h2 className="container-text">{t("latest.ping")}<span className="container-subtext">{t("latest.ping_unit")}</span></h2>
+                    <h2 className="container-text">{t("latest.ping")}<span
+                        className="container-subtext">{t("latest.ping_unit")}</span></h2>
                 </div>
                 <div className="container-main">
                     <h2>{latest.ping === -1 ? "N/A" : latest.ping}</h2>
@@ -51,7 +52,8 @@ function LatestTestComponent() {
                 <div className="container-header">
                     <FontAwesomeIcon onClick={() => setDialog(downloadInfo())} icon={faArrowDown}
                                      className={"container-icon help-icon icon-" + getIconBySpeed(latest.download, config.download, true)}/>
-                    <h2 className="container-text">{t("latest.down")}<span className="container-subtext">{t("latest.speed_unit")}</span></h2>
+                    <h2 className="container-text">{t("latest.down")}<span
+                        className="container-subtext">{t("latest.speed_unit")}</span></h2>
                 </div>
                 <div className="container-main">
                     <h2>{latest.download === -1 ? "N/A" : latest.download}</h2>
@@ -65,7 +67,8 @@ function LatestTestComponent() {
                 <div className="container-header">
                     <FontAwesomeIcon onClick={() => setDialog(uploadInfo())} icon={faArrowUp}
                                      className={"container-icon help-icon icon-" + getIconBySpeed(latest.upload, config.upload, true)}/>
-                    <h2 className="container-text">{t("latest.up")}<span className="container-subtext">{t("latest.speed_unit")}</span></h2>
+                    <h2 className="container-text">{t("latest.up")}<span
+                        className="container-subtext">{t("latest.speed_unit")}</span></h2>
                 </div>
                 <div className="container-main">
                     <h2>{latest.upload === -1 ? "N/A" : latest.upload}</h2>
@@ -77,7 +80,8 @@ function LatestTestComponent() {
                 <div className="container-header">
                     <FontAwesomeIcon onClick={() => setDialog(latestTestInfo(latest))} icon={faClockRotateLeft}
                                      className="container-icon icon-blue help-icon"/>
-                    <h2 className="container-text">{t("latest.latest")}<span className="container-subtext">{t("latest.before")}</span></h2>
+                    <h2 className="container-text">{t("latest.latest")}<span
+                        className="container-subtext">{t("latest.before")}</span></h2>
                 </div>
                 <div className="container-main">
                     <h2>{latestTestTime}</h2>
