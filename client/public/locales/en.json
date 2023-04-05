@@ -13,7 +13,7 @@
       "title": "Password required",
       "placeholder": "Your password",
       "wrong": "The password you entered is incorrect",
-      "unlock": "Unblock"
+      "unlock": "Unlock"
     },
     "accept": {
       "title": "We need your permission",
