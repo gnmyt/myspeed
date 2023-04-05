@@ -9,8 +9,8 @@ export const uploadInfo = () => ({title: t("info.up.title"), description: t("inf
 
 export const latestTestInfo = (latest) => ({
     title: t("info.latest.title"),
-    description: <Trans components={{Bold: <span className="dialog-value"/>}} values={{date: new Date(latest.created).toLocaleDateString(),
+    description: latest.created ? <Trans components={{Bold: <span className="dialog-value"/>}} values={{date: new Date(latest.created).toLocaleDateString(),
                             time: new Date(latest.created).toLocaleTimeString(undefined, {hour: "2-digit", minute: "2-digit"})}}>
-        info.latest.description</Trans>,
+        info.latest.description</Trans> : t("test.no_latest"),
     buttonText: t("dialog.okay")
 });
