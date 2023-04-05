@@ -14,9 +14,12 @@ const getHeaders = () => {
 
 // Run a plain request with all default values using the base path
 export const baseRequest = async (path, method = "GET", body = {}, headers = {}) => {
+    const controller = new AbortController();
+    setTimeout(() => controller.abort(), 10000);
     return await fetch("/api" + path, {
         headers: {...getHeaders(), ...headers}, method,
-        body: method !== "GET" ? JSON.stringify(body) : undefined
+        body: method !== "GET" ? JSON.stringify(body) : undefined,
+        signal: controller.signal
     });
 }
 
