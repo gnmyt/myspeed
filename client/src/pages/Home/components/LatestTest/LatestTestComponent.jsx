@@ -13,7 +13,7 @@ import {t} from "i18next";
 
 function LatestTestComponent() {
     const status = useContext(StatusContext)[0];
-    const [latest, setLatest] = useState({});
+    const [latest, setLatest] = useState(null);
     const [latestTestTime, setLatestTestTime] = useState("N/A");
     const [setDialog] = useContext(InputDialogContext);
     const [speedtests] = useContext(SpeedtestContext);
@@ -30,6 +30,7 @@ function LatestTestComponent() {
     }, [latest]);
 
     if (Object.entries(config).length === 0) return (<></>);
+    if (latest === null) return (<></>);
 
     return (
         <div className={"analyse-area " + (status.paused ? "tests-paused" : "pulse")}>
