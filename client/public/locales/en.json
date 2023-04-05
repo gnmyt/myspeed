@@ -12,7 +12,8 @@
     "password": {
       "title": "Password required",
       "placeholder": "Your password",
-      "wrong": "The password you entered is incorrect"
+      "wrong": "The password you entered is incorrect",
+      "unlock": "Unblock"
     },
     "accept": {
       "title": "We need your permission",
@@ -129,7 +130,7 @@
     "healthchecks": "MySpeed uses <HCLink>HealthChecks</HCLink> to notify you when your internet is down. To enable this, put your ping URL in the text box. Read more <WIKILink>here</WIKILink>",
     "credits": "<Link>MySpeed</Link> is provided by GNMYT and uses the <CLILink>Speedtest CLI</CLILink> from Ookla.",
     "recommendations_error": "You have to do at least 10 tests to get an average. It doesn't matter if the tests were done manually or automatically.",
-    "recommendations_info": "Based on the last 10 tests, it was found that the optimal ping was <Bold>{{ping}} ms</Bold>, the download at <Bold>{{down}} Mbit/s</Bold> and the upload at <Bold>{{up}} Mbit/s</Bold>. It is best to orientate yourself on your internet contract and only adopt it if it matches that.",
+    "recommendations_info": "Based on the last 10 tests, it was found that the optimal ping was <Bold>{{ping}} ms</Bold>, the download at <Bold>{{down}} Mbps</Bold> and the upload at <Bold>{{up}} Mbps</Bold>. It is best to orientate yourself on your internet contract and only adopt it if it matches that.",
     "update": "An update to version {{version}} is available. See <Changes>the changes</Changes> and <DLLink>download the update</DLLink>.",
     "down": {
       "title": "Download speed",
