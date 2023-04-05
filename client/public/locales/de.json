@@ -12,7 +12,8 @@
     "password": {
       "title": "Passwort erforderlich",
       "placeholder": "Dein Passwort",
-      "wrong": "Das von dir eingegebene Passwort ist falsch"
+      "wrong": "Das von dir eingegebene Passwort ist falsch",
+      "unlock": "Sperre aufheben"
     },
     "accept": {
       "title": "Wir brauchen deine Genehmigung",
