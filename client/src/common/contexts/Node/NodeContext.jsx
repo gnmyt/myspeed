@@ -24,7 +24,7 @@ export const NodeProvider = (props) => {
         setCurrentNode(parseInt(node));
     }
 
-    const findNode = (nodeId) => nodes.find(node => node.id === nodeId);
+    const findNode = (nodeId) => nodes?.find(node => node.id === nodeId);
 
     return (
         <NodeContext.Provider value={[nodes, updateNodes, currentNode, updateCurrentNode, findNode]}>
