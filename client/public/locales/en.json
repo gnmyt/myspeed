@@ -161,6 +161,7 @@
   },
   "test": {
     "not_available": "There are currently no tests available",
+    "no_latest": "There is no current test available. Please perform a test or wait until the next test is performed.",
     "unknown_error": "Unknown error:",
     "failed": "Test failed",
     "recheck": "Please check as far as possible if this happens often.",
