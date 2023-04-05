@@ -5,7 +5,7 @@ const {checkNode, proxyRequest} = require("../controller/node");
 
 // List all nodes
 app.get("/", password(false), async (req, res) => {
-    return res.json(await nodes.list(true));
+    return res.json(await nodes.list());
 });
 
 // Create a node
@@ -59,7 +59,7 @@ app.patch("/:nodeId/password", password(false), async (req, res) => {
         if (result === "PASSWORD_REQUIRED")
             return res.status(400).json({message: "Invalid password", type: "PASSWORD_REQUIRED"});
 
-        await nodes.updatePassword(req.params.nodeId, req.body.password);
+        await nodes.updatePassword(req.params.nodeId, req.body.password === "none" ? null : req.body.password);
         res.json({message: "Node password successfully updated", type: "PASSWORD_UPDATED"});
     });
 });
