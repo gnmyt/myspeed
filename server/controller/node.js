@@ -2,8 +2,8 @@ const axios = require('axios');
 const nodes = require('../models/Node');
 
 // Gets all node entries
-module.exports.list = async (excludePassword) => {
-    return await nodes.findAll({attributes: {exclude: excludePassword ? ['password'] : []}});
+module.exports.list = async () => {
+    return await nodes.findAll().then((result) => result.map((node) => ({...node, password: node.password !== null})));
 }
 
 // Create a new node entry
@@ -32,6 +32,7 @@ module.exports.updatePassword = async (nodeId, password) => {
 }
 
 module.exports.checkNode = async (url, password) => {
+    if (password === "none") password = undefined;
     const api = await axios.get(url + "/api/config", {headers: {password: password}}).catch(() => {
         return "INVALID_URL";
     });
