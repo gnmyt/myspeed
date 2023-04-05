@@ -57,6 +57,8 @@ export const toggleDropdown = (setIcon) => {
 function DropdownComponent() {
     const [config, reloadConfig] = useContext(ConfigContext);
     const [status, updateStatus] = useContext(StatusContext);
+    const findNode = useContext(NodeContext)[4];
+    const updateNodes = useContext(NodeContext)[1];
     const currentNode = useContext(NodeContext)[2];
     const updateTests = useContext(SpeedtestContext)[1];
     const updateToast = useContext(ToastNotificationContext);
@@ -145,19 +147,24 @@ function DropdownComponent() {
 
     const updatePassword = async () => {
         toggleDropdown();
+        const passwordSet = currentNode !== 0 ? findNode(currentNode).password : localStorage.getItem("password") != null;
+
         setDialog({
             title: <>{t("update.new_password")} » <a onClick={updatePasswordLevel}>{t("update.level")}</a></>,
             placeholder: t("update.password_placeholder"),
             type: "password",
-            unsetButton: localStorage.getItem("password") != null ? "Sperre aufheben" : undefined,
+            unsetButton: passwordSet ? t("dialog.password.unlock") : undefined,
             onClear: () => patchRequest("/config/password", {value: "none"})
                 .then(() => showFeedback("update.password_removed", false))
-                .then(() => localStorage.removeItem("password")),
+                .then(() => {
+                    currentNode !== 0 ? baseRequest("/nodes/" + currentNode + "/password", "PATCH",
+                        {password: "none"}).then(() => updateNodes()) : localStorage.removeItem("password");
+                }),
             onSuccess: (value) => patchRequest("/config/password", {value})
                 .then(() => showFeedback(undefined, false))
                 .then(() => {
                     currentNode !== 0 ? baseRequest("/nodes/" + currentNode + "/password", "PATCH",
-                        {password: value}) : localStorage.setItem("password", value);
+                        {password: value}).then(() => updateNodes()) : localStorage.setItem("password", value);
                 })
         })
     }
