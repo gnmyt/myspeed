@@ -4,6 +4,9 @@ const timerTask = require('./tasks/timer');
 const healthCheckTask = require('./tasks/healthchecks');
 
 const app = express();
+
+app.disable('x-powered-by');
+
 const port = process.env.port || 5216;
 
 // Create the data folder and the servers file
