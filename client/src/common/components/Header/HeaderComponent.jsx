@@ -20,7 +20,7 @@ import {SpeedtestDialog} from "@/common/components/SpeedtestDialog";
 import {NodeContext} from "@/common/contexts/Node";
 
 function HeaderComponent(props) {
-    const nodes = useContext(NodeContext)[0];
+    const findNode = useContext(NodeContext)[4];
     const currentNode = useContext(NodeContext)[2];
 
     const [setDialog] = useContext(InputDialogContext);
@@ -82,8 +82,7 @@ function HeaderComponent(props) {
         if (!config.viewMode) updateVersion();
     }, [config]);
 
-    const getNodeName = () =>
-        currentNode === "0" ? t("header.title") : nodes?.find(node => node.id === currentNode)?.name || t("header.title");
+    const getNodeName = () => currentNode === "0" ? t("header.title") : findNode(currentNode)?.name || t("header.title");
 
     if (Object.keys(config).length === 0) return <></>;
 

@@ -12,7 +12,8 @@
     "password": {
       "title": "Passwort erforderlich",
       "placeholder": "Dein Passwort",
-      "wrong": "Das von dir eingegebene Passwort ist falsch"
+      "wrong": "Das von dir eingegebene Passwort ist falsch",
+      "unlock": "Sperre aufheben"
     },
     "accept": {
       "title": "Wir brauchen deine Genehmigung",
@@ -160,6 +161,7 @@
   },
   "test": {
     "not_available": "Es liegen aktuell keine Tests vor",
+    "no_latest": "Es liegt kein aktueller Test vor. Bitte führe einen Test durch oder warte, bis der nächste Test durchgeführt wurde.",
     "unknown_error": "Unbekannter Fehler:",
     "failed": "Test fehlgeschlagen",
     "recheck": "Bitte überprüfe weitestgehend, ob das öfter passiert.",

@@ -1,10 +1,11 @@
 const app = require('express').Router();
 const nodes = require('../controller/node');
 const password = require("../middlewares/password");
+const {checkNode, proxyRequest} = require("../controller/node");
 
 // List all nodes
 app.get("/", password(false), async (req, res) => {
-    return res.json(await nodes.list(true));
+    return res.json(await nodes.list());
 });
 
 // Create a node
@@ -13,18 +14,14 @@ app.put("/", password(false), async (req, res) => {
 
     const url = req.body.url.replace(/\/+$/, "");
 
-    const headers = req.body.password ? {password: req.body.password} : {};
-
-    fetch(url + "/api/config", {headers}).then(async api => {
-        if (api.status !== 200)
+    checkNode(url, req.body.password).then(async (result) => {
+        if (result === "INVALID_URL")
             return res.status(400).json({message: "Invalid URL", type: "INVALID_URL"});
 
-        if ((await api.json()).viewMode)
+        if (result === "PASSWORD_REQUIRED")
             return res.status(400).json({message: "Invalid password", type: "PASSWORD_REQUIRED"});
 
         res.json({id: (await nodes.create(req.body.name, url, req.body.password)).id, type: "NODE_CREATED"});
-    }).catch(async () => {
-        res.status(400).json({message: "Invalid URL", type: "INVALID_URL"});
     });
 });
 
@@ -55,17 +52,15 @@ app.patch("/:nodeId/password", password(false), async (req, res) => {
     const node = await nodes.get(req.params.nodeId);
     if (node === null) return res.status(404).json({message: "Node not found"});
 
-    fetch(node.url + "/api/config", {headers: {password: req.body.password}}).then(async api => {
-        if (api.status !== 200)
+    checkNode(node.url, req.body.password).then(async (result) => {
+        if (result === "INVALID_URL")
             return res.status(400).json({message: "Invalid URL", type: "INVALID_URL"});
 
-        if ((await api.json()).viewMode)
+        if (result === "PASSWORD_REQUIRED")
             return res.status(400).json({message: "Invalid password", type: "PASSWORD_REQUIRED"});
 
-        await nodes.updatePassword(req.params.nodeId, req.body.password);
+        await nodes.updatePassword(req.params.nodeId, req.body.password === "none" ? null : req.body.password);
         res.json({message: "Node password successfully updated", type: "PASSWORD_UPDATED"});
-    }).catch(async () => {
-        res.status(400).json({message: "Invalid URL", type: "INVALID_URL"});
     });
 });
 
@@ -79,19 +74,7 @@ app.all("/:nodeId/*", password(false), async (req, res) => {
     req.headers['password'] = node.password;
     delete req.headers['host'];
 
-    fetch(url, {
-        method: req.method,
-        headers: req.headers,
-        body: req.method === "GET" ? undefined : JSON.stringify(req.body),
-        signal: req.signal
-    }).then(async api => {
-        if (api.headers.get("content-disposition"))
-            res.setHeader("content-disposition", api.headers.get("content-disposition"));
-
-        res.status(api.status).json(await api.json());
-    }).catch(() => {
-        res.status(500).json({message: "Internal server error"});
-    });
+    await proxyRequest(url, req, res);
 });
 
 module.exports = app;
