@@ -39,6 +39,8 @@ module.exports.checkNode = async (url, password) => {
 
     if (api === "INVALID_URL" || api.status !== 200) return "INVALID_URL";
 
+    if (!api.data.ping) return "INVALID_URL";
+
     if (api.data.viewMode) return "PASSWORD_REQUIRED";
 
     return "NODE_VALID";
