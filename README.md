@@ -35,8 +35,8 @@ MySpeed ist eine Speedtest-Analyse-Software, welche die Geschwindigkeit deines I
 
 ### ⬇️ Installation
 
-- #### 🐧 Anleitung für [Linux](https://myspeed.gnmyt.dev/setup/linux)
-- #### 🪟 Anleitung für [Windows](https://myspeed.gnmyt.dev/setup/windows)
+- **🐧 Anleitung für [Linux](https://myspeed.gnmyt.dev/setup/linux)**
+- **🪟 Anleitung für [Windows](https://myspeed.gnmyt.dev/setup/windows)**
 
 ### 📸 Beispiel-Screenshots
 
