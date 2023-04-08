@@ -12,46 +12,46 @@
 </p>
 <h3 align="center">MySpeed</h3>
 
-## Was ist MySpeed?
+## 🤔 Was ist MySpeed?
 
-MySpeed ist eine deutschsprachige Speedtest-Analyse-Software, welche die Geschwindigkeit des Internets der letzten 24 Stunden übersichtlich
-darstellt.
+MySpeed ist eine Speedtest-Analyse-Software, welche die Geschwindigkeit deines Internets bis zu 30 Tage lang speichert.
 
-### Installation
+### ⭐ Features
 
-Anleitung für [Linux](https://myspeed.gnmyt.dev/setup/linux)
+- 📊 MySpeed generiert übersichtliche Statistiken über Geschwindigkeit, Ping und mehr
+- ⏰ MySpeed automatisiert Speedtests und lässt dich mithilfe von Cron-Expressions die Zeit zwischen den Tests festlegen
+- 🗄️ Füge mehrere Server direkt zu einer MySpeed-Instanz hinzu
+- 🩺 Es lassen sich Healthchecks konfigurieren, welche dich bei Fehlern oder Ausfällen über E-Mail, Signal, WhatsApp oder Telegram benachrichtigen können
+- 📆 Testergebnisse lassen sich bis zu 30 Tage lang speichern
 
-Anleitung für [Windows](https://myspeed.gnmyt.dev/setup/windows)
+Erfahre mehr zu MySpeed in der [Dokumentation](https://myspeed.gnmyt.dev)
 
-### Beispiel-Screenshots
+### ⬇️ Installation
 
-#### Startseite
+#### 🐧 Anleitung für [Linux](https://myspeed.gnmyt.dev/setup/linux)
 
-<img src="https://i.imgur.com/54vSOWy.png" alt="Startseite">
+#### 🪟 Anleitung für [Windows](https://myspeed.gnmyt.dev/setup/windows)
+
+### 📸 Beispiel-Screenshots
+
+#### Startseite (Listen-Ansicht)
+
+<img src="https://i.imgur.com/XXDLXVX.png" alt="Startseite">
+
+#### Startseite (Statistik-Ansicht)
+<img src="https://i.imgur.com/nNaTJTe.png" alt="Statistik">
+
+#### Serverauswahl
+
+<img src="https://i.imgur.com/gZnGSJb.png" alt="Serverauswahl">
 
 #### Auswahl-Menü
 
-<img src="https://i.imgur.com/TVihdZ6.png" alt="Auswahl-Menü">
+<img src="https://i.imgur.com/zCzTJ53.png" alt="Auswahl-Menü">
 
 #### Seite während eines Speedtests
 
-<img src="https://i.imgur.com/UALWAPg.png" alt="Seite während eines Speedtests">
-
-#### Dialog für Einstellen des Down-Speeds
-
-<img src="https://i.imgur.com/Bv8Cj1L.png" alt="Dialog für Einstellen des Down-Speeds">
-
-### Geschützte Startseite (Passwort festgelegt)
-
-<img src="https://i.imgur.com/26I9Y5b.png" alt="Geschützte Startseite (Passwort festgelegt)">
-
-### Dialog für Up- und Downspeed Empfehlung
-
-<img src="https://i.imgur.com/dpP9NG1.png" alt="Dialog für Up- und Downspeed Empfehlung">
-
-### Dialog für Pausieren von Speedtests
-
-<img src="https://i.imgur.com/bZF4GBa.png" alt="Dialog für Pausieren von Speedtests">
+<img src="https://i.imgur.com/RccxiUb.png" alt="Seite während eines Speedtests">
 
 ## Überzeugt?
 
