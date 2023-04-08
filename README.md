@@ -3,6 +3,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
+[![Release][release-shield]][release-url]
 
 <br />
 <div align="center">
@@ -85,3 +86,7 @@ Verbreitet unter der MIT-Lizenz. Siehe `LICENSE` für weitere Informationen.
 [license-shield]: https://img.shields.io/github/license/gnmyt/myspeed.svg?style=for-the-badge
 
 [license-url]: https://github.com/gnmyt/myspeed/blob/master/LICENSE
+
+[release-shield]: https://img.shields.io/github/v/release/gnmyt/myspeed.svg?style=for-the-badge
+
+[release-url]: https://github.com/gnmyt/myspeed/releases/latest
