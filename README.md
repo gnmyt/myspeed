@@ -3,63 +3,63 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
+[![Release][release-shield]][release-url]
 
 <br />
-<p align="center">
+<div align="center">
   <a href="https://github.com/gnmyt/myspeed">
     <img src="https://i.imgur.com/aCmA6rH.png" alt="Logo" width="80" height="80">
   </a>
-</p>
-<h3 align="center">MySpeed</h3>
+  <h3>MySpeed <a href="README.de.md">🇩🇪</a> <a href="README.md">🇺🇸</a></h3>
+</div>
 
-## Was ist MySpeed?
 
-MySpeed ist eine deutschsprachige Speedtest-Analyse-Software, welche die Geschwindigkeit des Internets der letzten 24 Stunden übersichtlich
-darstellt.
+## 🤔 What is MySpeed?
 
-### Installation
+MySpeed is a speed test analysis software that records your internet speed for up to 30 days.
 
-Anleitung für [Linux](https://myspeed.gnmyt.dev/setup/linux)
+### ⭐ Features
 
-Anleitung für [Windows](https://myspeed.gnmyt.dev/setup/windows)
+- 📊 MySpeed generates clear statistics on speed, ping, and more
+- ⏰ MySpeed automates speed tests and allows you to set the time between tests using Cron expressions
+- 🗄️ Add multiple servers directly to a MySpeed instance
+- 🩺 Configure health checks to notify you via email, Signal, WhatsApp, or Telegram in case of errors or downtime
+- 📆 Test results can be stored for up to 30 days
+- 💁 Learn more about MySpeed in the documentation
 
-### Beispiel-Screenshots
+### ⬇️ Installation
 
-#### Startseite
+- **🐧 Guide for [Linux](https://myspeed.gnmyt.dev/setup/linux)**
+- **🪟 Guide for [Windows](https://myspeed.gnmyt.dev/setup/windows)**
 
-<img src="https://i.imgur.com/54vSOWy.png" alt="Startseite">
+### 📸 Example Screenshots
 
-#### Auswahl-Menü
+#### Homepage (List View)
 
-<img src="https://i.imgur.com/TVihdZ6.png" alt="Auswahl-Menü">
+<img src="https://i.imgur.com/NHX7Ba9.png" alt="Homepage">
 
-#### Seite während eines Speedtests
+#### Homepage (Statistics View)
+<img src="https://i.imgur.com/5JAFgrk.png" alt="Statistics">
 
-<img src="https://i.imgur.com/UALWAPg.png" alt="Seite während eines Speedtests">
+#### Server Selection
 
-#### Dialog für Einstellen des Down-Speeds
+<img src="https://i.imgur.com/hgOR93G.png" alt="Server Selection">
 
-<img src="https://i.imgur.com/Bv8Cj1L.png" alt="Dialog für Einstellen des Down-Speeds">
+#### Dropdown Menu
 
-### Geschützte Startseite (Passwort festgelegt)
+<img src="https://i.imgur.com/alKEMrg.png" alt="Dropdown Menu">
 
-<img src="https://i.imgur.com/26I9Y5b.png" alt="Geschützte Startseite (Passwort festgelegt)">
+#### Page During a Speed Test
 
-### Dialog für Up- und Downspeed Empfehlung
+<img src="https://i.imgur.com/kxsrjIe.png" alt="Page During a Speed Test">
 
-<img src="https://i.imgur.com/dpP9NG1.png" alt="Dialog für Up- und Downspeed Empfehlung">
+## Convinced?
 
-### Dialog für Pausieren von Speedtests
+Great, let's get started! You can find the installation instructions for Linux (and Windows) at the top under Installation.
 
-<img src="https://i.imgur.com/bZF4GBa.png" alt="Dialog für Pausieren von Speedtests">
+## License
 
-## Überzeugt?
-
-Cool, dann lass uns loslegen! Die Installationsanleitung für Linux (und Windows) findest du oben unter Installation.
-
-## Lizenz
-
-Verbreitet unter der MIT-Lizenz. Siehe `LICENSE` für weitere Informationen.
+Distributed under the MIT license. See `LICENSE` for more information.
 
 [contributors-shield]: https://img.shields.io/github/contributors/gnmyt/myspeed.svg?style=for-the-badge
 
@@ -80,3 +80,7 @@ Verbreitet unter der MIT-Lizenz. Siehe `LICENSE` für weitere Informationen.
 [license-shield]: https://img.shields.io/github/license/gnmyt/myspeed.svg?style=for-the-badge
 
 [license-url]: https://github.com/gnmyt/myspeed/blob/master/LICENSE
+
+[release-shield]: https://img.shields.io/github/v/release/gnmyt/myspeed.svg?style=for-the-badge
+
+[release-url]: https://github.com/gnmyt/myspeed/releases/latest
