@@ -20,52 +20,52 @@
 </div>
 
 
-## 🤔 Was ist MySpeed?
+## 🤔 What is MySpeed?
 
-MySpeed ist eine Speedtest-Analyse-Software, welche die Geschwindigkeit deines Internets bis zu 30 Tage lang speichert.
+MySpeed is a speed test analysis software that records your internet speed for up to 30 days.
 
 ### ⭐ Features
 
-- 📊 MySpeed generiert übersichtliche Statistiken über Geschwindigkeit, Ping und mehr
-- ⏰ MySpeed automatisiert Speedtests und lässt dich mithilfe von Cron-Expressions die Zeit zwischen den Tests festlegen
-- 🗄️ Füge mehrere Server direkt zu einer MySpeed-Instanz hinzu
-- 🩺 Es lassen sich Healthchecks konfigurieren, welche dich bei Fehlern oder Ausfällen über E-Mail, Signal, WhatsApp oder Telegram benachrichtigen können
-- 📆 Testergebnisse lassen sich bis zu 30 Tage lang speichern
-- 💁 Erfahre mehr zu MySpeed in der [Dokumentation](https://myspeed.gnmyt.dev)
+- 📊 MySpeed generates clear statistics on speed, ping, and more
+- ⏰ MySpeed automates speed tests and allows you to set the time between tests using Cron expressions
+- 🗄️ Add multiple servers directly to a MySpeed instance
+- 🩺 Configure health checks to notify you via email, Signal, WhatsApp, or Telegram in case of errors or downtime
+- 📆 Test results can be stored for up to 30 days
+- 💁 Learn more about MySpeed in the documentation
 
 ### ⬇️ Installation
 
-- **🐧 Anleitung für [Linux](https://myspeed.gnmyt.dev/setup/linux)**
-- **🪟 Anleitung für [Windows](https://myspeed.gnmyt.dev/setup/windows)**
+- **🐧 Guide for [Linux](https://myspeed.gnmyt.dev/setup/linux)**
+- **🪟 Guide for [Windows](https://myspeed.gnmyt.dev/setup/windows)**
 
-### 📸 Beispiel-Screenshots
+### 📸 Example Screenshots
 
-#### Startseite (Listen-Ansicht)
+#### Homepage (List View)
 
-<img src="https://i.imgur.com/XXDLXVX.png" alt="Startseite">
+<img src="https://i.imgur.com/NHX7Ba9.png" alt="Homepage">
 
-#### Startseite (Statistik-Ansicht)
-<img src="https://i.imgur.com/nNaTJTe.png" alt="Statistik">
+#### Homepage (Statistics View)
+<img src="https://i.imgur.com/5JAFgrk.png" alt="Statistics">
 
-#### Serverauswahl
+#### Server Selection
 
-<img src="https://i.imgur.com/gZnGSJb.png" alt="Serverauswahl">
+<img src="https://i.imgur.com/hgOR93G.png" alt="Server Selection">
 
-#### Auswahl-Menü
+#### Dropdown Menu
 
-<img src="https://i.imgur.com/zCzTJ53.png" alt="Auswahl-Menü">
+<img src="https://i.imgur.com/alKEMrg.png" alt="Dropdown Menu">
 
-#### Seite während eines Speedtests
+#### Page During a Speed Test
 
-<img src="https://i.imgur.com/RccxiUb.png" alt="Seite während eines Speedtests">
+<img src="https://i.imgur.com/kxsrjIe.png" alt="Page During a Speed Test">
 
-## Überzeugt?
+## Convinced?
 
-Cool, dann lass uns loslegen! Die Installationsanleitung für Linux (und Windows) findest du oben unter Installation.
+Great, let's get started! You can find the installation instructions for Linux (and Windows) at the top under Installation.
 
-## Lizenz
+## License
 
-Verbreitet unter der MIT-Lizenz. Siehe `LICENSE` für weitere Informationen.
+Distributed under the MIT license. See `LICENSE` for more information.
 
 [contributors-shield]: https://img.shields.io/github/contributors/gnmyt/myspeed.svg?style=for-the-badge
 
