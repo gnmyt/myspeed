@@ -10,7 +10,7 @@ i18n.use(initReactI18next).use(LanguageDetector).use(HttpApi).init({
         loadPath: '/locales/{{lng}}.json'
     },
     detection: {
-        order: ['localStorage', 'htmlTag'],
+        order: ['localStorage'],
         lookupLocalStorage: 'language'
     }
 });
