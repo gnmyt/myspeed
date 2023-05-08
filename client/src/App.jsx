@@ -41,13 +41,12 @@ const App = () => {
         <>
             {!translationsLoaded && !translationError && <Loading/>}
             {translationError && <Error text="Failed to load translations"/>}
-            <InputDialogProvider>
+            {!translationError && translationsLoaded && <InputDialogProvider>
                 <ToastNotificationProvider>
                     <ConfigProvider showNodePage={setShowNodePage}>
                     <NodeProvider>
-                        {translationsLoaded && !translationError && showNodePage &&
-                            <Nodes setShowNodePage={setShowNodePage}/>}
-                        {translationsLoaded && !translationError && !showNodePage && <SpeedtestProvider>
+                        {showNodePage && <Nodes setShowNodePage={setShowNodePage}/>}
+                        {!showNodePage && <SpeedtestProvider>
                             <ViewProvider>
                                     <StatusProvider>
                                         <HeaderComponent showNodePage={setShowNodePage}/>
@@ -58,7 +57,7 @@ const App = () => {
                     </NodeProvider>
                     </ConfigProvider>
                 </ToastNotificationProvider>
-            </InputDialogProvider>
+            </InputDialogProvider>}
         </>
     );
 }
