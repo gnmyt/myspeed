@@ -233,8 +233,8 @@
       "label": "Anzahl"
     },
     "values": {
-      "min": "Mindestens",
-      "max": "Höchstens",
+      "min": "Niedrigster",
+      "max": "Höchster",
       "avg": "Durchschnitt",
       "down": "Download-Werte",
       "up": "Upload-Werte"
