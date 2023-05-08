@@ -1,7 +1,7 @@
 {
   "short_name": "MySpeed",
   "name": "MySpeed - Speedtests",
-  "description": "Eine deutschsprachige Speedtest Analyse-Software, welche das Internet der letzten 24 Stunden übersichtlich darstellt.",
+  "description": "A speed test analysis software that shows your internet speed for up to 30 days",
   "icons": [
     {
       "src": "favicon.ico",
