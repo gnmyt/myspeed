@@ -44,17 +44,17 @@ const App = () => {
             {!translationError && translationsLoaded && <InputDialogProvider>
                 <ToastNotificationProvider>
                     <ConfigProvider showNodePage={setShowNodePage}>
-                    <NodeProvider>
-                        {showNodePage && <Nodes setShowNodePage={setShowNodePage}/>}
-                        {!showNodePage && <SpeedtestProvider>
-                            <ViewProvider>
+                        <NodeProvider>
+                            {showNodePage && <Nodes setShowNodePage={setShowNodePage}/>}
+                            {!showNodePage && <SpeedtestProvider>
+                                <ViewProvider>
                                     <StatusProvider>
                                         <HeaderComponent showNodePage={setShowNodePage}/>
                                         <MainContent/>
                                     </StatusProvider>
-                            </ViewProvider>
-                        </SpeedtestProvider>}
-                    </NodeProvider>
+                                </ViewProvider>
+                            </SpeedtestProvider>}
+                        </NodeProvider>
                     </ConfigProvider>
                 </ToastNotificationProvider>
             </InputDialogProvider>}
