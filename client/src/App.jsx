@@ -41,24 +41,23 @@ const App = () => {
         <>
             {!translationsLoaded && !translationError && <Loading/>}
             {translationError && <Error text="Failed to load translations"/>}
-            <InputDialogProvider>
+            {!translationError && translationsLoaded && <InputDialogProvider>
                 <ToastNotificationProvider>
                     <ConfigProvider showNodePage={setShowNodePage}>
-                    <NodeProvider>
-                        {translationsLoaded && !translationError && showNodePage &&
-                            <Nodes setShowNodePage={setShowNodePage}/>}
-                        {translationsLoaded && !translationError && !showNodePage && <SpeedtestProvider>
-                            <ViewProvider>
+                        <NodeProvider>
+                            {showNodePage && <Nodes setShowNodePage={setShowNodePage}/>}
+                            {!showNodePage && <SpeedtestProvider>
+                                <ViewProvider>
                                     <StatusProvider>
                                         <HeaderComponent showNodePage={setShowNodePage}/>
                                         <MainContent/>
                                     </StatusProvider>
-                            </ViewProvider>
-                        </SpeedtestProvider>}
-                    </NodeProvider>
+                                </ViewProvider>
+                            </SpeedtestProvider>}
+                        </NodeProvider>
                     </ConfigProvider>
                 </ToastNotificationProvider>
-            </InputDialogProvider>
+            </InputDialogProvider>}
         </>
     );
 }
