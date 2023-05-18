@@ -21,7 +21,7 @@
     "react-dom": "^18.2.0",
     "react-i18next": "^12.3.1",
     "sass": "^1.62.1",
-    "vite": "^4.3.7",
+    "vite": "^4.3.8",
     "vite-plugin-pwa": "^0.14.7"
   },
   "devDependencies": {
