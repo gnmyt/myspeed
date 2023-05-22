@@ -41,6 +41,11 @@ export const postRequest = async (path, body = {}, headers = {}) => {
     return await request(path, "POST", body, headers);
 }
 
+// Run a PUT request update a resource
+export const putRequest = async (path, body = {}, headers = {}) => {
+    return await request(path, "PUT", body, headers);
+}
+
 // Run a PATCH request update a resource
 export const patchRequest = async (path, body = {}, headers = {}) => {
     return await request(path, "PATCH", body, headers);
