@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const timerTask = require('./tasks/timer');
-const healthCheckTask = require('./tasks/healthchecks');
+const integrationTask = require('./tasks/integrations');
 
 const app = express();
 
@@ -26,6 +26,7 @@ app.use("/api/info", require('./routes/system'));
 app.use("/api/export", require('./routes/export'));
 app.use("/api/recommendations", require('./routes/recommendations'));
 app.use("/api/nodes", require('./routes/nodes'));
+app.use("/api/integrations", require('./routes/integrations'));
 app.use("/api*", (req, res) => res.status(404).json({message: "Route not found"}));
 
 // Enable production
@@ -47,6 +48,9 @@ const run = async () => {
     // Sync the database
     await db.sync({alter: true, force: false});
 
+    // Load the integrations
+    await require('./controller/integrations').initialize();
+
     // Load the cli
     await require('./config/loadCli').load();
 
@@ -56,8 +60,8 @@ const run = async () => {
     timerTask.startTimer((await config.get("cron")).value);
     setInterval(async () => require('./tasks/speedtest').removeOld(), 60000);
 
-    // Start Healthchecks
-    healthCheckTask.startTimer();
+    // Start integration interval
+    integrationTask.startTimer();
 
     // Make a speedtest
     timerTask.runTask();
