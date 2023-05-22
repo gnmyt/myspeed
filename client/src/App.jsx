@@ -16,6 +16,11 @@ import {t} from "i18next";
 import {ToastNotificationProvider} from "@/common/contexts/ToastNotification";
 import Nodes from "@/pages/Nodes";
 import {NodeProvider} from "@/common/contexts/Node";
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { fab } from "@fortawesome/free-brands-svg-icons";
+
+library.add(fas, fab);
 
 const MainContent = () => {
     const [view] = useContext(ViewContext);
