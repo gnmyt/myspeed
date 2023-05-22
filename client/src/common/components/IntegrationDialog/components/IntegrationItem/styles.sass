@@ -1,0 +1,132 @@
+@import "@/common/styles/colors"
+
+.integration-item
+  border: 2px solid $gray
+  border-radius: 0.8rem
+  padding: 0.5rem 1.5rem
+  color: $darker-white
+  transition: border-color 0.3s
+
+.green-border
+  border: 2px solid $green
+
+.integration-item-header
+  display: flex
+  justify-content: space-between
+
+.integration-item-left
+  display: flex
+  align-items: center
+  gap: 0.5rem
+
+  svg
+    width: 1.8rem
+    height: 1.8rem
+
+
+.integration-title-container h3
+  margin: 0
+  font-size: 17px
+  text-overflow: ellipsis
+  overflow: hidden
+  white-space: nowrap
+  max-width: 11rem
+
+.integration-item-activity
+  display: flex
+  align-items: center
+  gap: 0.3rem
+  .integration-item-activity-circle
+    width: 0.5rem
+    height: 0.5rem
+    border-radius: 5rem
+  p
+    margin: 0
+    font-size: 11pt
+    font-weight: 500
+
+.circle-error
+  background-color: $red
+
+.circle-inactive
+  background-color: $gray
+
+.circle-active
+  background-color: $green
+
+.integration-item-right
+  display: flex
+  align-items: center
+  gap: 0.8rem
+
+.integration-item-right svg
+  width: 1.5rem
+  height: 3rem
+  cursor: pointer
+  font-weight: 1000
+
+.integration-green:hover
+    color: $green-hover
+
+.integration-red:hover
+    color: $red-hover
+
+.delete-btn:hover
+  color: $red-hover
+
+.close-icon:hover
+  color: $red-hover
+
+.integration-body
+  margin-left: 0.5rem
+  margin-right: 0.5rem
+
+.integration-field
+  display: flex
+  align-items: center
+  gap: 0.5rem
+  margin-top: 0.5rem
+  justify-content: space-between
+
+  p
+    margin: 0
+
+.integration-field-input
+  background-color: $darker-gray
+  border: none
+  border-radius: 0.5rem
+  padding: 0.1rem 0.8rem
+  color: $darker-white
+  font-size: 12pt
+  height: 2rem
+  width: 50%
+
+.text-area
+  font-family: "Inter", sans-serif
+  height: 3.5rem
+  resize: none
+
+input[type="checkbox"]
+  appearance: none
+  width: 2rem
+  height: 2rem
+  border-radius: 0.5rem
+  outline: none
+  transition: border-color 0.3s
+  background-color: $darker-gray
+  cursor: pointer
+
+  &:checked
+    content: "\2713"
+    color: #45C65A
+    display: flex
+    justify-content: center
+    align-items: center
+    font-weight: 700
+    font-size: 18pt
+
+  &::before
+    color: #45C65A
+
+  &:checked::before
+    content: "\2713"
