@@ -31,9 +31,9 @@ module.exports = (registerEvent) => {
             {name: "token", type: "text", required: true},
             {name: "chat_id", type: "text", required: true},
             {name: "send_finished", type: "boolean", required: false},
-            {name: "finished_message", type: "textarea", required: false, placeholder: "Speedtest: %ping% ms, %download% Mbps, %upload% Mbps"},
+            {name: "finished_message", type: "textarea", required: false},
             {name: "send_failed", type: "boolean", required: false},
-            {name: "error_message", type: "textarea", required: false, placeholder: "Speedtest failed: %error%"}
+            {name: "error_message", type: "textarea", required: false}
         ]
     };
 }
