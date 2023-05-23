@@ -1,6 +1,6 @@
 import "./styles.sass";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {t} from "i18next";
+import i18n, {t} from "i18next";
 import {faCheck, faChevronDown, faChevronUp, faFloppyDisk, faTrash, faTrashArrowUp} from "@fortawesome/free-solid-svg-icons";
 import {useState} from "react";
 import {deleteRequest, patchRequest, putRequest} from "@/common/utils/RequestUtil";
@@ -72,6 +72,9 @@ export const IntegrationItem = ({integration, data, remove, isOpen}) => {
 
     const getState = (index) => states[index].value[0];
 
+    const getPlaceholder = (integration, field) => t(`integrations.${integration}.fields.${field}`
+            + (i18n.exists(`integrations.${integration}.fields.${field}_placeholder`) ? "_placeholder" : ""))
+
     return (
         <div className={"integration-item"+(changesConfirmed ? " green-border" : "")}>
             <div className="integration-item-header">
@@ -114,11 +117,11 @@ export const IntegrationItem = ({integration, data, remove, isOpen}) => {
 
                     {field.type === "text" && <input className="integration-field-input" type="text" value={getState(index)}
                                                         onChange={e => updateState(index, e.target.value)}
-                                                       placeholder={field.placeholder || t(`integrations.${integration.name}.fields.${field.name}`)}/>}
+                                                       placeholder={getPlaceholder(integration.name, field.name)}/>}
 
                     {field.type === "textarea" && <textarea className="integration-field-input text-area" value={getState(index)}
                                                                 onChange={e => updateState(index, e.target.value)}
-                                                                placeholder={field.placeholder || t(`integrations.${integration.name}.fields.${field.name}`)}/>}
+                                                                placeholder={getPlaceholder(integration.name, field.name)} />}
 
                     {field.type === "boolean" && <input type="checkbox" checked={getState(index)}
                                                         onChange={e => updateState(index, e.target.checked)}/>}
