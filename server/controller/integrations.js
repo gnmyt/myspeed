@@ -46,21 +46,13 @@ module.exports.getActive = async () => {
     return data.map((item) => ({...item, data: JSON.parse(item.data)}));
 }
 
-module.exports.getData = async (name, id) => {
-    const integration = integrations[name];
-    if (!integration) return null;
-
-    const data = await IntegrationData.findOne({where: {name: name, integrationId: id}});
-    if (!data) return null;
-
-    return data.data;
-}
+module.exports.getIntegrationById = (id) => IntegrationData.findOne({where: {id: id}});
 
 module.exports.delete = async (id) => {
-    const data = await IntegrationData.findOne({where: {id: id}});
+    const data = await IntegrationData.findOne({where: {id}});
     if (!data) return null;
 
-    await IntegrationData.destroy({where: {id: id}});
+    await IntegrationData.destroy({where: {id}});
     return true;
 }
 
@@ -90,9 +82,38 @@ module.exports.patch = async (id, data) => {
 module.exports.getIntegrations = () => {
     const result = {};
 
-    for (const [name, integration] of Object.entries(integrations))
-        result[name] = {name, ...integration};
+    for (const [name, integration] of Object.entries(integrations)) {
+        const updatedIntegration = {...integration};
+
+        updatedIntegration.fields = updatedIntegration.fields.map((field) => ({
+            ...field, regex: field.regex ? field.regex.toString() : undefined
+        }));
+
+        result[name] = {name, ...updatedIntegration};
+    }
 
     return result;
 };
+
 module.exports.getIntegration = (name) => integrations[name];
+
+module.exports.validateInput = (module, data) => {
+    const integration = integrations[module];
+    if (!integration) return false;
+
+    for (const field of integration.fields) {
+        if (field.required && (!data[field.name] || data[field.name] === "")) return false;
+
+        if (data[field.name] !== undefined) {
+            if (field.regex && !new RegExp(field.regex).test(data[field.name])) return false;
+            if (field.type === "text" && data[field.name].length > 250) return false;
+            if (field.type === "textarea" && data[field.name].length > 9999) return false;
+            if (field.type === "boolean" && typeof data[field.name] !== "boolean") return false;
+        }
+    }
+
+    const result = {};
+    for (const field of integration.fields) result[field.name] = data[field.name];
+
+    return result;
+}
