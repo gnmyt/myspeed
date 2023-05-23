@@ -311,7 +311,9 @@
         "send_started": "Gestartete senden",
         "send_failed": "Fehlernachrichten senden",
         "send_finished": "Abgeschlossene senden",
-        "send_alive": "Lebendig-Nachrichten senden"
+        "send_alive": "Lebendig-Nachrichten senden",
+        "send_recommendations": "Empfehlungen senden",
+        "send_config_updates": "Konfigurations-Updates senden"
       }
     }
   }
