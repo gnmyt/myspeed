@@ -107,13 +107,14 @@ module.exports.validateInput = (module, data) => {
         if (data[field.name] !== undefined) {
             if (field.regex && !new RegExp(field.regex).test(data[field.name])) return false;
             if (field.type === "text" && data[field.name].length > 250) return false;
-            if (field.type === "textarea" && data[field.name].length > 9999) return false;
+            if (field.type === "textarea" && data[field.name].length > 2000) return false;
             if (field.type === "boolean" && typeof data[field.name] !== "boolean") return false;
         }
     }
 
     const result = {};
     for (const field of integration.fields) result[field.name] = data[field.name];
+    result["integration_name"] = data["integration_name"];
 
     return result;
 }
