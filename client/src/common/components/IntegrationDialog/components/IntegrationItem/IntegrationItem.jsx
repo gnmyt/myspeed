@@ -14,7 +14,7 @@ export const IntegrationItem = ({integration, data, remove, isOpen}) => {
     const [identifier, setIdentifier] = useState(data.id);
 
     const states = integration.fields.map(field => {
-        return {name: field.name, value: useState(data.data[field.name] || "")};
+        return {name: field.name, value: useState(data.data[field.name] || (field.type === "boolean" ? false : ""))};
     });
 
     const updateDisplayName = (event) => {
