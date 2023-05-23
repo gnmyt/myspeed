@@ -1,0 +1,1 @@
+export {AvailableIntegrations as default} from './AvailableIntegrations';
