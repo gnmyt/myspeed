@@ -4,14 +4,9 @@ const sendPing = async (url, path, error, triggerActivity) => {
     if (url == null) return;
     if (path) url += "/" + path;
 
-    try {
-        const response = await axios.post(url, error, {headers: {"user-agent": "MySpeed/HealthAgent"}});
-        if (response.data.includes("not found")) throw new Error("Invalid URL");
-        triggerActivity();
-    } catch (e) {
-        console.error("Could not send ping: " + e.message);
-        triggerActivity(true);
-    }
+    await axios.post(url, error, {headers: {"user-agent": "MySpeed/HealthAgent"}})
+        .then(() => triggerActivity())
+        .catch(() => triggerActivity(true));
 }
 
 module.exports = (registerEvent) => {
