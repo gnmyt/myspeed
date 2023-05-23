@@ -9,7 +9,9 @@ const defaults = {
 const postWebhook = async (token, chatId, message, triggerActivity) => {
     axios.post(`https://api.telegram.org/bot${token}/sendMessage`, {
         text: message, chat_id: chatId, parse_mode: "markdown"
-    }).then(() => "").catch((error) => console.log("Could not send a webhook request to Telegram: " + error.message));
+    })
+        .then(() => triggerActivity())
+        .catch(() => triggerActivity(true));
 }
 
 module.exports = (registerEvent) => {
