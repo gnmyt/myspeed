@@ -2,13 +2,14 @@ import {DialogContext, DialogProvider} from "@/common/contexts/Dialog";
 import "./styles.sass";
 import React, {useContext, useEffect, useState} from "react";
 import {t} from "i18next";
-import {faAdd, faClose} from "@fortawesome/free-solid-svg-icons";
+import {faClose} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {jsonRequest} from "@/common/utils/RequestUtil";
 import IntegrationItem from "@/common/components/IntegrationDialog/components/IntegrationItem";
-import {Trans} from "react-i18next";
 import {v4 as uuid} from 'uuid';
 import AvailableIntegrations from "./components/AvailableIntegrations";
+import IntegrationAddButton from "@/common/components/IntegrationDialog/components/IntegrationAddButton";
+import NoIntegrationsTab from "@/common/components/IntegrationDialog/components/NoIntegrationsTab";
 
 export const Dialog = ({integrations, activeData}) => {
     const close = useContext(DialogContext);
@@ -16,8 +17,8 @@ export const Dialog = ({integrations, activeData}) => {
 
     const [active, setActive] = useState(activeData.map(item => ({...item, uuid: uuid()})));
 
-    const addIntegration = () =>
-        setActive([...active, {uuid: uuid(), name: currentTab, integration: integrations[currentTab], data: {}, open:true}]);
+    const addIntegration = () => setActive([...active, {uuid: uuid(), name: currentTab,
+        integration: integrations[currentTab], data: {}, open: true}]);
 
     const deleteIntegration = (uuid) => setActive(active.filter((item) => item.uuid !== uuid));
 
@@ -32,24 +33,16 @@ export const Dialog = ({integrations, activeData}) => {
                                        setCurrentTab={setCurrentTab}/>
 
                 <div className="integrations-tab">
-                    {active.map((item) => {
-                        if (item.name === currentTab)
-                            return (<IntegrationItem integration={integrations[currentTab]}
-                                                     remove={() => deleteIntegration(item.uuid)}
-                                                     data={item} key={item.uuid} isOpen={item.open}/>);
-                    })}
-                    {active.filter(item => item.name === currentTab).length === 0 && <div className="no-integrations">
-                        <FontAwesomeIcon icon={integrations[currentTab].icon}/>
-                        <p className="dialog-text"><Trans
-                            components={{Bold: <span className="integration-add" onClick={addIntegration}/>}}>
-                            integrations.none_active</Trans></p>
-                    </div>}
-                    {active.filter(item => item.name === currentTab).length > 0 && <div className="add-container">
-                        <div className="add-integration" onClick={addIntegration}>
-                            <FontAwesomeIcon icon={faAdd}/>
-                            <p>{t("integrations.create")}</p>
-                        </div>
-                    </div>}
+                    {active.map((item) => (item.name !== currentTab ? undefined :
+                        <IntegrationItem integration={integrations[currentTab]}
+                                         remove={() => deleteIntegration(item.uuid)}
+                                         data={item} key={item.uuid} isOpen={item.open} />))}
+
+                    {active.filter(item => item.name === currentTab).length === 0
+                        && <NoIntegrationsTab onClick={addIntegration} integration={integrations[currentTab]}/>}
+
+                    {active.filter(item => item.name === currentTab).length > 0
+                        && <IntegrationAddButton onClick={addIntegration}/>}
                 </div>
             </div>
         </>
