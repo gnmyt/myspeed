@@ -86,7 +86,7 @@ module.exports.getIntegrations = () => {
         const updatedIntegration = {...integration};
 
         updatedIntegration.fields = updatedIntegration.fields.map((field) => ({
-            ...field, regex: field.regex ? field.regex.toString() : undefined
+            ...field, regex: field.regex ? field.regex.source : undefined
         }));
 
         result[name] = {name, ...updatedIntegration};
