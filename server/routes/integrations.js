@@ -1,6 +1,7 @@
 const app = require('express').Router();
 const integrations = require('../controller/integrations');
 const password = require('../middlewares/password');
+const {validateInput} = require("../controller/integrations");
 
 app.get("/", password(false), (req, res) => {
     return res.json(integrations.getIntegrations());
@@ -17,16 +18,23 @@ app.put("/:integrationName", password(false), async (req, res) => {
 
     if (!req.body) return res.status(400).json({message: "Missing data"});
 
-    // TODO: Validate input
+    const validatedInput = validateInput(req.params.integrationName, req.body);
+    if (!validatedInput) return res.status(400).json({message: "Invalid data"});
 
-    const id = await integrations.create(req.params.integrationName, req.body);
+    const id = await integrations.create(req.params.integrationName, validatedInput);
     return res.json({message: "Integration created", id});
 });
 
 app.patch("/:id", password(false), async (req, res) => {
     if (!req.body) return res.status(400).json({message: "Missing data"});
 
-    await integrations.patch(req.params.id, req.body);
+    const integration = await integrations.getIntegrationById(req.params.id);
+    if (!integration) return res.status(404).json({message: "Integration not found"});
+
+    const validatedInput = validateInput(integration?.name, req.body);
+    if (!validatedInput) return res.status(400).json({message: "Invalid data"});
+
+    await integrations.patch(req.params.id, validatedInput);
     return res.json({message: "Integration updated"});
 });
 
