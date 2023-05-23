@@ -21,8 +21,9 @@ export const IntegrationItemHeader = ({integration, displayName, unsavedChanges,
                 <div className="integration-item-activity">
                     <div className={"integration-item-activity-circle circle-" + (data.activityFailed ? "error"
                         : (data.lastActivity === null || !data.lastActivity ? "inactive" : "active"))}/>
+
                     <p>{data.activityFailed ? t("failed") : (data.lastActivity === null || !data.lastActivity
-                        ? "Nie ausgeführt" : "Zuletzt vor " + generateRelativeTime(data.lastActivity))}</p>
+                        ? t("integrations.activity.never_executed") : t("integrations.activity.last_run") + generateRelativeTime(data.lastActivity))}</p>
                 </div>
             </div>
         </div>
