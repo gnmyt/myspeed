@@ -30,8 +30,8 @@ module.exports = (registerEvent) => {
     return {
         icon: "fa-brands fa-telegram",
         fields: [
-            {name: "token", type: "text", required: true},
-            {name: "chat_id", type: "text", required: true},
+            {name: "token", type: "text", required: true, regex: /(\d+):[a-zA-Z0-9_-]+/},
+            {name: "chat_id", type: "text", required: true, regex: /\d+/},
             {name: "send_finished", type: "boolean", required: false},
             {name: "finished_message", type: "textarea", required: false},
             {name: "send_failed", type: "boolean", required: false},
