@@ -7,7 +7,8 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {jsonRequest} from "@/common/utils/RequestUtil";
 import IntegrationItem from "@/common/components/IntegrationDialog/components/IntegrationItem";
 import {Trans} from "react-i18next";
-import { v4 as uuid } from 'uuid';
+import {v4 as uuid} from 'uuid';
+import AvailableIntegrations from "./components/AvailableIntegrations";
 
 export const Dialog = ({integrations, activeData}) => {
     const close = useContext(DialogContext);
@@ -27,33 +28,28 @@ export const Dialog = ({integrations, activeData}) => {
                 <FontAwesomeIcon icon={faClose} className="dialog-text dialog-icon" onClick={() => close()}/>
             </div>
             <div className="integration-dialog">
-                <div className="available-integrations">
-                    {Object.keys(integrations).map((key, index) => <div
-                        className={"integration-tab" + (key === currentTab ? " integration-active" : "")}
-                        key={key} onClick={() => setCurrentTab(key)}>
-
-                        <FontAwesomeIcon icon={integrations[key].icon} className="integration-icon"/>
-                        <p className="integration-text">{t(`integrations.${key}.title`)}</p>
-                    </div>)}
-                </div>
+                <AvailableIntegrations integrations={integrations} currentTab={currentTab}
+                                       setCurrentTab={setCurrentTab}/>
 
                 <div className="integrations-tab">
                     {active.map((item) => {
                         if (item.name === currentTab)
-                            return (<IntegrationItem integration={integrations[currentTab]} remove={() => deleteIntegration(item.uuid)}
+                            return (<IntegrationItem integration={integrations[currentTab]}
+                                                     remove={() => deleteIntegration(item.uuid)}
                                                      data={item} key={item.uuid} isOpen={item.open}/>);
                     })}
                     {active.filter(item => item.name === currentTab).length === 0 && <div className="no-integrations">
-                        <FontAwesomeIcon icon={integrations[currentTab].icon} />
-                        <p className="dialog-text"><Trans components={{Bold: <span className="integration-add" onClick={addIntegration} />}}>
-                            integrations.none_active</Trans> </p>
+                        <FontAwesomeIcon icon={integrations[currentTab].icon}/>
+                        <p className="dialog-text"><Trans
+                            components={{Bold: <span className="integration-add" onClick={addIntegration}/>}}>
+                            integrations.none_active</Trans></p>
                     </div>}
                     {active.filter(item => item.name === currentTab).length > 0 && <div className="add-container">
-
-                    <div className="add-integration" onClick={addIntegration}>
-                        <FontAwesomeIcon icon={faAdd} />
-                        <p>Hinzufügen</p>
-                    </div></div>}
+                        <div className="add-integration" onClick={addIntegration}>
+                            <FontAwesomeIcon icon={faAdd}/>
+                            <p>{t("integrations.create")}</p>
+                        </div>
+                    </div>}
                 </div>
             </div>
         </>
@@ -77,7 +73,12 @@ export const IntegrationDialog = (props) => {
     return (
         <>
             <DialogProvider close={props.onClose}>
-                {!integrationData || !activeData && <div className="lds-ellipsis"><div/><div/><div/><div/></div>}
+                {!integrationData || !activeData && <div className="lds-ellipsis">
+                    <div/>
+                    <div/>
+                    <div/>
+                    <div/>
+                </div>}
                 {integrationData && activeData && <Dialog integrations={integrationData} activeData={activeData}/>}
             </DialogProvider>
         </>
