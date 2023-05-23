@@ -83,7 +83,6 @@ module.exports.patch = async (id, data) => {
     const displayName = data.integration_name;
     delete data.integration_name;
 
-    // find one and update
     IntegrationData.update({data: {...JSON.parse(item.data), ...data}, displayName}, {where: {id: id}});
     return true;
 }
