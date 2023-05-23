@@ -269,6 +269,10 @@
     "none_active": "Diese Integration ist nicht aktiv. <br/><Bold>Hinzufügen</Bold>",
     "display_name": "Integrations-Name",
     "create": "Hinzufügen",
+    "activity": {
+      "never_executed": "Nie ausgeführt",
+      "last_run": "Zuletzt vor "
+    },
     "discord": {
       "title": "Discord",
       "fields": {
