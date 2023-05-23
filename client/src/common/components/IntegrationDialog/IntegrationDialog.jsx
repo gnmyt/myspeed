@@ -11,11 +11,9 @@ import AvailableIntegrations from "./components/AvailableIntegrations";
 import IntegrationAddButton from "@/common/components/IntegrationDialog/components/IntegrationAddButton";
 import NoIntegrationsTab from "@/common/components/IntegrationDialog/components/NoIntegrationsTab";
 
-export const Dialog = ({integrations, activeData}) => {
+export const Dialog = ({integrations, active, setActive}) => {
     const close = useContext(DialogContext);
     const [currentTab, setCurrentTab] = useState(integrations[Object.keys(integrations)[0]].name);
-
-    const [active, setActive] = useState(activeData.map(item => ({...item, uuid: uuid()})));
 
     const addIntegration = () => setActive([...active, {uuid: uuid(), name: currentTab,
         integration: integrations[currentTab], data: {}, open: true}]);
@@ -59,20 +57,15 @@ export const IntegrationDialog = (props) => {
             .catch(err => console.log(err));
 
         jsonRequest("/integrations/active")
-            .then(data => setActiveData(data))
+            .then(data => setActiveData(data.map(item => ({...item, uuid: uuid()}))))
             .catch(err => console.log(err));
     }, []);
 
     return (
         <>
             <DialogProvider close={props.onClose}>
-                {!integrationData || !activeData && <div className="lds-ellipsis">
-                    <div/>
-                    <div/>
-                    <div/>
-                    <div/>
-                </div>}
-                {integrationData && activeData && <Dialog integrations={integrationData} activeData={activeData}/>}
+                {!integrationData || !activeData && <div className="lds-ellipsis"><div/><div/><div/><div/></div>}
+                {integrationData && activeData && <Dialog integrations={integrationData} active={activeData} setActive={setActiveData}/>}
             </DialogProvider>
         </>
     )
