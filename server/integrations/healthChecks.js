@@ -34,7 +34,7 @@ module.exports = (registerEvent) => {
     return {
         icon: "fa-solid fa-heart-pulse",
         fields: [
-            {name: "url", type: "text", required: true, placeholder: "https://hc-ping.com/<uuid>"},
+            {name: "url", type: "text", required: true},
         ]
     };
 }
