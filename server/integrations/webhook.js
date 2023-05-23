@@ -34,7 +34,7 @@ module.exports = (registerEvent) => {
     return {
         icon: "fa-solid fa-globe",
         fields: [
-            {name: "url", type: "text", required: true},
+            {name: "url", type: "text", required: true, regex: /https:\/\/.+/},
             {name: "send_started", type: "boolean", required: false},
             {name: "send_finished", type: "boolean", required: false},
             {name: "send_alive", type: "boolean", required: false},
