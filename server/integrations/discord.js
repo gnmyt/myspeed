@@ -31,12 +31,12 @@ module.exports = (registerEvent) => {
     return {
         icon: "fa-brands fa-discord",
         fields: [
-            {name: "url", type: "text", required: true, placeholder: "https://discord.com/api/webhooks/..."},
-            {name: "display_name", type: "text", required: false, placeholder: "MySpeed Notification"},
+            {name: "url", type: "text", required: true},
+            {name: "display_name", type: "text", required: false},
             {name: "send_finished", type: "boolean", required: false},
-            {name: "finished_message", type: "textarea", required: false, placeholder: "Speedtest: %ping% ms, %download% Mbps, %upload% Mbps"},
+            {name: "finished_message", type: "textarea", required: false},
             {name: "send_failed", type: "boolean", required: false},
-            {name: "error_message", type: "textarea", required: false, placeholder: "Speedtest failed: %error%"}
+            {name: "error_message", type: "textarea", required: false}
         ]
     };
 }
