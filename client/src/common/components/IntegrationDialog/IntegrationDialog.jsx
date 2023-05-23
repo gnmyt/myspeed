@@ -9,7 +9,6 @@ import IntegrationItem from "@/common/components/IntegrationDialog/components/In
 import {Trans} from "react-i18next";
 import { v4 as uuid } from 'uuid';
 
-
 export const Dialog = ({integrations, activeData}) => {
     const close = useContext(DialogContext);
     const [currentTab, setCurrentTab] = useState(integrations[Object.keys(integrations)[0]].name);
@@ -78,6 +77,7 @@ export const IntegrationDialog = (props) => {
     return (
         <>
             <DialogProvider close={props.onClose}>
+                {!integrationData || !activeData && <div className="lds-ellipsis"><div/><div/><div/><div/></div>}
                 {integrationData && activeData && <Dialog integrations={integrationData} activeData={activeData}/>}
             </DialogProvider>
         </>
