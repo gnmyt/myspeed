@@ -10,6 +10,7 @@ export const IntegrationItem = ({integration, data, remove, isOpen}) => {
     const [deleteConfirmed, setDeleteConfirmed] = useState(false);
     const [changesConfirmed, setChangesConfirmed] = useState(false);
     const [displayName, setDisplayName] = useState(data.displayName || t(`integrations.${integration.name}.title`));
+    const [error, setError] = useState(false);
 
     const [identifier, setIdentifier] = useState(data.id);
 
@@ -40,15 +41,21 @@ export const IntegrationItem = ({integration, data, remove, isOpen}) => {
         updatedData["integration_name"] = displayName;
 
         if (!identifier) {
-            putRequest(`/integrations/${integration.name}`, updatedData)
-                .then(data => data.json())
-                .then(processed => {
-                    setIdentifier(processed.id);
-                    processConfirmed();
-                });
+            putRequest(`/integrations/${integration.name}`, updatedData).then(data => {
+                if (!data.ok) throw new Error();
+                return data.json();
+            }).then(processed => {
+                setIdentifier(processed.id);
+                processConfirmed();
+                setError(false);
+            }).catch(() => setError(true));
         } else {
-            patchRequest(`/integrations/${identifier}`, updatedData)
-                .then(() => processConfirmed())
+            patchRequest(`/integrations/${identifier}`, updatedData).then(data => {
+                if (!data.ok) throw new Error();
+            }).then(() => {
+                processConfirmed();
+                setError(false);
+            }).catch(() => setError(true));
         }
 
     }
@@ -68,13 +75,21 @@ export const IntegrationItem = ({integration, data, remove, isOpen}) => {
             .then(() => remove());
     }
 
+    const isValidInput = (field, index) => {
+        if (field.required && !getState(index)) return false;
+        if (field.regex && !new RegExp(field.regex).test(getState(index))) return false;
+        if (field.type === "text" && getState(index).length > 255) return false;
+
+        return !(field.type === "textarea" && getState(index).length > 2000);
+    }
+
     const getState = (index) => states[index].value[0];
 
     const getPlaceholder = (integration, field) => t(`integrations.${integration}.fields.${field}`
             + (i18n.exists(`integrations.${integration}.fields.${field}_placeholder`) ? "_placeholder" : ""))
 
     return (
-        <div className={"integration-item"+(changesConfirmed ? " green-border" : "")}>
+        <div className={"integration-item"+(error ? " item-error-border" : (changesConfirmed ? " green-border" : ""))}>
             <IntegrationItemHeader open={open} setOpen={setOpen} displayName={displayName}
                                    changesConfirmed={changesConfirmed} deleteConfirmed={deleteConfirmed}
                                    deleteIntegration={deleteIntegration} saveIntegration={saveIntegration}
@@ -88,13 +103,16 @@ export const IntegrationItem = ({integration, data, remove, isOpen}) => {
                 </div>
 
                 {integration.fields.map((field, index) => <div className="integration-field" key={index}>
-                    <p className="integration-field-title">{t(`integrations.${integration.name}.fields.${field.name}`)}</p>
+                    <p className={"integration-field-title" + (!isValidInput(field, index)
+                        ? " error-item" : "")}>{t(`integrations.${integration.name}.fields.${field.name}`)}</p>
 
-                    {field.type === "text" && <input className="integration-field-input" type="text" value={getState(index)}
-                                                        onChange={e => updateState(index, e.target.value)}
-                                                       placeholder={getPlaceholder(integration.name, field.name)}/>}
+                    {field.type === "text" && <input className={"integration-field-input" + (!isValidInput(field, index)
+                        ? " item-error-border" : "")} type="text" value={getState(index)}
+                                                     onChange={e => updateState(index, e.target.value)}
+                                                     placeholder={getPlaceholder(integration.name, field.name)}/>}
 
-                    {field.type === "textarea" && <textarea className="integration-field-input text-area" value={getState(index)}
+                    {field.type === "textarea" && <textarea className={"integration-field-input text-area"
+                        + (!isValidInput(field, index) ? " item-error-border" : "")} value={getState(index)}
                                                                 onChange={e => updateState(index, e.target.value)}
                                                                 placeholder={getPlaceholder(integration.name, field.name)} />}
 
