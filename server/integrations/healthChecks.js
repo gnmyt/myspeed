@@ -29,7 +29,7 @@ module.exports = (registerEvent) => {
     return {
         icon: "fa-solid fa-heart-pulse",
         fields: [
-            {name: "url", type: "text", required: true},
+            {name: "url", type: "text", required: true, regex: /https?:\/\/.+/},
         ]
     };
 }
