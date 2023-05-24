@@ -1,0 +1,30 @@
+@import "@/common/styles/colors"
+
+.integration-dialog
+  display: flex
+  margin-left: 0.5rem
+  margin-right: 0.5rem
+  gap: 1rem
+  width: 45rem
+  margin-top: 1rem
+  height: 20rem
+
+.integrations-tab
+  display: flex
+  flex-direction: column
+  gap: 0.5rem
+  overflow-y: scroll
+  overflow-x: clip
+  width: 100%
+
+@media (max-width: 781px)
+  .integration-dialog
+    width: 90vw
+    margin-left: 0
+    height: 100%
+    margin-right: 0
+    margin-top: 0.5rem
+    flex-direction: column
+
+  .integrations-tab
+    max-height: 15rem

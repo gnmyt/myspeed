@@ -16,7 +16,7 @@ import {jsonRequest, postRequest} from "@/common/utils/RequestUtil";
 import {updateInfo} from "@/common/components/Header/utils/infos";
 import {t} from "i18next";
 import {ConfigContext} from "@/common/contexts/Config";
-import {SpeedtestDialog} from "@/common/components/SpeedtestDialog";
+import {LoadingDialog} from "@/common/components/LoadingDialog";
 import {NodeContext} from "@/common/contexts/Node";
 
 function HeaderComponent(props) {
@@ -88,7 +88,7 @@ function HeaderComponent(props) {
 
     return (
         <header>
-            <SpeedtestDialog isOpen={startedManually}/>
+            <LoadingDialog isOpen={startedManually}/>
             <div className="header-main">
                 {config.viewMode ? <h2>{t("header.title")}</h2> : <h2 onClick={() => props.showNodePage(true)} className="h2-click"><FontAwesomeIcon icon={faServer} /> {getNodeName()}</h2>}
 

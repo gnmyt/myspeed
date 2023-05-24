@@ -37,6 +37,7 @@ import ViewDialog from "@/common/components/ViewDialog";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {ToastNotificationContext} from "@/common/contexts/ToastNotification";
 import {NodeContext} from "@/common/contexts/Node";
+import {IntegrationDialog} from "@/common/components/IntegrationDialog";
 
 let icon;
 
@@ -64,6 +65,7 @@ function DropdownComponent() {
     const updateToast = useContext(ToastNotificationContext);
     const [setDialog] = useContext(InputDialogContext);
     const [showViewDialog, setShowViewDialog] = useState(false);
+    const [showIntegrationDialog, setShowIntegrationDialog] = useState(false);
     const ref = useRef();
 
     useEffect(() => {
@@ -92,9 +94,7 @@ function DropdownComponent() {
         if (reload) reloadConfig();
     }
 
-    const patchDialog = async (key, dialog, toggle = true, postValue = (val) => val) => {
-        toggle ? toggleDropdown() : setDialog();
-
+    const patchDialog = async (key, dialog, postValue = (val) => val) => {
         setTimeout(async () => setDialog({...(await dialog(config[key])),
             onSuccess: value => patchRequest(`/config/${key}`, {value: postValue(value)})
                 .then(res => showFeedback(!res.ok ? "dropdown.changes_unsaved" : undefined))
@@ -114,7 +114,6 @@ function DropdownComponent() {
     }));
 
     const recommendedSettings = async () => {
-        toggleDropdown();
         const result = await jsonRequest("/recommendations");
 
         if (!result.message) {
@@ -143,10 +142,9 @@ function DropdownComponent() {
 
     const updateServerManually = () => patchDialog("serverId", (value) => ({
         title: t("update.manual_server_title"), placeholder: t("update.manual_server_id"), type: "number", value: value,
-    }), false);
+    }));
 
     const updatePassword = async () => {
-        toggleDropdown();
         const passwordSet = currentNode !== 0 ? findNode(currentNode).password : localStorage.getItem("password") != null;
 
         setDialog({
@@ -171,10 +169,9 @@ function DropdownComponent() {
 
     const updatePasswordLevel = () => patchDialog("passwordLevel", async (value) => ({
         title: t("update.level_title"), select: true, selectOptions: levelOptions(), value, replace: true
-    }), false);
+    }));
 
     const updateCron = async () => {
-        toggleDropdown();
         setDialog({
             title: t("update.cron_title"),
             select: true,
@@ -192,10 +189,9 @@ function DropdownComponent() {
         value: value,
         updateDescription: (val) => <>{t("update.cron_next_test")} <span className="dialog-value">{parseCron(val)}</span></>,
         description: <>{t("update.cron_next_test")} <span className="dialog-value">{parseCron(value)}</span></>
-    }), false, (val) => stringifyCron(val));
+    }), (val) => stringifyCron(val));
 
     const updateTime = async () => {
-        toggleDropdown();
         setDialog({
             title: t("update.time_title"),
             select: true,
@@ -210,7 +206,6 @@ function DropdownComponent() {
     }
 
     function exportDialog() {
-        toggleDropdown();
         setDialog({
             select: true,
             title: t("update.export_title"),
@@ -222,7 +217,6 @@ function DropdownComponent() {
     }
 
     const togglePause = () => {
-        toggleDropdown();
         if (!status.paused) {
             setDialog({
                 title: t("update.pause_title"),
@@ -236,24 +230,7 @@ function DropdownComponent() {
         } else postRequest("/speedtests/continue").then(updateStatus);
     }
 
-    const updateIntegration = async () => patchDialog("healthChecksUrl", (value) => ({
-        title: <>{t("update.healthchecks")} <a onClick={showIntegrationInfo}>?</a></>,
-        placeholder: t("update.healthchecks_url"), value,
-        buttonText: t("dialog.update"),
-        unsetButton: !value.includes("<uuid>") ? "Deaktivieren" : undefined,
-        onClear: () => patchRequest("/config/healthChecksUrl", {value: "https://hc-ping.com/<uuid>"})
-            .then(() => showFeedback("update.healthchecks_activated"))
-    }));
-
-    const showIntegrationInfo = () => setDialog({
-        title: t("update.healthchecks"),
-        description: healthChecksInfo(),
-        buttonText: t("dialog.okay"),
-        replace: true
-    });
-
     const updateLanguage = () => {
-        toggleDropdown();
         setDialog({
             title: t("update.language"),
             select: true,
@@ -263,15 +240,7 @@ function DropdownComponent() {
         });
     }
 
-    const updateView = () => {
-        toggleDropdown();
-        setShowViewDialog(true);
-    }
-
-    const showCredits = () => {
-        toggleDropdown();
-        setDialog({title: "MySpeed", description: creditsInfo(), buttonText: t("dialog.close")});
-    }
+    const showCredits = () => setDialog({title: "MySpeed", description: creditsInfo(), buttonText: t("dialog.close")});
 
     const options = [
         {run: updatePing, icon: faPingPongPaddleBall, text: t("dropdown.ping")},
@@ -285,16 +254,17 @@ function DropdownComponent() {
         {run: updateTime, icon: faCalendarDays, text: t("dropdown.time"), allowView: true},
         {run: exportDialog, icon: faFileExport, text: t("dropdown.export")},
         {run: togglePause, icon: status.paused ? faPlay : faPause, text: t("dropdown." + (status.paused ? "resume_tests" : "pause_tests"))},
-        {run: updateIntegration, icon: faCircleNodes, text: t("dropdown.healthchecks")},
+        {run: () => setShowIntegrationDialog(true), icon: faCircleNodes, text: t("dropdown.integrations")},
         {hr: true, key: 2},
         {run: updateLanguage, icon: faGlobeEurope, text: t("dropdown.language"), allowView: true},
-        {run: updateView, icon: faChartSimple, allowView: true, text: t("dropdown.view")},
+        {run: () => setShowViewDialog(true), icon: faChartSimple, allowView: true, text: t("dropdown.view")},
         {run: showCredits, icon: faInfo, text: t("dropdown.info"), allowView: true}
     ];
 
     return (
         <>
             {showViewDialog && <ViewDialog onClose={() => setShowViewDialog(false)}/>}
+            {showIntegrationDialog && <IntegrationDialog onClose={() => setShowIntegrationDialog(false)}/>}
             <div className="dropdown dropdown-invisible" id="dropdown" ref={ref}>
                 <div className="dropdown-content">
                     <h2>{t("dropdown.settings")}</h2>
@@ -302,7 +272,10 @@ function DropdownComponent() {
                         {options.map(entry => {
                             if (!config.viewMode || (config.viewMode && entry.allowView)) {
                                 if (!entry.hr) {
-                                    return (<div className="dropdown-item" onClick={entry.run} key={entry.run}>
+                                    return (<div className="dropdown-item" onClick={() => {
+                                        toggleDropdown();
+                                        entry.run();
+                                    }} key={entry.run}>
                                         <FontAwesomeIcon icon={entry.icon}/>
                                         <h3>{entry.text}</h3>
                                     </div>);

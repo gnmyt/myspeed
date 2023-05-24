@@ -2,7 +2,7 @@ const speedTest = require('../util/speedtest');
 const tests = require('../controller/speedtests');
 const config = require('../controller/config');
 const recommendations = require("../controller/recommendations");
-let {setState, sendRunning, sendPing, sendError} = require("./healthchecks");
+let {setState, sendRunning, sendPing, sendError, sendFinished} = require("./integrations");
 
 let isRunning = false;
 
@@ -18,7 +18,6 @@ function setRunning(running, sendRequest = true) {
         if (sendRequest) sendRunning();
     } else {
         setState("ping");
-        if (sendRequest) sendPing();
     }
 }
 
@@ -67,6 +66,7 @@ module.exports.create = async (type = "auto", retried = false) => {
         console.log(`Test #${testResult} was executed successfully in ${time}s. 🏓 ${ping} ⬇ ${download}️ ⬆ ${upload}️`);
         createRecommendations().then(() => "");
         setRunning(false);
+        sendFinished({ping, download, upload, time}).then(() => "");
     } catch (e) {
         if (!retried) return this.create(type, true);
         let testResult = await tests.create(-1, -1, -1, null, type, e.message);

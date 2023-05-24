@@ -1,4 +1,5 @@
 const config = require("../models/Config");
+const {triggerEvent} = require("./integrations");
 
 const configDefaults = {
     "ping": "25",
@@ -35,6 +36,9 @@ module.exports.get = async (key) => {
 // Updates a specific config entry
 module.exports.update = async (key, newValue) => {
     if ((await this.get(key)) === undefined) return undefined;
+
+    triggerEvent("configUpdated", {key: key, value: key === "password" ? "protected" :newValue}).then(() => {});
+
     return await config.update({value: newValue}, {where: {key: key}});
 }
 

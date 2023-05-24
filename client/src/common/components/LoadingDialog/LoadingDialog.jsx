@@ -1,7 +1,7 @@
 import {DialogProvider} from "@/common/contexts/Dialog";
 import "./styles.sass";
 
-export const SpeedtestDialog = (props) => {
+export const LoadingDialog = (props) => {
 
     return (
         <>

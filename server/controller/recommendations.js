@@ -1,4 +1,5 @@
 const recommendations = require('../models/Recommendations');
+const {triggerEvent} = require("./integrations");
 
 // Gets the current recommendations
 module.exports.get = async () => {
@@ -7,6 +8,12 @@ module.exports.get = async () => {
 
 // Sets new recommendations
 module.exports.set = async (ping, download, upload) => {
+    const configuration = {ping: Math.round(ping), download: parseFloat(download.toFixed(2)),
+        upload: parseFloat(upload.toFixed(2))};
+    
     await recommendations.destroy({truncate: true});
-    return await recommendations.create({ping: Math.round(ping), download: download.toFixed(2), upload: upload.toFixed(2)});
+
+    triggerEvent("recommendationsUpdated", configuration).then(() => {});
+
+    return recommendations.create(configuration);
 }

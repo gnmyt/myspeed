@@ -1,0 +1,74 @@
+@import "@/common/styles/colors"
+
+.integration-item
+  border: 2px solid $gray
+  border-radius: 0.8rem
+  padding: 0.5rem 1.5rem
+  color: $darker-white
+  transition: border-color 0.3s
+
+.green-border
+  border: 2px solid $green
+
+.error-border
+  border: 2px solid $red
+
+.integration-body
+  margin-left: 0.5rem
+  margin-right: 0.5rem
+
+.integration-field
+  display: flex
+  align-items: center
+  gap: 0.5rem
+  margin-top: 0.5rem
+  justify-content: space-between
+
+  p
+    margin: 0
+
+.error-item
+  color: $red
+
+.integration-field-input
+  background-color: $darker-gray
+  border: 2px solid transparent
+  border-radius: 0.5rem
+  padding: 0.1rem 0.8rem
+  color: $darker-white
+  font-size: 12pt
+  height: 2rem
+  width: 50%
+
+.item-error-border
+  border: 2px solid $red
+
+.text-area
+  font-family: "Inter", sans-serif
+  height: 3.5rem
+  resize: none
+
+input[type="checkbox"]
+  appearance: none
+  width: 2rem
+  height: 2rem
+  border-radius: 0.5rem
+  outline: none
+  transition: border-color 0.3s
+  background-color: $darker-gray
+  cursor: pointer
+
+  &:checked
+    content: "\2713"
+    color: #45C65A
+    display: flex
+    justify-content: center
+    align-items: center
+    font-weight: 700
+    font-size: 18pt
+
+  &::before
+    color: #45C65A
+
+  &:checked::before
+    content: "\2713"

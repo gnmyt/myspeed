@@ -42,10 +42,10 @@
     "export": "Tests exportieren",
     "pause_tests": "Tests pausieren",
     "resume_tests": "Tests fortsetzen",
-    "healthchecks": "Healthchecks",
     "language": "Sprache ändern",
     "view": "Ansicht wechseln",
-    "info": "Infos zum Projekt"
+    "info": "Infos zum Projekt",
+    "integrations": "Integrationen"
   },
   "options": {
     "time": {
@@ -98,9 +98,6 @@
     "hours": "Stunden",
     "pause": "Pausieren",
     "release_manually": "Manuell freigeben",
-    "healthchecks": "HealthChecks Integration",
-    "healthchecks_url": "HealthChecks Server URL",
-    "healthchecks_activated": "Die Healthchecks wurden deaktiviert",
     "language": "Sprache ändern",
     "view_title": "Ansicht wechseln"
   },
@@ -127,7 +124,6 @@
     "before": "vor"
   },
   "info": {
-    "healthchecks": "MySpeed verwendet <HCLink>HealthChecks</HCLink>, um dich zu benachrichtigen, wenn dein Internet ausfällt. Um dies zu aktivieren, setze deine Ping URL in das Textfeld ein. Mehr dazu <WIKILink>hier</WIKILink>",
     "credits": "<Link>MySpeed</Link> wird von GNMYT bereitgestellt und verwendet die <CLILink>Speedtest-CLI</CLILink> von Ookla.",
     "recommendations_error": "Du musst mindestens 10 Tests machen, damit ein Durchschnitt ermittelt werden kann. Ob die Tests manuell oder automatisch durchgeführt wurden ist egal.",
     "recommendations_info": "Anhand der letzten 10 Testergebnisse wurde festgestellt, dass der optimale Ping bei <Bold>{{ping}} ms</Bold>, der Download bei <Bold>{{down}} Mbit/s</Bold> und der Upload bei <Bold>{{up}} Mbit/s</Bold> liegt. Orientiere dich am besten an deinem Internetvertrag und übernehme es nur, wenn es mit dem übereinstimmt.",
@@ -267,6 +263,63 @@
       "not_reachable": "Server ist nicht erreichbar",
       "password_changed": "Passwort wurde geändert",
       "tests_pending": "Testergebnisse ausstehend"
+    }
+  },
+  "integrations": {
+    "none_active": "Diese Integration ist nicht aktiv. <br/><Bold>Hinzufügen</Bold>",
+    "display_name": "Integrations-Name",
+    "create": "Hinzufügen",
+    "activity": {
+      "never_executed": "Nie ausgeführt",
+      "last_run": "Zuletzt vor "
+    },
+    "discord": {
+      "title": "Discord",
+      "fields": {
+        "url": "Webhook-URL",
+        "url_placeholder": "https://discord.com/api/webhooks/...",
+        "display_name": "Anzeigename",
+        "display_name_placeholder": "MySpeed Benachrichtigung",
+        "error_message": "Fehlernachricht",
+        "error_message_placeholder": "Fehler: %upload%",
+        "send_failed": "Fehlernachrichten senden",
+        "send_finished": "Abgeschlossene senden",
+        "finished_message": "Abgeschlossen-Nachricht",
+        "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
+      }
+    },
+    "healthChecks": {
+      "title": "HealthChecks",
+      "fields": {
+        "url": "HealthChecks-URL",
+        "url_placeholder": "https://hc-ping.com/<uuid>"
+      }
+    },
+    "telegram": {
+      "title": "Telegram",
+      "fields": {
+        "token": "Bot Token",
+        "chat_id": "Chat ID",
+        "error_message": "Fehlernachricht",
+        "error_message_placeholder": "Fehler: %upload%",
+        "send_failed": "Fehlernachrichten senden",
+        "send_finished": "Abgeschlossene senden",
+        "finished_message": "Abgeschlossen-Nachricht",
+        "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
+      }
+    },
+    "webhook": {
+      "title": "Webhook",
+      "fields": {
+        "url": "Webhook-URL",
+        "url_placeholder": "https://dein-server.de/hook",
+        "send_started": "Gestartete senden",
+        "send_failed": "Fehlernachrichten senden",
+        "send_finished": "Abgeschlossene senden",
+        "send_alive": "Lebendig-Nachrichten senden",
+        "send_recommendations": "Empfehlungen senden",
+        "send_config_updates": "Konfigurations-Updates senden"
+      }
     }
   }
 }

@@ -1,0 +1,61 @@
+@import "@/common/styles/colors"
+
+.integration-item-header
+  display: flex
+  justify-content: space-between
+
+.integration-item-left
+  display: flex
+  align-items: center
+  gap: 0.5rem
+
+  svg
+    width: 1.8rem
+    height: 1.8rem
+
+.integration-title-container h3
+  margin: 0
+  font-size: 17px
+  text-overflow: ellipsis
+  overflow: hidden
+  white-space: nowrap
+  max-width: 11rem
+
+.integration-item-activity
+  display: flex
+  align-items: center
+  gap: 0.3rem
+  .integration-item-activity-circle
+    width: 0.5rem
+    height: 0.5rem
+    border-radius: 5rem
+  p
+    margin: 0
+    font-size: 11pt
+    font-weight: 500
+
+.circle-error
+  background-color: $red
+
+.circle-inactive
+  background-color: $gray
+
+.circle-active
+  background-color: $green
+
+.integration-item-right
+  display: flex
+  align-items: center
+  gap: 0.8rem
+
+.integration-item-right svg
+  width: 1.5rem
+  height: 3rem
+  cursor: pointer
+  font-weight: 1000
+
+.integration-green:hover
+  color: $green-hover
+
+.integration-red:hover
+  color: $red-hover

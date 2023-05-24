@@ -42,10 +42,10 @@
     "export": "Export tests",
     "pause_tests": "Pause tests",
     "resume_tests": "Resume tests",
-    "healthchecks": "Healthchecks",
     "language": "Change language",
     "view": "Switch view",
-    "info": "About the project"
+    "info": "About the project",
+    "integrations": "Integrations"
   },
   "options": {
     "time": {
@@ -98,9 +98,6 @@
     "hours": "Hours",
     "pause": "Pause",
     "release_manually": "Release manually",
-    "healthchecks": "HealthChecks Integration",
-    "healthchecks_url": "HealthChecks Server URL",
-    "healthchecks_activated": "The health checks have been disabled",
     "language": "Change language",
     "view_title": "Switch view"
   },
@@ -127,7 +124,6 @@
     "before": "before"
   },
   "info": {
-    "healthchecks": "MySpeed uses <HCLink>HealthChecks</HCLink> to notify you when your internet is down. To enable this, put your ping URL in the text box. Read more <WIKILink>here</WIKILink>",
     "credits": "<Link>MySpeed</Link> is provided by GNMYT and uses the <CLILink>Speedtest CLI</CLILink> from Ookla.",
     "recommendations_error": "You have to do at least 10 tests to get an average. It doesn't matter if the tests were done manually or automatically.",
     "recommendations_info": "Based on the last 10 tests, it was found that the optimal ping was <Bold>{{ping}} ms</Bold>, the download at <Bold>{{down}} Mbps</Bold> and the upload at <Bold>{{up}} Mbps</Bold>. It is best to orientate yourself on your internet contract and only adopt it if it matches that.",
@@ -267,6 +263,63 @@
       "not_reachable": "Server is not reachable",
       "password_changed": "Password changed",
       "tests_pending": "Test results pending"
+    }
+  },
+  "integrations": {
+    "none_active": "This integration is not active. <br/><Bold>Create</Bold>",
+    "display_name": "Integration name",
+    "create": "Create",
+    "activity": {
+      "never_executed": "Never executed",
+      "last_run": "Last run before "
+    },
+    "discord": {
+      "title": "Discord",
+      "fields": {
+        "url": "Webhook-URL",
+        "url_placeholder": "https://discord.com/api/webhooks/...",
+        "display_name": "Display name",
+        "display_name_placeholder": "MySpeed Notification",
+        "error_message": "Error message",
+        "error_message_placeholder": "Error: %upload%",
+        "send_failed": "Send error messages",
+        "send_finished": "Send finished messages",
+        "finished_message": "Finished message",
+        "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
+      }
+    },
+    "healthChecks": {
+      "title": "HealthChecks",
+      "fields": {
+        "url": "HealthChecks-URL",
+        "url_placeholder": "https://hc-ping.com/<uuid>"
+      }
+    },
+    "telegram": {
+      "title": "Telegram",
+      "fields": {
+        "token": "Bot Token",
+        "chat_id": "Chat ID",
+        "error_message": "Error message",
+        "error_message_placeholder": "Error: %upload%",
+        "send_failed": "Send error messages",
+        "send_finished": "Send finished messages",
+        "finished_message": "Finished message",
+        "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
+      }
+    },
+    "webhook": {
+      "title": "Webhook",
+      "fields": {
+        "url": "Webhook-URL",
+        "url_placeholder": "https://your-server.com/hook",
+        "send_started": "Send started",
+        "send_failed": "Send error messages",
+        "send_finished": "Send finished messages",
+        "send_alive": "Send Keep-Alive messages",
+        "send_recommendations": "Send recommendations",
+        "send_config_updates": "Send configuration updates"
+      }
     }
   }
 }
