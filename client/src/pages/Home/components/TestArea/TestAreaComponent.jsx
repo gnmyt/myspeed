@@ -17,7 +17,9 @@ function TestArea() {
     return (
         <div className="speedtest-area">
             {speedtests.map ? speedtests.map(test => {
-                let date = new Date(Date.parse(test.created));
+                const dateArray = test.created.split("-").map((value) => parseInt(value));
+                const date = test.type === "average" ? new Date(dateArray[0], dateArray[1] - 1, dateArray[2])
+                    : new Date(Date.parse(test.created));
 
                 let item = localStorage.getItem("testTime");
                 if ((item === "3" || item === "4") && test.type !== "average") return;
