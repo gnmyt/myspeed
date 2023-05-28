@@ -1,4 +1,5 @@
 import './App.sass';
+import "@/common/styles/fonts.sass";
 import Home from "./pages/Home";
 import HeaderComponent from "./common/components/Header";
 import {SpeedtestProvider} from "./common/contexts/Speedtests";
