@@ -62,7 +62,7 @@ export const IntegrationDialog = (props) => {
     return (
         <>
             <DialogProvider close={props.onClose}>
-                {!integrationData || !activeData && <div className="lds-ellipsis"><div/><div/><div/><div/></div>}
+                {(!integrationData || !activeData) && <div className="lds-ellipsis"><div/><div/><div/><div/></div>}
                 {integrationData && activeData && <Dialog integrations={integrationData} active={activeData} setActive={setActiveData}/>}
             </DialogProvider>
         </>
