@@ -1,18 +1,18 @@
-import react from '@vitejs/plugin-react'
-import path from "path";
+import react from "@vitejs/plugin-react";
 import {VitePWA} from "vite-plugin-pwa";
+import path from "path";
 
 export default {
     plugins: [
-        VitePWA({ injectRegister: 'auto', manifest: false }),
+        VitePWA({ injectRegister: "auto", manifest: false }),
         react()
     ],
     build: {
-        outDir: 'build'
+        outDir: "build"
     },
     resolve: {
         alias: {
-            '@': path.resolve(__dirname, './src'),
+            "@": path.resolve(__dirname, "./src"),
         },
     },
     server: {
