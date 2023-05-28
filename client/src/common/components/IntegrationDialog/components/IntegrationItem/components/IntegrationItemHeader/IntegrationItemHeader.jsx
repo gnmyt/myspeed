@@ -10,9 +10,21 @@ import {
     faTrashArrowUp
 } from "@fortawesome/free-solid-svg-icons";
 import "./styles.sass";
+import {useEffect, useState} from "react";
 
 export const IntegrationItemHeader = ({integration, displayName, unsavedChanges, changesConfirmed, saveIntegration,
-                                          deleteConfirmed, deleteIntegration, open, setOpen, data}) => (
+                                          deleteConfirmed, deleteIntegration, open, setOpen, data}) => {
+    const [lastActivity, setLastActivity] = useState(generateRelativeTime(data.lastActivity));
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (data.lastActivity !== null) setLastActivity(generateRelativeTime(data.lastActivity));
+        }, 1000);
+
+        return () => clearInterval(interval);
+    });
+
+    return (
     <div className="integration-item-header">
         <div className="integration-item-left">
             <FontAwesomeIcon icon={integration.icon} className="integration-item-icon"/>
@@ -23,7 +35,7 @@ export const IntegrationItemHeader = ({integration, displayName, unsavedChanges,
                         : (data.lastActivity === null || !data.lastActivity ? "inactive" : "active"))}/>
 
                     <p>{data.activityFailed ? t("failed") : (data.lastActivity === null || !data.lastActivity
-                        ? t("integrations.activity.never_executed") : t("integrations.activity.last_run") + generateRelativeTime(data.lastActivity))}</p>
+                        ? t("integrations.activity.never_executed") : t("integrations.activity.last_run") + lastActivity)}</p>
                 </div>
             </div>
         </div>
@@ -41,4 +53,4 @@ export const IntegrationItemHeader = ({integration, displayName, unsavedChanges,
                              className="integration-green"/>
         </div>
     </div>
-)
+)}
