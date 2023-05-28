@@ -61,7 +61,7 @@ export const IntegrationDialog = (props) => {
 
     return (
         <>
-            <DialogProvider close={props.onClose}>
+            <DialogProvider close={props.onClose} customClass={(!integrationData || !activeData) ? "dialog-loading" : ""}>
                 {(!integrationData || !activeData) && <div className="lds-ellipsis"><div/><div/><div/><div/></div>}
                 {integrationData && activeData && <Dialog integrations={integrationData} active={activeData} setActive={setActiveData}/>}
             </DialogProvider>
