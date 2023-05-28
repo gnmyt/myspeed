@@ -4,11 +4,20 @@ import path from "path";
 
 export default {
     plugins: [
-        VitePWA({ injectRegister: "auto", manifest: false }),
+        VitePWA({injectRegister: "auto", manifest: false}),
         react()
     ],
     build: {
-        outDir: "build"
+        outDir: "build",
+        chunkSizeWarningLimit: 1600,
+        rollupOptions: {
+            output: {
+                manualChunks(id) {
+                    if (id.includes('node_modules'))
+                        return id.includes('@fortawesome') ? 'icons' : 'vendor';
+                }
+            }
+        }
     },
     resolve: {
         alias: {
