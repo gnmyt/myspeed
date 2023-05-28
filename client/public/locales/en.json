@@ -281,7 +281,20 @@
         "display_name": "Display name",
         "display_name_placeholder": "MySpeed Notification",
         "error_message": "Error message",
-        "error_message_placeholder": "Error: %upload%",
+        "error_message_placeholder": "Error: %error%",
+        "send_failed": "Send error messages",
+        "send_finished": "Send finished messages",
+        "finished_message": "Finished message",
+        "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
+      }
+    },
+    "gotify": {
+      "title": "Gotify",
+      "fields": {
+        "url": "Server-URL",
+        "key": "App token",
+        "error_message": "Error message",
+        "error_message_placeholder": "Error: %error%",
         "send_failed": "Send error messages",
         "send_finished": "Send finished messages",
         "finished_message": "Finished message",
@@ -301,7 +314,7 @@
         "token": "Bot Token",
         "chat_id": "Chat ID",
         "error_message": "Error message",
-        "error_message_placeholder": "Error: %upload%",
+        "error_message_placeholder": "Error: %error%",
         "send_failed": "Send error messages",
         "send_finished": "Send finished messages",
         "finished_message": "Finished message",
