@@ -3,14 +3,9 @@ const integrations = require('../controller/integrations');
 const password = require('../middlewares/password');
 const {validateInput} = require("../controller/integrations");
 
-app.get("/", password(false), (req, res) => {
-    return res.json(integrations.getIntegrations());
-});
+app.get("/", password(false), (req, res) => res.json(integrations.getIntegrations()));
 
-app.get("/active", password(false), async (req, res) => {
-    const active = await integrations.getActive();
-    return res.json(active);
-});
+app.get("/active", password(false), async (req, res) => res.json(await integrations.getActive()));
 
 app.put("/:integrationName", password(false), async (req, res) => {
     const integration = integrations.getIntegration(req.params.integrationName);
