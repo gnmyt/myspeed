@@ -1,5 +1,5 @@
 name: 💡 Idee vorschlagen
-description: Hast du eine Idee? Hier bist du richtig
+description: Hast du eine Idee? Hier bist du richtig (🇩🇪)
 title: "[Feature] "
 labels: ["enhancement"]
 body:
@@ -14,8 +14,8 @@ body:
           required: true
   - type: textarea
     attributes:
-      label: "Deine Idee"
-      description: "Was können wir hinzufügen? Beschreibe deine Idee so genau wie möglich"
-      placeholder: "Meine Idee wäre es, ..."
+      label: Deine Idee
+      description: Was können wir hinzufügen? Beschreibe deine Idee so genau wie möglich
+      placeholder: Meine Idee wäre es, ...
     validations:
       required: true
