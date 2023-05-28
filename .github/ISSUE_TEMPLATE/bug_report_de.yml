@@ -1,5 +1,5 @@
 name: 🐛 Fehler melden
-description: Melde einen Fehler oder Bug in MySpeed
+description: Melde einen Fehler oder Bug in MySpeed (🇩🇪)
 title: "[Fehler] "
 labels: ["bug"]
 body:
@@ -14,9 +14,9 @@ body:
           required: true
   - type: textarea
     attributes:
-      label: "Der Fehler"
-      description: "Beschreibe den Bug/Fehler genau ins Detail. Füge falls vorhanden auch Screenshots hinzu und gib an, wie man den Fehler reproduzieren kann"
-      placeholder: "Es erscheint ein Fehler bei ..."
+      label: Der Fehler
+      description: Beschreibe den Bug/Fehler genau ins Detail. Füge falls vorhanden auch Screenshots hinzu und gib an, wie man den Fehler reproduzieren kann
+      placeholder: Es erscheint ein Fehler bei ...
     validations:
       required: true
   - type: dropdown
