@@ -9,7 +9,7 @@ module.exports.setState = (state = "ping") => {
     currentState = state;
 }
 
-// Send a ping to the provided healthcheck server
+// Send a ping to the event system
 module.exports.sendPing = async (type, message) => {
     await triggerEvent("minutePassed", {type, message});
 }
@@ -19,16 +19,17 @@ module.exports.sendCurrent = async () => {
     if (currentState === "ping") await this.sendPing();
 }
 
-// Sends an error to the healthcheck server
+// Sends an 'error' ping to the event system
 module.exports.sendError = async (error = "Unknown error") => {
     await triggerEvent("testFailed", error);
 }
 
-// Sends a 'running' ping to the healthcheck server
+// Sends a 'running' ping to the event system
 module.exports.sendRunning = async () => {
     await triggerEvent("testStarted");
 }
 
+// Sends a 'finished' ping to the event system
 module.exports.sendFinished = async (data) => {
     await triggerEvent("testFinished", data);
 }
