@@ -10,7 +10,7 @@ i18n.use(initReactI18next).use(LanguageDetector).use(HttpApi).init({
     supportedLngs: ['en', 'de'],
     fallbackLng: 'en',
     backend: {
-        loadPath: '/locales/{{lng}}.json'
+        loadPath: '/assets/locales/{{lng}}.json'
     },
     detection: {
         order: ['localStorage'],

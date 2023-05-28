@@ -53,18 +53,16 @@ export const IntegrationDialog = (props) => {
 
     useEffect(() => {
         jsonRequest("/integrations")
-            .then(data => setIntegrationData(data))
-            .catch(err => console.log(err));
+            .then(data => setIntegrationData(data));
 
         jsonRequest("/integrations/active")
-            .then(data => setActiveData(data.map(item => ({...item, uuid: uuid()}))))
-            .catch(err => console.log(err));
+            .then(data => setActiveData(data.map(item => ({...item, uuid: uuid()}))));
     }, []);
 
     return (
         <>
-            <DialogProvider close={props.onClose}>
-                {!integrationData || !activeData && <div className="lds-ellipsis"><div/><div/><div/><div/></div>}
+            <DialogProvider close={props.onClose} customClass={(!integrationData || !activeData) ? "dialog-loading" : ""}>
+                {(!integrationData || !activeData) && <div className="lds-ellipsis"><div/><div/><div/><div/></div>}
                 {integrationData && activeData && <Dialog integrations={integrationData} active={activeData} setActive={setActiveData}/>}
             </DialogProvider>
         </>

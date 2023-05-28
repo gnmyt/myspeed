@@ -9,8 +9,7 @@ const configDefaults = {
     "serverId": "none",
     "password": "none",
     "passwordLevel": "none",
-    "acceptOoklaLicense": "false",
-    "healthChecksUrl": "https://hc-ping.com/<uuid>"
+    "acceptOoklaLicense": "false"
 }
 
 module.exports.insertDefaults = async () => {

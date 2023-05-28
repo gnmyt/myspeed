@@ -8,7 +8,7 @@ const password = require('../middlewares/password');
 app.get("/", password(true), async (req, res) => {
     let configValues = {};
     (await config.list()).forEach(row => {
-        if (row.key !== "password" && !(req.viewMode && ["healthChecksUrl", "serverId", "cron", "passwordLevel"].includes(row.key)))
+        if (row.key !== "password" && !(req.viewMode && ["serverId", "cron", "passwordLevel"].includes(row.key)))
             configValues[row.key] = row.value;
     });
     configValues['viewMode'] = req.viewMode;

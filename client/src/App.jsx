@@ -1,4 +1,6 @@
-import './App.sass';
+import "@/common/styles/default.sass";
+import "@/common/styles/fonts.sass";
+import "@/common/styles/spinner.sass";
 import Home from "./pages/Home";
 import HeaderComponent from "./common/components/Header";
 import {SpeedtestProvider} from "./common/contexts/Speedtests";
@@ -8,7 +10,6 @@ import {InputDialogProvider} from "@/common/contexts/InputDialog/InputDialog";
 import {useContext, useState} from "react";
 import i18n from './i18n';
 import Loading from "@/pages/Loading";
-import "@/common/styles/spinner.sass";
 import Error from "@/pages/Error";
 import {ViewContext, ViewProvider} from "@/common/contexts/View";
 import Statistics from "@/pages/Statistics";

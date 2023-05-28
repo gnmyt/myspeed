@@ -4,18 +4,18 @@
   "description": "A speed test analysis software that shows your internet speed for up to 30 days",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "/assets/img/favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "/assets/img/logo192.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "maskable"
     },
     {
-      "src": "logo.png",
+      "src": "/assets/img/logo.png",
       "type": "image/png",
       "sizes": "512x512"
     }
