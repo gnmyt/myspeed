@@ -53,12 +53,10 @@ export const IntegrationDialog = (props) => {
 
     useEffect(() => {
         jsonRequest("/integrations")
-            .then(data => setIntegrationData(data))
-            .catch(err => console.log(err));
+            .then(data => setIntegrationData(data));
 
         jsonRequest("/integrations/active")
-            .then(data => setActiveData(data.map(item => ({...item, uuid: uuid()}))))
-            .catch(err => console.log(err));
+            .then(data => setActiveData(data.map(item => ({...item, uuid: uuid()}))));
     }, []);
 
     return (
