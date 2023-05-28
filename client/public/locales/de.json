@@ -281,7 +281,20 @@
         "display_name": "Anzeigename",
         "display_name_placeholder": "MySpeed Benachrichtigung",
         "error_message": "Fehlernachricht",
-        "error_message_placeholder": "Fehler: %upload%",
+        "error_message_placeholder": "Fehler: %error%",
+        "send_failed": "Fehlernachrichten senden",
+        "send_finished": "Abgeschlossene senden",
+        "finished_message": "Abgeschlossen-Nachricht",
+        "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
+      }
+    },
+    "gotify": {
+      "title": "Gotify",
+      "fields": {
+        "url": "Server-URL",
+        "key": "Anwendungs-Token",
+        "error_message": "Fehlernachricht",
+        "error_message_placeholder": "Fehler: %error%",
         "send_failed": "Fehlernachrichten senden",
         "send_finished": "Abgeschlossene senden",
         "finished_message": "Abgeschlossen-Nachricht",
@@ -301,7 +314,7 @@
         "token": "Bot Token",
         "chat_id": "Chat ID",
         "error_message": "Fehlernachricht",
-        "error_message_placeholder": "Fehler: %upload%",
+        "error_message_placeholder": "Fehler: %error%",
         "send_failed": "Fehlernachrichten senden",
         "send_finished": "Abgeschlossene senden",
         "finished_message": "Abgeschlossen-Nachricht",
