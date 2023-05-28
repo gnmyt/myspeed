@@ -4,7 +4,7 @@ import {VitePWA} from "vite-plugin-pwa";
 
 export default {
     plugins: [
-        VitePWA({ injectRegister: 'auto' }),
+        VitePWA({ injectRegister: 'auto', manifest: false }),
         react()
     ],
     build: {
