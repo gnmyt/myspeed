@@ -29,7 +29,7 @@ module.exports = (registerEvent) => {
         icon: "fa-solid fa-bell",
         fields: [
             {name: "url", type: "text", required: true, regex: /https?:\/\/.+/},
-            {name: "key", type: "text", required: true, regex: /[A-Za-z0-9]{15}/},
+            {name: "key", type: "text", required: true, regex: /^.{15}$/},
             {name: "send_finished", type: "boolean", required: false},
             {name: "finished_message", type: "textarea", required: false},
             {name: "send_failed", type: "boolean", required: false},
