@@ -14,7 +14,6 @@ plugins:
 
 theme:
   name: material
-  language: de
   logo: assets/images/logo.png
   features:
     - toc.integrate
