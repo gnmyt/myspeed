@@ -2,39 +2,43 @@
 Hier wird die Einrichtung für Windows beschrieben.
 
 1. Lade NodeJS herunter  
-   Um MySpeed nutzen zu können, benötigst du zuerst **NodeJS**. Du kannst dir den Installer ganz einfach [hier](https://nodejs.org/de/download/) herunterladen. Empfohlen wird die LTS-Version 16 von NodeJS
+   Um MySpeed nutzen zu können, benötigst du zuerst **NodeJS**. Du kannst dir den Installer ganz einfach [hier](https://nodejs.org/de/download/) herunterladen. Empfohlen wird die LTS-Version 18 von NodeJS
 
-2. Lade Python herunter  
-   Um das Projekt "bauen" zu können, musst du dir ebenfalls noch Python herunterladen. Dies kannst du [hier](https://www.python.org/downloads/).
-
-3. Lade die Visual Studio BuildTools herunter  
-   Das Tool "node-gyp" benötigt ebenfalls die BuildTools von Visual Studio, um das Projekt erfolgreich "bauen" zu können. So funktioniert das:
-    1. Klicke [auf diesen Link](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools) und warte kurz, bis der Download startet
-    2. Öffne die Datei und klicke "Fortfahren"
-    3. Wähle nun noch den optionalen Workload "Desktopentwicklung mit C++" aus und bestätige deine Auswahl mit einem Klick auf "Install"
-
-4. Lade MySpeed herunter  
+2. Lade MySpeed herunter  
    Lade nun die neuste Version von MySpeed herunter. Du findest [hier](https://github.com/gnmyt/myspeed/releases/latest) den neusten Release. Lade dir hiervon die Datei "MySpeed-x.x.x-zip" herunter
 
-5. Entpacke die Datei  
+3. Entpacke die Datei  
    Entpacke nun die gerade heruntergeladene Datei an einen Ort deiner Wahl. Am besten an einen Ort, den du nachher noch kennst 🌚
 
-6. Teste deine Installation  
-   Navigiere zuerst in den Ordner, in welchen du die Datei entpackt hast. Klicke mit `Shift` + `Linksklick` in einen leeren Bereich in diesem Ordner und wähle "In Powershell öffnen".  
+4. Teste deine Installation  
+   Navigiere zuerst in den Ordner, in welchen du die Datei entpackt hast. Klicke mit `Shift` + `Rechtsklick` in einen leeren Bereich in diesem Ordner und wähle "In Powershell öffnen".  
    Nun fügst du diesen Befehl in das Konsolenfenster ein und drückst `Enter`:
    ```sh
    npm install 
    ```
+   
+    ??? warning "Schlägt die NPM-Installation fehl?"
+        Es besteht die Möglichkeit, dass es für dein System keine vorkompilierten Module gibt. In diesem Fall musst du die Module selbst kompilieren.
+        Folge dazu diesen Schritten:
+
+        1. Lade Python herunter  
+            Um das Projekt "bauen" zu können, musst du dir ebenfalls noch Python herunterladen. Dies kannst du [hier](https://www.python.org/downloads/).
+
+        2. Lade die Visual Studio BuildTools herunter  
+            Das Tool "node-gyp" benötigt ebenfalls die BuildTools von Visual Studio, um das Projekt erfolgreich "bauen" zu können. So funktioniert das:
+            1. Klicke [auf diesen Link](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools) und warte kurz, bis der Download startet
+            2. Öffne die Datei und klicke "Fortfahren"
+            3. Wähle nun noch den optionalen Workload "Desktopentwicklung mit C++" aus und bestätige deine Auswahl mit einem Klick auf "Install"
+        3. Führe `npm install` erneut aus
    Wird alles erfolgreich ausgeführt, dann hast du alles richtig gemacht! Glückwunsch. :)  
-   Ist das allerdings nicht der Fall, sieh dir unseren Guide zur Fehlerbehebung an, um deine Probleme zu beheben.  
    Du kannst nun MySpeed mit diesem Befehl in deiner Powershell starten.
 
-7. MySpeed starten
+5. MySpeed starten
    ```powershell
    $env:NODE_ENV="production"; node server
    ```
 
-## Automatisches hochfahren mithilfe von Autostart-Ordner in Windows
+## Automatisches hochfahren mithilfe des Autostartordners in Windows
 
 1. Öffne den Autostart-Ordner in Windows  
    Drücke auf deiner Tastatur die beiden Tasten `Windows` + `R` gleichzeitig, bis ein Ausführen-Dialog erscheint. Gib dort dann `%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup` ein und drücke `Enter`.
