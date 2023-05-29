@@ -40,6 +40,8 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/gnmyt/myspeed
+    - icon: fontawesome/solid/heart
+      link: https://ko-fi.com/gnmyt
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/germannewsmaker
     - icon: fontawesome/brands/discord
