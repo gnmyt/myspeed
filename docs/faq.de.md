@@ -2,12 +2,12 @@
 Hier beantworten wir dir die Fragen, die möglicherweise auftreten könnten.
 
 ??? question "Wie installiere ich MySpeed?"
-    Je nach Betriebssystem ist diese Anleitung unterschiedlich. Hier findest du die Anleitung für [Windows](/setup/windows) und [Linux](/setup/linux).  
+    Je nach Betriebssystem ist diese Anleitung unterschiedlich. Hier findest du die Anleitung für [Windows](../setup/windows) und [Linux](../setup/linux).  
     Allerdings wird es stark empfohlen, MySpeed unter Linux zu installieren.
 
 ??? question "Was sind die Anforderungen?"
     Es kommt darauf an, was für eine Bandbreite du hast. Bei Linux wäre es zum Beispiel so:
-    Wenn du ein Maximum von 100 Mbits anliegen hast, dann reicht ein RaspberryPi 1 oder ein anderer alter Computer.
+    Wenn du ein Maximum von 100 Mbit/s anliegen hast, dann reicht ein RaspberryPi 1 oder ein anderer alter Computer.
     Wenn du eine Gbit-Leitung hast, wäre schon ein Raspberry Pi 4 oder ein PC mit 1Gbit LAN Support wichtig.
 
 ??? question "Kann ich trotz VPN MySpeed verwenden?"
@@ -19,10 +19,12 @@ Hier beantworten wir dir die Fragen, die möglicherweise auftreten könnten.
     MySpeed dient in dem Fall nur zu Informationszwecken und hat keinerlei rechtliche Garantien.
 
 ??? question "Was kann die Speedtests beeinflussen?"
-    Im Grunde das übermäßige Nutzen der verfügbaren Bandbreite, was an sich gut ist. So siehst du dann auch, wie viel noch zur Verfügung steht.
+    Es gibt viele Faktoren, die die Geschwindigkeitstests beeinflussen können. Wenn Sie zum Beispiel viele Hintergrunddienste haben
+    laufen, können diese die Ergebnisse beeinflussen. Am besten schalten Sie diese zu den jeweiligen Testzeiten ab, da sonst die
+    Ergebnisse verfälscht werden könnten.
 
 ??? question "Was passiert mit den alten Testergebnissen?"
-    Die alten Testergebnisse werden automatisch gelöscht, sobald sie älter als 24 Stunden sind.
+    Die alten Testergebnisse werden automatisch gelöscht, sobald sie älter als 30 Tage sind.
 
 ??? question "Muss es dauerhaft laufen?"
     Wir empfehlen es, um bessere Ergebnisse zu erhalten. Wenn es dich beim Filme streamen etc. stört, 
@@ -46,7 +48,7 @@ Hier beantworten wir dir die Fragen, die möglicherweise auftreten könnten.
         Es ist sehr wahrscheinlich, dass Hintergrunddienste deine Geschwindigkeiten beeinflussen. Schalte diese am besten bei den jeweiligen Testzeiten ab, da sonst dein Ergebnis manipuliert werden könnte.
 
 ??? question "Wie setze ich mein Passwort zurück?"
-    Du hast dein MySpeed-Passwort vergessen? Das passiert, kein Problem. Zum zurücksetzen navigiere in den Installationsort (`cd /opt/myspeed`) und führe den folgenden Befehl aus:
+    Du hast dein MySpeed-Passwort vergessen? Das passiert, kein Problem. Zum Zurücksetzen navigiere in den Installationsort (`cd /opt/myspeed`) und führe den folgenden Befehl aus:
     ```sh
     node -e "const {Sequelize} = require('sequelize');const db = new Sequelize({dialect: 'sqlite', storage: 'data/storage.db'});db.query('UPDATE config SET value=? WHERE key=?', {replacements: ['none', 'password']})"
     ```    

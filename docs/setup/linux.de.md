@@ -50,7 +50,7 @@ Keine Lust mehr? Du kannst MySpeed ganz einfach wieder entfernen. Entscheide hie
 sudo apt-get install wget curl unzip -y #(1)
 
 # Dies brauchst du nur ausführen, wenn du NodeJS noch nicht installiert hast
-curl -sSL https://deb.nodesource.com/setup_16.x | bash
+curl -sSL https://deb.nodesource.com/setup_18.x | bash
 sudo apt-get install nodejs -y #(2)
 
 mkdir /opt/myspeed && cd /opt/myspeed #(3)
@@ -81,7 +81,7 @@ NODE_ENV=production node server #(7)
 sudo apt-get install git curl -y #(1)
 
 # Dies brauchst du nur ausführen, wenn du NodeJS noch nicht installiert hast
-curl -sSL https://deb.nodesource.com/setup_16.x | bash
+curl -sSL https://deb.nodesource.com/setup_18.x | bash
 sudo apt-get install nodejs -y #(2)
 
 mkdir /opt/myspeed && cd /opt/myspeed #(3)

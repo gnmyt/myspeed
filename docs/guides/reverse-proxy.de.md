@@ -1,3 +1,5 @@
+# Konfiguration eines Reverse Proxies
+
 In diesem Guide wird erklärt, wie du mithilfe von `apache` oder `nginx` einen Reverse Proxy mit MySpeed einrichtest.
 
 !!! tip "Warum einen Reverse Proxy verwenden?"

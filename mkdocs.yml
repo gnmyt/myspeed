@@ -1,13 +1,19 @@
-site_name: MySpeed Dokumentation
+site_name: MySpeed Documentation
 copyright: Copyright &copy; 2021 - 2023 Mathias Wagner
 
 repo_name: MySpeed
 repo_url: https://github.com/gnmyt/myspeed
 edit_uri: https://github.com/gnmyt/myspeed/edit/development/docs
 
+plugins:
+  - i18n:
+      default_language: en
+      languages:
+        en: English
+        de: Deutsch
+
 theme:
   name: material
-  language: de
   logo: assets/images/logo.png
   features:
     - toc.integrate
@@ -20,19 +26,21 @@ theme:
       primary: teal
       toggle:
         icon: material/brightness-7
-        name: Zum dunklen Modus wechseln
+        name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: teal
       toggle:
         icon: material/brightness-4
-        name: Zum hellen Modus wechseln
+        name: Switch to light mode
 
 extra:
   generator: false
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/gnmyt/myspeed
+    - icon: fontawesome/solid/heart
+      link: https://ko-fi.com/gnmyt
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/germannewsmaker
     - icon: fontawesome/brands/discord
@@ -51,14 +59,14 @@ markdown_extensions:
       emoji_generator: !!python/name:materialx.emoji.to_svg
 
 nav:
-  - Start: index.md
-  - Häufig gestellte Fragen: faq.md
-  - Einrichtung:
-      - Linux: setup/linux.md
-      - Windows: setup/windows.md
+  - Start: index.en.md
+  - Frequently Asked Questions: faq.en.md
+  - Setup:
+      - Linux: setup/linux.en.md
+      - Windows: setup/windows.en.md
   - Guides:
-      - Konfiguration eines Reverse-Proxies: guides/reverse-proxy.md
-  - Fehlerbehebung: troubleshooting.md
-  - Handhabung:
-      - Die Oberfläche: instructions/main.md
-      - Einstellungen: instructions/settings.md
+      - Configuring a Reverse Proxy: guides/reverse-proxy.en.md
+  - Troubleshooting: troubleshooting.en.md
+  - Instructions:
+      - The Interface: instructions/main.en.md
+      - Settings: instructions/settings.en.md
