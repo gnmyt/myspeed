@@ -15,7 +15,7 @@ jobs:
           python-version: 3.9
 
       - name: Install dependencies
-        run: pip install mkdocs-material
+        run: pip install mkdocs-material mkdocs-static-i18n
 
       - name: Deploy documentation
         run: mkdocs gh-deploy --force
