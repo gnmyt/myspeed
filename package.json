@@ -16,7 +16,7 @@
     "decompress-unzip": "^4.0.1",
     "express": "^4.18.2",
     "node-schedule": "^2.1.1",
-    "sequelize": "^6.31.1",
+    "sequelize": "^6.32.0",
     "sqlite3": "^5.1.6",
     "tmp": "^0.2.1"
   },
