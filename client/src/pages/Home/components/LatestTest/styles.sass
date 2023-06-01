@@ -7,9 +7,9 @@
   border: $darker-white 1px solid
   border-radius: 15px
   width: 80rem
-  flex-wrap: wrap
   transition: all 0.5s
   animation: fadeIn 0.5s
+  align-items: center
 
 .pulse
   border: $green 2px solid
@@ -31,6 +31,7 @@
 
 .container-header
   display: flex
+  align-items: center
 
 .tests-paused
   border: $orange 2px solid
@@ -63,6 +64,8 @@
     width: 70rem
 
 @media (max-width: 1200px)
+  .analyse-area
+    flex-wrap: wrap
   .mobile-break
     width: 100%
   .analyse-area
