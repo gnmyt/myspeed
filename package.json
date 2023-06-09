@@ -21,7 +21,7 @@
     "tmp": "^0.2.1"
   },
   "devDependencies": {
-    "concurrently": "^8.1.0",
+    "concurrently": "^8.2.0",
     "nodemon": "^2.0.22"
   }
 }
