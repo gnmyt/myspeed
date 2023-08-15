@@ -22,7 +22,10 @@ export const selectOptions = () => ({
 
 export const languageOptions = {
     "en": "English",
-    "de": "Deutsch"
+    "de": "Deutsch",
+    "ru": "Русский",
+    "bg": "Български",
+    "es": "Español"
 }
 
 export const exportOptions = () => ({

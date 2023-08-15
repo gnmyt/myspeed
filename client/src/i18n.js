@@ -7,7 +7,7 @@ if (localStorage.getItem('language') === null)
     localStorage.setItem('language', navigator.language.split('-')[0]);
 
 i18n.use(initReactI18next).use(LanguageDetector).use(HttpApi).init({
-    supportedLngs: ['en', 'de'],
+    supportedLngs: ['en', 'de', 'ru', 'bg', 'es'],
     fallbackLng: 'en',
     backend: {
         loadPath: '/assets/locales/{{lng}}.json'
