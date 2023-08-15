@@ -1,0 +1,338 @@
+{
+  "failed": "Misslyckades",
+  "dialog": {
+    "okay": "Okej",
+    "done": "Klar",
+    "apply": "Ja, ta över",
+    "update": "Uppdatering",
+    "close": "Nära",
+    "unset": "Ta bort",
+    "retry": "Erneut versuchen",
+    "login": "Logga in",
+    "password": {
+      "title": "Lösenord krävs",
+      "placeholder": "Ditt lösenord",
+      "wrong": "Lösenordet du angav är felaktigt",
+      "unlock": "Lås upp"
+    },
+    "accept": {
+      "title": "Vi behöver ditt tillstånd",
+      "description": "Vi använder tjänster från Ookla. Genom att klicka på <Bold>Accept</Bold> bekräftar du att du har läst och godkänner Ooklas <EULA>EULA</EULA>, <Privacy>Privacy Statement</Privacy> och <Terms>Terms of Use</Terms>.",
+      "button": "Acceptera"
+    },
+    "api": {
+      "title": "API inte tillgängligt",
+      "description": "MySpeed kunde inte nå API: et för denna instans. Vänligen försök igen senare."
+    }
+  },
+  "dropdown": {
+    "settings": "Inställningar",
+    "changes_applied": "Ändringarna har sparats.",
+    "view_changed": "Vyn ändrades.",
+    "changes_unsaved": "Dina ändringar accepterades inte. Kontrollera din inmatning.",
+    "invalid": "Ingång ogiltig",
+    "ping": "Optimal ping",
+    "upload": "Optimal uppkopplingshastighet",
+    "download": "Optimal nedhastighet",
+    "recommendations": "Optimala värden",
+    "server": "Ändra server",
+    "password": "Ändra lösenord",
+    "cron": "Ställ in frekvens",
+    "time": "Inställd period",
+    "export": "Exportprov",
+    "pause_tests": "Pausa tester",
+    "resume_tests": "Fortsätt tester",
+    "language": "Ändra språk",
+    "view": "Ändra vy",
+    "info": "Information om projektet",
+    "integrations": "Integrationer"
+  },
+  "options": {
+    "time": {
+      "24hours": "24 timmar (standard)",
+      "2days": "2 dagar (totalt)",
+      "7days": "7 dagar (genomsnitt)",
+      "30days": "30 dagar (genomsnitt)"
+    },
+    "cron": {
+      "continuous": "Kontinuerlig (varje minut)",
+      "frequent": "Mycket ofta (var 30: e minut)",
+      "default": "Standard (varje timme)",
+      "rare": "Sällan (var 3: e timme)",
+      "really_rare": "Mycket sällan (var 6: e timme)"
+    },
+    "export": {
+      "json": "JSON-fil",
+      "csv": "CSV-fil"
+    },
+    "level": {
+      "no_access": "Ingen tillgång",
+      "read_access": "Endast läsbehörighet"
+    }
+  },
+  "update": {
+    "ping_title": "Ställ in optimal ping (ms)",
+    "ping_placeholder": "Ping (ms)",
+    "upload_title": "Ställ in optimal uppkopplingshastighet (Mbit/s)",
+    "upload_placeholder": "Uppgångshastighet (Mbit/s)",
+    "download_title": "Ställ in optimal nedhastighet (Mbit/s)",
+    "download_placeholder": "Nedhastighet (Mbit/s)",
+    "recommendations_title": "Optimala rekommendationer",
+    "recommendations_set": "Sätta automatiska rekommendationer?",
+    "server_title": "Ange hastighet för testserver",
+    "manually": "Ställ in manuellt",
+    "manual_server_title": "Ange hastighet för testserver",
+    "manual_server_id": "Server-ID",
+    "new_password": "Ange nytt lösenord",
+    "password_placeholder": "Nytt lösenord",
+    "password_removed": "Lösenordslåset har tagits bort och det inställda lösenordet har tagits bort.",
+    "level": "Förändra nivå",
+    "level_title": "Rättigheter för besökare",
+    "cron_title": "Ställ in testfrekvens",
+    "cron_rules": "Cron-regel",
+    "cron_next_test": "Nästa test:",
+    "time_title": "Visa tester av de senaste ...",
+    "export_title": "Exportera hastighetstester",
+    "download": "Nedladdning",
+    "pause_title": "Hastighetstest paus för...",
+    "hours": "Timmar",
+    "pause": "Paus",
+    "release_manually": "Släpp manuellt",
+    "language": "Ändra språk",
+    "view_title": "Ändra vy"
+  },
+  "header": {
+    "title": "MySpeed",
+    "running_tooltip": "Hastighetstest pågår",
+    "start_tooltip": "Starta hastighetstest",
+    "new_update": "Uppdatering tillgänglig",
+    "paused": "Hastighetstester är för närvarande pausade. Fortsätt om du vill göra ett test.",
+    "running": "Ett hastighetstest pågår redan. Vänligen vänta ett ögonblick.",
+    "admin_login": "Admin-inloggning",
+    "beta": {
+      "title": "Betaversion",
+      "description": "Denna funktion är fortfarande i beta-fas. Om du hittar några buggar, vänligen rapportera dem <Link>här</Link>."
+    }
+  },
+  "latest": {
+    "ping": "Ping",
+    "ping_unit": "ms",
+    "down": "Nedladdning",
+    "speed_unit": "Mbit/s",
+    "up": "Uppladdning",
+    "latest": "Sista testet",
+    "before": "från"
+  },
+  "info": {
+    "credits": "<Link>MySpeed</Link> tillhandahålls av GNMYT och använder <CLILink>Speedtest CLI</CLILink> från Ookla.",
+    "recommendations_error": "Du måste göra minst 10 tester så att ett genomsnitt kan fastställas. Det spelar ingen roll om testerna utfördes manuellt eller automatiskt.",
+    "recommendations_info": "Baserat på de senaste 10 testresultaten visade det sig att den optimala pingen var <Bold>{{ping}} ms</Bold>, nedladdningen var <Bold>{{down}} Mbit/s</Bold> och uppladdningen vid <Bold>{{up}} Mbit/s</Bold>. Det är bäst att använda ditt internetavtal som en guide och bara anta det om det matchar.",
+    "update": "En uppdatering till version {{version}} är tillgänglig. Se <Changes>Ändringarna</Changes> och <DLLink>Ladda ner uppdateringen</DLLink>.",
+    "down": {
+      "title": "Nedladdningshastighet",
+      "description": "Nedladdningshastigheten påverkar din surfupplevelse. Ju mer du får, desto snabbare kan din dator ta emot data."
+    },
+    "ping": {
+      "title": "Ping",
+      "description": "Pingen visar hur snabbt respektive leverantör svarar. Ju kortare tid, desto bättre."
+    },
+    "up": {
+      "title": "Uppladdningshastighet",
+      "description": "Uppladdningshastigheten påverkar din surfupplevelse. Ju mer du får, desto snabbare kan din dator skicka data."
+    },
+    "latest": {
+      "title": "Sista testet",
+      "description": "Detta är den tid som visar när det senaste testet utfördes. I det här fallet utfördes det senaste testet den <Bold>{{date}}</Bold> kl. <Bold>{{time}}</Bold>."
+    }
+  },
+  "time": {
+    "now": "Just nu",
+    "seconds": "{{seconds}} sekunder",
+    "minute": "1 minut",
+    "minutes": "{{minutes}} minuter",
+    "hour": "1 timme",
+    "hours": "{{hours}} timmar",
+    "on": "Vid",
+    "at": "Vid"
+  },
+  "test": {
+    "not_available": "Det finns för närvarande inga tillgängliga tester",
+    "no_latest": "Det finns inget aktuellt test. Vänligen utför ett test eller vänta tills nästa test har utförts.",
+    "unknown_error": "Okänt fel:",
+    "failed": "Testet misslyckades",
+    "recheck": "Vänligen kontrollera så långt som möjligt om detta inträffar oftare.",
+    "delete": "Radera test",
+    "deleted": "Testet togs bort",
+    "average": {
+      "title": "Genomsnittlig hastighet",
+      "description": "<Bold>{{amount}}</Bold> Tester har visat att på <Bold>{{date}}</Bold> en genomsnittlig nedladdningshastighet på <Bold>{{down}} Mbit/s</Bold> och en uppladdningshastighet på <Bold>{{up}} Mbit/s</Bold> klarades. Testerna varade i genomsnitt <Bold>{{duration}} sekunder</Bold>."
+    },
+    "result": {
+      "title": "Resultat av test",
+      "description": "Detta test uppnådde en maximal nedladdningshastighet på <Bold>{{down}} Mbit/s</Bold> och en maximal uppladdningshastighet på <Bold>{{up}} Mbit/s</Bold>. Det skapades <Bold>{{type}}</Bold> och tog <Bold>{{duration}} sekunder</Bold>.",
+      "from_you": "från dig",
+      "automatic": "automatisk"
+    },
+    "tooltips": {
+      "custom": "Anpassad",
+      "average": "Genomsnittlig",
+      "auto": "Automatiserad"
+    },
+    "views": {
+      "list": "Översikt över testet",
+      "statistic": "Statistik för testet"
+    },
+    "overview": {
+      "title": "Testöversikt över de senaste {{amount}}",
+      "1": "24 timmar",
+      "2": "2 dagar",
+      "3": "7 dagar",
+      "4": "30 dagar"
+    }
+  },
+  "errors": {
+    "network_unreachable": "Internetanslutningen var instabil under tiden för testet",
+    "took_too_long": "Testet tog för lång tid och ställdes in",
+    "no_permission": "MySpeed har inget tillstånd att starta detta test",
+    "resource_unavailable": "Testet kunde inte utföras eftersom resursen var tillfälligt otillgänglig",
+    "no_route": "Testet kunde inte utföras eftersom det inte fanns någon väg till värden",
+    "connection_refused": "Testet kunde inte utföras eftersom anslutningen avvisades",
+    "timed_out": "Internetanslutningen var instabil under tiden för testet",
+    "config": "Konfigurationsfilen kunde inte läsas in",
+    "invalid_view": "Ogiltig vy"
+  },
+  "statistics": {
+    "overview": {
+      "total_title": "Totalt antal tester",
+      "total_description": "Antalet utförda tester",
+      "failed_title": "Underkända tester",
+      "failed_description": "Antalet misslyckade tester",
+      "average_title": "Genomsnittlig varaktighet",
+      "average_description": "Testens genomsnittliga varaktighet"
+    },
+    "failed": {
+      "title": "Underkända tester",
+      "success": "Framgångsrik",
+      "failed": "Misslyckades",
+      "label": "Tester"
+    },
+    "speed": {
+      "title": "Hastighet"
+    },
+    "manual": {
+      "title": "Manuella tester",
+      "yes": "Manuellt skapad",
+      "no": "Skapas automatiskt"
+    },
+    "duration": {
+      "title": "Testets varaktighet",
+      "label": "Antal"
+    },
+    "values": {
+      "min": "Lägsta",
+      "max": "Högsta",
+      "avg": "Genomsnittlig",
+      "down": "Ladda ner värden",
+      "up": "Ladda upp värden"
+    }
+  },
+  "nodes": {
+    "add": "Lägg till server",
+    "create": "Lägg till",
+    "this_server": "Denna server",
+    "created": "Servern har framgångsrikt lagts till",
+    "password_required": "Ett lösenord krävs för denna nod",
+    "update_password": "Vänligen uppdatera lösenordet för denna nod",
+    "password_outdated": "Lösenordet är föråldrat",
+    "password_updated": "Lösenordet uppdaterades framgångsrikt",
+    "placeholder": {
+      "name": "MySpeed instans",
+      "url": "https://din-server.se"
+    },
+    "group": {
+      "name": "Serverns namn",
+      "url": "Serveradress"
+    },
+    "delete": {
+      "title": "Radera server",
+      "description": "Servern <Bold>{{name}}</Bold> (#{{id}}) har tagits bort. Denna åtgärd kan inte ångras. Vill du fortsätta?",
+      "yes": "Ja, radera",
+      "success": "Servern har raderats framgångsrikt"
+    },
+    "messages": {
+      "not_reachable": "Servern är inte nåbar",
+      "password_changed": "Lösenordet har ändrats",
+      "tests_pending": "Testresultat inväntas"
+    }
+  },
+  "integrations": {
+    "none_active": "Denna integration är inte aktiv. <br/><Bold>Lägg till</Bold>",
+    "display_name": "Namn på integration",
+    "create": "Lägg till",
+    "activity": {
+      "never_executed": "Aldrig utförd",
+      "last_run": "Senast före "
+    },
+    "discord": {
+      "title": "Discord",
+      "fields": {
+        "url": "URL för webhook",
+        "url_placeholder": "https://discord.com/api/webhooks/...",
+        "display_name": "Visa namn",
+        "display_name_placeholder": "Meddelande om MySpeed",
+        "error_message": "Felmeddelande",
+        "error_message_placeholder": "Fel: %error%",
+        "send_failed": "Skicka felmeddelanden",
+        "send_finished": "Skicka ifylld",
+        "finished_message": "Avslutat meddelande",
+        "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
+      }
+    },
+    "gotify": {
+      "title": "Gotify",
+      "fields": {
+        "url": "Server URL",
+        "key": "Applikationstoken",
+        "error_message": "Felmeddelande",
+        "error_message_placeholder": "Fel: %error%",
+        "send_failed": "Skicka felmeddelanden",
+        "send_finished": "Skicka ifylld",
+        "finished_message": "Avslutat meddelande",
+        "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
+      }
+    },
+    "healthChecks": {
+      "title": "HealthChecks",
+      "fields": {
+        "url": "Hälsokontroller URL",
+        "url_placeholder": "https://hc-ping.com/<uuid>"
+      }
+    },
+    "telegram": {
+      "title": "Telegram",
+      "fields": {
+        "token": "Bot Token",
+        "chat_id": "Chatt-ID",
+        "error_message": "Felmeddelande",
+        "error_message_placeholder": "Fel: %error%",
+        "send_failed": "Skicka felmeddelanden",
+        "send_finished": "Skicka ifylld",
+        "finished_message": "Avslutat meddelande",
+        "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
+      }
+    },
+    "webhook": {
+      "title": "Webhook",
+      "fields": {
+        "url": "URL för webhook",
+        "url_placeholder": "https://din-server.se/hook",
+        "send_started": "Startad sändning",
+        "send_failed": "Skicka felmeddelanden",
+        "send_finished": "Skicka ifylld",
+        "send_alive": "Skicka livliga meddelanden",
+        "send_recommendations": "Skicka rekommendationer",
+        "send_config_updates": "Skicka konfigurationsuppdateringar"
+      }
+    }
+  }
+}
