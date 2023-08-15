@@ -1,0 +1,338 @@
+{
+  "failed": "失敗した",
+  "dialog": {
+    "okay": "オーケー",
+    "done": "準備完了",
+    "apply": "はい、引き継ぎます",
+    "update": "アップデート",
+    "close": "Schließen",
+    "unset": "削除",
+    "retry": "再試行",
+    "login": "ログイン",
+    "password": {
+      "title": "パスワードが必要です",
+      "placeholder": "お客様のパスワード",
+      "wrong": "入力したパスワードが正しくない",
+      "unlock": "ロック解除"
+    },
+    "accept": {
+      "title": "お客様の許可が必要です",
+      "description": "当社はOoklaのサービスを利用しています。<Bold>受け入れる</Bold> をクリックすると、Ooklaの<EULA>EULA</EULA>、<Privacy>プライバシーステートメント</Privacy>、および<Terms>利用規約</Terms>をお読みになり、同意されたものとみなします。",
+      "button": "アクセプト"
+    },
+    "api": {
+      "title": "API nicht erreichbar",
+      "description": "MySpeed はこのインスタンスの API に到達できませんでした。後で再試行してください。"
+    }
+  },
+  "dropdown": {
+    "settings": "設定方法",
+    "changes_applied": "変更内容が保存されました。",
+    "view_changed": "という見解に変わりました。",
+    "changes_unsaved": "あなたの変更は受け入れられませんでした。入力内容を確認してください。",
+    "invalid": "入力無効",
+    "ping": "Optimaler Ping",
+    "upload": "最適なアップスピード",
+    "download": "最適なダウンスピード",
+    "recommendations": "最適値",
+    "server": "サーバーを変更する",
+    "password": "パスワードの変更",
+    "cron": "周波数を設定する",
+    "time": "設定期間",
+    "export": "輸出試験",
+    "pause_tests": "Tests pausieren",
+    "resume_tests": "テスト続行",
+    "language": "言語を変更する",
+    "view": "ビューを変更する",
+    "info": "プロジェクトに関する情報",
+    "integrations": "統合"
+  },
+  "options": {
+    "time": {
+      "24hours": "24時間 (標準)",
+      "2days": "2日間 (合計)",
+      "7days": "7日 (平均)",
+      "30days": "30日 (平均)"
+    },
+    "cron": {
+      "continuous": "連続 (1分ごと)",
+      "frequent": "非常に頻繁に (30分おきに)",
+      "default": "標準 (1時間ごと)",
+      "rare": "まれに (3時間おきに)",
+      "really_rare": "ごく稀に (6時間おきに)"
+    },
+    "export": {
+      "json": "JSONファイル",
+      "csv": "CSV-Datei"
+    },
+    "level": {
+      "no_access": "アクセス不可",
+      "read_access": "読み取り専用アクセス"
+    }
+  },
+  "update": {
+    "ping_title": "最適なpingを設定する (ms)",
+    "ping_placeholder": "Ping (ms)",
+    "upload_title": "最適なアップスピードを設定する (Mbit/s)",
+    "upload_placeholder": "アップスピード (Mbit/s)",
+    "download_title": "最適なダウンスピードを設定する(Mbit/s)",
+    "download_placeholder": "ダウンスピード (Mbit/s)",
+    "recommendations_title": "最適な提案",
+    "recommendations_set": "自動レコメンドを設定する？",
+    "server_title": "スピードテストサーバーを設定する",
+    "manually": "手動で設定する",
+    "manual_server_title": "スピードテストサーバーを設定する",
+    "manual_server_id": "Server-ID",
+    "new_password": "新しいパスワードを設定する",
+    "password_placeholder": "新パスワード",
+    "password_removed": "パスワードロックが解除され、設定されたパスワードが解除されました。",
+    "level": "変更レベル",
+    "level_title": "来場者の権利について",
+    "cron_title": "Test-Häufigkeit einstellen",
+    "cron_rules": "クロンルール",
+    "cron_next_test": "次のテストです：",
+    "time_title": "過去に行われたテストを表示する ...",
+    "export_title": "スピードテストのエクスポート",
+    "download": "ダウンロード",
+    "pause_title": "スピードテストは一時停止...",
+    "hours": "時間",
+    "pause": "ポーズ",
+    "release_manually": "手動でリリース",
+    "language": "言語を変更する",
+    "view_title": "ビューを変更する"
+  },
+  "header": {
+    "title": "MySpeed",
+    "running_tooltip": "スピードテスト実施中",
+    "start_tooltip": "スピードテスト開始",
+    "new_update": "アップデート可能",
+    "paused": "スピードテストは現在一時停止中です。ご希望の方は続けてください。",
+    "running": "スピードテストはすでに実施中です。しばらくお待ちください。",
+    "admin_login": "管理者ログイン",
+    "beta": {
+      "title": "ベータ版",
+      "description": "この機能はまだベータ版です。バグを発見された場合は、ご報告ください。<Link>これ</Link>."
+    }
+  },
+  "latest": {
+    "ping": "Ping",
+    "ping_unit": "ms",
+    "down": "ダウンロード",
+    "speed_unit": "Mbit/s",
+    "up": "アップロード",
+    "latest": "最終テスト",
+    "before": "からして"
+  },
+  "info": {
+    "credits": "<Link>MySpeed</Link>はGNMYTによって提供され、Ooklaの<CLILink>Speedtest CLI</CLILink>を使用します。",
+    "recommendations_error": "平均値を算出するために、少なくとも10回のテストを行う必要があります。テストが手動で行われたか、自動で行われたかは関係ありません。",
+    "recommendations_info": "Anhand der letzten 10 Testergebnisse wurde festgestellt, dass der optimale Ping bei <Bold>{{ping}} ms</Bold>, der Download bei <Bold>{{down}} Mbit/s</Bold> und der Upload bei <Bold>{{up}} Mbit/s</Bold> liegt. Orientiere dich am besten an deinem Internetvertrag und übernehme es nur, wenn es mit dem übereinstimmt.",
+    "update": "バージョン{{version}} のアップデートを公開しました。<Changes>変更点</Changes>と<DLLink>アップデートのダウンロード</DLLink>をご覧ください。",
+    "down": {
+      "title": "ダウンロード速度",
+      "description": "ダウンロードの速度は、ブラウジングに影響します。多ければ多いほど、コンピューターがデータを受信するスピードが速くなります。"
+    },
+    "ping": {
+      "title": "Ping",
+      "description": "Der Ping zeigt dir, wie schnell der jeweilige Anbieter antwortet. Umso kürzer die Zeit, desto besser."
+    },
+    "up": {
+      "title": "アップロード速度",
+      "description": "アップロードの速度は、ブラウジングの体験に影響します。より多く取得するほど、コンピューターはより速くデータを送信することができます。"
+    },
+    "latest": {
+      "title": "最終テスト",
+      "description": "これは、最後のテストがいつ行われたかを示す時間です。この場合、最後に行われたのは<Bold>{{date}}</Bold>で<Bold>{{time}}</Bold>となります。"
+    }
+  },
+  "time": {
+    "now": "ただいま",
+    "seconds": "{{seconds}} 秒",
+    "minute": "1分",
+    "minutes": "{{minutes}} 分",
+    "hour": "1時間",
+    "hours": "{{hours}} 時間",
+    "on": "にて",
+    "at": "にて"
+  },
+  "test": {
+    "not_available": "現在、利用可能なテストはありません",
+    "no_latest": "現在のテストはありません。テストを実行するか、次のテストが実行されるまでお待ちください。",
+    "unknown_error": "不明なエラーです：",
+    "failed": "テスト失敗",
+    "recheck": "このようなことが頻繁に起こるようであれば、できる限りご確認ください。",
+    "delete": "テスト削除",
+    "deleted": "テストは削除されました",
+    "average": {
+      "title": "平均速度",
+      "description": "<Bold>{{amount}}</Bold> テストによると、<Bold>{{date}}</Bold>では平均ダウンロード速度は <Bold>{{down}} ビット/秒</Bold>、アップロード速度は <Bold>{{up}} ビット/秒</Bold>でした。Mビット/秒</ボールド>、アップロード速度は<ボールド>{アップ}}</ボールド>でした。Mbit/s</Bold>をクリアした。テストは平均<Bold>{{Duration}} 秒</Bold>で行われた。秒</Bold>でした。"
+    },
+    "result": {
+      "title": "テスト結果",
+      "description": "このテストでは、最大ダウンロード速度は<Bold>{{down}} でした。Mビット/秒</Bold>、最大アップロード速度は<Bold>{{up}} でした。Mbit/s</Bold>を達成しました。このテストは<Bold>{{type}}</Bold>で作成され、<Bold>{{duration}} 秒かかりました。秒</Bold>です。",
+      "from_you": "あなたより",
+      "automatic": "オートマチック"
+    },
+    "tooltips": {
+      "custom": "カスタム",
+      "average": "平均",
+      "auto": "自動化された"
+    },
+    "views": {
+      "list": "テスト概要",
+      "statistic": "テスト統計"
+    },
+    "overview": {
+      "title": "直近の{{amount}} のテスト概要",
+      "1": "24 Stunden",
+      "2": "2日",
+      "3": "7日",
+      "4": "30日"
+    }
+  },
+  "errors": {
+    "network_unreachable": "テスト時間中、インターネット接続が不安定であったこと",
+    "took_too_long": "テストに時間がかかりすぎたため、中止となった",
+    "no_permission": "MySpeedはこのテストを開始する権限がありません。",
+    "resource_unavailable": "リソースが一時的に利用できないため、テストを実行できませんでした。",
+    "no_route": "ホストへのルートが存在しないため、テストを実行できませんでした",
+    "connection_refused": "接続が拒否されたため、テストを実行できませんでした",
+    "timed_out": "テスト時間中、インターネット接続が不安定であったこと",
+    "config": "設定ファイルを読み込むことができませんでした",
+    "invalid_view": "無効なビュー"
+  },
+  "statistics": {
+    "overview": {
+      "total_title": "総テスト数",
+      "total_description": "実施したテストの数",
+      "failed_title": "失敗したテスト",
+      "failed_description": "失敗したテストの数",
+      "average_title": "平均持続時間",
+      "average_description": "テストの平均所要時間"
+    },
+    "failed": {
+      "title": "失敗したテスト",
+      "success": "サクセスフル",
+      "failed": "失敗した",
+      "label": "テスト"
+    },
+    "speed": {
+      "title": "スピード"
+    },
+    "manual": {
+      "title": "マニュアルテスト",
+      "yes": "手動で作成",
+      "no": "自動的に作成される"
+    },
+    "duration": {
+      "title": "Testdauer",
+      "label": "番号"
+    },
+    "values": {
+      "min": "最下位",
+      "max": "最高",
+      "avg": "平均",
+      "down": "ダウンロード値",
+      "up": "値のアップロード"
+    }
+  },
+  "nodes": {
+    "add": "サーバーを追加する",
+    "create": "追加",
+    "this_server": "本サーバー",
+    "created": "サーバーの追加に成功しました",
+    "password_required": "このノードにはパスワードが必要です",
+    "update_password": "このノードのパスワードを更新してください",
+    "password_outdated": "パスワードが古い",
+    "password_updated": "パスワードの更新に成功しました",
+    "placeholder": {
+      "name": "MySpeed インスタンス",
+      "url": "https://御前様.jp"
+    },
+    "group": {
+      "name": "サーバー名",
+      "url": "サーバーアドレス"
+    },
+    "delete": {
+      "title": "サーバーを削除する",
+      "description": "サーバー<Bold>{{name}}</Bold> (#{{id}}) を削除しました。この操作は元に戻せません。続行しますか？",
+      "yes": "はい、削除",
+      "success": "サーバーの削除に成功しました"
+    },
+    "messages": {
+      "not_reachable": "Server ist nicht erreichbar",
+      "password_changed": "パスワードが変更されました",
+      "tests_pending": "テスト結果は保留"
+    }
+  },
+  "integrations": {
+    "none_active": "この統合はアクティブではありません。<br/><Bold>追加</Bold>",
+    "display_name": "統合名",
+    "create": "追加",
+    "activity": {
+      "never_executed": "実行されない",
+      "last_run": "前回の様子 "
+    },
+    "discord": {
+      "title": "Discord",
+      "fields": {
+        "url": "ウェブフックURL",
+        "url_placeholder": "https://discord.com/api/webhooks/...",
+        "display_name": "表示名",
+        "display_name_placeholder": "マイスピードの通知",
+        "error_message": "エラーメッセージ",
+        "error_message_placeholder": "エラー：%error%。",
+        "send_failed": "Fehlernachrichten senden",
+        "send_finished": "送信完了",
+        "finished_message": "完成したメッセージ",
+        "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
+      }
+    },
+    "gotify": {
+      "title": "Gotify",
+      "fields": {
+        "url": "サーバーURL",
+        "key": "Anwendungs-Token",
+        "error_message": "エラーメッセージ",
+        "error_message_placeholder": "エラー：%error%。",
+        "send_failed": "エラーメッセージの送信",
+        "send_finished": "送信完了",
+        "finished_message": "完成したメッセージ",
+        "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
+      }
+    },
+    "healthChecks": {
+      "title": "HealthChecks",
+      "fields": {
+        "url": "ヘルスチェックのURL",
+        "url_placeholder": "https://hc-ping.com/<uuid>"
+      }
+    },
+    "telegram": {
+      "title": "Telegram",
+      "fields": {
+        "token": "Bot Token",
+        "chat_id": "チャットID",
+        "error_message": "エラーメッセージ",
+        "error_message_placeholder": "エラー：%error%。",
+        "send_failed": "エラーメッセージの送信",
+        "send_finished": "送信完了",
+        "finished_message": "完成したメッセージ",
+        "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
+      }
+    },
+    "webhook": {
+      "title": "Webhook",
+      "fields": {
+        "url": "ウェブフックURL",
+        "url_placeholder": "https://御前様.jp/hook",
+        "send_started": "送信開始",
+        "send_failed": "エラーメッセージの送信",
+        "send_finished": "送信完了",
+        "send_alive": "にぎやかなメッセージを送る",
+        "send_recommendations": "おすすめ商品を送る",
+        "send_config_updates": "コンフィギュレーションアップデートの送信"
+      }
+    }
+  }
+}
