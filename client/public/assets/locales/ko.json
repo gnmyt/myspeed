@@ -1,0 +1,338 @@
+{
+  "failed": "실패",
+  "dialog": {
+    "okay": "확인",
+    "done": "준비됨",
+    "apply": "예, 인수인계",
+    "update": "업데이트",
+    "close": "닫기",
+    "unset": "제거",
+    "retry": "다시 시도",
+    "login": "로그인",
+    "password": {
+      "title": "비밀번호 필요",
+      "placeholder": "비밀번호",
+      "wrong": "입력한 비밀번호가 올바르지 않습니다.",
+      "unlock": "잠금 해제"
+    },
+    "accept": {
+      "title": "귀하의 승인이 필요합니다.",
+      "description": "우리는 우클라의 서비스를 이용합니다. <Bold>동의</Bold>를 클릭함으로써 귀하는 Ookla의 <EULA>EULA</EULA>, <Privacy>개인정보보호정책</Privacy> 및 <Terms>이용약관</Terms>을 읽고 동의함을 인정하는 것입니다.",
+      "button": "동의"
+    },
+    "api": {
+      "title": "API에 액세스할 수 없음",
+      "description": "MySpeed가 이 인스턴스의 API에 연결할 수 없습니다. 나중에 다시 시도하세요."
+    }
+  },
+  "dropdown": {
+    "settings": "설정",
+    "changes_applied": "변경 사항이 저장되었습니다.",
+    "view_changed": "보기가 변경되었습니다.",
+    "changes_unsaved": "변경 사항이 승인되지 않았습니다. 입력 내용을 확인하세요.",
+    "invalid": "입력이 유효하지 않습니다.",
+    "ping": "최적의 핑",
+    "upload": "최적의 업 속도",
+    "download": "최적의 다운 속도",
+    "recommendations": "최적의 값",
+    "server": "서버 변경",
+    "password": "비밀번호 변경",
+    "cron": "주파수 설정",
+    "time": "기간 설정",
+    "export": "내보내기 테스트",
+    "pause_tests": "테스트 일시 중지",
+    "resume_tests": "테스트 계속하기",
+    "language": "언어 변경",
+    "view": "보기 변경",
+    "info": "프로젝트에 대한 정보",
+    "integrations": "통합"
+  },
+  "options": {
+    "time": {
+      "24hours": "24시간(표준)",
+      "2days": "2일(총)",
+      "7days": "7일(평균)",
+      "30days": "30일(평균)"
+    },
+    "cron": {
+      "continuous": "연속(매분)",
+      "frequent": "매우 자주(30분마다)",
+      "default": "Standard (jede Stunde)",
+      "rare": "드물게(3시간마다)",
+      "really_rare": "매우 드물게(6시간마다)"
+    },
+    "export": {
+      "json": "JSON 파일",
+      "csv": "CSV 파일"
+    },
+    "level": {
+      "no_access": "액세스 권한 없음",
+      "read_access": "읽기 전용 액세스"
+    }
+  },
+  "update": {
+    "ping_title": "최적의 핑(ms) 설정",
+    "ping_placeholder": "핑(ms)",
+    "upload_title": "최적의 최대 속도(Mbit/s) 설정",
+    "upload_placeholder": "최대 속도(Mbit/s)",
+    "download_title": "최적의 다운 속도 설정(Mbit/s)",
+    "download_placeholder": "다운 속도(Mbit/s)",
+    "recommendations_title": "최적의 권장 사항",
+    "recommendations_set": "자동 추천을 설정하시겠습니까?",
+    "server_title": "속도 테스트 서버 설정",
+    "manually": "수동으로 설정",
+    "manual_server_title": "속도 테스트 서버 설정",
+    "manual_server_id": "서버 ID",
+    "new_password": "새 비밀번호 설정",
+    "password_placeholder": "Neues Passwort",
+    "password_removed": "비밀번호 잠금이 제거되고 설정된 비밀번호가 제거되었습니다.",
+    "level": "레벨 변경",
+    "level_title": "방문자의 권리",
+    "cron_title": "테스트 빈도 설정",
+    "cron_rules": "크론 규칙",
+    "cron_next_test": "다음 테스트:",
+    "time_title": "마지막 테스트 표시 ...",
+    "export_title": "내보내기 속도 테스트",
+    "download": "다운로드",
+    "pause_title": "속도 테스트가 일시 중지되는 동안...",
+    "hours": "시간",
+    "pause": "일시 중지",
+    "release_manually": "수동으로 릴리스",
+    "language": "언어 변경",
+    "view_title": "보기 변경"
+  },
+  "header": {
+    "title": "MySpeed",
+    "running_tooltip": "속도 테스트 실행",
+    "start_tooltip": "속도 테스트 시작",
+    "new_update": "업데이트 가능",
+    "paused": "속도 테스트가 현재 일시 중지되었습니다. 테스트를 원하시면 계속 진행하세요.",
+    "running": "속도 테스트가 이미 진행 중입니다. 잠시만 기다려주세요.",
+    "admin_login": "관리자 로그인",
+    "beta": {
+      "title": "베타 버전",
+      "description": "이 기능은 아직 베타 단계입니다. 버그를 발견하면 여기에서 신고해 주세요. <Link>여기</Link>."
+    }
+  },
+  "latest": {
+    "ping": "핑",
+    "ping_unit": "ms",
+    "down": "다운로드",
+    "speed_unit": "Mbit/s",
+    "up": "업로드",
+    "latest": "마지막 테스트",
+    "before": "에서"
+  },
+  "info": {
+    "credits": "<Link>MySpeed</Link>는 GNMYT에서 제공하며 Ookla의 <CLILink>스피드테스트 CLI</CLILink>를 사용합니다.",
+    "recommendations_error": "평균을 결정할 수 있도록 최소 10회 이상의 테스트를 수행해야 합니다. 테스트가 수동으로 수행되었는지 자동으로 수행되었는지는 중요하지 않습니다.",
+    "recommendations_info": "지난 10회의 테스트 결과에 따르면, 최적의 핑은 <Bold>{{ping}} ms</Bold>, 다운로드는 <Bold>{{down}} Mbit/s</Bold>, 업로드는 <Bold>{{up}} Mbit/s</Bold>입니다. 인터넷 계약을 기준으로 삼고 일치하는 경우에만 적용하는 것이 가장 좋습니다.",
+    "update": "버전 {{version}} 에 대한 업데이트를 사용할 수 있습니다. <Changes>변경사항</Changes> 및 <DLLink>업데이트 다운로드</DLLink>를 참조하세요.",
+    "down": {
+      "title": "다운로드 속도",
+      "description": "다운로드 속도는 브라우징 경험에 영향을 미칩니다. 다운로드 속도가 빠를수록 컴퓨터가 데이터를 더 빨리 수신할 수 있습니다."
+    },
+    "ping": {
+      "title": "핑",
+      "description": "핑은 해당 제공업체가 얼마나 빨리 응답하는지 보여줍니다. 시간이 짧을수록 좋습니다."
+    },
+    "up": {
+      "title": "업로드 속도",
+      "description": "업로드 속도는 브라우징 경험에 영향을 미칩니다. 업로드 속도가 빠를수록 컴퓨터가 데이터를 더 빨리 전송할 수 있습니다."
+    },
+    "latest": {
+      "title": "마지막 테스트",
+      "description": "마지막 테스트가 수행된 시간을 표시하는 시간입니다. 이 경우 마지막 테스트는 <Bold>{{date}}</Bold>에서 <Bold>{{time}}</Bold>에 진행되었습니다."
+    }
+  },
+  "time": {
+    "now": "방금",
+    "seconds": "{{seconds}} 초",
+    "minute": "1분",
+    "minutes": "{{minutes}} 분",
+    "hour": "1시간",
+    "hours": "{{hours}} 시간",
+    "on": "에서",
+    "at": "에서"
+  },
+  "test": {
+    "not_available": "현재 사용 가능한 테스트가 없습니다.",
+    "no_latest": "현재 진행 중인 테스트가 없습니다. 테스트를 수행하거나 다음 테스트가 수행될 때까지 기다려 주세요.",
+    "unknown_error": "알 수 없는 오류입니다:",
+    "failed": "테스트 실패",
+    "recheck": "이런 일이 더 자주 발생하는지 최대한 자주 확인해 주세요.",
+    "delete": "테스트 삭제",
+    "deleted": "테스트가 삭제되었습니다.",
+    "average": {
+      "title": "평균 속도",
+      "description": "<Bold>{{amount}}</Bold> 테스트 결과 <Bold>{{date}}</Bold>에서 평균 다운로드 속도는 <Bold>{{down}} Mbit/s</Bold>, 업로드 속도는 <Bold>{{up}} 이었습니다. Mbit/s</Bold>가 통과되었습니다. 테스트는 평균 <Bold>{{duration}} 초</Bold> 동안 지속되었습니다."
+    },
+    "result": {
+      "title": "테스트 결과",
+      "description": "이 테스트에서 달성한 최대 다운로드 속도는 <Bold>{{down}} Mbit/s</Bold> 및 최대 업로드 속도 <Bold>{{up}} Mbit/s</Bold>입니다. <Bold>{{type}}</Bold>로 생성되었고 <Bold>{{duration}} 초</Bold>가 걸렸습니다.",
+      "from_you": "귀하로부터",
+      "automatic": "자동"
+    },
+    "tooltips": {
+      "custom": "사용자 지정",
+      "average": "평균",
+      "auto": "자동화된"
+    },
+    "views": {
+      "list": "테스트 개요",
+      "statistic": "테스트 통계"
+    },
+    "overview": {
+      "title": "마지막 {{amount}} 의 테스트 개요",
+      "1": "24시간",
+      "2": "2일",
+      "3": "7일",
+      "4": "30 Tage"
+    }
+  },
+  "errors": {
+    "network_unreachable": "테스트 기간 동안 인터넷 연결이 불안정했습니다.",
+    "took_too_long": "시험이 너무 오래 걸려 취소되었습니다.",
+    "no_permission": "MySpeed는 이 테스트를 시작할 권한이 없습니다.",
+    "resource_unavailable": "리소스를 일시적으로 사용할 수 없어서 테스트를 수행할 수 없습니다.",
+    "no_route": "호스트에 대한 경로가 존재하지 않아 테스트를 수행할 수 없습니다.",
+    "connection_refused": "연결이 거부되어 테스트를 수행할 수 없습니다.",
+    "timed_out": "테스트 기간 동안 인터넷 연결이 불안정했습니다.",
+    "config": "구성 파일을 로드할 수 없습니다.",
+    "invalid_view": "잘못된 보기"
+  },
+  "statistics": {
+    "overview": {
+      "total_title": "총 테스트 수",
+      "total_description": "수행한 테스트 횟수",
+      "failed_title": "실패한 테스트",
+      "failed_description": "실패한 테스트 수",
+      "average_title": "평균 기간",
+      "average_description": "평균 테스트 기간"
+    },
+    "failed": {
+      "title": "실패한 테스트",
+      "success": "성공",
+      "failed": "실패",
+      "label": "테스트"
+    },
+    "speed": {
+      "title": "속도"
+    },
+    "manual": {
+      "title": "수동 테스트",
+      "yes": "수동으로 생성",
+      "no": "자동 생성"
+    },
+    "duration": {
+      "title": "테스트 기간",
+      "label": "번호"
+    },
+    "values": {
+      "min": "최저",
+      "max": "최고",
+      "avg": "평균",
+      "down": "값 다운로드",
+      "up": "값 업로드"
+    }
+  },
+  "nodes": {
+    "add": "서버 추가",
+    "create": "추가",
+    "this_server": "이 서버",
+    "created": "서버가 성공적으로 추가되었습니다.",
+    "password_required": "이 노드에는 비밀번호가 필요합니다.",
+    "update_password": "이 노드의 비밀번호를 업데이트하세요.",
+    "password_outdated": "비밀번호가 오래되었습니다.",
+    "password_updated": "비밀번호가 성공적으로 업데이트되었습니다.",
+    "placeholder": {
+      "name": "MySpeed 인스턴스",
+      "url": "https://귀하의 서버.kp"
+    },
+    "group": {
+      "name": "서버 이름",
+      "url": "서버 주소"
+    },
+    "delete": {
+      "title": "서버 삭제",
+      "description": "서버 <Bold>{{name}}</Bold>(#{{id}}) 이 삭제됩니다. 이 작업은 실행 취소할 수 없습니다. 계속하시겠습니까?",
+      "yes": "예, 삭제",
+      "success": "서버가 성공적으로 삭제되었습니다."
+    },
+    "messages": {
+      "not_reachable": "서버에 연결할 수 없습니다.",
+      "password_changed": "비밀번호가 변경되었습니다.",
+      "tests_pending": "테스트 결과 보류 중"
+    }
+  },
+  "integrations": {
+    "none_active": "이 통합은 활성화되어 있지 않습니다. <br/><Bold>추가</Bold>",
+    "display_name": "통합 이름",
+    "create": "추가",
+    "activity": {
+      "never_executed": "실행되지 않음",
+      "last_run": "마지막 이전 "
+    },
+    "discord": {
+      "title": "Discord",
+      "fields": {
+        "url": "웹훅 URL",
+        "url_placeholder": "https://discord.com/api/webhooks/...",
+        "display_name": "표시 이름",
+        "display_name_placeholder": "MySpeed 알림",
+        "error_message": "MySpeed-Benachrichtigungen",
+        "error_message_placeholder": "오류: %error%",
+        "send_failed": "오류 메시지 보내기",
+        "send_finished": "전송 완료",
+        "finished_message": "완료된 메시지",
+        "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
+      }
+    },
+    "gotify": {
+      "title": "Gotify",
+      "fields": {
+        "url": "서버 URL",
+        "key": "애플리케이션 토큰",
+        "error_message": "오류 메시지",
+        "error_message_placeholder": "오류: %error%",
+        "send_failed": "오류 메시지 보내기",
+        "send_finished": "전송 완료",
+        "finished_message": "완료된 메시지",
+        "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
+      }
+    },
+    "healthChecks": {
+      "title": "HealthChecks",
+      "fields": {
+        "url": "건강 체크 URL",
+        "url_placeholder": "https://hc-ping.com/<uuid>"
+      }
+    },
+    "telegram": {
+      "title": "Telegram",
+      "fields": {
+        "token": "Bot Token",
+        "chat_id": "채팅 ID",
+        "error_message": "오류 메시지",
+        "error_message_placeholder": "오류: %error%",
+        "send_failed": "오류 메시지 보내기",
+        "send_finished": "전송 완료",
+        "finished_message": "완료된 메시지",
+        "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
+      }
+    },
+    "webhook": {
+      "title": "Webhook",
+      "fields": {
+        "url": "웹훅 URL",
+        "url_placeholder": "https://서버.kr/hook",
+        "send_started": "보내기 시작",
+        "send_failed": "오류 메시지 보내기",
+        "send_finished": "전송 완료",
+        "send_alive": "생생한 메시지 보내기",
+        "send_recommendations": "추천 보내기",
+        "send_config_updates": "구성 업데이트 보내기"
+      }
+    }
+  }
+}
