@@ -20,7 +20,7 @@
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
-    "react-i18next": "^13.2.1",
+    "react-i18next": "^13.2.2",
     "sass": "^1.66.1",
     "uuid": "^9.0.0",
     "vite": "^4.4.9",
