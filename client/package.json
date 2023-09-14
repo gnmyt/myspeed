@@ -21,7 +21,7 @@
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^13.2.2",
-    "sass": "^1.66.1",
+    "sass": "^1.67.0",
     "uuid": "^9.0.1",
     "vite": "^4.4.9",
     "vite-plugin-pwa": "^0.16.5"
