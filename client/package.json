@@ -23,7 +23,7 @@
     "react-i18next": "^13.3.0",
     "sass": "^1.69.4",
     "uuid": "^9.0.1",
-    "vite": "^4.4.11",
+    "vite": "^4.5.0",
     "vite-plugin-pwa": "^0.16.5"
   },
   "devDependencies": {
