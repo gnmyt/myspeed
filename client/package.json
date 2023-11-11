@@ -27,7 +27,7 @@
     "vite-plugin-pwa": "^0.16.7"
   },
   "devDependencies": {
-    "@types/react": "^18.2.33",
+    "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.14"
   }
 }
