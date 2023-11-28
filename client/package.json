@@ -24,10 +24,10 @@
     "sass": "^1.69.5",
     "uuid": "^9.0.1",
     "vite": "^5.0.2",
-    "vite-plugin-pwa": "^0.17.2"
+    "vite-plugin-pwa": "^0.17.2",
+    "@rollup/plugin-wasm": "^6.2.2"
   },
   "devDependencies": {
-    "@rollup/plugin-wasm": "^6.2.2",
     "@types/react": "^18.2.39",
     "@types/react-dom": "^18.2.17"
   }
