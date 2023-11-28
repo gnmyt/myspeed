@@ -1,4 +1,4 @@
-FROM node:20-alpine
+FROM node:18-alpine
 RUN apk add g++ make cmake python3 --no-cache
 
 ENV NODE_ENV=production
