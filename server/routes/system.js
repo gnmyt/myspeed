@@ -5,7 +5,6 @@ const axios = require('axios');
 const fs = require("fs");
 const password = require('../middlewares/password');
 
-
 app.get("/version", password(false), async (req, res) => {
     try {
         res.json({local: version, remote: ((await axios.get(remote_url)).data.tag_name).replace("v", "")});
