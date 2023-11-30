@@ -1,5 +1,5 @@
 const axios = require("axios");
-const {replaceVariables} = require("../util/variables");
+const {replaceVariables} = require("../util/helpers");
 
 const defaults = {
     finished: "✨ *A speedtest is finished*\n🏓 `Ping`: %ping% ms\n🔼 `Upload`: %upload% Mbps\n🔽 `Download`: %download% Mbps",
