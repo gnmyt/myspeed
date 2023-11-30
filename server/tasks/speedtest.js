@@ -2,42 +2,42 @@ const speedTest = require('../util/speedtest');
 const tests = require('../controller/speedtests');
 const config = require('../controller/config');
 const recommendations = require("../controller/recommendations");
-let {setState, sendRunning, sendPing, sendError, sendFinished} = require("./integrations");
+let {setState, sendRunning, sendError, sendFinished} = require("./integrations");
 
 let isRunning = false;
 
-function roundSpeed(bytes, elapsed) {
+const roundSpeed = (bytes, elapsed) => {
     return Math.round((bytes * 8 / elapsed) / 10) / 100;
 }
 
-function setRunning(running, sendRequest = true) {
+const setRunning = (running, sendRequest = true) => {
     isRunning = running;
 
     if (running) {
         setState("running");
-        if (sendRequest) sendRunning();
+        if (sendRequest) sendRunning().then(undefined);
     } else {
         setState("ping");
     }
 }
 
-async function createRecommendations() {
-    let list = (await tests.list()).filter((entry) => !entry.error);
+const createRecommendations = async () => {
+    let list = (await tests.listTests()).filter((entry) => !entry.error);
     if (list.length >= 10) {
         let avgNumbers = {ping: 0, down: 0, up: 0};
         for (let i = 0; i < 10; i++) {
-            avgNumbers["ping"] += list[i].ping;
-            avgNumbers["down"] += list[i].download;
-            avgNumbers["up"] += list[i].upload;
+            ["ping", "down", "up"].forEach(key => {
+               if (avgNumbers[key] > list[i][key]) avgNumbers[key] = key[i][key];
+            });
         }
 
-        await recommendations.set(avgNumbers["ping"] / 10, avgNumbers["down"] / 10, avgNumbers["up"] / 10);
+        await recommendations.update(avgNumbers["ping"], avgNumbers["down"], avgNumbers["up"]);
     }
 }
 
 module.exports.run = async (retryAuto = false) => {
     setRunning(true);
-    let serverId = (await config.get("serverId")).value;
+    let serverId = await config.getValue("serverId");
 
     if (serverId === "none")
         serverId = undefined;
@@ -45,7 +45,7 @@ module.exports.run = async (retryAuto = false) => {
     let speedtest = await (retryAuto ? speedTest() : speedTest(serverId));
 
     if (serverId === undefined)
-        await config.update("serverId", speedtest.server.id);
+        await config.updateValue("serverId", speedtest.server.id);
 
     if (Object.keys(speedtest).length === 0) throw {message: "No response, even after trying again, test timed out."};
 
@@ -53,7 +53,7 @@ module.exports.run = async (retryAuto = false) => {
 }
 
 module.exports.create = async (type = "auto", retried = false) => {
-    if ((await config.get("acceptOoklaLicense")).value === 'false') return;
+    if (await config.getValue("acceptOoklaLicense") === 'false') return;
     if (isRunning && !retried) return 500;
 
     try {
