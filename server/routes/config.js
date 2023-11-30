@@ -4,10 +4,9 @@ const timer = require('../tasks/timer');
 const cron = require('cron-validator');
 const password = require('../middlewares/password');
 
-// Gets all config entries
 app.get("/", password(true), async (req, res) => {
     let configValues = {};
-    (await config.list()).forEach(row => {
+    (await config.listAll()).forEach(row => {
         if (row.key !== "password" && !(req.viewMode && ["serverId", "cron", "passwordLevel"].includes(row.key)))
             configValues[row.key] = row.value;
     });
@@ -17,7 +16,6 @@ app.get("/", password(true), async (req, res) => {
     res.json(configValues);
 });
 
-// Updates a specific config entry
 app.patch("/:key", password(false), async (req, res) => {
     if (!req.body.value?.toString()) return res.status(400).json({message: "You need to provide the new value"});
 
@@ -38,7 +36,8 @@ app.patch("/:key", password(false), async (req, res) => {
     if (req.params.key === "cron" && !cron.isValidCron(req.body.value.toString()))
         return res.status(500).json({message: "Not a valid cron expression"});
 
-    if (!await config.update(req.params.key, req.body.value.toString())) return res.status(404).json({message: "The provided key does not exist"});
+    if (!await config.updateValue(req.params.key, req.body.value.toString()))
+        return res.status(404).json({message: "The provided key does not exist"});
 
     if (req.params.key === "cron") {
         timer.stopTimer();
