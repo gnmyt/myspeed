@@ -7,7 +7,7 @@ if (!fs.existsSync("data/servers.json")) {
         axios.get("https://www.speedtest.net/api/js/servers?limit=20")
             .then(res => res.data)
             .then(data => {
-                data.forEach(row => {
+                data?.forEach(row => {
                     servers[row.id] = row.name + " (" + row.distance + "km)";
                 });
 
