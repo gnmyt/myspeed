@@ -2,14 +2,14 @@ const config = require("../models/Config");
 const {triggerEvent} = require("./integrations");
 
 const configDefaults = {
-    "ping": "25",
-    "download": "100",
-    "upload": "50",
-    "cron": "0 * * * *",
-    "serverId": "none",
-    "password": "none",
-    "passwordLevel": "none",
-    "acceptOoklaLicense": "false"
+    ping: "25",
+    download: "100",
+    upload: "50",
+    cron: "0 * * * *",
+    serverId: "none",
+    password: "none",
+    passwordLevel: "none",
+    acceptOoklaLicense: "false"
 }
 
 module.exports.insertDefaults = async () => {
@@ -22,26 +22,19 @@ module.exports.insertDefaults = async () => {
     await config.bulkCreate(insert, {validate: true});
 }
 
-// Lists all config entries
-module.exports.list = async () => {
+module.exports.listAll = async () => {
     return await config.findAll();
 }
 
-// Gets a specific config entry
-module.exports.get = async (key) => {
-    return await config.findByPk(key);
+module.exports.getValue = async (key) => {
+    return (await config.findByPk(key)).value;
 }
 
-// Updates a specific config entry
-module.exports.update = async (key, newValue) => {
-    if ((await this.get(key)) === undefined) return undefined;
+module.exports.updateValue = async (key, newValue) => {
+    if ((await this.getValue(key)) === undefined) return undefined;
 
-    triggerEvent("configUpdated", {key: key, value: key === "password" ? "protected" :newValue}).then(() => {});
+    triggerEvent("configUpdated", {key: key, value: key === "password" ? "protected" : newValue})
+        .then(undefined);
 
     return await config.update({value: newValue}, {where: {key: key}});
-}
-
-// Resets a specific config entry to the default value
-module.exports.resetDefault = async (key) => {
-    await this.update(key, configDefaults[key]);
 }
