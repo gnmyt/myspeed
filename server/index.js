@@ -35,8 +35,7 @@ if (process.env.NODE_ENV === 'production') {
 
     app.get('*', (req, res) => res.sendFile(path.join(__dirname, '../build', 'index.html')));
 } else {
-    app.get("*", (req, res) => res.status(500).send("<h2>Diese MySpeed-Instanz befindet sich aktuell im Entwicklungsmodus.<br/><br/>"
-        + "Wenn du der Betreiber bist, bitte ändere deine Umgebungsvariable ab.</h2>"));
+    app.get("*", (req, res) => res.status(500).sendFile(path.join(__dirname, 'templates', 'env.html')));
 }
 
 // Connect to the database
