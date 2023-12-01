@@ -1,7 +1,7 @@
 const speedTest = require('../util/speedtest');
 const tests = require('../controller/speedtests');
 const config = require('../controller/config');
-const recommendations = require("../controller/recommendations");
+const controller = require("../controller/recommendations");
 let {setState, sendRunning, sendError, sendFinished} = require("./integrations");
 
 let isRunning = false;
@@ -24,14 +24,16 @@ const setRunning = (running, sendRequest = true) => {
 const createRecommendations = async () => {
     let list = (await tests.listTests()).filter((entry) => !entry.error);
     if (list.length >= 10) {
-        let avgNumbers = {ping: 0, down: 0, up: 0};
+        let recommendations = {ping: 1000, down: 0, up: 0};
         for (let i = 0; i < 10; i++) {
-            ["ping", "down", "up"].forEach(key => {
-               if (avgNumbers[key] > list[i][key]) avgNumbers[key] = key[i][key];
-            });
+            if (list[i].ping < recommendations["ping"]) recommendations["ping"] = list[i].ping;
+            if (list[i].download > recommendations["down"]) recommendations["down"] = list[i].download;
+            if (list[i].upload > recommendations["up"]) recommendations["up"] = list[i].upload;
         }
 
-        await recommendations.update(avgNumbers["ping"], avgNumbers["down"], avgNumbers["up"]);
+        console.log(recommendations)
+
+        await controller.update(recommendations["ping"], recommendations["down"], recommendations["up"]);
     }
 }
 
@@ -58,6 +60,7 @@ module.exports.create = async (type = "auto", retried = false) => {
 
     try {
         let test = await this.run(retried);
+        console.log(test)
         let ping = Math.round(test.ping.latency);
         let download = roundSpeed(test.download.bytes, test.download.elapsed);
         let upload = roundSpeed(test.upload.bytes, test.upload.elapsed);
