@@ -31,8 +31,6 @@ const createRecommendations = async () => {
             if (list[i].upload > recommendations["up"]) recommendations["up"] = list[i].upload;
         }
 
-        console.log(recommendations)
-
         await controller.update(recommendations["ping"], recommendations["down"], recommendations["up"]);
     }
 }
@@ -60,7 +58,6 @@ module.exports.create = async (type = "auto", retried = false) => {
 
     try {
         let test = await this.run(retried);
-        console.log(test)
         let ping = Math.round(test.ping.latency);
         let download = roundSpeed(test.download.bytes, test.download.elapsed);
         let upload = roundSpeed(test.upload.bytes, test.upload.elapsed);
