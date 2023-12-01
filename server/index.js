@@ -10,10 +10,10 @@ app.disable('x-powered-by');
 const port = process.env.port || 5216;
 
 // Create the data folder and the servers file
-require('./config/createFolder');
-require('./config/loadServers');
+require('./util/createFolders');
+require('./util/loadServers');
 
-process.on('uncaughtException', err => require('./config/errorHandler')(err));
+process.on('uncaughtException', err => require('./util/errorHandler')(err));
 
 // Register middlewares
 app.use(express.json());
@@ -52,26 +52,26 @@ const run = async () => {
     await require('./controller/integrations').initialize();
 
     // Load the cli
-    await require('./config/loadCli').load();
+    await require('./util/loadCli').load();
 
     await config.insertDefaults();
 
     // Start all timer
-    timerTask.startTimer((await config.get("cron")).value);
+    timerTask.startTimer(await config.getValue("cron"));
     setInterval(async () => require('./tasks/speedtest').removeOld(), 60000);
 
     // Start integration interval
     integrationTask.startTimer();
 
     // Make a speedtest
-    timerTask.runTask();
+    timerTask.runTask().then(undefined);
 
     app.listen(port, () => console.log(`Server listening on port ${port}`));
 }
 
 db.authenticate().then(() => {
     console.log("Successfully connected to the database file");
-    run();
+    run().then(undefined);
 }).catch(err => {
     console.error("Could not open the database file. Maybe it is damaged?: " + err.message);
     process.exit(111);

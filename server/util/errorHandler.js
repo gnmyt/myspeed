@@ -1,7 +1,6 @@
 const fs = require("fs");
 const filePath = process.cwd() + "/data/logs/error.log";
 
-// Writes the errors into the error.log file
 module.exports = (error) => {
     const date = new Date().toLocaleString();
     const lineStarter = fs.existsSync(filePath) ? "\n\n" : "# Found a bug? Report it here: https://github.com/gnmyt/myspeed/issues\n\n";

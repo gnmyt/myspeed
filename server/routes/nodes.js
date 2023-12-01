@@ -1,20 +1,17 @@
 const app = require('express').Router();
 const nodes = require('../controller/node');
 const password = require("../middlewares/password");
-const {checkNode, proxyRequest} = require("../controller/node");
 
-// List all nodes
 app.get("/", password(false), async (req, res) => {
-    return res.json(await nodes.list());
+    return res.json(await nodes.listAll());
 });
 
-// Create a node
 app.put("/", password(false), async (req, res) => {
     if (!req.body.name || !req.body.url) return res.status(400).json({message: "Missing parameters", type: "MISSING_PARAMETERS"});
 
     const url = req.body.url.replace(/\/+$/, "");
 
-    checkNode(url, req.body.password).then(async (result) => {
+    nodes.checkStatus(url, req.body.password).then(async (result) => {
         if (result === "INVALID_URL")
             return res.status(400).json({message: "Invalid URL", type: "INVALID_URL"});
 
@@ -25,34 +22,31 @@ app.put("/", password(false), async (req, res) => {
     });
 });
 
-// Delete a node
 app.delete("/:nodeId", password(false), async (req, res) => {
-    const node = await nodes.get(req.params.nodeId);
+    const node = await nodes.getOne(req.params.nodeId);
     if (node === null) return res.status(404).json({message: "Node not found"});
 
     await nodes.delete(req.params.nodeId);
     res.json({message: "Node successfully deleted"});
 });
 
-// Update the node name
 app.patch("/:nodeId/name", password(false), async (req, res) => {
     if (!req.body.name) return res.status(400).json({message: "Missing parameters", type: "MISSING_PARAMETERS"});
 
-    const node = await nodes.get(req.params.nodeId);
+    const node = await nodes.getOne(req.params.nodeId);
     if (node === null) return res.status(404).json({message: "Node not found"});
 
     await nodes.updateName(req.params.nodeId, req.body.name);
     res.json({message: "Node name successfully updated"});
 });
 
-// Update the node password
 app.patch("/:nodeId/password", password(false), async (req, res) => {
     if (!req.body.password) return res.status(400).json({message: "Missing parameters", type: "MISSING_PARAMETERS"});
 
-    const node = await nodes.get(req.params.nodeId);
+    const node = await nodes.getOne(req.params.nodeId);
     if (node === null) return res.status(404).json({message: "Node not found"});
 
-    checkNode(node.url, req.body.password).then(async (result) => {
+    nodes.checkStatus(node.url, req.body.password).then(async (result) => {
         if (result === "INVALID_URL")
             return res.status(400).json({message: "Invalid URL", type: "INVALID_URL"});
 
@@ -64,9 +58,8 @@ app.patch("/:nodeId/password", password(false), async (req, res) => {
     });
 });
 
-// Get information from the node
 app.all("/:nodeId/*", password(false), async (req, res) => {
-    const node = await nodes.get(req.params.nodeId);
+    const node = await nodes.getOne(req.params.nodeId);
     if (node === null) return res.status(404).json({message: "Node not found"});
 
     const url = node.url + req.originalUrl.replace("/api/nodes/" + req.params.nodeId, "/api");
@@ -74,7 +67,7 @@ app.all("/:nodeId/*", password(false), async (req, res) => {
     req.headers['password'] = node.password;
     delete req.headers['host'];
 
-    await proxyRequest(url, req, res);
+    await nodes.proxyRequest(url, req, res);
 });
 
 module.exports = app;

@@ -2,8 +2,8 @@ const config = require('../controller/config');
 const bcrypt = require('bcrypt');
 
 module.exports = (allowViewAccess) => async (req, res, next) => {
-    let passwordHash = (await config.get("password")).value;
-    let passwordLevel = (await config.get("passwordLevel")).value;
+    let passwordHash = await config.getValue("password");
+    let passwordLevel = await config.getValue("passwordLevel");
 
     if (passwordHash === "none") {
         req.viewMode = false;

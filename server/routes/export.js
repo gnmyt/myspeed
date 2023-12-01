@@ -4,12 +4,12 @@ const password = require('../middlewares/password');
 
 app.get("/json", password(false), async (req, res) => {
     res.set({"Content-Disposition": "attachment; filename=\"speedtests.json\""});
-    res.send(JSON.stringify(await tests.list(), null, 4));
+    res.send(JSON.stringify(await tests.listTests(), null, 4));
 });
 
 app.get("/csv", password(false), async (req, res) => {
     res.set({"Content-Disposition": "attachment; filename=\"speedtests.csv\""});
-    let list = await tests.list();
+    let list = await tests.listTests();
 
     if (list.length === 0) return res.send("");
     let fields = Object.keys(list[0]);

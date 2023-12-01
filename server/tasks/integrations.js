@@ -4,42 +4,34 @@ const {triggerEvent} = require("../controller/integrations");
 let currentState = "ping";
 let job;
 
-// Sets the current state (running = no pings, ping = send pings)
 module.exports.setState = (state = "ping") => {
     currentState = state;
 }
 
-// Send a ping to the event system
 module.exports.sendPing = async (type, message) => {
     await triggerEvent("minutePassed", {type, message});
 }
 
-// Sends a ping only if the ping state is active
 module.exports.sendCurrent = async () => {
     if (currentState === "ping") await this.sendPing();
 }
 
-// Sends an 'error' ping to the event system
 module.exports.sendError = async (error = "Unknown error") => {
     await triggerEvent("testFailed", error);
 }
 
-// Sends a 'running' ping to the event system
 module.exports.sendRunning = async () => {
     await triggerEvent("testStarted");
 }
 
-// Sends a 'finished' ping to the event system
 module.exports.sendFinished = async (data) => {
     await triggerEvent("testFinished", data);
 }
 
-// Starts a timer which sends a ping every minute
 module.exports.startTimer = () => {
     job = schedule.scheduleJob('* * * * *', () => this.sendCurrent());
 }
 
-// Stops the timer
 module.exports.stopTimer = () => {
     if (job !== undefined) {
         job.cancel();

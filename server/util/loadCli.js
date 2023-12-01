@@ -4,7 +4,7 @@ const decompress = require("decompress");
 const {file} = require("tmp");
 const decompressTarGz = require('decompress-targz');
 const decompressUnzip = require('decompress-unzip');
-const binaries = require('./binaries');
+const binaries = require('../config/binaries');
 
 const binaryRegex = /speedtest(.exe)?$/;
 const binaryDirectory = __dirname + "/../../bin/";
@@ -12,7 +12,7 @@ const binaryPath = `${binaryDirectory}/speedtest` + (process.platform === "win32
 
 const downloadPath = `https://install.speedtest.net/app/cli/ookla-speedtest-${binaries.version}-`;
 
-module.exports.checkFile = async () => fs.existsSync(binaryPath);
+module.exports.fileExists = async () => fs.existsSync(binaryPath);
 
 module.exports.downloadFile = async () => {
     const binary = binaries.list.find(b => b.os === process.platform && b.arch === process.arch);
@@ -40,6 +40,6 @@ module.exports.downloadFile = async () => {
 }
 
 module.exports.load = async () => {
-    if (!await this.checkFile())
+    if (!await this.fileExists())
         await this.downloadFile();
 }
