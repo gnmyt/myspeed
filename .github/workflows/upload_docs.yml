@@ -2,7 +2,7 @@ name: Deploy documentation to GitHub
 on:
   push:
     branches: [ "development" ]
-    paths: [ "docs/**" ]
+    paths: [ "docs/**", "mkdocs.yml" ]
 
 jobs:
   deploy:
