@@ -6,7 +6,7 @@ verwendest.
 !!! note ""
     Hast du noch einen Vorschlag oder einen Bug gefunden? Dann öffne doch
     ein [Issue](https://github.com/gnmyt/myspeed/issues) oder schreibe mir eine Nachricht
-    auf [Discord (GNM#0001)](https://discord.com/users/386242172632170496)
+    auf [Discord (@GNM)](https://discord.com/users/386242172632170496)
 
 ## Was ist das überhaupt?
 

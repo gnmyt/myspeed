@@ -4,7 +4,7 @@ This documentation explains how to install, configure and use MySpeed on a serve
 
 !!! note ""
     Did you find another suggestion or bug? Then open an [Issue](https://github.com/gnmyt/myspeed/issues) or write me a 
-    message on [Discord (GNM#0001)](https://discord.com/users/386242172632170496)
+    message on [Discord (@GNM)](https://discord.com/users/386242172632170496)
 
 ## What is it?
 
