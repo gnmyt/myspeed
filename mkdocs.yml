@@ -15,10 +15,19 @@ plugins:
         - locale: en
           default: true
           name: English
-          build: true
         - locale: de
           name: Deutsch
-          build: true
+          nav_translations:
+            Start: Startseite
+            Frequently Asked Questions: Häufig gestellte Fragen
+            Setup: Einrichtung
+            Guides: Anleitungen
+            Configuring a Reverse Proxy: Einrichten eines Reverse Proxys
+            Troubleshooting: Fehlerbehebung
+            Instructions: Anweisungen
+            The Interface: Die Benutzeroberfläche
+            Settings: Einstellungen
+
 theme:
   name: material
   logo: assets/images/logo.png
@@ -66,14 +75,14 @@ markdown_extensions:
       emoji_generator: !!python/name:materialx.emoji.to_svg
 
 nav:
-  - Start: index.en.md
-  - Frequently Asked Questions: faq.en.md
+  - Start: index.md
+  - Frequently Asked Questions: faq.md
   - Setup:
-      - Linux: setup/linux.en.md
-      - Windows: setup/windows.en.md
+      - Linux: setup/linux.md
+      - Windows: setup/windows.md
   - Guides:
-      - Configuring a Reverse Proxy: guides/reverse-proxy.en.md
-  - Troubleshooting: troubleshooting.en.md
+      - Configuring a Reverse Proxy: guides/reverse-proxy.md
+  - Troubleshooting: troubleshooting.md
   - Instructions:
-      - The Interface: instructions/main.en.md
-      - Settings: instructions/settings.en.md
+      - The Interface: instructions/main.md
+      - Settings: instructions/settings.md
