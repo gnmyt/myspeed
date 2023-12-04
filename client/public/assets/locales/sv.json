@@ -1,304 +1,304 @@
 {
-  "failed": "Misslyckades",
+  "failed": "Failed",
   "dialog": {
     "okay": "Okej",
-    "done": "Klar",
-    "apply": "Ja, ta över",
-    "update": "Uppdatering",
-    "close": "Nära",
-    "unset": "Ta bort",
-    "retry": "Erneut versuchen",
-    "login": "Logga in",
+    "done": "Done",
+    "apply": "Yes, apply",
+    "update": "Update",
+    "close": "Close",
+    "unset": "Remove",
+    "retry": "Try again",
+    "login": "Login",
     "password": {
-      "title": "Lösenord krävs",
-      "placeholder": "Ditt lösenord",
-      "wrong": "Lösenordet du angav är felaktigt",
-      "unlock": "Lås upp"
+      "title": "Password required",
+      "placeholder": "Your password",
+      "wrong": "The password you entered is incorrect",
+      "unlock": "Unlock"
     },
     "accept": {
-      "title": "Vi behöver ditt tillstånd",
-      "description": "Vi använder tjänster från Ookla. Genom att klicka på <Bold>Accept</Bold> bekräftar du att du har läst och godkänner Ooklas <EULA>EULA</EULA>, <Privacy>Privacy Statement</Privacy> och <Terms>Terms of Use</Terms>.",
-      "button": "Acceptera"
+      "title": "We need your permission",
+      "description": "We use services from Ookla. By clicking <Bold>Accept</Bold>, you acknowledge that you have read and agree to Ookla's <EULA>EULA</EULA>, <Privacy>Privacy Statement</Privacy> and <Terms>Terms of Use</Terms>.",
+      "button": "Accept"
     },
     "api": {
-      "title": "API inte tillgängligt",
-      "description": "MySpeed kunde inte nå API: et för denna instans. Vänligen försök igen senare."
+      "title": "API not reachable",
+      "description": "MySpeed could not reach the API of this instance. Please try again later."
     }
   },
   "dropdown": {
-    "settings": "Inställningar",
-    "changes_applied": "Ändringarna har sparats.",
-    "view_changed": "Vyn ändrades.",
-    "changes_unsaved": "Dina ändringar accepterades inte. Kontrollera din inmatning.",
-    "invalid": "Ingång ogiltig",
+    "settings": "Settings",
+    "changes_applied": "Your changes have been saved.",
+    "view_changed": "The view has been changed.",
+    "changes_unsaved": "Your changes were not applied. Check your input.",
+    "invalid": "Input invalid",
     "ping": "Optimal ping",
-    "upload": "Optimal uppkopplingshastighet",
-    "download": "Optimal nedhastighet",
-    "recommendations": "Optimala värden",
-    "server": "Ändra server",
-    "password": "Ändra lösenord",
-    "cron": "Ställ in frekvens",
-    "time": "Inställd period",
-    "export": "Exportprov",
-    "pause_tests": "Pausa tester",
-    "resume_tests": "Fortsätt tester",
-    "language": "Ändra språk",
-    "view": "Ändra vy",
-    "info": "Information om projektet",
-    "integrations": "Integrationer"
+    "upload": "Optimal up-speed",
+    "download": "Optimal down-speed",
+    "recommendations": "Recommendations",
+    "server": "Change Server",
+    "password": "Change password",
+    "cron": "Set frequency",
+    "time": "Set period",
+    "export": "Export tests",
+    "pause_tests": "Pause tests",
+    "resume_tests": "Resume tests",
+    "language": "Change language",
+    "view": "Switch view",
+    "info": "About the project",
+    "integrations": "Integrations"
   },
   "options": {
     "time": {
-      "24hours": "24 timmar (standard)",
-      "2days": "2 dagar (totalt)",
-      "7days": "7 dagar (genomsnitt)",
-      "30days": "30 dagar (genomsnitt)"
+      "24hours": "24 hours (default)",
+      "2days": "2 days (Total)",
+      "7days": "7 days (average)",
+      "30days": "30 days (average)"
     },
     "cron": {
-      "continuous": "Kontinuerlig (varje minut)",
-      "frequent": "Mycket ofta (var 30: e minut)",
-      "default": "Standard (varje timme)",
-      "rare": "Sällan (var 3: e timme)",
-      "really_rare": "Mycket sällan (var 6: e timme)"
+      "continuous": "Continuous (every minute)",
+      "frequent": "Very often (every 30 minutes)",
+      "default": "Default (every hour)",
+      "rare": "Rarely (every 3 hours)",
+      "really_rare": "Very rarely (every 6 hours)"
     },
     "export": {
-      "json": "JSON-fil",
-      "csv": "CSV-fil"
+      "json": "JSON file",
+      "csv": "CSV file"
     },
     "level": {
-      "no_access": "Ingen tillgång",
-      "read_access": "Endast läsbehörighet"
+      "no_access": "No Access",
+      "read_access": "Read-only Access"
     }
   },
   "update": {
-    "ping_title": "Ställ in optimal ping (ms)",
+    "ping_title": "Set optimal ping (ms)",
     "ping_placeholder": "Ping (ms)",
-    "upload_title": "Ställ in optimal uppkopplingshastighet (Mbit/s)",
-    "upload_placeholder": "Uppgångshastighet (Mbit/s)",
-    "download_title": "Ställ in optimal nedhastighet (Mbit/s)",
-    "download_placeholder": "Nedhastighet (Mbit/s)",
-    "recommendations_title": "Optimala rekommendationer",
-    "recommendations_set": "Sätta automatiska rekommendationer?",
-    "server_title": "Ange hastighet för testserver",
-    "manually": "Ställ in manuellt",
-    "manual_server_title": "Ange hastighet för testserver",
-    "manual_server_id": "Server-ID",
-    "new_password": "Ange nytt lösenord",
-    "password_placeholder": "Nytt lösenord",
-    "password_removed": "Lösenordslåset har tagits bort och det inställda lösenordet har tagits bort.",
-    "level": "Förändra nivå",
-    "level_title": "Rättigheter för besökare",
-    "cron_title": "Ställ in testfrekvens",
-    "cron_rules": "Cron-regel",
-    "cron_next_test": "Nästa test:",
-    "time_title": "Visa tester av de senaste ...",
-    "export_title": "Exportera hastighetstester",
-    "download": "Nedladdning",
-    "pause_title": "Hastighetstest paus för...",
-    "hours": "Timmar",
-    "pause": "Paus",
-    "release_manually": "Släpp manuellt",
-    "language": "Ändra språk",
-    "view_title": "Ändra vy"
+    "upload_title": "Set optimal up-speed (Mbps)",
+    "upload_placeholder": "Up speed (Mbps)",
+    "download_title": "Set optimal down-speed (Mbps)",
+    "download_placeholder": "Down speed (Mbps)",
+    "recommendations_title": "Optimal recommendations",
+    "recommendations_set": "Set automatic recommendations?",
+    "server_title": "Set speedtest server",
+    "manually": "Set manually",
+    "manual_server_title": "Set speedtest server",
+    "manual_server_id": "Server ID",
+    "new_password": "Set a new password",
+    "password_placeholder": "New password",
+    "password_removed": "The password lock has been removed and the set password has been removed.",
+    "level": "Change level",
+    "level_title": "Rights for visitors",
+    "cron_title": "Set test frequency",
+    "cron_rules": "Cron rule",
+    "cron_next_test": "Next Test:",
+    "time_title": "Show tests of the last ...",
+    "export_title": "Export speedtests",
+    "download": "Download",
+    "pause_title": "Pause speedtests for...",
+    "hours": "Hours",
+    "pause": "Pause",
+    "release_manually": "Release manually",
+    "language": "Change language",
+    "view_title": "Switch view"
   },
   "header": {
     "title": "MySpeed",
-    "running_tooltip": "Hastighetstest pågår",
-    "start_tooltip": "Starta hastighetstest",
-    "new_update": "Uppdatering tillgänglig",
-    "paused": "Hastighetstester är för närvarande pausade. Fortsätt om du vill göra ett test.",
-    "running": "Ett hastighetstest pågår redan. Vänligen vänta ett ögonblick.",
-    "admin_login": "Admin-inloggning",
+    "running_tooltip": "Speedtest running",
+    "start_tooltip": "Start speedtest",
+    "new_update": "Update available",
+    "paused": "Speedtests are currently paused. Please continue them if you want to do one.",
+    "running": "A speedtest is already running. Please wait a moment.",
+    "admin_login": "Admin Login",
     "beta": {
-      "title": "Betaversion",
-      "description": "Denna funktion är fortfarande i beta-fas. Om du hittar några buggar, vänligen rapportera dem <Link>här</Link>."
+      "title": "Beta Version",
+      "description": "This feature is still in beta. If you find any bugs, please report them <Link>here</Link>."
     }
   },
   "latest": {
     "ping": "Ping",
     "ping_unit": "ms",
     "down": "Nedladdning",
-    "speed_unit": "Mbit/s",
+    "speed_unit": "Mbps",
     "up": "Uppladdning",
-    "latest": "Sista testet",
-    "before": "från"
+    "latest": "Last test",
+    "before": "before"
   },
   "info": {
-    "credits": "<Link>MySpeed</Link> tillhandahålls av GNMYT och använder <CLILink>Speedtest CLI</CLILink> från Ookla.",
-    "recommendations_error": "Du måste göra minst 10 tester så att ett genomsnitt kan fastställas. Det spelar ingen roll om testerna utfördes manuellt eller automatiskt.",
-    "recommendations_info": "Baserat på de senaste 10 testresultaten visade det sig att den optimala pingen var <Bold>{{ping}} ms</Bold>, nedladdningen var <Bold>{{down}} Mbit/s</Bold> och uppladdningen vid <Bold>{{up}} Mbit/s</Bold>. Det är bäst att använda ditt internetavtal som en guide och bara anta det om det matchar.",
-    "update": "En uppdatering till version {{version}} är tillgänglig. Se <Changes>Ändringarna</Changes> och <DLLink>Ladda ner uppdateringen</DLLink>.",
+    "credits": "<Link>MySpeed</Link> is provided by GNMYT and uses the <CLILink>Speedtest CLI</CLILink> from Ookla.",
+    "recommendations_error": "You have to do at least 10 tests to get an average. It doesn't matter if the tests were done manually or automatically.",
+    "recommendations_info": "Based on the last 10 tests, it was found that the optimal ping was <Bold>{{ping}} ms</Bold>, the download at <Bold>{{down}} Mbps</Bold> and the upload at <Bold>{{up}} Mbps</Bold>. It is best to orientate yourself on your internet contract and only adopt it if it matches that.",
+    "update": "An update to version {{version}} is available. See <Changes>the changes</Changes> and <DLLink>download the update</DLLink>.",
     "down": {
-      "title": "Nedladdningshastighet",
-      "description": "Nedladdningshastigheten påverkar din surfupplevelse. Ju mer du får, desto snabbare kan din dator ta emot data."
+      "title": "Download speed",
+      "description": "Download speed affects your browsing experience. The more you get, the faster your computer can receive data."
     },
     "ping": {
       "title": "Ping",
-      "description": "Pingen visar hur snabbt respektive leverantör svarar. Ju kortare tid, desto bättre."
+      "description": "The ping shows you how fast the respective provider responds. The shorter the time, the better."
     },
     "up": {
-      "title": "Uppladdningshastighet",
-      "description": "Uppladdningshastigheten påverkar din surfupplevelse. Ju mer du får, desto snabbare kan din dator skicka data."
+      "title": "Upload speed",
+      "description": "Upload speed affects your browsing experience. The more you get, the faster your computer can send data."
     },
     "latest": {
-      "title": "Sista testet",
-      "description": "Detta är den tid som visar när det senaste testet utfördes. I det här fallet utfördes det senaste testet den <Bold>{{date}}</Bold> kl. <Bold>{{time}}</Bold>."
+      "title": "Last test",
+      "description": "This is the time that shows you when the last test was run. In this case, the last one took place on <Bold>{{date}}</Bold> at <Bold>{{time}}</Bold>."
     }
   },
   "time": {
-    "now": "Just nu",
-    "seconds": "{{seconds}} sekunder",
-    "minute": "1 minut",
-    "minutes": "{{minutes}} minuter",
-    "hour": "1 timme",
-    "hours": "{{hours}} timmar",
-    "on": "Vid",
-    "at": "Vid"
+    "now": "Just now",
+    "seconds": "{{seconds}} seconds",
+    "minute": "1 minute",
+    "minutes": "{{minutes}} minutes",
+    "hour": "1 hour",
+    "hours": "{{hours}} hours",
+    "on": "On",
+    "at": "At"
   },
   "test": {
-    "not_available": "Det finns för närvarande inga tillgängliga tester",
-    "no_latest": "Det finns inget aktuellt test. Vänligen utför ett test eller vänta tills nästa test har utförts.",
-    "unknown_error": "Okänt fel:",
-    "failed": "Testet misslyckades",
-    "recheck": "Vänligen kontrollera så långt som möjligt om detta inträffar oftare.",
-    "delete": "Radera test",
-    "deleted": "Testet togs bort",
+    "not_available": "There are currently no tests available",
+    "no_latest": "There is no current test available. Please perform a test or wait until the next test is performed.",
+    "unknown_error": "Unknown error:",
+    "failed": "Test failed",
+    "recheck": "Please check as far as possible if this happens often.",
+    "delete": "Delete Test",
+    "deleted": "The test has been deleted",
     "average": {
-      "title": "Genomsnittlig hastighet",
-      "description": "<Bold>{{amount}}</Bold> Tester har visat att på <Bold>{{date}}</Bold> en genomsnittlig nedladdningshastighet på <Bold>{{down}} Mbit/s</Bold> och en uppladdningshastighet på <Bold>{{up}} Mbit/s</Bold> klarades. Testerna varade i genomsnitt <Bold>{{duration}} sekunder</Bold>."
+      "title": "Average Speed",
+      "description": "<Bold>{{amount}}</Bold> Tests have shown that on <Bold>{{date}}</Bold> an average download speed of <Bold>{{down}} Mbps </Bold> and an upload speed of <Bold>{{up}} Mbps</Bold> was passed. The tests took an average of <Bold>{{duration}} Seconds</Bold>."
     },
     "result": {
-      "title": "Resultat av test",
-      "description": "Detta test uppnådde en maximal nedladdningshastighet på <Bold>{{down}} Mbit/s</Bold> och en maximal uppladdningshastighet på <Bold>{{up}} Mbit/s</Bold>. Det skapades <Bold>{{type}}</Bold> och tog <Bold>{{duration}} sekunder</Bold>.",
-      "from_you": "från dig",
-      "automatic": "automatisk"
+      "title": "Test result",
+      "description": "This test achieved a maximum download speed of <Bold>{{down}} Mbps</Bold> and a maximum upload speed of <Bold>{{up}} Mbps</Bold>. It was created <Bold>{{type}}</Bold> and took <Bold>{{duration}} Seconds</Bold>.",
+      "from_you": "by you",
+      "automatic": "automatically"
     },
     "tooltips": {
-      "custom": "Anpassad",
-      "average": "Genomsnittlig",
-      "auto": "Automatiserad"
+      "custom": "Custom",
+      "average": "Average",
+      "auto": "Automated"
     },
     "views": {
-      "list": "Översikt över testet",
-      "statistic": "Statistik för testet"
+      "list": "Test Overview",
+      "statistic": "Test statistics"
     },
     "overview": {
-      "title": "Testöversikt över de senaste {{amount}}",
-      "1": "24 timmar",
-      "2": "2 dagar",
-      "3": "7 dagar",
-      "4": "30 dagar"
+      "title": "Test overview of the last {{amount}}",
+      "1": "24 hours",
+      "2": "2 days",
+      "3": "7 days",
+      "4": "30 days"
     }
   },
   "errors": {
-    "network_unreachable": "Internetanslutningen var instabil under tiden för testet",
-    "took_too_long": "Testet tog för lång tid och ställdes in",
-    "no_permission": "MySpeed har inget tillstånd att starta detta test",
-    "resource_unavailable": "Testet kunde inte utföras eftersom resursen var tillfälligt otillgänglig",
-    "no_route": "Testet kunde inte utföras eftersom det inte fanns någon väg till värden",
-    "connection_refused": "Testet kunde inte utföras eftersom anslutningen avvisades",
-    "timed_out": "Internetanslutningen var instabil under tiden för testet",
-    "config": "Konfigurationsfilen kunde inte läsas in",
-    "invalid_view": "Ogiltig vy"
+    "network_unreachable": "Internet connection was unstable during the time of the test",
+    "took_too_long": "The test took too long and was canceled",
+    "no_permission": "MySpeed has no permission to start this test",
+    "resource_unavailable": "The test could not be performed because the resource was temporarily unavailable",
+    "no_route": "The test could not be performed because there was no route to the host",
+    "connection_refused": "The test could not be performed because the connection was rejected",
+    "timed_out": "Internet connection was unstable during the time of the test",
+    "config": "The configuration file could not be loaded",
+    "invalid_view": "Invalid view"
   },
   "statistics": {
     "overview": {
-      "total_title": "Totalt antal tester",
-      "total_description": "Antalet utförda tester",
-      "failed_title": "Underkända tester",
-      "failed_description": "Antalet misslyckade tester",
-      "average_title": "Genomsnittlig varaktighet",
-      "average_description": "Testens genomsnittliga varaktighet"
+      "total_title": "Total tests",
+      "total_description": "The number of executed tests",
+      "failed_title": "Failed tests",
+      "failed_description": "The number of failed tests",
+      "average_title": "Average duration",
+      "average_description": "The average duration of the tests"
     },
     "failed": {
-      "title": "Underkända tester",
-      "success": "Framgångsrik",
-      "failed": "Misslyckades",
+      "title": "Failed tests",
+      "success": "Successful",
+      "failed": "Failed",
       "label": "Tester"
     },
     "speed": {
-      "title": "Hastighet"
+      "title": "Speed"
     },
     "manual": {
-      "title": "Manuella tester",
-      "yes": "Manuellt skapad",
-      "no": "Skapas automatiskt"
+      "title": "Manual tests",
+      "yes": "Created manually",
+      "no": "Created automatically"
     },
     "duration": {
-      "title": "Testets varaktighet",
-      "label": "Antal"
+      "title": "Test duration",
+      "label": "Amount"
     },
     "values": {
-      "min": "Lägsta",
-      "max": "Högsta",
-      "avg": "Genomsnittlig",
-      "down": "Ladda ner värden",
-      "up": "Ladda upp värden"
+      "min": "Minimum",
+      "max": "Maximum",
+      "avg": "Average",
+      "down": "Download values",
+      "up": "Upload values"
     }
   },
   "nodes": {
-    "add": "Lägg till server",
-    "create": "Lägg till",
-    "this_server": "Denna server",
-    "created": "Servern har framgångsrikt lagts till",
-    "password_required": "Ett lösenord krävs för denna nod",
-    "update_password": "Vänligen uppdatera lösenordet för denna nod",
-    "password_outdated": "Lösenordet är föråldrat",
-    "password_updated": "Lösenordet uppdaterades framgångsrikt",
+    "add": "Add server",
+    "create": "Add",
+    "this_server": "This server",
+    "created": "The server has been successfully added",
+    "password_required": "This node requires a password",
+    "update_password": "Please update the password of this node",
+    "password_outdated": "Password outdated",
+    "password_updated": "The password has been successfully updated",
     "placeholder": {
-      "name": "MySpeed instans",
-      "url": "https://din-server.se"
+      "name": "MySpeed instance",
+      "url": "https://your-server.com"
     },
     "group": {
-      "name": "Serverns namn",
-      "url": "Serveradress"
+      "name": "Server name",
+      "url": "Server address"
     },
     "delete": {
-      "title": "Radera server",
-      "description": "Servern <Bold>{{name}}</Bold> (#{{id}}) har tagits bort. Denna åtgärd kan inte ångras. Vill du fortsätta?",
-      "yes": "Ja, radera",
-      "success": "Servern har raderats framgångsrikt"
+      "title": "Delete server",
+      "description": "The server <Bold>{{name}}</Bold> (#{{id}}) will be deleted. This action cannot be undone. Do you want to continue?",
+      "yes": "Yes, delete",
+      "success": "The server has been deleted successfully"
     },
     "messages": {
-      "not_reachable": "Servern är inte nåbar",
-      "password_changed": "Lösenordet har ändrats",
-      "tests_pending": "Testresultat inväntas"
+      "not_reachable": "Server is not reachable",
+      "password_changed": "Password changed",
+      "tests_pending": "Test results pending"
     }
   },
   "integrations": {
-    "none_active": "Denna integration är inte aktiv. <br/><Bold>Lägg till</Bold>",
-    "display_name": "Namn på integration",
-    "create": "Lägg till",
+    "none_active": "This integration is not active. <br/><Bold>Create</Bold>",
+    "display_name": "Integration name",
+    "create": "Create",
     "activity": {
-      "never_executed": "Aldrig utförd",
-      "last_run": "Senast före "
+      "never_executed": "Never executed",
+      "last_run": "Last run before "
     },
     "discord": {
       "title": "Discord",
       "fields": {
         "url": "URL för webhook",
         "url_placeholder": "https://discord.com/api/webhooks/...",
-        "display_name": "Visa namn",
-        "display_name_placeholder": "Meddelande om MySpeed",
-        "error_message": "Felmeddelande",
-        "error_message_placeholder": "Fel: %error%",
-        "send_failed": "Skicka felmeddelanden",
-        "send_finished": "Skicka ifylld",
-        "finished_message": "Avslutat meddelande",
-        "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
+        "display_name": "Display name",
+        "display_name_placeholder": "MySpeed Notification",
+        "error_message": "Error message",
+        "error_message_placeholder": "Error: %error%",
+        "send_failed": "Send error messages",
+        "send_finished": "Send finished messages",
+        "finished_message": "Finished message",
+        "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
       }
     },
     "gotify": {
       "title": "Gotify",
       "fields": {
         "url": "Server URL",
-        "key": "Applikationstoken",
-        "error_message": "Felmeddelande",
-        "error_message_placeholder": "Fel: %error%",
-        "send_failed": "Skicka felmeddelanden",
-        "send_finished": "Skicka ifylld",
-        "finished_message": "Avslutat meddelande",
-        "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
+        "key": "App token",
+        "error_message": "Error message",
+        "error_message_placeholder": "Error: %error%",
+        "send_failed": "Send error messages",
+        "send_finished": "Send finished messages",
+        "finished_message": "Finished message",
+        "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
       }
     },
     "healthChecks": {
@@ -313,25 +313,25 @@
       "fields": {
         "token": "Bot Token",
         "chat_id": "Chatt-ID",
-        "error_message": "Felmeddelande",
-        "error_message_placeholder": "Fel: %error%",
-        "send_failed": "Skicka felmeddelanden",
-        "send_finished": "Skicka ifylld",
-        "finished_message": "Avslutat meddelande",
-        "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
+        "error_message": "Error message",
+        "error_message_placeholder": "Error: %error%",
+        "send_failed": "Send error messages",
+        "send_finished": "Send finished messages",
+        "finished_message": "Finished message",
+        "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
       }
     },
     "webhook": {
       "title": "Webhook",
       "fields": {
         "url": "URL för webhook",
-        "url_placeholder": "https://din-server.se/hook",
-        "send_started": "Startad sändning",
-        "send_failed": "Skicka felmeddelanden",
-        "send_finished": "Skicka ifylld",
-        "send_alive": "Skicka livliga meddelanden",
-        "send_recommendations": "Skicka rekommendationer",
-        "send_config_updates": "Skicka konfigurationsuppdateringar"
+        "url_placeholder": "https://your-server.com/hook",
+        "send_started": "Send started",
+        "send_failed": "Send error messages",
+        "send_finished": "Send finished messages",
+        "send_alive": "Send Keep-Alive messages",
+        "send_recommendations": "Send recommendations",
+        "send_config_updates": "Send configuration updates"
       }
     }
   }
