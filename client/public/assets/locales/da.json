@@ -1,304 +1,304 @@
 {
-  "failed": "Mislykket",
+  "failed": "Failed",
   "dialog": {
     "okay": "Okay",
-    "done": "Klar",
-    "apply": "Ja, tag over",
-    "update": "Opdatering",
-    "close": "Luk",
-    "unset": "Fjern",
-    "retry": "Prøv igen",
-    "login": "Log ind",
+    "done": "Done",
+    "apply": "Yes, apply",
+    "update": "Update",
+    "close": "Close",
+    "unset": "Remove",
+    "retry": "Try again",
+    "login": "Login",
     "password": {
-      "title": "Adgangskode påkrævet",
-      "placeholder": "Din adgangskode",
-      "wrong": "Den adgangskode, du har indtastet, er forkert",
-      "unlock": "Lås op"
+      "title": "Password required",
+      "placeholder": "Your password",
+      "wrong": "The password you entered is incorrect",
+      "unlock": "Unlock"
     },
     "accept": {
-      "title": "Vi har brug for din tilladelse",
-      "description": "Vi bruger tjenester fra Ookla. Ved at klikke på <Bold>Accept</Bold> bekræfter du, at du har læst og accepterer Ooklas <EULA>EULA</EULA>, <Privacy>Privacy Statement</Privacy> og <Terms>Terms of Use</Terms>.",
-      "button": "Accepter"
+      "title": "We need your permission",
+      "description": "We use services from Ookla. By clicking <Bold>Accept</Bold>, you acknowledge that you have read and agree to Ookla's <EULA>EULA</EULA>, <Privacy>Privacy Statement</Privacy> and <Terms>Terms of Use</Terms>.",
+      "button": "Accept"
     },
     "api": {
-      "title": "API ikke tilgængelig",
-      "description": "MySpeed kunne ikke nå API'en for denne instans. Prøv venligst igen senere."
+      "title": "API not reachable",
+      "description": "MySpeed could not reach the API of this instance. Please try again later."
     }
   },
   "dropdown": {
-    "settings": "Indstillinger",
-    "changes_applied": "Ændringerne er blevet gemt.",
-    "view_changed": "Udsigten blev ændret.",
-    "changes_unsaved": "Dine ændringer blev ikke accepteret. Tjek dit input.",
-    "invalid": "Input ugyldigt",
+    "settings": "Settings",
+    "changes_applied": "Your changes have been saved.",
+    "view_changed": "The view has been changed.",
+    "changes_unsaved": "Your changes were not applied. Check your input.",
+    "invalid": "Input invalid",
     "ping": "Optimal ping",
-    "upload": "Optimal opstartshastighed",
-    "download": "Optimal nedadgående hastighed",
-    "recommendations": "Optimale værdier",
-    "server": "Skift server",
-    "password": "Skift adgangskode",
-    "cron": "Indstil frekvens",
-    "time": "Indstillet periode",
-    "export": "Eksporttest",
-    "pause_tests": "Pause-test",
-    "resume_tests": "Fortsæt test",
-    "language": "Skift sprog",
-    "view": "Skift visning",
-    "info": "Info om projektet",
-    "integrations": "Integrationer"
+    "upload": "Optimal up-speed",
+    "download": "Optimal down-speed",
+    "recommendations": "Recommendations",
+    "server": "Change Server",
+    "password": "Change password",
+    "cron": "Set frequency",
+    "time": "Set period",
+    "export": "Export tests",
+    "pause_tests": "Pause tests",
+    "resume_tests": "Resume tests",
+    "language": "Change language",
+    "view": "Switch view",
+    "info": "About the project",
+    "integrations": "Integrations"
   },
   "options": {
     "time": {
-      "24hours": "24 timer (standard)",
-      "2days": "2 dage (i alt)",
-      "7days": "7 dage (gennemsnit)",
-      "30days": "30 dage (gennemsnit)"
+      "24hours": "24 hours (default)",
+      "2days": "2 days (Total)",
+      "7days": "7 days (average)",
+      "30days": "30 days (average)"
     },
     "cron": {
-      "continuous": "Kontinuerlig (hvert minut)",
-      "frequent": "Meget ofte (hvert 30. minut)",
-      "default": "Standard (hver time)",
-      "rare": "Sjældent (hver 3. time)",
-      "really_rare": "Meget sjældent (hver 6. time)"
+      "continuous": "Continuous (every minute)",
+      "frequent": "Very often (every 30 minutes)",
+      "default": "Default (every hour)",
+      "rare": "Rarely (every 3 hours)",
+      "really_rare": "Very rarely (every 6 hours)"
     },
     "export": {
-      "json": "JSON-fil",
-      "csv": "CSV-fil"
+      "json": "JSON file",
+      "csv": "CSV file"
     },
     "level": {
-      "no_access": "Ingen adgang",
-      "read_access": "Skrivebeskyttet adgang"
+      "no_access": "No Access",
+      "read_access": "Read-only Access"
     }
   },
   "update": {
-    "ping_title": "Indstil optimal ping (ms)",
+    "ping_title": "Set optimal ping (ms)",
     "ping_placeholder": "Ping (ms)",
-    "upload_title": "Indstil optimal op-hastighed (Mbit/s)",
-    "upload_placeholder": "Op-hastighed (Mbit/s)",
-    "download_title": "Indstil optimal nedadgående hastighed (Mbit/s)",
-    "download_placeholder": "Nedadgående hastighed (Mbit/s)",
-    "recommendations_title": "Optimale anbefalinger",
-    "recommendations_set": "Indstille automatiske anbefalinger?",
-    "server_title": "Indstil server til hastighedstest",
-    "manually": "Indstil manuelt",
-    "manual_server_title": "Indstil server til hastighedstest",
-    "manual_server_id": "Server-ID",
-    "new_password": "Indstil ny adgangskode",
-    "password_placeholder": "Ny adgangskode",
-    "password_removed": "Adgangskodelåsen er blevet fjernet, og den indstillede adgangskode er blevet fjernet.",
-    "level": "Ændre niveau",
-    "level_title": "Rettigheder for besøgende",
-    "cron_title": "Indstil testfrekvens",
-    "cron_rules": "Cron-regel",
-    "cron_next_test": "Næste test:",
-    "time_title": "Vis test af de sidste ...",
-    "export_title": "Eksport af hastighedstest",
+    "upload_title": "Set optimal up-speed (Mbps)",
+    "upload_placeholder": "Up speed (Mbps)",
+    "download_title": "Set optimal down-speed (Mbps)",
+    "download_placeholder": "Down speed (Mbps)",
+    "recommendations_title": "Optimal recommendations",
+    "recommendations_set": "Set automatic recommendations?",
+    "server_title": "Set speedtest server",
+    "manually": "Set manually",
+    "manual_server_title": "Set speedtest server",
+    "manual_server_id": "Server ID",
+    "new_password": "Set a new password",
+    "password_placeholder": "New password",
+    "password_removed": "The password lock has been removed and the set password has been removed.",
+    "level": "Change level",
+    "level_title": "Rights for visitors",
+    "cron_title": "Set test frequency",
+    "cron_rules": "Cron rule",
+    "cron_next_test": "Next Test:",
+    "time_title": "Show tests of the last ...",
+    "export_title": "Export speedtests",
     "download": "Download",
-    "pause_title": "Hastighedstest holder pause for...",
-    "hours": "Timer",
+    "pause_title": "Pause speedtests for...",
+    "hours": "Hours",
     "pause": "Pause",
-    "release_manually": "Frigør manuelt",
-    "language": "Skift sprog",
-    "view_title": "Skift visning"
+    "release_manually": "Release manually",
+    "language": "Change language",
+    "view_title": "Switch view"
   },
   "header": {
     "title": "MySpeed",
-    "running_tooltip": "Hastighedstest i gang",
-    "start_tooltip": "Start hastighedstest",
-    "new_update": "Opdatering tilgængelig",
-    "paused": "Hastighedstests er i øjeblikket sat på pause. Fortsæt venligst, hvis du gerne vil tage en.",
-    "running": "En hastighedstest er allerede i gang. Vent venligst et øjeblik.",
-    "admin_login": "Admin-login",
+    "running_tooltip": "Speedtest running",
+    "start_tooltip": "Start speedtest",
+    "new_update": "Update available",
+    "paused": "Speedtests are currently paused. Please continue them if you want to do one.",
+    "running": "A speedtest is already running. Please wait a moment.",
+    "admin_login": "Admin Login",
     "beta": {
-      "title": "Beta-version",
-      "description": "Denne funktion er stadig i betafasen. Hvis du finder fejl, bedes du rapportere dem <Link>her</Link>."
+      "title": "Beta Version",
+      "description": "This feature is still in beta. If you find any bugs, please report them <Link>here</Link>."
     }
   },
   "latest": {
     "ping": "Ping",
     "ping_unit": "ms",
     "down": "Download",
-    "speed_unit": "Mbit/s",
+    "speed_unit": "Mbps",
     "up": "Upload",
-    "latest": "Sidste test",
-    "before": "fra"
+    "latest": "Last test",
+    "before": "before"
   },
   "info": {
-    "credits": "<Link>MySpeed</Link> er leveret af GNMYT og bruger <CLILink>Speedtest CLI</CLILink> fra Ookla.",
-    "recommendations_error": "Du skal lave mindst 10 tests, så der kan beregnes et gennemsnit. Det betyder ikke noget, om testene er udført manuelt eller automatisk.",
-    "recommendations_info": "Baseret på de sidste 10 testresultater blev det fundet, at den optimale ping var <Bold>{{ping}} ms</Bold>, download var <Bold>{{down}} Mbit/s</Bold> og upload ved <Bold>{{up}} Mbit/s</Bold>. Det er bedst at bruge din internetkontrakt som en rettesnor og kun anvende den, hvis den passer.",
-    "update": "En opdatering til version {{version}} er tilgængelig. Se <Changes>ændringerne</Changes> og <DLLink>download opdateringen</DLLink>.",
+    "credits": "<Link>MySpeed</Link> is provided by GNMYT and uses the <CLILink>Speedtest CLI</CLILink> from Ookla.",
+    "recommendations_error": "You have to do at least 10 tests to get an average. It doesn't matter if the tests were done manually or automatically.",
+    "recommendations_info": "Based on the last 10 tests, it was found that the optimal ping was <Bold>{{ping}} ms</Bold>, the download at <Bold>{{down}} Mbps</Bold> and the upload at <Bold>{{up}} Mbps</Bold>. It is best to orientate yourself on your internet contract and only adopt it if it matches that.",
+    "update": "An update to version {{version}} is available. See <Changes>the changes</Changes> and <DLLink>download the update</DLLink>.",
     "down": {
-      "title": "Download-hastighed",
-      "description": "Downloadhastigheden påvirker din browseroplevelse. Jo mere du får, jo hurtigere kan din computer modtage data."
+      "title": "Download speed",
+      "description": "Download speed affects your browsing experience. The more you get, the faster your computer can receive data."
     },
     "ping": {
       "title": "Ping",
-      "description": "Der Ping zeigt dir, wie schnell der jeweilige Anbieter antwortet. Umso kürzer die Zeit, desto besser."
+      "description": "The ping shows you how fast the respective provider responds. The shorter the time, the better."
     },
     "up": {
-      "title": "Upload-hastighed",
-      "description": "Uploadhastigheden påvirker din browseroplevelse. Jo mere du får, jo hurtigere kan din computer sende data."
+      "title": "Upload speed",
+      "description": "Upload speed affects your browsing experience. The more you get, the faster your computer can send data."
     },
     "latest": {
-      "title": "Sidste test",
-      "description": "Dette er det tidspunkt, der viser dig, hvornår den sidste test blev udført. I dette tilfælde fandt den sidste sted den <Bold>{{date}}</Bold> kl. <Bold>{{time}}</Bold>."
+      "title": "Last test",
+      "description": "This is the time that shows you when the last test was run. In this case, the last one took place on <Bold>{{date}}</Bold> at <Bold>{{time}}</Bold>."
     }
   },
   "time": {
-    "now": "Lige nu",
-    "seconds": "{{seconds}} sekunder",
-    "minute": "1 minut",
-    "minutes": "{{minutes}} minutter",
-    "hour": "1 time",
-    "hours": "{{hours}} timer",
-    "on": "På",
-    "at": "På"
+    "now": "Just now",
+    "seconds": "{{seconds}} seconds",
+    "minute": "1 minute",
+    "minutes": "{{minutes}} minutes",
+    "hour": "1 hour",
+    "hours": "{{hours}} hours",
+    "on": "On",
+    "at": "At"
   },
   "test": {
-    "not_available": "Der er i øjeblikket ingen tilgængelige tests",
-    "no_latest": "Der er ingen aktuel test. Udfør venligst en test, eller vent, indtil den næste test er udført.",
-    "unknown_error": "Ukendt fejl:",
-    "failed": "Test mislykkedes",
-    "recheck": "Tjek venligst så vidt muligt, om det sker oftere.",
-    "delete": "Slet test",
-    "deleted": "Testen blev slettet",
+    "not_available": "There are currently no tests available",
+    "no_latest": "There is no current test available. Please perform a test or wait until the next test is performed.",
+    "unknown_error": "Unknown error:",
+    "failed": "Test failed",
+    "recheck": "Please check as far as possible if this happens often.",
+    "delete": "Delete Test",
+    "deleted": "The test has been deleted",
     "average": {
-      "title": "Gennemsnitlig hastighed",
-      "description": "<Bold>{{amount}}</Bold> Tests har vist, at der på <Bold>{{date}}</Bold> var en gennemsnitlig downloadhastighed på <Bold>{{down}} Mbit/s</Bold> og en uploadhastighed på <Bold>{{up}} Mbit/s</Bold> blev bestået. Testene varede i gennemsnit <Bold>{{duration}} sekunder</Bold>."
+      "title": "Average Speed",
+      "description": "<Bold>{{amount}}</Bold> Tests have shown that on <Bold>{{date}}</Bold> an average download speed of <Bold>{{down}} Mbps </Bold> and an upload speed of <Bold>{{up}} Mbps</Bold> was passed. The tests took an average of <Bold>{{duration}} Seconds</Bold>."
     },
     "result": {
-      "title": "Testresultat",
-      "description": "Denne test opnåede en maksimal downloadhastighed på <Bold>{{down}} Mbit/s</Bold> og en maksimal uploadhastighed på <Bold>{{up}} Mbit/s</Bold>. Den blev oprettet <Bold>{{type}}</Bold> og tog <Bold>{{duration}} sekunder</Bold>.",
-      "from_you": "fra dig",
-      "automatic": "automatisk"
+      "title": "Test result",
+      "description": "This test achieved a maximum download speed of <Bold>{{down}} Mbps</Bold> and a maximum upload speed of <Bold>{{up}} Mbps</Bold>. It was created <Bold>{{type}}</Bold> and took <Bold>{{duration}} Seconds</Bold>.",
+      "from_you": "by you",
+      "automatic": "automatically"
     },
     "tooltips": {
-      "custom": "Brugerdefineret",
-      "average": "Gennemsnitlig",
-      "auto": "Automatiseret"
+      "custom": "Custom",
+      "average": "Average",
+      "auto": "Automated"
     },
     "views": {
-      "list": "Oversigt over test",
-      "statistic": "Teststatistik"
+      "list": "Test Overview",
+      "statistic": "Test statistics"
     },
     "overview": {
-      "title": "Testoversigt over de seneste {{amount}}",
-      "1": "24 timer",
-      "2": "2 dage",
-      "3": "7 dage",
-      "4": "30 dage"
+      "title": "Test overview of the last {{amount}}",
+      "1": "24 hours",
+      "2": "2 days",
+      "3": "7 days",
+      "4": "30 days"
     }
   },
   "errors": {
-    "network_unreachable": "Internetforbindelsen var ustabil under testen",
-    "took_too_long": "Testen tog for lang tid og blev aflyst",
-    "no_permission": "MySpeed har ikke tilladelse til at starte denne test",
-    "resource_unavailable": "Testen kunne ikke udføres, fordi ressourcen var midlertidigt utilgængelig",
-    "no_route": "Testen kunne ikke udføres, fordi der ikke fandtes en rute til værten",
-    "connection_refused": "Testen kunne ikke udføres, fordi forbindelsen blev afvist",
-    "timed_out": "Internetforbindelsen var ustabil under testen",
-    "config": "Konfigurationsfilen kunne ikke indlæses",
-    "invalid_view": "Ugyldig visning"
+    "network_unreachable": "Internet connection was unstable during the time of the test",
+    "took_too_long": "The test took too long and was canceled",
+    "no_permission": "MySpeed has no permission to start this test",
+    "resource_unavailable": "The test could not be performed because the resource was temporarily unavailable",
+    "no_route": "The test could not be performed because there was no route to the host",
+    "connection_refused": "The test could not be performed because the connection was rejected",
+    "timed_out": "Internet connection was unstable during the time of the test",
+    "config": "The configuration file could not be loaded",
+    "invalid_view": "Invalid view"
   },
   "statistics": {
     "overview": {
-      "total_title": "Test i alt",
-      "total_description": "Antallet af udførte tests",
-      "failed_title": "Mislykkede tests",
-      "failed_description": "Antallet af mislykkede tests",
-      "average_title": "Gennemsnitlig varighed",
-      "average_description": "Den gennemsnitlige varighed af testene"
+      "total_title": "Total tests",
+      "total_description": "The number of executed tests",
+      "failed_title": "Failed tests",
+      "failed_description": "The number of failed tests",
+      "average_title": "Average duration",
+      "average_description": "The average duration of the tests"
     },
     "failed": {
-      "title": "Mislykkede tests",
-      "success": "Succesfuld",
-      "failed": "Mislykket",
+      "title": "Failed tests",
+      "success": "Successful",
+      "failed": "Failed",
       "label": "Test"
     },
     "speed": {
-      "title": "Hastighed"
+      "title": "Speed"
     },
     "manual": {
-      "title": "Manuelle tests",
-      "yes": "Manuelt oprettet",
-      "no": "Oprettes automatisk"
+      "title": "Manual tests",
+      "yes": "Created manually",
+      "no": "Created automatically"
     },
     "duration": {
-      "title": "Testens varighed",
-      "label": "Antal"
+      "title": "Test duration",
+      "label": "Amount"
     },
     "values": {
-      "min": "Laveste",
-      "max": "Højeste",
-      "avg": "Gennemsnitlig",
-      "down": "Download værdier",
-      "up": "Upload værdier"
+      "min": "Minimum",
+      "max": "Maximum",
+      "avg": "Average",
+      "down": "Download values",
+      "up": "Upload values"
     }
   },
   "nodes": {
-    "add": "Tilføj server",
-    "create": "Tilføj",
-    "this_server": "Denne server",
-    "created": "Serveren blev tilføjet med succes",
-    "password_required": "Der kræves en adgangskode til denne node",
-    "update_password": "Vi skal bede dig opdatere din adgangskode for denne node",
-    "password_outdated": "Adgangskoden er forældet",
-    "password_updated": "Adgangskoden blev opdateret med succes",
+    "add": "Add server",
+    "create": "Add",
+    "this_server": "This server",
+    "created": "The server has been successfully added",
+    "password_required": "This node requires a password",
+    "update_password": "Please update the password of this node",
+    "password_outdated": "Password outdated",
+    "password_updated": "The password has been successfully updated",
     "placeholder": {
-      "name": "MySpeed-instans",
-      "url": "https://din-server.nt"
+      "name": "MySpeed instance",
+      "url": "https://your-server.com"
     },
     "group": {
-      "name": "Serverens navn",
-      "url": "Serverens adresse"
+      "name": "Server name",
+      "url": "Server address"
     },
     "delete": {
-      "title": "Slet server",
-      "description": "Serveren <Bold>{{name}}</Bold> (#{{id}}) er slettet. Denne handling kan ikke fortrydes. Ønsker du at fortsætte?",
-      "yes": "Ja, slet",
-      "success": "Serveren blev slettet med succes"
+      "title": "Delete server",
+      "description": "The server <Bold>{{name}}</Bold> (#{{id}}) will be deleted. This action cannot be undone. Do you want to continue?",
+      "yes": "Yes, delete",
+      "success": "The server has been deleted successfully"
     },
     "messages": {
-      "not_reachable": "Serveren kan ikke nås",
-      "password_changed": "Adgangskoden er blevet ændret",
-      "tests_pending": "Testresultater afventes"
+      "not_reachable": "Server is not reachable",
+      "password_changed": "Password changed",
+      "tests_pending": "Test results pending"
     }
   },
   "integrations": {
-    "none_active": "Denne integration er ikke aktiv. <br/><Bold>Tilføj</Bold>",
-    "display_name": "Navn på integration",
-    "create": "Tilføj",
+    "none_active": "This integration is not active. <br/><Bold>Create</Bold>",
+    "display_name": "Integration name",
+    "create": "Create",
     "activity": {
-      "never_executed": "Aldrig henrettet",
-      "last_run": "Sidst før "
+      "never_executed": "Never executed",
+      "last_run": "Last run before "
     },
     "discord": {
       "title": "Discord",
       "fields": {
         "url": "Webhook-URL",
         "url_placeholder": "https://discord.com/api/webhooks/...",
-        "display_name": "Vis navn",
-        "display_name_placeholder": "MySpeed-meddelelse",
-        "error_message": "Fejlmeddelelse",
-        "error_message_placeholder": "Fejl: %error%",
-        "send_failed": "Send fejlmeddelelser",
-        "send_finished": "Send udfyldt",
-        "finished_message": "Afsluttet besked",
-        "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
+        "display_name": "Display name",
+        "display_name_placeholder": "MySpeed Notification",
+        "error_message": "Error message",
+        "error_message_placeholder": "Error: %error%",
+        "send_failed": "Send error messages",
+        "send_finished": "Send finished messages",
+        "finished_message": "Finished message",
+        "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
       }
     },
     "gotify": {
       "title": "Gotify",
       "fields": {
         "url": "Server-URL",
-        "key": "Applikationstoken",
-        "error_message": "Fejlmeddelelse",
-        "error_message_placeholder": "Fejl: %error%",
-        "send_failed": "Send fejlmeddelelser",
-        "send_finished": "Send udfyldt",
-        "finished_message": "Afsluttet besked",
-        "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
+        "key": "App token",
+        "error_message": "Error message",
+        "error_message_placeholder": "Error: %error%",
+        "send_failed": "Send error messages",
+        "send_finished": "Send finished messages",
+        "finished_message": "Finished message",
+        "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
       }
     },
     "healthChecks": {
@@ -313,25 +313,25 @@
       "fields": {
         "token": "Bot Token",
         "chat_id": "Chat-ID",
-        "error_message": "Fejlmeddelelse",
-        "error_message_placeholder": "Fejl: %error%",
-        "send_failed": "Send fejlmeddelelser",
-        "send_finished": "Send udfyldt",
-        "finished_message": "Afsluttet besked",
-        "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
+        "error_message": "Error message",
+        "error_message_placeholder": "Error: %error%",
+        "send_failed": "Send error messages",
+        "send_finished": "Send finished messages",
+        "finished_message": "Finished message",
+        "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
       }
     },
     "webhook": {
       "title": "Webhook",
       "fields": {
         "url": "Webhook-URL",
-        "url_placeholder": "https://din-server.nt/hook",
-        "send_started": "Begyndte at sende",
-        "send_failed": "Send fejlmeddelelser",
-        "send_finished": "Send udfyldt",
-        "send_alive": "Send livlige beskeder",
-        "send_recommendations": "Send anbefalinger",
-        "send_config_updates": "Send konfigurationsopdateringer"
+        "url_placeholder": "https://your-server.com/hook",
+        "send_started": "Send started",
+        "send_failed": "Send error messages",
+        "send_finished": "Send finished messages",
+        "send_alive": "Send Keep-Alive messages",
+        "send_recommendations": "Send recommendations",
+        "send_config_updates": "Send configuration updates"
       }
     }
   }
