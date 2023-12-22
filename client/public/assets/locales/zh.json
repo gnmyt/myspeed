@@ -3,7 +3,7 @@
   "dialog": {
     "okay": "好的",
     "done": "准备就绪",
-    "apply": "是的，接管",
+    "apply": "是的，应用",
     "update": "更新",
     "close": "关闭",
     "unset": "移除",
@@ -71,12 +71,12 @@
     }
   },
   "update": {
-    "ping_title": "设置最佳平移 (ms)",
+    "ping_title": "设置最佳ping (ms)",
     "ping_placeholder": "Ping (ms)",
-    "upload_title": "设置最佳上行速度 (Mbit/s)",
-    "upload_placeholder": "上升速度 (Mbit/s)",
-    "download_title": "设置最佳下行速度 (Mbit/s)",
-    "download_placeholder": "下降速度 (Mbit/s)",
+    "upload_title": "设置最佳上传速度 (Mbit/s)",
+    "upload_placeholder": "上传速度 (Mbit/s)",
+    "download_title": "设置最佳下载速度 (Mbit/s)",
+    "download_placeholder": "下载速度 (Mbit/s)",
     "recommendations_title": "最优建议",
     "recommendations_set": "设置自动推荐？",
     "server_title": "设置速度测试服务器",
@@ -91,7 +91,7 @@
     "cron_title": "设置测试频率",
     "cron_rules": "克隆规则",
     "cron_next_test": "下一次测试：",
-    "time_title": "节目测试的最后...",
+    "time_title": "显示最后一次测试...",
     "export_title": "出口速度测试",
     "download": "下载",
     "pause_title": "速度测试暂停了，因为...",
@@ -146,7 +146,7 @@
     }
   },
   "time": {
-    "now": "刚才",
+    "now": "现在",
     "seconds": "{{seconds}} 秒",
     "minute": "1分钟",
     "minutes": "{{minutes}} 分钟",
