@@ -3,20 +3,20 @@
   "dialog": {
     "okay": "Okay",
     "done": "Done",
-    "apply": "Yes, apply",
-    "update": "Update",
-    "close": "Close",
-    "unset": "Remove",
-    "retry": "Try again",
-    "login": "Login",
+    "apply": "Oui, appliquer",
+    "update": "Mettre à jour",
+    "close": "Fermer",
+    "unset": "Retirer",
+    "retry": "Réessayer",
+    "login": "Connexion",
     "password": {
-      "title": "Password required",
-      "placeholder": "Your password",
-      "wrong": "The password you entered is incorrect",
-      "unlock": "Unlock"
+      "title": "Mot de passe requis",
+      "placeholder": "Votre mot de passe",
+      "wrong": "Le mot de passe entré est incorrect",
+      "unlock": "Déverrouiller"
     },
     "accept": {
-      "title": "We need your permission",
+      "title": "Nous avons besoin de votre permission",
       "description": "We use services from Ookla. By clicking <Bold>Accept</Bold>, you acknowledge that you have read and agree to Ookla's <EULA>EULA</EULA>, <Privacy>Privacy Statement</Privacy> and <Terms>Terms of Use</Terms>.",
       "button": "Accept"
     },
