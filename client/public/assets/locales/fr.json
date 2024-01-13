@@ -1,8 +1,8 @@
 {
-  "failed": "Failed",
+  "failed": "Échec",
   "dialog": {
-    "okay": "Okay",
-    "done": "Done",
+    "okay": "Ok",
+    "done": "Terminé",
     "apply": "Oui, appliquer",
     "update": "Mettre à jour",
     "close": "Fermer",
@@ -17,117 +17,117 @@
     },
     "accept": {
       "title": "Nous avons besoin de votre permission",
-      "description": "We use services from Ookla. By clicking <Bold>Accept</Bold>, you acknowledge that you have read and agree to Ookla's <EULA>EULA</EULA>, <Privacy>Privacy Statement</Privacy> and <Terms>Terms of Use</Terms>.",
-      "button": "Accept"
+      "description": "Nous utilisons les services d'Ookla. En cliquant sur <Bold>Accepter</Bold>, vous reconnaissez avoir lu et accepté les conditions de <EULA>d'Ookla</EULA>, <Privacy>la Déclaration de confidentialité</Privacy> et <Terms>les Conditions d'utilisation</Terms>.",
+      "button": "Accepter"
     },
     "api": {
-      "title": "API not reachable",
-      "description": "MySpeed could not reach the API of this instance. Please try again later."
+      "title": "API inaccessible",
+      "description": "MySpeed n'a pas pu accéder à l'API de cette instance. Veuillez réessayer plus tard."
     }
   },
   "dropdown": {
-    "settings": "Settings",
-    "changes_applied": "Your changes have been saved.",
-    "view_changed": "The view has been changed.",
-    "changes_unsaved": "Your changes were not applied. Check your input.",
-    "invalid": "Input invalid",
-    "ping": "Optimal ping",
-    "upload": "Optimal up-speed",
-    "download": "Optimal down-speed",
-    "recommendations": "Recommendations",
-    "server": "Change Server",
-    "password": "Change password",
-    "cron": "Set frequency",
-    "time": "Set period",
-    "export": "Export tests",
-    "pause_tests": "Pause tests",
-    "resume_tests": "Resume tests",
-    "language": "Change language",
-    "view": "Switch view",
-    "info": "About the project",
-    "integrations": "Integrations"
+    "settings": "Paramètres",
+    "changes_applied": "Vos changements ont été enregistrés.",
+    "view_changed": "L'affichage a été modifié.",
+    "changes_unsaved": "Vos modifications n'ont pas été appliquées. Vérifiez vos entrées.",
+    "invalid": "Saisie incorrecte",
+    "ping": "Ping optimal",
+    "upload": "Vitesse optimale d'upload",
+    "download": "Vitesse optimale de téléchargement",
+    "recommendations": "Recommandations",
+    "server": "Changer de serveur",
+    "password": "Changer le mot de passe",
+    "cron": "Définir la fréquence",
+    "time": "Définir la période",
+    "export": "Exporter les tests",
+    "pause_tests": "Mettre en pause les tests",
+    "resume_tests": "Reprendre les tests",
+    "language": "Changer de langue",
+    "view": "Changer de vue",
+    "info": "À propos du projet",
+    "integrations": "Intégrations"
   },
   "options": {
     "time": {
-      "24hours": "24 hours (default)",
-      "2days": "2 days (Total)",
-      "7days": "7 days (average)",
-      "30days": "30 days (average)"
+      "24hours": "24 heures (par défaut)",
+      "2days": "2 jours (total)",
+      "7days": "7 jours (moyenne)",
+      "30days": "30 jours (moyenne)"
     },
     "cron": {
-      "continuous": "Continuous (every minute)",
-      "frequent": "Very often (every 30 minutes)",
-      "default": "Default (every hour)",
-      "rare": "Rarely (every 3 hours)",
-      "really_rare": "Very rarely (every 6 hours)"
+      "continuous": "Continue (toutes les minutes)",
+      "frequent": "Très souvent (toutes les 30 minutes)",
+      "default": "Par défaut (toutes les heures)",
+      "rare": "Rarement (toutes les 3 heures)",
+      "really_rare": "Très rarement (toutes les 6 heures)"
     },
     "export": {
-      "json": "JSON file",
-      "csv": "CSV file"
+      "json": "Fichier JSON",
+      "csv": "Fichier CSV"
     },
     "level": {
-      "no_access": "No Access",
-      "read_access": "Read-only Access"
+      "no_access": "Accès Refusé",
+      "read_access": "Accès en lecture seule"
     }
   },
   "update": {
-    "ping_title": "Set optimal ping (ms)",
+    "ping_title": "Définir le ping optimal (ms)",
     "ping_placeholder": "Ping (ms)",
-    "upload_title": "Set optimal up-speed (Mbps)",
-    "upload_placeholder": "Up speed (Mbps)",
-    "download_title": "Set optimal down-speed (Mbps)",
-    "download_placeholder": "Down speed (Mbps)",
-    "recommendations_title": "Optimal recommendations",
-    "recommendations_set": "Set automatic recommendations?",
-    "server_title": "Set speedtest server",
-    "manually": "Set manually",
-    "manual_server_title": "Set speedtest server",
-    "manual_server_id": "Server ID",
-    "new_password": "Set a new password",
-    "password_placeholder": "New password",
-    "password_removed": "The password lock has been removed and the set password has been removed.",
-    "level": "Change level",
-    "level_title": "Rights for visitors",
-    "cron_title": "Set test frequency",
-    "cron_rules": "Cron rule",
-    "cron_next_test": "Next Test:",
-    "time_title": "Show tests of the last ...",
-    "export_title": "Export speedtests",
-    "download": "Download",
-    "pause_title": "Pause speedtests for...",
-    "hours": "Hours",
-    "pause": "Pause",
-    "release_manually": "Release manually",
-    "language": "Change language",
-    "view_title": "Switch view"
+    "upload_title": "Définir la vitesse optimale d'upload (Mbps)",
+    "upload_placeholder": "Vitesse d'upload (Mbps)",
+    "download_title": "Définir la vitesse optimale de téléchargement (Mbps)",
+    "download_placeholder": "Vitesse de téléchargement (Mbps)",
+    "recommendations_title": "Recommandations optimales",
+    "recommendations_set": "Définir des recommandations automatiques ?",
+    "server_title": "Définir le serveur de test",
+    "manually": "Définir manuellement",
+    "manual_server_title": "Définir le serveur de test",
+    "manual_server_id": "ID du serveur",
+    "new_password": "Définir un nouveau mot de passe",
+    "password_placeholder": "Nouveau mot de passe",
+    "password_removed": "Le verrouillage du mot de passe a été supprimé et le mot de passe défini a été enlevé.",
+    "level": "Changer le niveau",
+    "level_title": "Droits des visiteurs",
+    "cron_title": "Définir la fréquence de test",
+    "cron_rules": "Règle Cron",
+    "cron_next_test": "Test suivant:",
+    "time_title": "Afficher les tests de la dernière ...",
+    "export_title": "Exporter les tests",
+    "download": "Télécharger",
+    "pause_title": "Mettre en pause les tests de vitesse pour...",
+    "hours": "Heures",
+    "pause": "Suspendre",
+    "release_manually": "Libérer manuellement",
+    "language": "Changer de langue",
+    "view_title": "Basculer l’affichage"
   },
   "header": {
     "title": "MySpeed",
-    "running_tooltip": "Speedtest running",
-    "start_tooltip": "Start speedtest",
-    "new_update": "Update available",
-    "paused": "Speedtests are currently paused. Please continue them if you want to do one.",
-    "running": "A speedtest is already running. Please wait a moment.",
-    "admin_login": "Admin Login",
+    "running_tooltip": "Test de vitesse en cours",
+    "start_tooltip": "Lancer le speedtest",
+    "new_update": "Une mise à jour est disponible",
+    "paused": "Les tests de vitesse sont actuellement en pause. Veuillez les poursuivre si vous voulez en faire un.",
+    "running": "Un test de vitesse est déjà en cours. Veuillez patienter un instant.",
+    "admin_login": "Connexion administrateur",
     "beta": {
-      "title": "Beta Version",
-      "description": "This feature is still in beta. If you find any bugs, please report them <Link>here</Link>."
+      "title": "Version Bêta",
+      "description": "Cette fonctionnalité est encore en version bêta. Si vous trouvez des bugs, veuillez les signaler <Link>ici</Link>."
     }
   },
   "latest": {
-    "ping": "Ping",
+    "ping": "Latence",
     "ping_unit": "ms",
-    "down": "Download",
+    "down": "Téléchargement",
     "speed_unit": "Mbps",
-    "up": "Upload",
-    "latest": "Last test",
-    "before": "before"
+    "up": "Téléversement",
+    "latest": "Dernier test",
+    "before": "avant"
   },
   "info": {
-    "credits": "<Link>MySpeed</Link> is provided by GNMYT and uses the <CLILink>Speedtest CLI</CLILink> from Ookla.",
-    "recommendations_error": "You have to do at least 10 tests to get an average. It doesn't matter if the tests were done manually or automatically.",
-    "recommendations_info": "Based on the last 10 tests, it was found that the optimal ping was <Bold>{{ping}} ms</Bold>, the download at <Bold>{{down}} Mbps</Bold> and the upload at <Bold>{{up}} Mbps</Bold>. It is best to orientate yourself on your internet contract and only adopt it if it matches that.",
-    "update": "An update to version {{version}} is available. See <Changes>the changes</Changes> and <DLLink>download the update</DLLink>.",
+    "credits": "<Link>MySpeed</Link> est fourni par GNMYT et utilise la <CLILink>Speedtest CLI</CLILink> d'Ookla.",
+    "recommendations_error": "Vous devez faire au moins 10 tests pour obtenir une moyenne, peu importe que les tests aient été faits manuellement ou automatiquement.",
+    "recommendations_info": "Sur la base des 10 derniers tests, il a été constaté que le ping optimal était <Bold>{{ping}} ms</Bold>, le téléchargement à <Bold>{{down}} Mbps</Bold> et le téléchargement à <Bold>{{up}} Mbps</Bold>. Il est préférable de vous orienter sur votre contrat internet et de ne l'adopter que si cela correspond à cela.",
+    "update": "Une mise à jour vers la version {{version}} est disponible. Voir <Changes>les changements</Changes> et <DLLink>télécharger la mise à jour</DLLink>.",
     "down": {
       "title": "Download speed",
       "description": "Download speed affects your browsing experience. The more you get, the faster your computer can receive data."
@@ -315,23 +315,23 @@
         "chat_id": "Chat ID",
         "error_message": "Error message",
         "error_message_placeholder": "Error: %error%",
-        "send_failed": "Send error messages",
-        "send_finished": "Send finished messages",
-        "finished_message": "Finished message",
-        "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
+        "send_failed": "Envoyer des messages d'erreur",
+        "send_finished": "Envoyer les messages terminés",
+        "finished_message": "Message terminé",
+        "finished_message_placeholder": "%ping% ms, %download% Mb/s, %upload% Mb/s"
       }
     },
     "webhook": {
       "title": "Webhook",
       "fields": {
-        "url": "Webhook-URL",
-        "url_placeholder": "https://your-server.com/hook",
-        "send_started": "Send started",
-        "send_failed": "Send error messages",
-        "send_finished": "Send finished messages",
-        "send_alive": "Send Keep-Alive messages",
-        "send_recommendations": "Send recommendations",
-        "send_config_updates": "Send configuration updates"
+        "url": "URL du Webhook",
+        "url_placeholder": "https://votre-serveur.com/hook",
+        "send_started": "Envoi commencé",
+        "send_failed": "Envoyer des messages d'erreur",
+        "send_finished": "Envoyer les messages terminés",
+        "send_alive": "Envoyer des messages Keep-Alive",
+        "send_recommendations": "Envoyez des recommandations",
+        "send_config_updates": "Envoyer les mises à jour de configuration"
       }
     }
   }
