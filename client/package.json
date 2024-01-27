@@ -24,7 +24,7 @@
     "sass": "^1.70.0",
     "uuid": "^9.0.1",
     "vite": "^5.0.12",
-    "vite-plugin-pwa": "^0.17.4",
+    "vite-plugin-pwa": "^0.17.5",
     "@rollup/plugin-wasm": "^6.2.2"
   },
   "devDependencies": {
