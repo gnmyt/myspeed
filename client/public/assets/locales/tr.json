@@ -2,9 +2,9 @@
   "failed": "Başarısız",
   "dialog": {
     "okay": "Tamam",
-    "done": "Hazır",
-    "apply": "Evet, devral",
-    "update": "Güncelleme",
+    "done": "Tamamlandı",
+    "apply": "Evet, uygula",
+    "update": "Güncelle",
     "close": "Kapat",
     "unset": "Kaldırmak",
     "retry": "Tekrar deneyin",
@@ -13,11 +13,11 @@
       "title": "Şifre gerekli",
       "placeholder": "Şifreniz",
       "wrong": "Girdiğiniz şifre yanlış",
-      "unlock": "Kilit açma"
+      "unlock": "Kilidi aç"
     },
     "accept": {
       "title": "İzninize ihtiyacımız var",
-      "description": "Ookla'nın hizmetlerini kullanıyoruz. <Bold>Kabul Et</Bold> seçeneğine tıklayarak, Ookla'nın <EULA>EULA</EULA>, <Privacy>Gizlilik Bildirimi</Privacy> ve <Terms>Kullanım Şartları</Terms>'nı okuduğunuzu ve kabul ettiğinizi onaylamış olursunuz.",
+      "description": "Ookla'nın hizmetlerini kullanıyoruz. <Bold>Kabul Et</Bold>e tıklayarak, Ookla'nın <EULA>EULA</EULA>, <Privacy>Gizlilik Bildirimi</Privacy> ve <Terms>Kullanım Şartları</Terms>ni okuduğunuzu ve kabul ettiğinizi onaylamış olursunuz.",
       "button": "Kabul et"
     },
     "api": {
@@ -28,15 +28,15 @@
   "dropdown": {
     "settings": "Ayarlar",
     "changes_applied": "Değişiklikler kaydedildi.",
-    "view_changed": "Manzara değişti.",
-    "changes_unsaved": "Değişiklikleriniz kabul edilmedi. Girişinizi kontrol edin.",
+    "view_changed": "Görünüm değiştirildi.",
+    "changes_unsaved": "Değişiklikleriniz uygulanamadı. Girişinizi kontrol edin.",
     "invalid": "Geçersiz giriş",
     "ping": "Optimum ping",
-    "upload": "Optimum yukarı hız",
-    "download": "Optimum iniş hızı",
-    "recommendations": "Optimal değerler",
-    "server": "Sunucuyu değiştir",
-    "password": "Şifre değiştirme",
+    "upload": "Optimum yükleme hızı",
+    "download": "Optimum indirme hızı",
+    "recommendations": "Öneriler",
+    "server": "Sunucu Değiştir",
+    "password": "Şifre Değiştir",
     "cron": "Frekans ayarlama",
     "time": "Süreyi ayarla",
     "export": "İhracat testleri",
