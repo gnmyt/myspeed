@@ -12,7 +12,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@vitejs/plugin-react": "^4.2.1",
-    "chart.js": "^4.4.1",
+    "chart.js": "^4.4.2",
     "cron-parser": "^4.9.0",
     "i18next": "^23.10.0",
     "i18next-browser-languagedetector": "^7.2.0",
