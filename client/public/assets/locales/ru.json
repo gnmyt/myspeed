@@ -293,7 +293,7 @@
       "fields": {
         "url": "Server-URL",
         "key": "Токен приложения",
-        "priority": "Priority",
+        "priority": "Приоритет",
         "error_message": "Сообщение об ошибке",
         "error_message_placeholder": "Ошибка: %error%",
         "send_failed": "Отправка сообщений об ошибках",
