@@ -7,7 +7,8 @@ const defaults = {
 }
 
 const postWebhook = async (url, key, triggerActivity, message, priority) => {
-    axios.post(`${url}/message`, {message, priority}, {headers: {"Authorization": "Bearer " + key}})
+    axios.post(`${url}/message`, {message, priority: parseInt(priority)},
+        {headers: {"Authorization": "Bearer " + key}})
         .then(() => triggerActivity())
         .catch(() => triggerActivity(true));
 }
@@ -16,7 +17,8 @@ module.exports = (registerEvent) => {
     registerEvent('testFinished', async (integration, data, activity) => {
         if (integration.data.send_finished)
             await postWebhook(integration.data.url, integration.data.key, activity,
-                replaceVariables(integration.data.finished_message || defaults.finished, data), 3);
+                replaceVariables(integration.data.finished_message || defaults.finished, data),
+                integration.data.priority);
     });
 
     registerEvent('testFailed', async (integration, error, activity) => {
@@ -30,6 +32,7 @@ module.exports = (registerEvent) => {
         fields: [
             {name: "url", type: "text", required: true, regex: /https?:\/\/.+/},
             {name: "key", type: "text", required: true, regex: /^.{15}$/},
+            {name: "priority", type: "text", required: true, regex: /^[0-9]$/},
             {name: "send_finished", type: "boolean", required: false},
             {name: "finished_message", type: "textarea", required: false},
             {name: "send_failed", type: "boolean", required: false},
