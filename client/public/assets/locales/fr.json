@@ -293,6 +293,7 @@
       "fields": {
         "url": "URL du serveur",
         "key": "Jeton d'application",
+        "priority": "Priority",
         "error_message": "Message d'erreur",
         "error_message_placeholder": "Erreur : %error%",
         "send_failed": "Envoyer des messages d'erreur",
