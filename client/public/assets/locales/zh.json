@@ -293,7 +293,7 @@
       "fields": {
         "url": "服务器网址",
         "key": "应用令牌",
-        "priority": "Priority",
+        "priority": "优先权",
         "error_message": "错误信息",
         "error_message_placeholder": "错误: %error%",
         "send_failed": "发送错误信息",
