@@ -293,7 +293,7 @@
       "fields": {
         "url": "URL del server",
         "key": "Token di applicazione",
-        "priority": "Priority",
+        "priority": "Priorità",
         "error_message": "Messaggio di errore",
         "error_message_placeholder": "Errore: %error%",
         "send_failed": "Inviare messaggi di errore",
