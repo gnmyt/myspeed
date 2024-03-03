@@ -293,6 +293,7 @@
       "fields": {
         "url": "Server-URL",
         "key": "Uygulama belirteci",
+        "priority": "Priority",
         "error_message": "Hata mesajı",
         "error_message_placeholder": "Hata: %error%",
         "send_failed": "Hata mesajlarını gönder",
