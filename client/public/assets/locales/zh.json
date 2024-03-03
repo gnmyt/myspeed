@@ -251,7 +251,7 @@
     },
     "group": {
       "name": "服务器名称",
-      "url": "Serveradresse"
+      "url": "服务器地址"
     },
     "delete": {
       "title": "删除服务器",
@@ -280,7 +280,7 @@
         "url_placeholder": "https://discord.com/api/webhooks/...",
         "display_name": "显示名称",
         "display_name_placeholder": "MySpeed通知",
-        "error_message": "Fehlernachricht",
+        "error_message": "错误信息",
         "error_message_placeholder": "错误: %error%",
         "send_failed": "发送错误信息",
         "send_finished": "发送完成",
@@ -325,7 +325,7 @@
       "title": "Webhook",
       "fields": {
         "url": "Webhook URL",
-        "url_placeholder": "https://dein-server.de/hook",
+        "url_placeholder": "https://your-server.com/hook",
         "send_started": "开始发送",
         "send_failed": "发送错误信息",
         "send_finished": "发送完成",
