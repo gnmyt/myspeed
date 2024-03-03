@@ -1,0 +1,338 @@
+{
+  "failed": "Başarısız",
+  "dialog": {
+    "okay": "Tamam",
+    "done": "Tamamlandı",
+    "apply": "Evet, uygula",
+    "update": "Güncelle",
+    "close": "Kapat",
+    "unset": "Kaldırmak",
+    "retry": "Tekrar deneyin",
+    "login": "Giriş yap",
+    "password": {
+      "title": "Şifre gerekli",
+      "placeholder": "Şifreniz",
+      "wrong": "Girdiğiniz şifre yanlış",
+      "unlock": "Kilidi aç"
+    },
+    "accept": {
+      "title": "İzninize ihtiyacımız var",
+      "description": "Ookla'nın hizmetlerini kullanıyoruz. <Bold>Kabul Et</Bold>e tıklayarak, Ookla'nın <EULA>EULA</EULA>, <Privacy>Gizlilik Bildirimi</Privacy> ve <Terms>Kullanım Şartları</Terms>ni okuduğunuzu ve kabul ettiğinizi onaylamış olursunuz.",
+      "button": "Kabul et"
+    },
+    "api": {
+      "title": "API'ye erişilemiyor",
+      "description": "MySpeed bu örneğin API'sine ulaşamadı. Lütfen daha sonra tekrar deneyin."
+    }
+  },
+  "dropdown": {
+    "settings": "Ayarlar",
+    "changes_applied": "Değişiklikler kaydedildi.",
+    "view_changed": "Görünüm değiştirildi.",
+    "changes_unsaved": "Değişiklikleriniz uygulanamadı. Girişinizi kontrol edin.",
+    "invalid": "Geçersiz giriş",
+    "ping": "Optimum ping",
+    "upload": "Optimum yükleme hızı",
+    "download": "Optimum indirme hızı",
+    "recommendations": "Öneriler",
+    "server": "Sunucu Değiştir",
+    "password": "Şifre Değiştir",
+    "cron": "Frekans ayarlama",
+    "time": "Süreyi ayarla",
+    "export": "Testleri dışa aktar",
+    "pause_tests": "Testleri duraklat",
+    "resume_tests": "Testlere devam et",
+    "language": "Dili değiştir",
+    "view": "Görünümü değiştir",
+    "info": "Proje hakkında bilgi",
+    "integrations": "Entegrasyonlar"
+  },
+  "options": {
+    "time": {
+      "24hours": "24 saat (standart)",
+      "2days": "2 gün (toplam)",
+      "7days": "7 gün (ortalama)",
+      "30days": "30 gün (ortalama)"
+    },
+    "cron": {
+      "continuous": "Sürekli (her dakika)",
+      "frequent": "Çok sık (her 30 dakikada bir)",
+      "default": "Varsayılan (her saat)",
+      "rare": "Nadiren (her 3 saatte bir)",
+      "really_rare": "Çok nadiren (her 6 saatte bir)"
+    },
+    "export": {
+      "json": "JSON dosyası",
+      "csv": "CSV dosyası"
+    },
+    "level": {
+      "no_access": "Erişim yok",
+      "read_access": "Salt Okunur Erişim"
+    }
+  },
+  "update": {
+    "ping_title": "Optimum ping ayarla (ms)",
+    "ping_placeholder": "Ping (ms)",
+    "upload_title": "Optimum yükleme hızı ayarla (Mbps)",
+    "upload_placeholder": "Yükleme hızı (Mbps)",
+    "download_title": "Optimum indirme hızı ayarla (Mbps)",
+    "download_placeholder": "İndirme hızı (Mbps)",
+    "recommendations_title": "Optimum öneriler",
+    "recommendations_set": "Otomatik tavsiyeleri ayarla?",
+    "server_title": "Speedtest sunucusunu ayarla",
+    "manually": "Manuel olarak ayarla",
+    "manual_server_title": "Speedtest sunucusunu ayarla",
+    "manual_server_id": "Sunucu Kimliği",
+    "new_password": "Yeni bir şifre belirle",
+    "password_placeholder": "Yeni şifre",
+    "password_removed": "Parola kilidi kaldırıldı ve belirlenen parola kaldırıldı.",
+    "level": "Seviyeyi değiştir",
+    "level_title": "Ziyaretçiler için haklar",
+    "cron_title": "Test sıklığını ayarla",
+    "cron_rules": "Cron kuralı",
+    "cron_next_test": "Sonraki test:",
+    "time_title": "Son testleri göster ...",
+    "export_title": "Speedtestleri dışa aktar",
+    "download": "İndir",
+    "pause_title": "Speedtestleri duraklat...",
+    "hours": "Saatler",
+    "pause": "Duraklat",
+    "release_manually": "Manuel olarak bırak",
+    "language": "Dili Değiştir",
+    "view_title": "Görünümü Değiştir"
+  },
+  "header": {
+    "title": "MySpeed",
+    "running_tooltip": "Speedtest çalışıyor",
+    "start_tooltip": "Speedtest'i başlat",
+    "new_update": "Güncelleme mevcut",
+    "paused": "Speedtestler şu anda duraklatıldı. Bir tane yapmak isterseniz devam edin.",
+    "running": "Bir speedtest zaten çalışıyor. Lütfen biraz bekleyin.",
+    "admin_login": "Yönetici Girişi",
+    "beta": {
+      "title": "Beta Sürümü",
+      "description": "Bu özellik hala beta aşamasında. Herhangi bir hata bulursanız lütfen bunları <Link>buradan</Link> bildirin."
+    }
+  },
+  "latest": {
+    "ping": "Ping",
+    "ping_unit": "ms",
+    "down": "İndirme",
+    "speed_unit": "Mbit/s",
+    "up": "Yükleme",
+    "latest": "Son test",
+    "before": "önce"
+  },
+  "info": {
+    "credits": "<Link>MySpeed</Link>, GNMYT tarafından sağlanmakta olup Ookla'dan <CLILink>Speedtest CLI</CLILink>'ı kullanmaktadır.",
+    "recommendations_error": "Bir ortalama almak için en az 10 test yapmanız gerekmektedir. Testler manuel veya otomatik yapılmış olmasının bir önemi yoktur.",
+    "recommendations_info": "Son 10 test baz alındığında, optimum ping'in <Bold>{{ping}} ms</Bold>, indirme hızının <Bold>{{down}} Mbps</Bold> ve yükleme hızının <Bold>{{up}} Mbps</Bold> olduğu bulundu. İnternet sözleşmenize yönelik olarak kendinizi en iyi şekilde yönlendirmeniz ve yalnızca sözleşmenizle uyumlu olanı kabul etmeniz en iyisi karar olacaktır.",
+    "update": "Sürüm {{version}} için bir güncelleme mevcut. <Changes>Değişiklikleri</Changes> görüntüleyin ve <DLLink>güncellemeyi indirin</DLLink>.",
+    "down": {
+      "title": "İndirme hızı",
+      "description": "İndirme hızı, tarama deneyiminizi etkiler. Ne kadar yüksek olursa, bilgisayarınız o kadar hızlı veri alabilir."
+    },
+    "ping": {
+      "title": "Ping",
+      "description": "Ping, ilgili sağlayıcının ne kadar hızlı yanıt verdiğini gösterir. Süre ne kadar az olursa, o kadar iyidir."
+    },
+    "up": {
+      "title": "Yükleme hızı",
+      "description": "Yükleme hızı, tarama deneyiminizi etkiler. Ne kadar yüksek olursa, bilgisayarınız o kadar hızlı veri gönderebilir."
+    },
+    "latest": {
+      "title": "Son test",
+      "description": "Bu, son testin ne zaman yapıldığını size gösteren bir zamandır. Bu durumda, sonuncusu <Bold>{{date}}</Bold>'tarihinde <Bold>{{time}}</Bold> saatinde gerçekleşmiştir."
+    }
+  },
+  "time": {
+    "now": "Hemen şimdi",
+    "seconds": "{{seconds}} saniye",
+    "minute": "1 dakika",
+    "minutes": "{{minutes}} dakika",
+    "hour": "1 saat",
+    "hours": "{{hours}} saat",
+    "on": "Saat",
+    "at": "Zamanında"
+  },
+  "test": {
+    "not_available": "Şu anda kullanılabilir test yok",
+    "no_latest": "Şu anda geçerli bir test yok. Lütfen bir test yapın veya bir sonraki testin yapılmasını bekleyin.",
+    "unknown_error": "Bilinmeyen hata:",
+    "failed": "Test başarısız oldu",
+    "recheck": "Bu durum sık sık yaşanıyorsa, mümkün oldukça kontrol edin.",
+    "delete": "Testi sil",
+    "deleted": "Test silindi",
+    "average": {
+      "title": "Ortalama hız",
+      "description": "<Bold>{{amount}}</Bold> Test, <Bold>{{date}}</Bold> tarihinde ortalama bir indirme hızı olan <Bold>{{down}} Mbps </Bold> ve bir yükleme hızı olan <Bold>{{up}} Mbps</Bold> geçti. Testlerin ortalaması <Bold>{{duration}} Saniye</Bold> sürdü."
+    },
+    "result": {
+      "title": "Test sonucu",
+      "description": "Bu test, bir maksimum indirme hızı olan <Bold>{{down}} Mbps</Bold> ve bir maksimum yükleme hızı olan <Bold>{{up}} Mbps</Bold> elde etti. <Bold>{{type}}</Bold> tarafından oluşturuldu ve <Bold>{{duration}} Saniye</Bold> sürdü.",
+      "from_you": "siz tarafından",
+      "automatic": "otomatik olarak"
+    },
+    "tooltips": {
+      "custom": "Özel",
+      "average": "Ortalama",
+      "auto": "Ortalama"
+    },
+    "views": {
+      "list": "Teste genel bakış",
+      "statistic": "Test istatistikleri"
+    },
+    "overview": {
+      "title": "Son {{amount}} içindeki test genel bakışı",
+      "1": "24 saat",
+      "2": "2 gün",
+      "3": "7 gün",
+      "4": "30 gün"
+    }
+  },
+  "errors": {
+    "network_unreachable": "Testin yapıldığı sırada internet bağlantısı dengesizdi",
+    "took_too_long": "Test çok uzun sürdü ve iptal edildi",
+    "no_permission": "MySpeed'in bu testi başlatmak için yetkisi bulunmuyor",
+    "resource_unavailable": "Kaynak geçici olarak kullanılamadığından test yapılamadı",
+    "no_route": "Test yapılamadı çünkü ana bilgisayara yönelik bir yol bulunamadı",
+    "connection_refused": "Bağlantı reddedildiği için test yapılamadı",
+    "timed_out": "Testin yapıldığı sırada internet bağlantısı dengesizdi",
+    "config": "Konfigürasyon dosyası yüklenemedi",
+    "invalid_view": "Geçersiz görünüm"
+  },
+  "statistics": {
+    "overview": {
+      "total_title": "Toplam testler",
+      "total_description": "Yapılan testlerin sayısı",
+      "failed_title": "Başarısız testler",
+      "failed_description": "Başarısız test sayısı",
+      "average_title": "Ortalama süre",
+      "average_description": "Testlerin ortalama süresi"
+    },
+    "failed": {
+      "title": "Başarısız testler",
+      "success": "Başarılı",
+      "failed": "Başarısız",
+      "label": "Testler"
+    },
+    "speed": {
+      "title": "Hız"
+    },
+    "manual": {
+      "title": "Manuel testler",
+      "yes": "Manuel olarak oluşturuldu",
+      "no": "Otomatik olarak oluşturuldu"
+    },
+    "duration": {
+      "title": "Test süresi",
+      "label": "Miktar"
+    },
+    "values": {
+      "min": "Minimum",
+      "max": "Maksimum",
+      "avg": "Ortalama",
+      "down": "İndirme değerleri",
+      "up": "Yükleme değerleri"
+    }
+  },
+  "nodes": {
+    "add": "Sunucu ekle",
+    "create": "Ekle",
+    "this_server": "Bu sunucu",
+    "created": "Sunucu başarıyla eklendi",
+    "password_required": "Bir şifre gereklidir",
+    "update_password": "Lütfen şifreyi güncelleyin",
+    "password_outdated": "Şifre güncel değil",
+    "password_updated": "Parola başarıyla güncellendi",
+    "placeholder": {
+      "name": "MySpeed örneği",
+      "url": "https://your-server.com"
+    },
+    "group": {
+      "name": "Sunucu adı",
+      "url": "Sunucu adresi"
+    },
+    "delete": {
+      "title": "Sunucuyu sil",
+      "description": "Sunucu <Bold>{{name}}</Bold> (#{{id}}) silinecek. Bu işlem geri alınamaz. Devam etmek istiyor musunuz?",
+      "yes": "Evet, sil",
+      "success": "Sunucu başarıyla silindi"
+    },
+    "messages": {
+      "not_reachable": "Sunucuya ulaşılamıyor",
+      "password_changed": "Şifre değiştirildi",
+      "tests_pending": "Test sonuçları bekleniyor"
+    }
+  },
+  "integrations": {
+    "none_active": "Bu entegrasyon etkin değil. <br/><Bold>Ekle</Bold>",
+    "display_name": "Entegrasyon adı",
+    "create": "Ekle",
+    "activity": {
+      "never_executed": "Hiç çalıştırılmadı",
+      "last_run": "Son çalıştırma öncesi "
+    },
+    "discord": {
+      "title": "Discord",
+      "fields": {
+        "url": "Webhook-URL",
+        "url_placeholder": "https://discord.com/api/webhooks/...",
+        "display_name": "Görünen ad",
+        "display_name_placeholder": "MySpeed bildirimi",
+        "error_message": "Hata mesajı",
+        "error_message_placeholder": "Hata: %error%",
+        "send_failed": "Hata mesajlarını gönder",
+        "send_finished": "Tamamlanan mesajları gönder",
+        "finished_message": "Tamamlanan mesaj",
+        "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
+      }
+    },
+    "gotify": {
+      "title": "Gotify",
+      "fields": {
+        "url": "Server-URL",
+        "key": "Uygulama belirteci",
+        "error_message": "Hata mesajı",
+        "error_message_placeholder": "Hata: %error%",
+        "send_failed": "Hata mesajlarını gönder",
+        "send_finished": "Tamamlanan mesajları gönder",
+        "finished_message": "Tamamlanan mesaj",
+        "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
+      }
+    },
+    "healthChecks": {
+      "title": "HealthChecks",
+      "fields": {
+        "url": "HealthChecks-URL",
+        "url_placeholder": "https://hc-ping.com/<uuid>"
+      }
+    },
+    "telegram": {
+      "title": "Telegram",
+      "fields": {
+        "token": "Bot Token",
+        "chat_id": "Sohbet Kimliği",
+        "error_message": "Hata mesajı",
+        "error_message_placeholder": "Hata: %error%",
+        "send_failed": "Hata mesajlarını gönder",
+        "send_finished": "Tamamlanan mesajları gönder",
+        "finished_message": "Tamamlanan mesaj",
+        "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
+      }
+    },
+    "webhook": {
+      "title": "Webhook",
+      "fields": {
+        "url": "Webhook-URL",
+        "url_placeholder": "https://your-server.com/hook",
+        "send_started": "Göndermeye başla",
+        "send_failed": "Hata mesajlarını gönder",
+        "send_finished": "Tamamlanan mesajları gönder",
+        "send_alive": "Keep-Alive mesajlarını gönder",
+        "send_recommendations": "Tavsiyeleri gönder",
+        "send_config_updates": "Yapılandırma güncellemelerini gönder"
+      }
+    }
+  }
+}
