@@ -293,6 +293,7 @@
       "fields": {
         "url": "URL del servidor",
         "key": "Ficha de solicitud",
+        "priority": "Priority",
         "error_message": "Mensaje de error",
         "error_message_placeholder": "Error: %error%",
         "send_failed": "Enviar mensajes de error",
