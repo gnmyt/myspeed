@@ -293,6 +293,7 @@
       "fields": {
         "url": "URL адрес на сървъра",
         "key": "Токен на приложението",
+        "priority": "Priority",
         "error_message": "Съобщение за грешка",
         "error_message_placeholder": "Грешка: %error%",
         "send_failed": "Изпращане на съобщения за грешки",
