@@ -27,6 +27,7 @@
     display: flex
     align-items: center
     width: fit-content
+    animation: moveIn 0.3s ease-out
 
     svg
       font-size: 18pt
@@ -51,10 +52,19 @@
     justify-content: center
     border-radius: 2rem
     cursor: pointer
+    transition: all 0.3s
+    animation: bounceIn 0.3s ease-out
 
     svg
       font-size: 34pt
       color: $red
+
+  .content-card:hover
+    border: 4px solid $red
+    background-color: $red
+
+    svg
+      color: $background
 
 
   .tutorial-card
@@ -65,6 +75,8 @@
     cursor: pointer
     width: 28rem
     height: 16rem
+
+    animation: bounceIn 0.3s ease-out
 
     .thumbnail
       border-radius: 1.5rem
@@ -97,3 +109,22 @@
 
     .thumbnail
       filter: brightness(0.5)
+
+@keyframes moveIn
+  0%
+    transform: translateX(-30rem)
+  100%
+    transform: translateY(0)
+
+@media screen and (max-width: 750px)
+  .tutorial-page
+    padding: 2rem
+  .tutorial-page .tutorial-section
+    margin-left: -4rem
+  .tutorial-page .tutorial-card
+    height: 14rem
+    .creator
+      width: 3rem
+      height: 3rem
+      bottom: 25%
+      left: 1%
