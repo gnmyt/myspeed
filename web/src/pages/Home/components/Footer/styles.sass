@@ -1,0 +1,27 @@
+@import "@/common/styles/colors"
+
+.footer
+  background-color: $background-lighter
+  margin: 0 5rem 0 5rem
+  padding: 0 5rem
+  display: flex
+  align-items: center
+  justify-content: space-between
+
+.legal-nav
+  display: flex
+  gap: 1rem
+
+  a
+    color: $text
+    text-decoration: none
+
+  a:hover
+    text-decoration: underline
+
+
+@media screen and (max-width: 710px)
+  .footer
+    margin: 0 2rem 0 2rem
+    padding: 0 2rem
+    flex-direction: column
