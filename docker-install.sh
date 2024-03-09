@@ -21,11 +21,6 @@ if ! command -v docker &> /dev/null; then
     rm get-docker.sh
 fi
 
-if ! command -v docker-compose &> /dev/null; then
-    echo -e "${YELLOW}Docker Compose is not installed. Installing Docker Compose...${NORMAL}"
-    apt-get install -y docker-compose
-fi
-
 INSTALLATION_PATH="/opt/myspeed-dockerized"
 mkdir -p "$INSTALLATION_PATH"
 
@@ -46,6 +41,11 @@ volumes:
 EOF
 
 echo -e "${GREEN}Starting MySpeed Docker container...${NORMAL}"
-cd "$INSTALLATION_PATH" && docker-compose up -d
+cd "$INSTALLATION_PATH" && docker compose up -d
 
-echo -e "${GREEN}MySpeed Docker container is now running.${NORMAL}"
+if [ $? -eq 0 ]; then
+    echo -e "${GREEN}MySpeed Docker container started successfully.${NORMAL}"
+else
+    echo -e "${RED}Error: Failed to start MySpeed Docker container.${NORMAL}"
+    exit 1
+fi
