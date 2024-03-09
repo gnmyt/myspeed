@@ -4,6 +4,7 @@ import DocsLogo from "@/common/assets/logo_docs.png";
 import Button from "@/common/components/Button/index.js";
 import {faPlay} from "@fortawesome/free-solid-svg-icons";
 import {Link, useNavigate} from "react-router-dom";
+import {DOCUMENTATION_BASE} from "@/main.jsx";
 
 export const GetStarted = () => {
     const navigate = useNavigate();
@@ -16,7 +17,7 @@ export const GetStarted = () => {
                         onClick={() => navigate("/install")} />
             </div>
 
-            <Link to="https://myspeed.gnmyt.dev"><img src={DocsLogo} alt="Docs Logo" /></Link>
+            <Link to={DOCUMENTATION_BASE}><img src={DocsLogo} alt="Docs Logo" /></Link>
         </div>
     );
 }
