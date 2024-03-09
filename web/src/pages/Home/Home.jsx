@@ -4,6 +4,10 @@ import "./styles.sass";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowDown, faArrowUp} from "@fortawesome/free-solid-svg-icons";
 import Features from "@/pages/Home/components/Features";
+import FeatureGrid from "@/pages/Home/components/FeatureGrid";
+import GetStarted from "@/pages/Home/components/GetStarted";
+import Footer from "@/pages/Home/components/Footer";
+
 
 const COLORS = ["#45C65A", "#E58A00", "#EC5555"];
 
@@ -33,6 +37,12 @@ export const Home = () => {
             </div>
 
             <Features />
+
+            <FeatureGrid />
+
+            <GetStarted />
+
+            <Footer />
         </div>
     )
 }
