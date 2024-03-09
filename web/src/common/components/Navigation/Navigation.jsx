@@ -1,7 +1,7 @@
 import "./styles.sass";
 import Logo from "@/common/assets/logo192.png";
 import Button from "@/common/components/Button";
-import {faBars, faBarsStaggered, faHeart, faX} from "@fortawesome/free-solid-svg-icons";
+import {faBars, faBarsStaggered, faHeart} from "@fortawesome/free-solid-svg-icons";
 import {Link} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useEffect, useState} from "react";
