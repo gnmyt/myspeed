@@ -1,0 +1,159 @@
+@import "@/common/styles/colors"
+
+nav
+  display: flex
+  justify-content: space-between
+  padding: 0.5rem 2rem
+  background-color: rgba($background-lighter, 0.35)
+  backdrop-filter: blur(10px)
+  user-select: none
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  height: 3rem
+
+nav .logo-area
+  display: flex
+  align-items: center
+  gap: 1rem
+  cursor: pointer
+  padding: 0.2rem 0.6rem
+  border: 2px solid transparent
+  border-radius: 1rem
+  transition: all 0.3s
+  text-decoration: none
+  color: $text
+  -webkit-user-drag: none
+
+  img
+    width: 2.5rem
+    height: 2.5rem
+
+  h1
+    margin: 0
+
+nav .logo-area:hover
+  border: 2px solid $text
+
+nav .logo-area:active
+  transform: scale(0.95)
+
+nav .nav-area
+  display: flex
+  align-items: center
+  gap: 2rem
+
+  ul
+    display: flex
+    gap: 2rem
+    list-style: none
+
+  a
+    text-decoration: none
+    color: $text
+    font-size: 1.2rem
+    font-weight: 700
+    transition: color 0.3s
+    -webkit-user-drag: none
+
+  a:hover
+    color: $primary
+
+nav .mobile-toggle
+  display: none
+  align-items: center
+  justify-content: center
+  cursor: pointer
+
+nav .mobile-toggle svg
+  font-size: 22pt
+  transition: all 0.3s
+  fill: $text
+
+.mobile-nav
+  display: flex
+  position: fixed
+  top: 0
+  left: 0
+  width: 100vw
+  height: 100%
+  -webkit-backdrop-filter: blur(1rem)
+  backdrop-filter: blur(1rem)
+  background: #00000080
+  z-index: 10
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  gap: 2rem
+  animation: navOpen .3s forwards ease-in-out
+
+.mobile-nav-closed
+  animation: navClose .3s forwards ease-in-out
+
+.mobile-nav .logo
+  display: flex
+  align-items: center
+  text-decoration: none
+  gap: 1rem
+
+  img
+    width: 3rem
+    height: 3rem
+
+  h1
+    margin: 0
+    font-size: 2rem
+    color: $text
+
+
+.logo-pulse
+  animation: logoPulse 1s infinite
+
+.mobile-nav .mobile-links
+  text-align: center
+  display: flex
+  flex-direction: column
+  list-style: none
+
+  a
+    text-decoration: none
+    color: $text
+    font-size: 1.7rem
+    font-weight: 700
+    transition: color 0.3s
+    -webkit-user-drag: none
+
+  a:hover
+    color: $primary
+
+
+@keyframes navOpen
+  from
+    transform: translateY(100%)
+    visibility: hidden
+  to
+    transform: translateY(0)
+    visibility: visible
+
+@keyframes navClose
+  from
+    transform: translateY(0)
+    visibility: visible
+  to
+    transform: translateY(-100%)
+    visibility: hidden
+
+@keyframes logoPulse
+    0%
+        transform: scale(1)
+    50%
+        transform: scale(1.1)
+    100%
+        transform: scale(1)
+
+@media (max-width: 814px)
+  nav .nav-area
+    display: none
+  nav .mobile-toggle
+    display: flex
