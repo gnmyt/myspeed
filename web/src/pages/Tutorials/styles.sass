@@ -1,0 +1,99 @@
+@import "@/common/styles/colors"
+
+.tutorial-page
+  padding: 5rem
+  display: flex
+  flex-direction: column
+  gap: 2rem
+
+  .page-title
+    display: flex
+    align-items: center
+    justify-content: center
+    gap: 1rem
+
+    svg
+      font-size: 24pt
+
+    h1
+      font-size: 28pt
+
+
+  .tutorial-section
+    margin-left: -8rem
+    padding: 1rem 3rem
+    border: 4px solid $red
+    border-radius: 1.5rem
+    display: flex
+    align-items: center
+    width: fit-content
+
+    svg
+      font-size: 18pt
+      margin-right: 1rem
+
+    h2
+      font-size: 20pt
+      margin: 0
+
+  .tutorial-grid
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    gap: 2rem
+
+  .content-card
+    border: 4px solid $red
+    width: 28rem
+    height: 16rem
+    display: flex
+    align-items: center
+    justify-content: center
+    border-radius: 2rem
+    cursor: pointer
+
+    svg
+      font-size: 34pt
+      color: $red
+
+
+  .tutorial-card
+    transition: all 0.3s
+    border: 4px solid transparent
+    border-radius: 2rem
+
+    cursor: pointer
+    width: 28rem
+    height: 16rem
+
+    .thumbnail
+      border-radius: 1.5rem
+      width: 100%
+      height: 100%
+      object-fit: cover
+
+    .creator
+      position: relative
+      width: 4rem
+      height: 4rem
+      bottom: 28%
+      left: 1%
+      border-radius: 50%
+
+    .open_btn
+      position: relative
+      display: none
+      bottom: 75%
+      left: 50%
+      transform: translate(-50%, -50%)
+      color: $red
+      font-size: 28pt
+
+  .tutorial-card:hover
+    border: 4px solid $red
+
+    .open_btn
+      display: block
+
+    .thumbnail
+      filter: brightness(0.5)
