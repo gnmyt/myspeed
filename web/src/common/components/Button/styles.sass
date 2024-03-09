@@ -1,0 +1,30 @@
+@import "@/common/styles/colors"
+
+.btn
+  padding: 0.5rem 1rem
+  border-radius: 0.8rem
+  border: 1px solid transparent
+  display: flex
+  align-items: center
+  transition: all 0.2s ease-in-out
+  cursor: pointer
+
+.btn:hover
+  transform: translateY(-2px)
+  filter: brightness(1.2)
+
+.btn:active
+  transform: translateY(0) scale(0.98)
+
+.btn svg
+  margin-right: 10px
+  font-size: 18pt
+
+.btn h1
+  margin: 0
+  font-weight: 900
+
+.btn-color-red
+  background-color: rgba($red, 0.1)
+  color: $red
+  border: 1px solid $red
