@@ -32,9 +32,7 @@ else
   echo -e "$YELLOW Version:$BLUE MySpeed Release"
 fi
 echo -e "$YELLOW Location:$BLUE $INSTALLATION_PATH"
-echo -e "$YELLOW Speedtest API by Ookla will be used."
-echo -e "$YELLOW If you$RED disagree$YELLOW with this, you can cancel the installation by pressing$RED CTRL + C$YELLOW. "
-echo -e "$GREEN Installation will start in 10 seconds..."
+echo -e "$GREEN Installation will start in 5 seconds..."
 echo -e "$GREEN ----------------------------------------------"
 sleep 10
 clear
