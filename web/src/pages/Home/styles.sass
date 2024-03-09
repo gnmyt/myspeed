@@ -3,15 +3,17 @@
 .home-page
   display: flex
   flex-direction: column
-  height: 56rem
+  height: 100vh
   position: relative
   overflow-x: hidden
 
   .info-area
+    user-select: none
+    pointer-events: none
     display: flex
     align-items: center
     gap: 1rem
-    padding: 3rem
+    padding: 5rem
 
     img
       width: 5.5rem
@@ -37,6 +39,8 @@
   img
     width: 77rem
     transform: rotate(12deg)
+    pointer-events: none
+    user-select: none
 
 .flying-icons
   position: absolute
