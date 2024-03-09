@@ -1,0 +1,66 @@
+.feature-area
+  margin-top: 53rem
+  padding-left: 5rem
+  padding-right: 5rem
+  display: flex
+  flex-direction: column
+  gap: 3rem
+
+  .feature
+    display: flex
+    gap: 2rem
+    justify-content: space-around
+    align-items: center
+
+    img
+      width: 40rem
+      border-radius: 1rem
+
+    h1
+      font-size: 3rem
+      margin-bottom: 1rem
+
+    p
+      font-size: 1.6rem
+      margin-bottom: 2rem
+      max-width: 40rem
+
+  .feature-reverse
+    flex-direction: row-reverse
+
+@media screen and (max-width: 1200px)
+  .feature-area .feature img
+    width: 30rem
+  .feature-area .feature h1
+    font-size: 2.5rem
+  .feature-area .feature p
+    font-size: 1.3rem
+    max-width: 30rem
+
+@media screen and (max-width: 1000px)
+  .feature-area
+    margin-top: 40rem
+    margin-left: 2rem
+    margin-right: 2rem
+  .feature-area .feature img
+    width: 25rem
+  .feature-area .feature h1
+    font-size: 2rem
+  .feature-area .feature p
+    font-size: 1rem
+    max-width: 30rem
+
+@media screen and (max-width: 700px)
+  .feature-area
+    margin-top: 65vh
+    margin-left: 0.2rem
+    margin-right: 0.2rem
+  .feature-area .feature
+    width: 100%
+  .feature-area .feature img
+    width: 70vw
+  .feature-area .feature
+    flex-direction: column
+  .feature-area .feature p
+    margin-bottom: 1rem
+    max-width: 100%
