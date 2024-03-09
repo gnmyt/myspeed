@@ -10,6 +10,7 @@ import Imprint from "@/pages/Imprint";
 import Privacy from "@/pages/Privacy";
 import Install from "@/pages/Install";
 import Tutorials from "@/pages/Tutorials";
+import TutorialSubmission from "@/pages/TutorialSubmission";
 
 const router = createBrowserRouter([
     {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
             {path: "/", element: <Home />},
             {path: "/install", element: <Install />},
             {path: "/tutorials", element: <Tutorials />},
+            {path: "/tutorials/submit", element: <TutorialSubmission />},
             {path: "/imprint", element: <Imprint />},
             {path: "/privacy", element: <Privacy />},
         ]
