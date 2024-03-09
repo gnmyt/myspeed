@@ -37,7 +37,7 @@ export const Tutorials = () => {
                         <FontAwesomeIcon icon={faPlay} className="open_btn"/>
                     </div>
                 ))}
-                <div className="content-card" onClick={() => navigate("/tutorials/submit")}>
+                <div className="content-card" onClick={() => navigate("/tutorials/submit?type=video")}>
                     <FontAwesomeIcon icon={faPaperPlane} className="open_btn"/>
                 </div>
             </div>
@@ -56,7 +56,7 @@ export const Tutorials = () => {
                         <FontAwesomeIcon icon={faBookOpenReader} className="open_btn"/>
                     </div>
                 ))}
-                <div className="content-card" onClick={() => navigate("/tutorials/submit")}>
+                <div className="content-card" onClick={() => navigate("/tutorials/submit?type=blog")}>
                     <FontAwesomeIcon icon={faPaperPlane} className="open_btn"/>
                 </div>
             </div>
