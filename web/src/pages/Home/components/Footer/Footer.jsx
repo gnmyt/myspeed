@@ -8,7 +8,7 @@ export const Footer = () => {
 
             <div className="legal-nav">
                 <Link to="/imprint">Imprint</Link>
-                <Link to="/privacy">Privacy Policy</Link>
+                <Link to="/privacy">Privacy Policy (GER)</Link>
             </div>
         </div>
     )
