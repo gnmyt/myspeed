@@ -1,3 +1,5 @@
+@import "@/common/styles/colors"
+
 .feature-area
   margin-top: 53rem
   padding-left: 5rem
@@ -15,6 +17,11 @@
     img
       width: 40rem
       border-radius: 1rem
+      transition: 0.3s
+
+    img:hover
+      transform: scale(1.02) translateY(-0.5rem)
+      box-shadow: 0 0 1rem 0.5rem $background-lighter
 
     h1
       font-size: 3rem
