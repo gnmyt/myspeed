@@ -1,5 +1,5 @@
 site_name: MySpeed Documentation
-site_url: https://myspeed.gnmyt.dev
+site_url: https://docs.myspeed.dev
 site_description: MySpeed is a self-hosted speedtest analysis software that stores the speed of your internet for up to 30 days.
 site_author: Mathias Wagner
 copyright: Copyright &copy; 2021 - 2023 Mathias Wagner

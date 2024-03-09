@@ -25,12 +25,12 @@ MySpeed ist eine Speedtest-Analyse-Software, welche die Geschwindigkeit deines I
 - 🗄️ Füge mehrere Server direkt zu einer MySpeed-Instanz hinzu
 - 🩺 Es lassen sich Healthchecks konfigurieren, welche dich bei Fehlern oder Ausfällen über E-Mail, Signal, WhatsApp oder Telegram benachrichtigen können
 - 📆 Testergebnisse lassen sich bis zu 30 Tage lang speichern
-- 💁 Erfahre mehr zu MySpeed in der [Dokumentation](https://myspeed.gnmyt.dev)
+- 💁 Erfahre mehr zu MySpeed auf unserer [Website](https://myspeed.dev)
 
 ### ⬇️ Installation
 
-- **🐧 Anleitung für [Linux](https://myspeed.gnmyt.dev/setup/linux)**
-- **🪟 Anleitung für [Windows](https://myspeed.gnmyt.dev/setup/windows)**
+- **🐧 Anleitung für [Linux](https://docs.myspeed.dev/setup/linux)**
+- **🪟 Anleitung für [Windows](https://docs.myspeed.dev/setup/windows)**
 
 ### 📸 Beispiel-Screenshots
 

@@ -18,7 +18,7 @@ fi
 echo -e "${GREEN}---------${BLUE} MySpeed Installation ${GREEN}---------${NORMAL}"
 echo -e "${BLUE}Welcome to MySpeed Installation Script!${NORMAL}"
 echo -e "${YELLOW}Do you want to install MySpeed with Docker or the normal installation script?${NORMAL}"
-echo -e "${YELLOW}[1]${NORMAL} Docker"
+echo -e "${YELLOW}[1]${NORMAL} Docker (Recommended)"
 echo -e "${YELLOW}[2]${NORMAL} Normal Install Script"
 
 read -p "Enter your choice (1/2): " choice

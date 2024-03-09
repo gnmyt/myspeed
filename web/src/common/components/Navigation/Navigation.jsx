@@ -43,7 +43,7 @@ export const Navigation = () => {
                     <ul>
                         <li><Link to="/install">Install</Link></li>
                         <li><Link to="/tutorials">Tutorials</Link></li>
-                        <li><Link to="https://myspeed.gnmyt.dev">Documentation</Link></li>
+                        <li><Link to={DOCUMENTATION_BASE}>Documentation</Link></li>
                     </ul>
                     <Button icon={faHeart} text="Donate" color="red"
                             onClick={() => window.open(DONATION_LINK, "_blank")}/>

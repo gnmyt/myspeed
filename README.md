@@ -25,12 +25,12 @@ MySpeed is a speed test analysis software that records your internet speed for u
 - 🗄️ Add multiple servers directly to a MySpeed instance
 - 🩺 Configure health checks to notify you via email, Signal, WhatsApp, or Telegram in case of errors or downtime
 - 📆 Test results can be stored for up to 30 days
-- 💁 Learn more about MySpeed in the documentation
+- 💁 Learn more about MySpeed on our [website](https://myspeed.dev)
 
 ### ⬇️ Installation
 
-- **🐧 Guide for [Linux](https://myspeed.gnmyt.dev/setup/linux)**
-- **🪟 Guide for [Windows](https://myspeed.gnmyt.dev/setup/windows)**
+- **🐧 Guide for [Linux](https://docs.myspeed.dev/setup/linux)**
+- **🪟 Guide for [Windows](https://docs.myspeed.dev/setup/windows)**
 
 ### 📸 Example Screenshots
 

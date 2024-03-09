@@ -28,7 +28,7 @@ const router = createBrowserRouter([
     }
 ]);
 
-export const DOCUMENTATION_BASE = "https://myspeed.gnmyt.dev";
+export const DOCUMENTATION_BASE = "https://docs.myspeed.dev";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
