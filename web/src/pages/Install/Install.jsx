@@ -16,7 +16,7 @@ import {
 import {useState} from "react";
 import {DOCUMENTATION_BASE} from "@/main.jsx";
 
-export const INSTALL_CMD = "curl -sSL https://install.myspeed.dev | bash";
+export const INSTALL_CMD = "bash <(curl -sSL https://install.myspeed.dev)";
 
 export const Install = () => {
 
