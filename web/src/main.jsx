@@ -5,6 +5,7 @@ import "@/common/styles/default.sass";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Root from "@/common/layouts/Root";
 import NotFound from "@/pages/NotFound";
+import Home from "@/pages/Home";
 
 const router = createBrowserRouter([
     {
@@ -12,7 +13,7 @@ const router = createBrowserRouter([
         element: <Root/>,
         errorElement: <NotFound />,
         children: [
-            {path: "/", element: <h2>Home</h2>},
+            {path: "/", element: <Home />},
             {path: "/install", element: <h2>Install</h2>},
             {path: "/tutorials", element: <h2>Tutorials</h2>},
         ]
