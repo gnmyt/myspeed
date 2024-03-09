@@ -39,6 +39,7 @@
       color: $text
       background-color: $background
       transition: border-color 0.3s
+      resize: none
 
       &:focus
         outline: none
@@ -85,3 +86,25 @@
       cursor: pointer
       font-size: 1.5rem
       font-weight: 500
+
+@media screen and (max-width: 800px)
+  .tutorial-submission-page
+    flex-direction: column-reverse
+    gap: 2rem
+
+    .submission-area
+      width: 80%
+
+    .info-area
+      margin-top: 2rem
+      max-width: 80%
+
+@media screen and (max-width: 600px)
+  .tutorial-submission-page
+    padding: 2rem
+
+    .submission-area
+      width: 100%
+
+    .info-area
+      max-width: 100%
