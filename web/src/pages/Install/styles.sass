@@ -1,0 +1,104 @@
+@import "@/common/styles/colors"
+
+.install-page
+  padding: 5rem
+  user-select: none
+
+  .bg-image
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    object-fit: cover
+    z-index: 2
+    -webkit-user-drag: none
+
+.install-container
+  z-index: 5
+  height: 80vh
+  display: flex
+  align-items: center
+  justify-content: space-around
+  animation: bounceIn 0.5s ease-in-out
+
+.install-info
+  display: flex
+  gap: 1rem
+  flex-direction: column
+
+  .btn
+    width: fit-content
+    font-size: 8pt
+    z-index: 5
+
+.install-header
+  display: flex
+  align-items: center
+  margin-top: 1rem
+  margin-bottom: 1rem
+
+  svg
+    font-size: 30pt
+    margin-right: 1rem
+
+  h1
+    font-size: 34pt
+    font-weight: 900
+    margin: 0
+
+.install-cmd
+  z-index: 5
+  cursor: pointer
+  align-items: center
+  display: flex
+  gap: 1rem
+  font-size: 14pt
+  background-color: rgba($primary, 0.1)
+  color: $primary
+  border: 2px solid $primary
+  box-shadow: 0 0 15px 0 rgba($primary, 0.5)
+  padding: 1rem 1.5rem
+  border-radius: 0.8rem
+
+  .copy-icon
+    position: relative
+    font-size: 18pt
+    top: -2px
+    right: -2px
+
+
+@keyframes bounceIn
+    0%
+        transform: scale(0.1)
+        opacity: 0
+    60%
+        transform: scale(1.1)
+        opacity: 1
+    80%
+        transform: scale(0.9)
+    100%
+        transform: scale(1)
+
+@media screen and (max-width: 1250px)
+  .install-container
+    flex-direction: column
+
+  .install-info
+    align-items: center
+    text-align: center
+
+  .install-header
+    margin-top: 0.5rem
+    margin-bottom: 0.5rem
+
+    svg
+      font-size: 20pt
+    h1
+      font-size: 24pt
+
+@media screen and (max-width: 500px)
+  .install-cmd
+    display: none
+  .install-container
+    height: 55vh
