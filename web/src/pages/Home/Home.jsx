@@ -14,11 +14,10 @@ export const Home = () => {
         <div className="home-page">
 
             <div className="info-area">
-                <img src={Logo} alt="Logo"/>
+                <img src={Logo} alt="Logo" draggable={false}/>
                 <div className="title-area">
                     <h1>MySpeed</h1>
                     <h2>Speedtest automation made simple</h2>
-
                 </div>
             </div>
 
@@ -29,9 +28,8 @@ export const Home = () => {
                 </div>
             ))}
 
-
             <div className="interface-image">
-                <img src={InterfaceImage} alt="Interface"/>
+                <img src={InterfaceImage} alt="Interface" draggable={false}/>
             </div>
 
             <Features />
