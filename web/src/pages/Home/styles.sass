@@ -1,0 +1,134 @@
+@import "@/common/styles/colors"
+
+.home-page
+  display: flex
+  flex-direction: column
+  height: 56rem
+  position: relative
+  overflow-x: hidden
+
+  .info-area
+    display: flex
+    align-items: center
+    gap: 1rem
+    padding: 3rem
+
+    img
+      width: 5.5rem
+      height: 5.5rem
+
+    h1
+      font-size: 2.5rem
+
+    h2
+      font-size: 1.3rem
+
+    h1, h2
+      margin: 0
+
+
+.interface-image
+  position: absolute
+  bottom: -5rem
+  right: 5rem
+  animation: fadeIn 1s ease-in-out
+  z-index: 0
+
+  img
+    width: 77rem
+    transform: rotate(12deg)
+
+.flying-icons
+  position: absolute
+  transform: rotate(-25deg)
+  display: flex
+  gap: 1rem
+  animation: spawn 1s ease-in-out
+
+  svg
+    font-size: 48pt
+    animation: flyAround 16s linear infinite
+
+.flying-icons:nth-child(2)
+  top: 50rem
+  left: 10rem
+
+.flying-icons:nth-child(3)
+  top: 20rem
+  right: 10rem
+
+.flying-icons:nth-child(4)
+  bottom: 30rem
+  left: 15rem
+
+.flying-icons:nth-child(5)
+  bottom: 40rem
+  right: 40rem
+
+.flying-icons:nth-child(6)
+  bottom: 18rem
+  left: 20rem
+
+
+@keyframes fadeIn
+  from
+    transform: translateY(10rem)
+    opacity: 0
+  to
+    transform: translateY(0)
+    opacity: 1
+
+@keyframes spawn
+  from
+    transform: rotate(-25deg) scale(0.2)
+    opacity: 0
+  to
+    transform: rotate(-25deg)
+    opacity: 1
+
+@keyframes flyAround
+  0%, 100%
+    transform: translate(0, 0)
+
+  25%
+    transform: translate(0.5rem, -0.5rem)
+
+  50%
+    transform: translate(-0.5rem, 0.5rem)
+
+  75%
+    transform: translate(-0.5rem, -0.5rem)
+
+
+@media screen and (max-width: 1800px)
+  .flying-icons:nth-child(6)
+    display: none
+
+@media screen and (max-width: 1650px)
+  .flying-icons:nth-child(4)
+    display: none
+  .flying-icons:nth-child(2)
+    display: none
+
+@media screen and (max-width: 1250px)
+  .interface-image img
+    width: 80vw
+
+@media screen and (max-width: 1000px)
+  .flying-icons:nth-child(3)
+    display: none
+  .flying-icons:nth-child(5)
+    right: 10rem
+    top: 20rem
+  .interface-image
+    right: 0
+    bottom: 10rem
+  .interface-image img
+    width: 90vw
+
+@media screen and (max-width: 500px)
+  .flying-icons:nth-child(5)
+    right: 5rem
+    top: 15rem
+  .interface-image
+    bottom: 20rem
