@@ -1,0 +1,87 @@
+@import "@/common/styles/colors"
+
+.tutorial-submission-page
+  padding: 4rem
+  display: flex
+  justify-content: space-between
+  align-items: center
+  gap: 4rem
+
+  .submission-success
+    display: flex
+    width: 100%
+    height: 80vh
+    justify-content: center
+    flex-direction: column
+    align-items: center
+
+  .submission-area
+    width: 40%
+
+  .input-group
+    margin-bottom: 2rem
+
+    label
+      margin-bottom: 0.5rem
+      display: block
+      font-size: 1.5rem
+      color: $text
+      font-weight: 500
+
+    input, select, textarea
+      width: 100%
+      box-sizing: border-box
+      padding: 1rem
+      font-size: 1.6rem
+      border: 1px solid $primary
+      border-radius: 1rem
+      margin-bottom: 1rem
+      color: $text
+      background-color: $background
+      transition: border-color 0.3s
+
+      &:focus
+        outline: none
+        border-color: $primary
+        box-shadow: 0 0 0 3px rgba($primary, 0.25)
+
+  .info-area
+    background-color: $background-lighter
+    height: auto
+
+    padding: 2rem
+    border-radius: 1rem
+    max-width: 40%
+
+    .info-title
+      display: flex
+      align-items: center
+      gap: 1rem
+      color: $red
+
+      svg
+        font-size: 22pt
+
+      h1
+        margin: 0
+        font-size: 24pt
+
+    ul
+      list-style: outside
+
+      li
+        font-size: 1.3rem
+        margin-bottom: 1rem
+        color: $text
+
+    input[type="checkbox"]
+      margin-right: 1rem
+      cursor: pointer
+      width: 1rem
+      height: 1rem
+      accent-color: $primary
+
+    label
+      cursor: pointer
+      font-size: 1.5rem
+      font-weight: 500
