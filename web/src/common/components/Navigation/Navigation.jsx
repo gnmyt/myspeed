@@ -5,6 +5,7 @@ import {faBars, faBarsStaggered, faHeart} from "@fortawesome/free-solid-svg-icon
 import {Link} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useEffect, useState} from "react";
+import {DOCUMENTATION_BASE} from "@/main.jsx";
 
 export const DONATION_LINK = "https://www.ko-fi.com/gnmyt";
 
@@ -62,7 +63,7 @@ export const Navigation = () => {
                     <div className="mobile-links">
                         <Link to={"/install"}>Install</Link>
                         <Link to={"/tutorials"}>Tutorials</Link>
-                        <Link to={"https://myspeed.gnmyt.dev"}>Documentation</Link>
+                        <Link to={DOCUMENTATION_BASE}>Documentation</Link>
                     </div>
                     <Button icon={faHeart} text="Donate" color="red"
                             onClick={() => window.open(DONATION_LINK, "_blank")}/>
