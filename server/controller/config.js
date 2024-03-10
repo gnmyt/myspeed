@@ -27,6 +27,7 @@ module.exports.listAll = async () => {
 }
 
 module.exports.getValue = async (key) => {
+    if (process.env.PREVIEW_MODE === "true" && key === "acceptOoklaLicense") return true;
     return (await config.findByPk(key)).value;
 }
 
