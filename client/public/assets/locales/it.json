@@ -45,6 +45,7 @@
     "language": "Cambiare la lingua",
     "view": "Cambia vista",
     "info": "Informazioni sul progetto",
+    "provider": "About the provider",
     "integrations": "Integrazioni"
   },
   "options": {
@@ -106,6 +107,7 @@
     "running_tooltip": "Test di velocità in corso",
     "start_tooltip": "Avvio del test di velocità",
     "new_update": "Aggiornamento disponibile",
+    "download": "Download",
     "paused": "I test di velocità sono attualmente in pausa. Continuare se si desidera eseguirne uno.",
     "running": "È già in corso un test di velocità. Attendere un momento.",
     "admin_login": "Accesso amministratore",
@@ -245,6 +247,7 @@
     "update_password": "Aggiornare la password di questo nodo",
     "password_outdated": "Password non aggiornata",
     "password_updated": "La password è stata aggiornata con successo",
+    "preview_active": "Adding and deleting servers is disabled during demo mode.",
     "placeholder": {
       "name": "Istanza di MySpeed",
       "url": "https://vostro-server.it"
@@ -265,8 +268,14 @@
       "tests_pending": "I risultati del test sono in attesa"
     }
   },
+  "preview": {
+    "title": "Demo mode",
+    "info": "DEMO",
+    "description": "You are currently in demo mode. Some features are disabled and some settings cannot be changed. If you want to use all features, you can <Link>install MySpeed</Link> on your own server."
+  },
   "integrations": {
     "none_active": "Questa integrazione non è attiva. <br/><Bold>Aggiungi</Bold>",
+    "preview_active": "Integrations are disabled during demo mode.",
     "display_name": "Nome dell'integrazione",
     "create": "Aggiungi",
     "activity": {
