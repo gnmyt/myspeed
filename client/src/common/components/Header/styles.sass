@@ -16,13 +16,26 @@
 .header-main *
   font-size: 24pt
 
-.header-main h2
+.header-left
   margin-left: 10%
   display: flex
-  gap: 1rem
+  gap: 0.5rem
   align-items: center
+
+.demo-info
+  display: flex
+  cursor: pointer
+  align-items: center
+  justify-content: center
+  font-size: 14pt
+  background-color: $dark-gray
+  color: $green
+  margin: 0
+
+.header-main h2
   padding: 0.5rem 1rem
   border-radius: 1rem
+  margin: 0
 
 .header-main .h2-click
   cursor: pointer
@@ -68,24 +81,30 @@
   100%
     box-shadow: 0 0 0 0 #CCA92C00
 
+@media screen and (max-width: 600px)
+  .header-left
+    flex-direction: column
+    gap: 0
+
 @media (max-width: 460px)
   .header-main
     justify-content: center
-  .header-main div
+  .header-left div
     margin-right: 0
-  .header-main h2
+  .header-left .h2-click
     margin-left: 0
-    font-size: 24pt
+    font-size: 22pt
   .header-icon
     width: 25px
     height: 25px
 
-
-@media (max-width: 360px)
-  .header-main h2
-    font-size: 16pt
+@media (max-width: 410px)
+  .header-left .h2-click
+    font-size: 14pt
     text-overflow: ellipsis
     overflow: hidden
+  .header-left svg
+    font-size: 14pt
   .header-icon
     width: 20px
     height: 20px
