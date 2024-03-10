@@ -39,6 +39,19 @@
   h1
     color: $white
 
+.node-disabled
+  width: 53rem
+  border: 2px dashed #696C73
+  border-radius: 15px
+  cursor: not-allowed
+  user-select: none
+
+.node-disabled:hover
+  border: 2px dashed #696C73
+
+  h1
+    color: $darker-white
+
 @media screen and (max-width: 862px)
   .node-add
     width: calc(20vw + 11rem)
