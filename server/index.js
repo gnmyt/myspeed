@@ -43,7 +43,7 @@ const run = async () => {
 
     await require('./controller/integrations').initialize();
 
-    await require('./util/loadCli').load();
+    if (process.env.PREVIEW_MODE !== "true") await require('./util/loadCli').load();
 
     await config.insertDefaults();
 
