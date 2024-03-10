@@ -45,7 +45,7 @@
     "language": "Изменить язык",
     "view": "Изменить вид",
     "info": "Информация о проекте",
-    "provider": "About the provider",
+    "provider": "О провайдере",
     "integrations": "Интеграции"
   },
   "options": {
@@ -107,7 +107,7 @@
     "running_tooltip": "Выполнение теста скорости",
     "start_tooltip": "Запустите тест скорости",
     "new_update": "Доступно обновление",
-    "download": "Download",
+    "download": "Скачать",
     "paused": "В настоящее время тестирование скорости приостановлено. Пожалуйста, продолжайте, если вы хотите пройти тест.",
     "running": "Тест скорости уже проводится. Пожалуйста, подождите немного.",
     "admin_login": "Логин администратора",
@@ -247,7 +247,7 @@
     "update_password": "Пожалуйста, обновите пароль этого узла",
     "password_outdated": "Пароль устарел",
     "password_updated": "Пароль был успешно обновлен",
-    "preview_active": "Adding and deleting servers is disabled during demo mode.",
+    "preview_active": "Добавление и удаление серверов отключено в демо-режиме.",
     "placeholder": {
       "name": "Экземпляр MySpeed",
       "url": "https://ваш-сервер.ru"
@@ -269,13 +269,13 @@
     }
   },
   "preview": {
-    "title": "Demo mode",
+    "title": "Демо-режим",
     "info": "DEMO",
-    "description": "You are currently in demo mode. Some features are disabled and some settings cannot be changed. If you want to use all features, you can <Link>install MySpeed</Link> on your own server."
+    "description": "Сейчас ты находишься в демо-режиме. Некоторые функции отключены, а некоторые настройки нельзя изменить. Если ты хочешь использовать все возможности, то можешь <Link>установить MySpeed</Link> на свой собственный сервер."
   },
   "integrations": {
     "none_active": "Эта интеграция не активна. <br/><Bold>Добавить</Bold>",
-    "preview_active": "Integrations are disabled during demo mode.",
+    "preview_active": "Интеграции отключены во время демо-режима.",
     "display_name": "Имя интеграции",
     "create": "Добавить",
     "activity": {
