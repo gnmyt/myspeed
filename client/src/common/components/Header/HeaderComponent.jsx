@@ -18,6 +18,8 @@ import {t} from "i18next";
 import {ConfigContext} from "@/common/contexts/Config";
 import {LoadingDialog} from "@/common/components/LoadingDialog";
 import {NodeContext} from "@/common/contexts/Node";
+import {WEB_URL} from "@/index";
+import {Trans} from "react-i18next";
 
 function HeaderComponent(props) {
     const findNode = useContext(NodeContext)[4];
@@ -34,6 +36,12 @@ function HeaderComponent(props) {
     function switchDropdown() {
         toggleDropdown(setIcon);
     }
+
+    const showDemoDialog = () => setDialog({
+        title: t("preview.title"),
+        description: <Trans components={{Link: <a href={WEB_URL + "/install"} target="_blank" />}}>preview.description</Trans>,
+        buttonText: t("dialog.okay")
+    });
 
     const showPasswordDialog = () => setDialog({
         title: t("header.admin_login"),
@@ -90,7 +98,13 @@ function HeaderComponent(props) {
         <header>
             <LoadingDialog isOpen={startedManually}/>
             <div className="header-main">
-                {config.viewMode ? <h2>{t("header.title")}</h2> : <h2 onClick={() => props.showNodePage(true)} className="h2-click"><FontAwesomeIcon icon={faServer} /> {getNodeName()}</h2>}
+                <div className="header-left">
+                    {config.viewMode && <h2>{t("header.title")}</h2>}
+                    {!config.viewMode &&  <h2 onClick={() => props.showNodePage(true)} className="h2-click"><FontAwesomeIcon icon={faServer} /> {getNodeName()}</h2>}
+
+                    {config.previewMode && <h2 className="demo-info" onClick={showDemoDialog}>{t("preview.info")}</h2>}
+                </div>
+
 
                 <div className="header-right">
                     {updateAvailable ?
