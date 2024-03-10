@@ -45,6 +45,7 @@
     "language": "Change language",
     "view": "Switch view",
     "info": "About the project",
+    "provider": "About the provider",
     "integrations": "Integrations"
   },
   "options": {
@@ -106,6 +107,7 @@
     "running_tooltip": "Speedtest running",
     "start_tooltip": "Start speedtest",
     "new_update": "Update available",
+    "download": "Download",
     "paused": "Speedtests are currently paused. Please continue them if you want to do one.",
     "running": "A speedtest is already running. Please wait a moment.",
     "admin_login": "Admin Login",
