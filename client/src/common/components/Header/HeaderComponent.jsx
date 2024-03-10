@@ -1,7 +1,7 @@
 import "./styles.sass";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
-    faCircleArrowUp,
+    faCircleArrowUp, faDownload,
     faGaugeHigh,
     faGear,
     faLock,
@@ -78,6 +78,8 @@ function HeaderComponent(props) {
         postRequest("/speedtests/run").then(updateTests).then(updateStatus).then(() => setStartedManually(false));
     }
 
+    const openDownloadPage = () => window.open(WEB_URL + "/install", "_blank");
+
     useEffect(() => {
         if (Object.keys(config).length === 0) return;
         async function updateVersion() {
@@ -125,6 +127,11 @@ function HeaderComponent(props) {
                     {(config.viewMode ? <div className="tooltip-element tooltip-bottom">
                         <FontAwesomeIcon icon={faLock} className={"header-icon"} onClick={showPasswordDialog}/>
                         <span className="tooltip">{t("header.admin_login")}</span>
+                    </div> : <></>)}
+
+                    {(config.previewMode ? <div className="tooltip-element tooltip-bottom">
+                        <FontAwesomeIcon icon={faDownload} className={"header-icon"} onClick={openDownloadPage}/>
+                        <span className="tooltip">{t("header.download")}</span>
                     </div> : <></>)}
 
                     <div className="tooltip-element tooltip-bottom" id="open-header">
