@@ -7,6 +7,9 @@ app.get("/", password(false), async (req, res) => {
 });
 
 app.put("/", password(false), async (req, res) => {
+    if (process.env.PREVIEW_MODE === "true")
+        return res.status(403).json({message: "For security reasons, you can't create nodes in preview mode"});
+
     if (!req.body.name || !req.body.url) return res.status(400).json({message: "Missing parameters", type: "MISSING_PARAMETERS"});
 
     const url = req.body.url.replace(/\/+$/, "");
@@ -23,6 +26,9 @@ app.put("/", password(false), async (req, res) => {
 });
 
 app.delete("/:nodeId", password(false), async (req, res) => {
+    if (process.env.PREVIEW_MODE === "true")
+        return res.status(403).json({message: "For security reasons, you can't delete nodes in preview mode"});
+
     const node = await nodes.getOne(req.params.nodeId);
     if (node === null) return res.status(404).json({message: "Node not found"});
 
@@ -31,6 +37,9 @@ app.delete("/:nodeId", password(false), async (req, res) => {
 });
 
 app.patch("/:nodeId/name", password(false), async (req, res) => {
+    if (process.env.PREVIEW_MODE === "true")
+        return res.status(403).json({message: "For security reasons, you can't update nodes in preview mode"});
+
     if (!req.body.name) return res.status(400).json({message: "Missing parameters", type: "MISSING_PARAMETERS"});
 
     const node = await nodes.getOne(req.params.nodeId);
@@ -41,6 +50,9 @@ app.patch("/:nodeId/name", password(false), async (req, res) => {
 });
 
 app.patch("/:nodeId/password", password(false), async (req, res) => {
+    if (process.env.PREVIEW_MODE === "true")
+        return res.status(403).json({message: "For security reasons, you can't update nodes in preview mode"});
+
     if (!req.body.password) return res.status(400).json({message: "Missing parameters", type: "MISSING_PARAMETERS"});
 
     const node = await nodes.getOne(req.params.nodeId);
