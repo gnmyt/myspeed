@@ -242,6 +242,8 @@ function DropdownComponent() {
 
     const showCredits = () => setDialog({title: "MySpeed", description: creditsInfo(), buttonText: t("dialog.close")});
 
+    const showProviderDetails = () => setDialog({title: t("dropdown.provider"), description: config.previewMessage, buttonText: t("dialog.close")});
+
     const options = [
         {run: updatePing, icon: faPingPongPaddleBall, text: t("dropdown.ping")},
         {run: updateUpload, icon: faArrowUp, text: t("dropdown.upload")},
@@ -258,7 +260,8 @@ function DropdownComponent() {
         {hr: true, key: 2},
         {run: updateLanguage, icon: faGlobeEurope, text: t("dropdown.language"), allowView: true},
         {run: () => setShowViewDialog(true), icon: faChartSimple, allowView: true, text: t("dropdown.view")},
-        {run: showCredits, icon: faInfo, text: t("dropdown.info"), allowView: true}
+        {run: showCredits, icon: faInfo, text: t("dropdown.info"), allowView: true, previewHidden: true},
+        {run: showProviderDetails, icon: faInfo, text: t("dropdown.provider"), previewShown: true}
     ];
 
     return (
@@ -271,6 +274,7 @@ function DropdownComponent() {
                     <div className="dropdown-entries">
                         {options.map(entry => {
                             if (entry.previewHidden && config.previewMode) return;
+                            if (entry.previewShown && !config.previewMode) return;
                             if (!config.viewMode || (config.viewMode && entry.allowView)) {
                                 if (!entry.hr) {
                                     return (<div className="dropdown-item" onClick={() => {
