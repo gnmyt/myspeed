@@ -21,6 +21,9 @@
   display: flex
   gap: 0.5rem
   align-items: center
+  justify-content: center
+  overflow: hidden
+  text-overflow: ellipsis
 
 .demo-info
   display: flex
@@ -38,6 +41,9 @@
   margin: 0
 
 .header-main .h2-click
+  display: flex
+  gap: 1rem
+  align-items: center
   cursor: pointer
   user-select: none
 
@@ -53,6 +59,8 @@
 
 .header-icon
   cursor: pointer
+  display: flex
+
   transition: all 50ms ease-in-out
   width: 30px
   height: 30px
@@ -87,7 +95,6 @@
 @media screen and (max-width: 650px)
   .header-left
     flex-direction: column
-    gap: 0
 
 @media (max-width: 530px)
   .header-main
@@ -113,8 +120,10 @@
     height: 20px
 
 @media screen and (max-width: 365px)
+  .header-main .h2-click
+    gap: 0
   .header-left svg
-    display: none
+    margin-right: 0
   .demo-info
     font-size: 12pt
     padding: 0
