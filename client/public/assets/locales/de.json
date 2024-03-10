@@ -45,7 +45,7 @@
     "language": "Sprache ändern",
     "view": "Ansicht wechseln",
     "info": "Infos zum Projekt",
-    "provider": "About the provider",
+    "provider": "Über den Anbieter",
     "integrations": "Integrationen"
   },
   "options": {
@@ -107,7 +107,7 @@
     "running_tooltip": "Speedtest läuft",
     "start_tooltip": "Speedtest starten",
     "new_update": "Update verfügbar",
-    "download": "Download",
+    "download": "Herunterladen",
     "paused": "Speedtests sind aktuell pausiert. Bitte setze sie fort, wenn du einen machen möchtest.",
     "running": "Es läuft bereits ein Speedtest. Bitte warte noch einen Moment.",
     "admin_login": "Admin-Login",
@@ -247,7 +247,7 @@
     "update_password": "Bitte aktualisiere das Passwort dieser Node",
     "password_outdated": "Passwort veraltet",
     "password_updated": "Das Passwort wurde erfolgreich aktualisiert",
-    "preview_active": "Adding and deleting servers is disabled during demo mode.",
+    "preview_active": "Das Hinzufügen und Löschen von Servern ist im Demomodus deaktiviert.",
     "placeholder": {
       "name": "MySpeed Instanz",
       "url": "https://dein-server.de"
@@ -269,13 +269,13 @@
     }
   },
   "preview": {
-    "title": "Demo mode",
+    "title": "Demo-Modus",
     "info": "DEMO",
-    "description": "You are currently in demo mode. Some features are disabled and some settings cannot be changed. If you want to use all features, you can <Link>install MySpeed</Link> on your own server."
+    "description": "Du befindest dich derzeit im Demo-Modus. Einige Funktionen sind deaktiviert und einige Einstellungen können nicht geändert werden. Wenn du alle Funktionen nutzen möchtest, kannst du <Link>MySpeed</Link> auf deinem eigenen Server installieren."
   },
   "integrations": {
     "none_active": "Diese Integration ist nicht aktiv. <br/><Bold>Hinzufügen</Bold>",
-    "preview_active": "Integrations are disabled during demo mode.",
+    "preview_active": "Im Demomodus sind die Integrationen deaktiviert.",
     "display_name": "Integrations-Name",
     "create": "Hinzufügen",
     "activity": {
