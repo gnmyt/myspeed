@@ -45,6 +45,7 @@
     "language": "改变语言",
     "view": "改变观点",
     "info": "关于项目的信息",
+    "provider": "About the provider",
     "integrations": "整合"
   },
   "options": {
@@ -106,6 +107,7 @@
     "running_tooltip": "运行速度测试",
     "start_tooltip": "开始速度测试",
     "new_update": "可提供最新信息",
+    "download": "Download",
     "paused": "速度测试目前已暂停。如果你想参加，请继续。",
     "running": "速度测试已经在进行中。请稍等片刻。",
     "admin_login": "管理员登录",
@@ -245,6 +247,7 @@
     "update_password": "请更新该节点的密码",
     "password_outdated": "密码已过期",
     "password_updated": "密码已成功更新",
+    "preview_active": "Adding and deleting servers is disabled during demo mode.",
     "placeholder": {
       "name": "MySpeed实例",
       "url": "https://你的服务器.cn"
@@ -265,8 +268,14 @@
       "tests_pending": "测试结果待定"
     }
   },
+  "preview": {
+    "title": "Demo mode",
+    "info": "DEMO",
+    "description": "You are currently in demo mode. Some features are disabled and some settings cannot be changed. If you want to use all features, you can <Link>install MySpeed</Link> on your own server."
+  },
   "integrations": {
     "none_active": "这种整合并不活跃。<br/><Bold>添加</Bold>",
+    "preview_active": "Integrations are disabled during demo mode.",
     "display_name": "整合名称",
     "create": "添加",
     "activity": {
