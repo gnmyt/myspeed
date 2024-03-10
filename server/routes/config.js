@@ -15,6 +15,9 @@ app.get("/", password(true), async (req, res) => {
     configValues['viewMode'] = req.viewMode;
     configValues['previewMode'] = process.env.PREVIEW_MODE === "true";
 
+    if (process.env.PREVIEW_MODE === "true")
+        configValues['previewMessage'] = String(process.env.PREVIEW_MESSAGE || "The owner of this instance has not provided a message");
+
     if (Object.keys(configValues).length === 0) return res.status(404).json({message: "Hmm. There are no config values. Weird..."});
     res.json(configValues);
 });
