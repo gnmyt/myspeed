@@ -26,7 +26,7 @@ import {StatusContext} from "@/common/contexts/Status";
 import {InputDialogContext} from "@/common/contexts/InputDialog";
 import {SpeedtestContext} from "@/common/contexts/Speedtests";
 import {baseRequest, downloadRequest, jsonRequest, patchRequest, postRequest} from "@/common/utils/RequestUtil";
-import {creditsInfo, healthChecksInfo, recommendationsInfo} from "@/common/components/Dropdown/utils/infos";
+import {creditsInfo, recommendationsInfo} from "@/common/components/Dropdown/utils/infos";
 import {
     exportOptions, languageOptions, levelOptions,
     selectOptions, timeOptions
@@ -242,6 +242,8 @@ function DropdownComponent() {
 
     const showCredits = () => setDialog({title: "MySpeed", description: creditsInfo(), buttonText: t("dialog.close")});
 
+    const showProviderDetails = () => setDialog({title: t("dropdown.provider"), description: config.previewMessage, buttonText: t("dialog.close")});
+
     const options = [
         {run: updatePing, icon: faPingPongPaddleBall, text: t("dropdown.ping")},
         {run: updateUpload, icon: faArrowUp, text: t("dropdown.upload")},
@@ -249,7 +251,7 @@ function DropdownComponent() {
         {run: recommendedSettings, icon: faWandMagicSparkles, text: t("dropdown.recommendations")},
         {hr: true, key: 1},
         {run: updateServer, icon: faServer, text: t("dropdown.server")},
-        {run: updatePassword, icon: faKey, text: t("dropdown.password")},
+        {run: updatePassword, icon: faKey, text: t("dropdown.password"), previewHidden: true},
         {run: updateCron, icon: faClock, text: t("dropdown.cron")},
         {run: updateTime, icon: faCalendarDays, text: t("dropdown.time"), allowView: true},
         {run: exportDialog, icon: faFileExport, text: t("dropdown.export")},
@@ -258,7 +260,8 @@ function DropdownComponent() {
         {hr: true, key: 2},
         {run: updateLanguage, icon: faGlobeEurope, text: t("dropdown.language"), allowView: true},
         {run: () => setShowViewDialog(true), icon: faChartSimple, allowView: true, text: t("dropdown.view")},
-        {run: showCredits, icon: faInfo, text: t("dropdown.info"), allowView: true}
+        {run: showCredits, icon: faInfo, text: t("dropdown.info"), allowView: true, previewHidden: true},
+        {run: showProviderDetails, icon: faInfo, text: t("dropdown.provider"), previewShown: true}
     ];
 
     return (
@@ -270,6 +273,8 @@ function DropdownComponent() {
                     <h2>{t("dropdown.settings")}</h2>
                     <div className="dropdown-entries">
                         {options.map(entry => {
+                            if (entry.previewHidden && config.previewMode) return;
+                            if (entry.previewShown && !config.previewMode) return;
                             if (!config.viewMode || (config.viewMode && entry.allowView)) {
                                 if (!entry.hr) {
                                     return (<div className="dropdown-item" onClick={() => {

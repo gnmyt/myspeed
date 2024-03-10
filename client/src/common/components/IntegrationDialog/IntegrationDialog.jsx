@@ -2,7 +2,7 @@ import {DialogContext, DialogProvider} from "@/common/contexts/Dialog";
 import "./styles.sass";
 import React, {useContext, useEffect, useState} from "react";
 import {t} from "i18next";
-import {faClose} from "@fortawesome/free-solid-svg-icons";
+import {faClose, faExclamationTriangle} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {jsonRequest} from "@/common/utils/RequestUtil";
 import IntegrationItem from "@/common/components/IntegrationDialog/components/IntegrationItem";
@@ -10,9 +10,11 @@ import {v4 as uuid} from 'uuid';
 import AvailableIntegrations from "./components/AvailableIntegrations";
 import IntegrationAddButton from "@/common/components/IntegrationDialog/components/IntegrationAddButton";
 import NoIntegrationsTab from "@/common/components/IntegrationDialog/components/NoIntegrationsTab";
+import {ConfigContext} from "@/common/contexts/Config";
 
 export const Dialog = ({integrations, active, setActive}) => {
     const close = useContext(DialogContext);
+    const [config] = useContext(ConfigContext);
     const [currentTab, setCurrentTab] = useState(integrations[Object.keys(integrations)[0]].name);
 
     const addIntegration = () => setActive([...active, {uuid: uuid(), name: currentTab,
@@ -31,6 +33,12 @@ export const Dialog = ({integrations, active, setActive}) => {
                                        setCurrentTab={setCurrentTab}/>
 
                 <div className="integrations-tab">
+                    {config.previewMode && active.filter(item => item.name === currentTab).length > 0
+                        && <div className="pr-integration-container">
+                            <FontAwesomeIcon icon={faExclamationTriangle} />
+                            <p>{t("integrations.preview_active")}</p>
+                    </div>}
+
                     {active.map((item) => (item.name !== currentTab ? undefined :
                         <IntegrationItem integration={integrations[currentTab]}
                                          remove={() => deleteIntegration(item.uuid)}

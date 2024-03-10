@@ -1,7 +1,7 @@
 @import "@/common/styles/colors"
 
 .header-main
-  margin-top: 2rem
+  margin-top: 3rem
   display: flex
   align-items: center
   justify-content: space-between
@@ -16,17 +16,39 @@
 .header-main *
   font-size: 24pt
 
-.header-main h2
+.header-left
   margin-left: 10%
+  display: flex
+  gap: 0.5rem
+  align-items: center
+  justify-content: center
+  overflow: hidden
+  text-overflow: ellipsis
+
+.demo-info
+  display: flex
+  cursor: pointer
+  align-items: center
+  justify-content: center
+  font-size: 14pt
+  background-color: $dark-gray
+  color: $green
+  margin: 0
+
+.header-main h2
+  padding: 0.5rem 1rem
+  border-radius: 1rem
+  margin: 0
+
+.header-main .h2-click
   display: flex
   gap: 1rem
   align-items: center
-  padding: 0.5rem 1rem
-  border-radius: 1rem
-
-.header-main .h2-click
   cursor: pointer
   user-select: none
+
+  svg
+    margin-right: 0.3rem
 
 .header-main .h2-click:hover
   color: $green-hover
@@ -37,6 +59,8 @@
 
 .header-icon
   cursor: pointer
+  display: flex
+
   transition: all 50ms ease-in-out
   width: 30px
   height: 30px
@@ -68,24 +92,38 @@
   100%
     box-shadow: 0 0 0 0 #CCA92C00
 
-@media (max-width: 460px)
+@media screen and (max-width: 650px)
+  .header-left
+    flex-direction: column
+
+@media (max-width: 530px)
   .header-main
     justify-content: center
-  .header-main div
+  .header-left div
     margin-right: 0
-  .header-main h2
+  .header-left .h2-click
     margin-left: 0
-    font-size: 24pt
+    font-size: 22pt
   .header-icon
     width: 25px
     height: 25px
 
-
-@media (max-width: 360px)
-  .header-main h2
-    font-size: 16pt
+@media (max-width: 480px)
+  .header-left .h2-click
+    font-size: 14pt
     text-overflow: ellipsis
     overflow: hidden
+  .header-left svg
+    font-size: 14pt
   .header-icon
     width: 20px
     height: 20px
+
+@media screen and (max-width: 365px)
+  .header-main .h2-click
+    gap: 0
+  .header-left svg
+    margin-right: 0
+  .demo-info
+    font-size: 12pt
+    padding: 0

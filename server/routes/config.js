@@ -9,8 +9,14 @@ app.get("/", password(true), async (req, res) => {
     (await config.listAll()).forEach(row => {
         if (row.key !== "password" && !(req.viewMode && ["serverId", "cron", "passwordLevel"].includes(row.key)))
             configValues[row.key] = row.value;
+        if (process.env.PREVIEW_MODE === "true" && row.key === "acceptOoklaLicense")
+            configValues[row.key] = true;
     });
     configValues['viewMode'] = req.viewMode;
+    configValues['previewMode'] = process.env.PREVIEW_MODE === "true";
+
+    if (process.env.PREVIEW_MODE === "true")
+        configValues['previewMessage'] = String(process.env.PREVIEW_MESSAGE || "The owner of this instance has not provided a message");
 
     if (Object.keys(configValues).length === 0) return res.status(404).json({message: "Hmm. There are no config values. Weird..."});
     res.json(configValues);
@@ -38,6 +44,12 @@ app.patch("/:key", password(false), async (req, res) => {
 
     if (!await config.updateValue(req.params.key, req.body.value.toString()))
         return res.status(404).json({message: "The provided key does not exist"});
+
+    if (process.env.PREVIEW_MODE === "true" && req.params.key === "acceptOoklaLicense")
+        return res.status(403).json({message: "You can't change the Ookla license acceptance in preview mode"});
+
+    if (process.env.PREVIEW_MODE === "true" && (req.params.key === "password" || req.params.key === "passwordLevel"))
+        return res.status(403).json({message: "You can't change the password in preview mode"});
 
     if (req.params.key === "cron") {
         timer.stopTimer();

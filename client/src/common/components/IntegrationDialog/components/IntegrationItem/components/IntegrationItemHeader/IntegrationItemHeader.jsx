@@ -10,11 +10,13 @@ import {
     faTrashArrowUp
 } from "@fortawesome/free-solid-svg-icons";
 import "./styles.sass";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
+import {ConfigContext} from "@/common/contexts/Config";
 
 export const IntegrationItemHeader = ({integration, displayName, unsavedChanges, changesConfirmed, saveIntegration,
                                           deleteConfirmed, deleteIntegration, open, setOpen, data}) => {
     const [lastActivity, setLastActivity] = useState(generateRelativeTime(data.lastActivity));
+    const [config] = useContext(ConfigContext);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -40,11 +42,11 @@ export const IntegrationItemHeader = ({integration, displayName, unsavedChanges,
             </div>
         </div>
         <div className="integration-item-right">
-            {unsavedChanges && !changesConfirmed && <FontAwesomeIcon icon={faFloppyDisk} onClick={saveIntegration}
+            {!config.previewMode && unsavedChanges && !changesConfirmed && <FontAwesomeIcon icon={faFloppyDisk} onClick={saveIntegration}
                                                                      className="integration-green"/>}
             {changesConfirmed && <FontAwesomeIcon icon={faCheck} className="icon-green"/>}
 
-            {!deleteConfirmed &&
+            {!config.previewMode && !deleteConfirmed &&
                 <FontAwesomeIcon icon={faTrash} className="integration-red" onClick={deleteIntegration}/>}
             {deleteConfirmed &&
                 <FontAwesomeIcon icon={faTrashArrowUp} className="integration-red" onClick={deleteIntegration}/>}

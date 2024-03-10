@@ -74,8 +74,11 @@ module.exports.listStatistics = async (days) => {
 
     let notFailed = dbEntries.filter((entry) => entry.error === null);
 
-    let data = ["ping", "download", "upload", "time"]
-        .map((item) => days >= 3 ? avgEntries.map(entry => entry[item]) : notFailed.map(entry => entry[item]));
+    let data = {};
+    ["ping", "download", "upload", "time"].forEach(item => {
+        data[item] = days >= 3 ? avgEntries.map(entry => entry[item]) : notFailed.map(entry => entry[item]);
+    });
+
 
     return {
         tests: {

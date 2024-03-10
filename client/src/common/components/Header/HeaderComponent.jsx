@@ -1,7 +1,7 @@
 import "./styles.sass";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
-    faCircleArrowUp,
+    faCircleArrowUp, faDownload,
     faGaugeHigh,
     faGear,
     faLock,
@@ -18,6 +18,8 @@ import {t} from "i18next";
 import {ConfigContext} from "@/common/contexts/Config";
 import {LoadingDialog} from "@/common/components/LoadingDialog";
 import {NodeContext} from "@/common/contexts/Node";
+import {WEB_URL} from "@/index";
+import {Trans} from "react-i18next";
 
 function HeaderComponent(props) {
     const findNode = useContext(NodeContext)[4];
@@ -34,6 +36,12 @@ function HeaderComponent(props) {
     function switchDropdown() {
         toggleDropdown(setIcon);
     }
+
+    const showDemoDialog = () => setDialog({
+        title: t("preview.title"),
+        description: <Trans components={{Link: <a href={WEB_URL + "/install"} target="_blank" />}}>preview.description</Trans>,
+        buttonText: t("dialog.okay")
+    });
 
     const showPasswordDialog = () => setDialog({
         title: t("header.admin_login"),
@@ -70,6 +78,8 @@ function HeaderComponent(props) {
         postRequest("/speedtests/run").then(updateTests).then(updateStatus).then(() => setStartedManually(false));
     }
 
+    const openDownloadPage = () => window.open(WEB_URL + "/install", "_blank");
+
     useEffect(() => {
         if (Object.keys(config).length === 0) return;
         async function updateVersion() {
@@ -90,7 +100,13 @@ function HeaderComponent(props) {
         <header>
             <LoadingDialog isOpen={startedManually}/>
             <div className="header-main">
-                {config.viewMode ? <h2>{t("header.title")}</h2> : <h2 onClick={() => props.showNodePage(true)} className="h2-click"><FontAwesomeIcon icon={faServer} /> {getNodeName()}</h2>}
+                <div className="header-left">
+                    {config.viewMode && <h2>{t("header.title")}</h2>}
+                    {!config.viewMode &&  <h2 onClick={() => props.showNodePage(true)} className="h2-click"><FontAwesomeIcon icon={faServer} /> {getNodeName()}</h2>}
+
+                    {config.previewMode && <h2 className="demo-info" onClick={showDemoDialog}>{t("preview.info")}</h2>}
+                </div>
+
 
                 <div className="header-right">
                     {updateAvailable ?
@@ -111,6 +127,11 @@ function HeaderComponent(props) {
                     {(config.viewMode ? <div className="tooltip-element tooltip-bottom">
                         <FontAwesomeIcon icon={faLock} className={"header-icon"} onClick={showPasswordDialog}/>
                         <span className="tooltip">{t("header.admin_login")}</span>
+                    </div> : <></>)}
+
+                    {(config.previewMode ? <div className="tooltip-element tooltip-bottom">
+                        <FontAwesomeIcon icon={faDownload} className={"header-icon"} onClick={openDownloadPage}/>
+                        <span className="tooltip">{t("header.download")}</span>
                     </div> : <></>)}
 
                     <div className="tooltip-element tooltip-bottom" id="open-header">

@@ -7,7 +7,7 @@ const app = express();
 
 app.disable('x-powered-by');
 
-const port = process.env.port || 5216;
+const port = process.env.SERVER_PORT || 5216;
 
 require('./util/createFolders');
 require('./util/loadServers');
@@ -43,7 +43,7 @@ const run = async () => {
 
     await require('./controller/integrations').initialize();
 
-    await require('./util/loadCli').load();
+    if (process.env.PREVIEW_MODE !== "true") await require('./util/loadCli').load();
 
     await config.insertDefaults();
 

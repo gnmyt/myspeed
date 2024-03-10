@@ -57,7 +57,18 @@ module.exports.create = async (type = "auto", retried = false) => {
     if (isRunning && !retried) return 500;
 
     try {
-        let test = await this.run(retried);
+        let test;
+        if (process.env.PREVIEW_MODE === "true") {
+            await new Promise(resolve => setTimeout(resolve, 5000));
+            test = {
+                ping: {latency: Math.floor(Math.random() * 250) + 5},
+                download: {bytes: Math.floor(Math.random() * 1000000000) + 1000000, elapsed: 10000},
+                upload: {bytes: Math.floor(Math.random() * 1000000000) + 1000000, elapsed: 10000}
+            }
+        } else {
+            test = await this.run(retried);
+        }
+
         let ping = Math.round(test.ping.latency);
         let download = roundSpeed(test.download.bytes, test.download.elapsed);
         let upload = roundSpeed(test.upload.bytes, test.upload.elapsed);
