@@ -7,7 +7,7 @@ const app = express();
 
 app.disable('x-powered-by');
 
-const port = process.env.port || 5216;
+const port = process.env.SERVER_PORT || 5216;
 
 require('./util/createFolders');
 require('./util/loadServers');
