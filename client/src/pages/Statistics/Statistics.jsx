@@ -33,7 +33,7 @@ const generatePath = (level = 1) => {
 ChartJS.register(ArcElement, Tooltip, CategoryScale, LinearScale, PointElement, LineElement, Title, Legend, RadialLinearScale);
 ChartJS.defaults.color = "#B0B0B0";
 ChartJS.defaults.font.color = "#B0B0B0";
-ChartJS.defaults.font.family = "Roboto";
+ChartJS.defaults.font.family = "Inter, sans-serif";
 
 
 export const Statistics = () => {
