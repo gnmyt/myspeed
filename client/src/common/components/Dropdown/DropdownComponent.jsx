@@ -26,7 +26,7 @@ import {StatusContext} from "@/common/contexts/Status";
 import {InputDialogContext} from "@/common/contexts/InputDialog";
 import {SpeedtestContext} from "@/common/contexts/Speedtests";
 import {baseRequest, downloadRequest, jsonRequest, patchRequest, postRequest} from "@/common/utils/RequestUtil";
-import {creditsInfo, healthChecksInfo, recommendationsInfo} from "@/common/components/Dropdown/utils/infos";
+import {creditsInfo, recommendationsInfo} from "@/common/components/Dropdown/utils/infos";
 import {
     exportOptions, languageOptions, levelOptions,
     selectOptions, timeOptions
@@ -249,7 +249,7 @@ function DropdownComponent() {
         {run: recommendedSettings, icon: faWandMagicSparkles, text: t("dropdown.recommendations")},
         {hr: true, key: 1},
         {run: updateServer, icon: faServer, text: t("dropdown.server")},
-        {run: updatePassword, icon: faKey, text: t("dropdown.password")},
+        {run: updatePassword, icon: faKey, text: t("dropdown.password"), previewHidden: true},
         {run: updateCron, icon: faClock, text: t("dropdown.cron")},
         {run: updateTime, icon: faCalendarDays, text: t("dropdown.time"), allowView: true},
         {run: exportDialog, icon: faFileExport, text: t("dropdown.export")},
@@ -270,6 +270,7 @@ function DropdownComponent() {
                     <h2>{t("dropdown.settings")}</h2>
                     <div className="dropdown-entries">
                         {options.map(entry => {
+                            if (entry.previewHidden && config.previewMode) return;
                             if (!config.viewMode || (config.viewMode && entry.allowView)) {
                                 if (!entry.hr) {
                                     return (<div className="dropdown-item" onClick={() => {
