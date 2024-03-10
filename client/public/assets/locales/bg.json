@@ -45,7 +45,7 @@
     "language": "Промяна на езика",
     "view": "Промяна на изгледа",
     "info": "Информация за проекта",
-    "provider": "About the provider",
+    "provider": "За доставчика",
     "integrations": "Интеграции"
   },
   "options": {
@@ -107,7 +107,7 @@
     "running_tooltip": "Извършване на тест за скорост",
     "start_tooltip": "Стартиране на теста за скорост",
     "new_update": "Налична е актуализация",
-    "download": "Download",
+    "download": "Изтегляне",
     "paused": "В момента тестовете за скорост са спрени. Моля, продължете, ако желаете да се включите.",
     "running": "Тестът на скоростта вече е в ход. Моля, изчакайте малко.",
     "admin_login": "Вход за администратор",
@@ -247,7 +247,7 @@
     "update_password": "Моля, актуализирайте паролата на този възел",
     "password_outdated": "Паролата е остаряла",
     "password_updated": "Паролата е актуализирана успешно",
-    "preview_active": "Adding and deleting servers is disabled during demo mode.",
+    "preview_active": "Добавянето и изтриването на сървъри е забранено по време на демо режим.",
     "placeholder": {
       "name": "Екземпляр на MySpeed",
       "url": "https://вашия-сървър.bg"
@@ -269,13 +269,13 @@
     }
   },
   "preview": {
-    "title": "Demo mode",
+    "title": "Режим на демонстрация",
     "info": "DEMO",
-    "description": "You are currently in demo mode. Some features are disabled and some settings cannot be changed. If you want to use all features, you can <Link>install MySpeed</Link> on your own server."
+    "description": "В момента сте в демо режим. Някои функции са деактивирани и някои настройки не могат да бъдат променяни. Ако искате да използвате всички функции, можете да <Link>инсталирате MySpeed</Link> на собствения си сървър."
   },
   "integrations": {
     "none_active": "Тази интеграция не е активна. <br/><Bold>Добавяне на</Bold>",
-    "preview_active": "Integrations are disabled during demo mode.",
+    "preview_active": "Интеграциите са деактивирани по време на демо режим.",
     "display_name": "Име на интеграцията",
     "create": "Добавяне на",
     "activity": {
