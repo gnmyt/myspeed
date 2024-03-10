@@ -245,6 +245,7 @@
     "update_password": "Please update the password of this node",
     "password_outdated": "Password outdated",
     "password_updated": "The password has been successfully updated",
+    "preview_active": "Adding and deleting servers is disabled during demo mode.",
     "placeholder": {
       "name": "MySpeed instance",
       "url": "https://your-server.com"
@@ -265,8 +266,14 @@
       "tests_pending": "Test results pending"
     }
   },
+  "preview": {
+    "title": "Demo mode",
+    "info": "DEMO",
+    "description": "You are currently in demo mode. Some features are disabled and some settings cannot be changed. If you want to use all features, you can <Link>install MySpeed</Link> on your own server."
+  },
   "integrations": {
     "none_active": "This integration is not active. <br/><Bold>Create</Bold>",
+    "preview_active": "Integrations are disabled during demo mode.",
     "display_name": "Integration name",
     "create": "Create",
     "activity": {
