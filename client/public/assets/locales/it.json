@@ -45,6 +45,7 @@
     "language": "Cambiare la lingua",
     "view": "Cambia vista",
     "info": "Informazioni sul progetto",
+    "provider": "Informazioni sul fornitore",
     "integrations": "Integrazioni"
   },
   "options": {
@@ -106,6 +107,7 @@
     "running_tooltip": "Test di velocità in corso",
     "start_tooltip": "Avvio del test di velocità",
     "new_update": "Aggiornamento disponibile",
+    "download": "Scarica",
     "paused": "I test di velocità sono attualmente in pausa. Continuare se si desidera eseguirne uno.",
     "running": "È già in corso un test di velocità. Attendere un momento.",
     "admin_login": "Accesso amministratore",
@@ -245,6 +247,7 @@
     "update_password": "Aggiornare la password di questo nodo",
     "password_outdated": "Password non aggiornata",
     "password_updated": "La password è stata aggiornata con successo",
+    "preview_active": "L'aggiunta e l'eliminazione dei server è disabilitata durante la modalità demo.",
     "placeholder": {
       "name": "Istanza di MySpeed",
       "url": "https://vostro-server.it"
@@ -265,8 +268,14 @@
       "tests_pending": "I risultati del test sono in attesa"
     }
   },
+  "preview": {
+    "title": "Modalità demo",
+    "info": "DEMO",
+    "description": "Attualmente sei in modalità demo. Alcune funzioni sono disabilitate e alcune impostazioni non possono essere modificate. Se vuoi utilizzare tutte le funzioni, puoi installare MySpeed <Link></Link> sul tuo server."
+  },
   "integrations": {
     "none_active": "Questa integrazione non è attiva. <br/><Bold>Aggiungi</Bold>",
+    "preview_active": "Le integrazioni sono disabilitate durante la modalità demo.",
     "display_name": "Nome dell'integrazione",
     "create": "Aggiungi",
     "activity": {
@@ -293,6 +302,7 @@
       "fields": {
         "url": "URL del server",
         "key": "Token di applicazione",
+        "priority": "Priorità",
         "error_message": "Messaggio di errore",
         "error_message_placeholder": "Errore: %error%",
         "send_failed": "Inviare messaggi di errore",

@@ -45,6 +45,7 @@
     "language": "Sprache ändern",
     "view": "Ansicht wechseln",
     "info": "Infos zum Projekt",
+    "provider": "Über den Anbieter",
     "integrations": "Integrationen"
   },
   "options": {
@@ -106,6 +107,7 @@
     "running_tooltip": "Speedtest läuft",
     "start_tooltip": "Speedtest starten",
     "new_update": "Update verfügbar",
+    "download": "Herunterladen",
     "paused": "Speedtests sind aktuell pausiert. Bitte setze sie fort, wenn du einen machen möchtest.",
     "running": "Es läuft bereits ein Speedtest. Bitte warte noch einen Moment.",
     "admin_login": "Admin-Login",
@@ -245,6 +247,7 @@
     "update_password": "Bitte aktualisiere das Passwort dieser Node",
     "password_outdated": "Passwort veraltet",
     "password_updated": "Das Passwort wurde erfolgreich aktualisiert",
+    "preview_active": "Das Hinzufügen und Löschen von Servern ist im Demomodus deaktiviert.",
     "placeholder": {
       "name": "MySpeed Instanz",
       "url": "https://dein-server.de"
@@ -265,8 +268,14 @@
       "tests_pending": "Testergebnisse ausstehend"
     }
   },
+  "preview": {
+    "title": "Demo-Modus",
+    "info": "DEMO",
+    "description": "Du befindest dich derzeit im Demo-Modus. Einige Funktionen sind deaktiviert und einige Einstellungen können nicht geändert werden. Wenn du alle Funktionen nutzen möchtest, kannst du <Link>MySpeed</Link> auf deinem eigenen Server installieren."
+  },
   "integrations": {
     "none_active": "Diese Integration ist nicht aktiv. <br/><Bold>Hinzufügen</Bold>",
+    "preview_active": "Im Demomodus sind die Integrationen deaktiviert.",
     "display_name": "Integrations-Name",
     "create": "Hinzufügen",
     "activity": {
@@ -293,6 +302,7 @@
       "fields": {
         "url": "Server-URL",
         "key": "Anwendungs-Token",
+        "priority": "Priorität",
         "error_message": "Fehlernachricht",
         "error_message_placeholder": "Fehler: %error%",
         "send_failed": "Fehlernachrichten senden",

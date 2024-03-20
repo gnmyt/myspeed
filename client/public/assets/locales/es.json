@@ -45,6 +45,7 @@
     "language": "Cambiar de idioma",
     "view": "Cambiar vista",
     "info": "Información sobre el proyecto",
+    "provider": "Acerca del proveedor",
     "integrations": "Integraciones"
   },
   "options": {
@@ -106,6 +107,7 @@
     "running_tooltip": "Prueba de velocidad en marcha",
     "start_tooltip": "Iniciar la prueba de velocidad",
     "new_update": "Actualización disponible",
+    "download": "Descarga",
     "paused": "Las pruebas de velocidad están en pausa. Por favor, continúe si desea realizar una.",
     "running": "Ya se está realizando una prueba de velocidad. Espere un momento.",
     "admin_login": "Inicio de sesión de administrador",
@@ -245,6 +247,7 @@
     "update_password": "Por favor, actualice la contraseña de este nodo",
     "password_outdated": "Contraseña obsoleta",
     "password_updated": "La contraseña se ha actualizado correctamente",
+    "preview_active": "Añadir y eliminar servidores está desactivado durante el modo demostración.",
     "placeholder": {
       "name": "Instancia de MySpeed",
       "url": "https://su-servidor.es"
@@ -265,8 +268,14 @@
       "tests_pending": "Resultados de las pruebas pendientes"
     }
   },
+  "preview": {
+    "title": "Modo demostración",
+    "info": "DEMO",
+    "description": "Actualmente estás en modo demostración. Algunas funciones están desactivadas y algunos ajustes no se pueden cambiar. Si quieres utilizar todas las funciones, puedes <Link>instalar MySpeed</Link> en tu propio servidor."
+  },
   "integrations": {
     "none_active": "Esta integración no está activa. <br/><Bold>Añadir</Bold>",
+    "preview_active": "Las integraciones están desactivadas durante el modo demostración.",
     "display_name": "Nombre de la integración",
     "create": "Añadir",
     "activity": {
@@ -293,6 +302,7 @@
       "fields": {
         "url": "URL del servidor",
         "key": "Ficha de solicitud",
+        "priority": "Prioridad",
         "error_message": "Mensaje de error",
         "error_message_placeholder": "Error: %error%",
         "send_failed": "Enviar mensajes de error",

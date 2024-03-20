@@ -45,6 +45,7 @@
     "language": "改变语言",
     "view": "改变观点",
     "info": "关于项目的信息",
+    "provider": "关于提供方",
     "integrations": "整合"
   },
   "options": {
@@ -106,6 +107,7 @@
     "running_tooltip": "运行速度测试",
     "start_tooltip": "开始速度测试",
     "new_update": "可提供最新信息",
+    "download": "下载",
     "paused": "速度测试目前已暂停。如果你想参加，请继续。",
     "running": "速度测试已经在进行中。请稍等片刻。",
     "admin_login": "管理员登录",
@@ -245,6 +247,7 @@
     "update_password": "请更新该节点的密码",
     "password_outdated": "密码已过期",
     "password_updated": "密码已成功更新",
+    "preview_active": "在演示模式下无法添加和删除服务器。",
     "placeholder": {
       "name": "MySpeed实例",
       "url": "https://你的服务器.cn"
@@ -265,8 +268,14 @@
       "tests_pending": "测试结果待定"
     }
   },
+  "preview": {
+    "title": "演示模式",
+    "info": "演示",
+    "description": "您目前处于演示模式。某些功能被禁用，某些设置无法更改。如果您想使用所有功能，可以 <Link>在自己的服务器上安装 MySpeed</Link>。"
+  },
   "integrations": {
     "none_active": "这种整合并不活跃。<br/><Bold>添加</Bold>",
+    "preview_active": "在演示模式下，集成将被禁用。",
     "display_name": "整合名称",
     "create": "添加",
     "activity": {
@@ -293,6 +302,7 @@
       "fields": {
         "url": "服务器网址",
         "key": "应用令牌",
+        "priority": "优先权",
         "error_message": "错误信息",
         "error_message_placeholder": "错误: %error%",
         "send_failed": "发送错误信息",

@@ -45,6 +45,7 @@
     "language": "Dili değiştir",
     "view": "Görünümü değiştir",
     "info": "Proje hakkında bilgi",
+    "provider": "Sağlayıcı hakkında",
     "integrations": "Entegrasyonlar"
   },
   "options": {
@@ -106,6 +107,7 @@
     "running_tooltip": "Speedtest çalışıyor",
     "start_tooltip": "Speedtest'i başlat",
     "new_update": "Güncelleme mevcut",
+    "download": "İndir",
     "paused": "Speedtestler şu anda duraklatıldı. Bir tane yapmak isterseniz devam edin.",
     "running": "Bir speedtest zaten çalışıyor. Lütfen biraz bekleyin.",
     "admin_login": "Yönetici Girişi",
@@ -245,6 +247,7 @@
     "update_password": "Lütfen şifreyi güncelleyin",
     "password_outdated": "Şifre güncel değil",
     "password_updated": "Parola başarıyla güncellendi",
+    "preview_active": "Demo modu sırasında sunucu ekleme ve silme devre dışıdır.",
     "placeholder": {
       "name": "MySpeed örneği",
       "url": "https://your-server.com"
@@ -265,8 +268,14 @@
       "tests_pending": "Test sonuçları bekleniyor"
     }
   },
+  "preview": {
+    "title": "Demo modu",
+    "info": "DEMO",
+    "description": "Şu anda demo modundasınız. Bazı özellikler devre dışıdır ve bazı ayarlar değiştirilemez. Tüm özellikleri kullanmak istiyorsanız <Link>MySpeed</Link> adresini kendi sunucunuza kurabilirsiniz."
+  },
   "integrations": {
     "none_active": "Bu entegrasyon etkin değil. <br/><Bold>Ekle</Bold>",
+    "preview_active": "Demo modu sırasında entegrasyonlar devre dışı bırakılır.",
     "display_name": "Entegrasyon adı",
     "create": "Ekle",
     "activity": {
@@ -293,6 +302,7 @@
       "fields": {
         "url": "Server-URL",
         "key": "Uygulama belirteci",
+        "priority": "Öncelik",
         "error_message": "Hata mesajı",
         "error_message_placeholder": "Hata: %error%",
         "send_failed": "Hata mesajlarını gönder",
