@@ -271,11 +271,11 @@
   "preview": {
     "title": "Demo modu",
     "info": "DEMO",
-    "description": "Şu anda demo modundasınız. Bazı özellikler devre dışıdır ve bazı ayarlar değiştirilemez. Tüm özellikleri kullanmak istiyorsanız <Link>MySpeed</Link> adresini kendi sunucunuza kurabilirsiniz."
+    "description": "Şu anda demo modundasınız. Bazı özellikler devre dışıdır ve bazı ayarlar değiştirilemez. Tüm özellikleri kullanmak istiyorsanız <Link>MySpeed'i</Link> kendi sunucunuza kurabilirsiniz."
   },
   "integrations": {
     "none_active": "Bu entegrasyon etkin değil. <br/><Bold>Ekle</Bold>",
-    "preview_active": "Demo modu sırasında entegrasyonlar devre dışı bırakılır.",
+    "preview_active": "Demo modundayken entegrasyonlar devre dışıdır.",
     "display_name": "Entegrasyon adı",
     "create": "Ekle",
     "activity": {
