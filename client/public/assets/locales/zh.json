@@ -45,7 +45,7 @@
     "language": "改变语言",
     "view": "改变观点",
     "info": "关于项目的信息",
-    "provider": "关于提供方",
+    "provider": "关于供应商",
     "integrations": "整合"
   },
   "options": {
@@ -271,7 +271,7 @@
   "preview": {
     "title": "演示模式",
     "info": "演示",
-    "description": "您目前处于演示模式。某些功能被禁用，某些设置无法更改。如果您想使用所有功能，可以 <Link>在自己的服务器上安装 MySpeed</Link>。"
+    "description": "您目前处于演示模式。部分功能与设置受限。如果您想使用所有功能，可以 <Link>在自己的服务器上安装 MySpeed</Link>。"
   },
   "integrations": {
     "none_active": "这种整合并不活跃。<br/><Bold>添加</Bold>",
