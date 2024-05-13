@@ -1,119 +1,119 @@
 {
-  "failed": "Failed",
+  "failed": "Falhou",
   "dialog": {
-    "okay": "Okay",
-    "done": "Done",
-    "apply": "Yes, apply",
-    "update": "Update",
-    "close": "Close",
-    "unset": "Remove",
-    "retry": "Try again",
-    "login": "Login",
+    "okay": "OK",
+    "done": "Concluído",
+    "apply": "Sim, aplicar",
+    "update": "Atualizar",
+    "close": "Fechar",
+    "unset": "Remover",
+    "retry": "Tentar novamente",
+    "login": "Entrar",
     "password": {
-      "title": "Password required",
-      "placeholder": "Your password",
-      "wrong": "The password you entered is incorrect",
-      "unlock": "Unlock"
+      "title": "Senha necessária",
+      "placeholder": "Sua senha",
+      "wrong": "A senha que você digitou está incorreta",
+      "unlock": "Desbloquear"
     },
     "accept": {
-      "title": "We need your permission",
-      "description": "We use services from Ookla. By clicking <Bold>Accept</Bold>, you acknowledge that you have read and agree to Ookla's <EULA>EULA</EULA>, <Privacy>Privacy Statement</Privacy> and <Terms>Terms of Use</Terms>.",
-      "button": "Accept"
+      "title": "Precisamos da sua permissão",
+      "description": "Nós usamos serviços da Ookla. Ao clicar em <Bold>Aceitar</Bold>, você reconhece que leu e concorda com o <EULA>Contrato de Licença de Usuário Final</EULA>, a <Privacy>Declaração de Privacidade</Privacy> e os <Terms>Termos de Uso</Terms> da Ookla.",
+      "button": "Aceitar"
     },
     "api": {
-      "title": "API not reachable",
-      "description": "MySpeed could not reach the API of this instance. Please try again later."
+      "title": "API não alcançável",
+      "description": "MySpeed não pôde alcançar a API desta instância. Por favor, tente novamente mais tarde."
     }
   },
   "dropdown": {
-    "settings": "Settings",
-    "changes_applied": "Your changes have been saved.",
-    "view_changed": "The view has been changed.",
-    "changes_unsaved": "Your changes were not applied. Check your input.",
-    "invalid": "Input invalid",
-    "ping": "Optimal ping",
-    "upload": "Optimal up-speed",
-    "download": "Optimal down-speed",
-    "recommendations": "Recommendations",
-    "server": "Change Server",
-    "password": "Change password",
-    "cron": "Set frequency",
-    "time": "Set period",
-    "export": "Export tests",
-    "pause_tests": "Pause tests",
-    "resume_tests": "Resume tests",
-    "language": "Change language",
-    "view": "Switch view",
-    "info": "About the project",
-    "provider": "About the provider",
-    "integrations": "Integrations"
+    "settings": "Configurações",
+    "changes_applied": "Suas alterações foram salvas.",
+    "view_changed": "\"A visualização foi alterada.",
+    "changes_unsaved": "Suas alterações não foram aplicadas. Verifique sua entrada.",
+    "invalid": "Entrada inválida",
+    "ping": "Ping ótimo",
+    "upload": "Velocidade de upload ótima",
+    "download": "Velocidade de download ótima",
+    "recommendations": "Recomendações",
+    "server": "Alterar Servidor",
+    "password": "Alterar senha",
+    "cron": "Definir frequência",
+    "time": "Definir período",
+    "export": "Exportar testes",
+    "pause_tests": "Pausar testes",
+    "resume_tests": "Retomar testes",
+    "language": "Alterar idioma",
+    "view": "Alternar visualização",
+    "info": "Sobre o projeto",
+    "provider": "Sobre o provedor",
+    "integrations": "Integrações"
   },
   "options": {
     "time": {
-      "24hours": "24 hours (default)",
-      "2days": "2 days (Total)",
-      "7days": "7 days (average)",
-      "30days": "30 days (average)"
+      "24hours": "24 horas (padrão)",
+      "2days": "2 dias (total)",
+      "7days": "7 dias (média)",
+      "30days": "30 dias (média)"
     },
     "cron": {
-      "continuous": "Continuous (every minute)",
-      "frequent": "Very often (every 30 minutes)",
-      "default": "Default (every hour)",
-      "rare": "Rarely (every 3 hours)",
-      "really_rare": "Very rarely (every 6 hours)"
+      "continuous": "Contínuo (a cada minuto)",
+      "frequent": "Muito frequente (a cada 30 minutos)",
+      "default": "Padrão (a cada hora)",
+      "rare": "Raramente (a cada 3 horas)",
+      "really_rare": "Muito raramente (a cada 6 horas)"
     },
     "export": {
-      "json": "JSON file",
-      "csv": "CSV file"
+      "json": "Arquivo JSON",
+      "csv": "Arquivo CSV"
     },
     "level": {
-      "no_access": "No Access",
-      "read_access": "Read-only Access"
+      "no_access": "Sem acesso",
+      "read_access": "Acesso somente leitura"
     }
   },
   "update": {
-    "ping_title": "Set optimal ping (ms)",
+    "ping_title": "Definir pingue ótimo (ms)",
     "ping_placeholder": "Ping (ms)",
-    "upload_title": "Set optimal up-speed (Mbps)",
-    "upload_placeholder": "Up speed (Mbps)",
-    "download_title": "Set optimal down-speed (Mbps)",
-    "download_placeholder": "Down speed (Mbps)",
-    "recommendations_title": "Optimal recommendations",
-    "recommendations_set": "Set automatic recommendations?",
-    "server_title": "Set speedtest server",
-    "manually": "Set manually",
-    "manual_server_title": "Set speedtest server",
-    "manual_server_id": "Server ID",
-    "new_password": "Set a new password",
-    "password_placeholder": "New password",
-    "password_removed": "The password lock has been removed and the set password has been removed.",
-    "level": "Change level",
-    "level_title": "Rights for visitors",
-    "cron_title": "Set test frequency",
-    "cron_rules": "Cron rule",
-    "cron_next_test": "Next Test:",
-    "time_title": "Show tests of the last ...",
-    "export_title": "Export speedtests",
-    "download": "Download",
-    "pause_title": "Pause speedtests for...",
-    "hours": "Hours",
-    "pause": "Pause",
-    "release_manually": "Release manually",
-    "language": "Change language",
-    "view_title": "Switch view"
+    "upload_title": "Definir velocidade de ‘upload’ ótima (Mbps)",
+    "upload_placeholder": "Velocidade de ‘upload’ (Mbps)",
+    "download_title": "Definir velocidade de download ótima (Mbps)",
+    "download_placeholder": "Velocidade de download (Mbps)",
+    "recommendations_title": "Recomendações ótimas",
+    "recommendations_set": "Definir recomendações automáticas?",
+    "server_title": "Definir servidor de teste de velocidade",
+    "manually": "Definir manualmente",
+    "manual_server_title": "Definir servidor de teste de velocidade",
+    "manual_server_id": "ID do servidor",
+    "new_password": "Definir uma nova senha",
+    "password_placeholder": "Nova senha",
+    "password_removed": "O bloqueio de senha foi removido e a senha definida foi removida.",
+    "level": "Alterar nível",
+    "level_title": "Direitos para visitantes",
+    "cron_title": "Definir frequência de teste",
+    "cron_rules": "Regra Cron",
+    "cron_next_test": "Próximo Teste:",
+    "time_title": "Mostrar testes dos últimos ...",
+    "export_title": "Exportar testes de velocidade",
+    "download": "Baixar",
+    "pause_title": "Pausar testes de velocidade por...",
+    "hours": "Horas",
+    "pause": "Pausar",
+    "release_manually": "Liberar manualmente",
+    "language": "Alterar idioma",
+    "view_title": "Alternar visualização"
   },
   "header": {
     "title": "MySpeed",
-    "running_tooltip": "Speedtest running",
-    "start_tooltip": "Start speedtest",
-    "new_update": "Update available",
-    "download": "Download",
-    "paused": "Speedtests are currently paused. Please continue them if you want to do one.",
-    "running": "A speedtest is already running. Please wait a moment.",
-    "admin_login": "Admin Login",
+    "running_tooltip": "Teste de velocidade em execução",
+    "start_tooltip": "Iniciar teste de velocidade",
+    "new_update": "Atualização disponível",
+    "download": "Baixar",
+    "paused": "Os testes de velocidade estão atualmente pausados. Por favor, continue-os se quiser realizar um.",
+    "running": "Um teste de velocidade já está em andamento. Por favor, aguarde um momento.",
+    "admin_login": "Login de Administrador",
     "beta": {
-      "title": "Beta Version",
-      "description": "This feature is still in beta. If you find any bugs, please report them <Link>here</Link>."
+      "title": "\"Versão Beta",
+      "description": "Este recurso ainda está em beta. Se encontrar algum erro, por favor, relate <Link>aqui</Link>."
     }
   },
   "latest": {
@@ -122,44 +122,44 @@
     "down": "Download",
     "speed_unit": "Mbps",
     "up": "Upload",
-    "latest": "Last test",
-    "before": "before"
+    "latest": "Último teste",
+    "before": "antes"
   },
   "info": {
-    "credits": "<Link>MySpeed</Link> is provided by GNMYT and uses the <CLILink>Speedtest CLI</CLILink> from Ookla.",
-    "recommendations_error": "You have to do at least 10 tests to get an average. It doesn't matter if the tests were done manually or automatically.",
-    "recommendations_info": "Based on the last 10 tests, it was found that the optimal ping was <Bold>{{ping}} ms</Bold>, the download at <Bold>{{down}} Mbps</Bold> and the upload at <Bold>{{up}} Mbps</Bold>. It is best to orientate yourself on your internet contract and only adopt it if it matches that.",
-    "update": "An update to version {{version}} is available. See <Changes>the changes</Changes> and <DLLink>download the update</DLLink>.",
+    "credits": "<Link>MySpeed</Link> é fornecido pela GNMYT e utiliza a <CLILink>CLI do Speedtest</CLILink> da Ookla.",
+    "recommendations_error": "Você precisa fazer pelo menos 10 testes para obter uma média. Não importa se os testes foram feitos manualmente ou automaticamente.",
+    "recommendations_info": "Com base nos últimos 10 testes, foi constatado que o ping ideal foi de <Bold>{{ping}} ms</Bold>, o download em <Bold>{{down}} Mbps</Bold> e o upload em <Bold>{{up}} Mbps</Bold>. É melhor se orientar pelo seu contrato de internet e adotá-lo apenas se estiver de acordo com isso.",
+    "update": "Uma atualização para a versão {{version}} está disponível. Veja <Changes>as mudanças</Changes> e <DLLink>baixe a atualização</DLLink>.",
     "down": {
-      "title": "Download speed",
-      "description": "Download speed affects your browsing experience. The more you get, the faster your computer can receive data."
+      "title": "Velocidade de download",
+      "description": "A velocidade de download afeta sua experiência de navegação. Quanto mais você obtém, mais rápido seu computador pode receber dados."
     },
     "ping": {
       "title": "Ping",
-      "description": "The ping shows you how fast the respective provider responds. The shorter the time, the better."
+      "description": "O ping mostra a você a rapidez com que o respectivo provedor responde. Quanto menor o tempo, melhor."
     },
     "up": {
-      "title": "Upload speed",
-      "description": "Upload speed affects your browsing experience. The more you get, the faster your computer can send data."
+      "title": "Velocidade de upload",
+      "description": "A velocidade de upload afeta sua experiência de navegação. Quanto mais você obtém, mais rápido seu computador pode enviar dados."
     },
     "latest": {
-      "title": "Last test",
-      "description": "This is the time that shows you when the last test was run. In this case, the last one took place on <Bold>{{date}}</Bold> at <Bold>{{time}}</Bold>."
+      "title": "Último teste",
+      "description": "Este é o horário que mostra quando o último teste foi executado. Neste caso, o último ocorreu em <Bold>{{date}}</Bold> às <Bold>{{time}}</Bold>."
     }
   },
   "time": {
-    "now": "Just now",
-    "seconds": "{{seconds}} seconds",
-    "minute": "1 minute",
-    "minutes": "{{minutes}} minutes",
-    "hour": "1 hour",
-    "hours": "{{hours}} hours",
-    "on": "On",
-    "at": "At"
+    "now": "Agora mesmo",
+    "seconds": "{$seconds} segundos",
+    "minute": "1 minuto",
+    "minutes": "{{minutes}} minutos",
+    "hour": "1 hora",
+    "hours": "{{hours}} horas",
+    "on": "Ativo",
+    "at": "Às"
   },
   "test": {
-    "not_available": "There are currently no tests available",
-    "no_latest": "There is no current test available. Please perform a test or wait until the next test is performed.",
+    "not_available": "No momento, não há testes disponíveis",
+    "no_latest": "Não há nenhum teste disponível no momento. Realize um teste ou aguarde até que o próximo teste seja realizado.",
     "unknown_error": "Unknown error:",
     "failed": "Test failed",
     "recheck": "Please check as far as possible if this happens often.",
