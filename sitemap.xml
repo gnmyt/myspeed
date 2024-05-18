@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://docs.myspeed.dev/faq/</loc>
+        <lastmod>2024-05-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.myspeed.dev/faq/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.myspeed.dev/de/faq/"/>
+    </url>
+    <url>
+        <loc>https://docs.myspeed.dev/</loc>
+        <lastmod>2024-05-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.myspeed.dev/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.myspeed.dev/de/"/>
+    </url>
+    <url>
+        <loc>https://docs.myspeed.dev/troubleshooting/</loc>
+        <lastmod>2024-05-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.myspeed.dev/troubleshooting/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.myspeed.dev/de/troubleshooting/"/>
+    </url>
+    <url>
+        <loc>https://docs.myspeed.dev/guides/reverse-proxy/</loc>
+        <lastmod>2024-05-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.myspeed.dev/guides/reverse-proxy/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.myspeed.dev/de/guides/reverse-proxy/"/>
+    </url>
+    <url>
+        <loc>https://docs.myspeed.dev/instructions/main/</loc>
+        <lastmod>2024-05-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.myspeed.dev/instructions/main/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.myspeed.dev/de/instructions/main/"/>
+    </url>
+    <url>
+        <loc>https://docs.myspeed.dev/instructions/settings/</loc>
+        <lastmod>2024-05-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.myspeed.dev/instructions/settings/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.myspeed.dev/de/instructions/settings/"/>
+    </url>
+    <url>
+        <loc>https://docs.myspeed.dev/setup/linux/</loc>
+        <lastmod>2024-05-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.myspeed.dev/setup/linux/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.myspeed.dev/de/setup/linux/"/>
+    </url>
+    <url>
+        <loc>https://docs.myspeed.dev/setup/windows/</loc>
+        <lastmod>2024-05-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.myspeed.dev/setup/windows/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.myspeed.dev/de/setup/windows/"/>
+    </url>
+    <url>
+        <loc>https://docs.myspeed.dev/de/faq/</loc>
+        <lastmod>2024-05-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.myspeed.dev/de/faq/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.myspeed.dev/faq/"/>
+    </url>
+    <url>
+        <loc>https://docs.myspeed.dev/de/</loc>
+        <lastmod>2024-05-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.myspeed.dev/de/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.myspeed.dev/"/>
+    </url>
+    <url>
+        <loc>https://docs.myspeed.dev/de/troubleshooting/</loc>
+        <lastmod>2024-05-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.myspeed.dev/de/troubleshooting/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.myspeed.dev/troubleshooting/"/>
+    </url>
+    <url>
+        <loc>https://docs.myspeed.dev/de/guides/reverse-proxy/</loc>
+        <lastmod>2024-05-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.myspeed.dev/de/guides/reverse-proxy/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.myspeed.dev/guides/reverse-proxy/"/>
+    </url>
+    <url>
+        <loc>https://docs.myspeed.dev/de/instructions/main/</loc>
+        <lastmod>2024-05-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.myspeed.dev/de/instructions/main/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.myspeed.dev/instructions/main/"/>
+    </url>
+    <url>
+        <loc>https://docs.myspeed.dev/de/instructions/settings/</loc>
+        <lastmod>2024-05-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.myspeed.dev/de/instructions/settings/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.myspeed.dev/instructions/settings/"/>
+    </url>
+    <url>
+        <loc>https://docs.myspeed.dev/de/setup/linux/</loc>
+        <lastmod>2024-05-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.myspeed.dev/de/setup/linux/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.myspeed.dev/setup/linux/"/>
+    </url>
+    <url>
+        <loc>https://docs.myspeed.dev/de/setup/windows/</loc>
+        <lastmod>2024-05-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.myspeed.dev/de/setup/windows/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.myspeed.dev/setup/windows/"/>
+    </url>
+</urlset>
