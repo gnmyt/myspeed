@@ -14,6 +14,7 @@ module.exports.getOne = async (id) => {
 }
 
 module.exports.listTests = async (hours = 24, start, limit) => {
+    limit = parseInt(limit) || 10;
     const whereClause = start ? {id: {[Op.lt]: start}} : undefined;
 
     let dbEntries = (await tests.findAll({where: whereClause, order: [["created", "DESC"]], limit}))
@@ -105,9 +106,9 @@ module.exports.deleteOne = async (id) => {
 module.exports.removeOld = async () => {
     await tests.destroy({
         where: {
-            created: {
-                [Op.lte]: Sequelize.literal(`datetime('now', '-30 days')`)
-            }
+            created: process.env.DB_TYPE === "mysql"
+                ? {[Op.lte]: new Date(new Date().getTime() - 30 * 24 * 3600000)} // MySQL
+                : {[Op.lte]: Sequelize.literal(`datetime('now', '-30 days')`)} // SQLite
         }
     });
     return true;
