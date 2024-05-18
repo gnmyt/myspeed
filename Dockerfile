@@ -1,24 +1,27 @@
-FROM node:18-alpine
-RUN apk add g++ make cmake python3 --no-cache
-
-ENV NODE_ENV=production
+FROM node:20-alpine AS build
+RUN apk add g++ make cmake python3
 
 WORKDIR /myspeed
 
-COPY --chown=node:node ./client ./client
-COPY --chown=node:node ./server ./server
-COPY --chown=node:node ./package.json ./package.json
+COPY ./client ./client
+COPY ./server ./server
+COPY ./package.json ./package.json
 
 RUN npm install
 RUN cd client && npm install --force
 RUN npm run build
 RUN mv /myspeed/client/build /myspeed
-RUN rm -rf /myspeed/client
-RUN mkdir -p /myspeed/data
 
-RUN chown -R node:node /myspeed
+FROM node:20-alpine
 
-USER node
+ENV NODE_ENV=production
+
+WORKDIR /myspeed
+
+COPY --from=build /myspeed/build /myspeed/build
+COPY --from=build /myspeed/server /myspeed/server
+COPY --from=build /myspeed/node_modules /myspeed/node_modules
+COPY --from=build /myspeed/package.json /myspeed/package.json
 
 VOLUME ["/myspeed/data"]
 
