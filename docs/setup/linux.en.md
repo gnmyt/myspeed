@@ -16,8 +16,6 @@ Here the setup for Linux is described. MySpeed can be installed in several ways.
     ```
 
 ## Automatic installation
-!!! tip "Hint"
-    You want to install MySpeed under a specific path? Then just put the parameter `-d /your/installation/path` behind the command
 
 === "Stable Version"
     ```sh
