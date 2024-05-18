@@ -1,4 +1,4 @@
-FROM node:20-alpine AS build
+FROM node:18-alpine AS build
 RUN apk add g++ make cmake python3
 
 WORKDIR /myspeed
@@ -7,12 +7,12 @@ COPY ./client ./client
 COPY ./server ./server
 COPY ./package.json ./package.json
 
-RUN npm install
-RUN cd client && npm install --force
+RUN yarn install
+RUN cd client && yarn install --force
 RUN npm run build
 RUN mv /myspeed/client/build /myspeed
 
-FROM node:20-alpine
+FROM node:18-alpine
 
 ENV NODE_ENV=production
 
