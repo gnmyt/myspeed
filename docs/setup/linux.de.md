@@ -16,17 +16,14 @@ Hier wird die Einrichtung für Linux beschrieben. MySpeed lässt sich über vers
     ```
 
 ## Automatische Installation
-!!! tip "Tipp"
-    Du möchtest MySpeed unter einem bestimmten Pfad installieren? Dann setze doch einfach den Parameter `-d /dein/installations/pfad` hinter den Befehl
-
 === "Stabile Version"
     ```sh
-    curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/install.sh | bash -s --
+    bash <(curl -sSL https://install.myspeed.dev)
     ```
 
 === "Entwicklungsversion"
     ```sh
-    curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/install.sh | bash -s -- --beta
+    curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/scripts/install.sh | bash -s -- --beta
     ```
 
 ## Automatischer Deinstallationsprozess
@@ -37,12 +34,12 @@ Keine Lust mehr? Du kannst MySpeed ganz einfach wieder entfernen. Entscheide hie
 
 === "Daten behalten"
     ```sh
-    curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/uninstall.sh | bash -s -- --keep-data
+    curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/scripts/uninstall.sh | bash -s -- --keep-data
     ```
 
 === "Daten löschen"
     ```sh
-    curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/uninstall.sh | bash
+    curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/scripts/uninstall.sh | bash
     ```
 
 ## Manuelle Installation

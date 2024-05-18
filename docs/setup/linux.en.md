@@ -21,12 +21,12 @@ Here the setup for Linux is described. MySpeed can be installed in several ways.
 
 === "Stable Version"
     ```sh
-    curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/install.sh | bash -s --
+    bash <(curl -sSL https://install.myspeed.dev)
     ```
 
 === "Development Version"
     ```sh
-    curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/install.sh | bash -s -- --beta
+    curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/scripts/install.sh | bash -s -- --beta
     ```
 
 ## Automatic uninstall process
@@ -37,12 +37,12 @@ Don't want to use MySpeed anymore? You can easily remove MySpeed. Decide here if
 
 === "Keep data"
     ```sh
-    curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/uninstall.sh | bash -s -- --keep-data
+    curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/scripts/uninstall.sh | bash -s -- --keep-data
     ```
 
 === "Delete data"
     ```sh
-    curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/uninstall.sh | bash
+    curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/scripts/uninstall.sh | bash
     ```
 
 ## Manual installation

@@ -26,11 +26,11 @@ read -p "Enter your choice (1/2): " choice
 case $choice in
     1)
         echo -e "${BLUE}Running Docker installation script...${NORMAL}"
-        bash <(curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/docker-install.sh)
+        bash <(curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/scripts/docker-install.sh)
         ;;
     2)
         echo -e "${BLUE}Running normal installation script...${NORMAL}"
-        bash <(curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/install.sh)
+        bash <(curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/scripts/install.sh)
         ;;
     *)
         echo -e "${RED}Invalid choice. Exiting.${NORMAL}"
