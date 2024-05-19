@@ -81,7 +81,7 @@ module.exports.run = async (retryAuto = false) => {
 
     if (serverId === undefined && mode === "libre") {
         let server = Object.entries(serverController.getLibreServers())
-            .filter(([key, value]) => value === speedtest.server.name)[0][0];
+            .filter(([, value]) => value === speedtest.server.name)[0][0];
 
         serverId = parseInt(server);
 
