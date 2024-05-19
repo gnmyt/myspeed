@@ -1,0 +1,348 @@
+{
+  "failed": "Falhou",
+  "dialog": {
+    "okay": "OK",
+    "done": "Concluído",
+    "apply": "Sim, aplicar",
+    "update": "Atualizar",
+    "close": "Fechar",
+    "unset": "Remover",
+    "retry": "Tentar novamente",
+    "login": "Entrar",
+    "password": {
+      "title": "Senha necessária",
+      "placeholder": "Sua senha",
+      "wrong": "A senha que você digitou está incorreta",
+      "unlock": "Desbloquear"
+    },
+    "accept": {
+      "title": "Precisamos da sua permissão",
+      "description": "Nós usamos serviços da Ookla. Ao clicar em <Bold>Aceitar</Bold>, você reconhece que leu e concorda com o <EULA>Contrato de Licença de Usuário Final</EULA>, a <Privacy>Declaração de Privacidade</Privacy> e os <Terms>Termos de Uso</Terms> da Ookla.",
+      "button": "Aceitar"
+    },
+    "api": {
+      "title": "API não alcançável",
+      "description": "MySpeed não pôde alcançar a API desta instância. Por favor, tente novamente mais tarde."
+    }
+  },
+  "dropdown": {
+    "settings": "Configurações",
+    "changes_applied": "Suas alterações foram salvas.",
+    "view_changed": "\"A visualização foi alterada.",
+    "changes_unsaved": "Suas alterações não foram aplicadas. Verifique sua entrada.",
+    "invalid": "Entrada inválida",
+    "ping": "Ping ótimo",
+    "upload": "Velocidade de upload ótima",
+    "download": "Velocidade de download ótima",
+    "recommendations": "Recomendações",
+    "server": "Alterar Servidor",
+    "password": "Alterar senha",
+    "cron": "Definir frequência",
+    "time": "Definir período",
+    "export": "Exportar testes",
+    "pause_tests": "Pausar testes",
+    "resume_tests": "Retomar testes",
+    "language": "Alterar idioma",
+    "view": "Alternar visualização",
+    "info": "Sobre o projeto",
+    "provider": "Sobre o provedor",
+    "integrations": "Integrações"
+  },
+  "options": {
+    "time": {
+      "24hours": "24 horas (padrão)",
+      "2days": "2 dias (total)",
+      "7days": "7 dias (média)",
+      "30days": "30 dias (média)"
+    },
+    "cron": {
+      "continuous": "Contínuo (a cada minuto)",
+      "frequent": "Muito frequente (a cada 30 minutos)",
+      "default": "Padrão (a cada hora)",
+      "rare": "Raramente (a cada 3 horas)",
+      "really_rare": "Muito raramente (a cada 6 horas)"
+    },
+    "export": {
+      "json": "Arquivo JSON",
+      "csv": "Arquivo CSV"
+    },
+    "level": {
+      "no_access": "Sem acesso",
+      "read_access": "Acesso somente leitura"
+    }
+  },
+  "update": {
+    "ping_title": "Definir pingue ótimo (ms)",
+    "ping_placeholder": "Ping (ms)",
+    "upload_title": "Definir velocidade de ‘upload’ ótima (Mbps)",
+    "upload_placeholder": "Velocidade de ‘upload’ (Mbps)",
+    "download_title": "Definir velocidade de download ótima (Mbps)",
+    "download_placeholder": "Velocidade de download (Mbps)",
+    "recommendations_title": "Recomendações ótimas",
+    "recommendations_set": "Definir recomendações automáticas?",
+    "server_title": "Definir servidor de teste de velocidade",
+    "manually": "Definir manualmente",
+    "manual_server_title": "Definir servidor de teste de velocidade",
+    "manual_server_id": "ID do servidor",
+    "new_password": "Definir uma nova senha",
+    "password_placeholder": "Nova senha",
+    "password_removed": "O bloqueio de senha foi removido e a senha definida foi removida.",
+    "level": "Alterar nível",
+    "level_title": "Direitos para visitantes",
+    "cron_title": "Definir frequência de teste",
+    "cron_rules": "Regra Cron",
+    "cron_next_test": "Próximo Teste:",
+    "time_title": "Mostrar testes dos últimos ...",
+    "export_title": "Exportar testes de velocidade",
+    "download": "Baixar",
+    "pause_title": "Pausar testes de velocidade por...",
+    "hours": "Horas",
+    "pause": "Pausar",
+    "release_manually": "Liberar manualmente",
+    "language": "Alterar idioma",
+    "view_title": "Alternar visualização"
+  },
+  "header": {
+    "title": "MySpeed",
+    "running_tooltip": "Teste de velocidade em execução",
+    "start_tooltip": "Iniciar teste de velocidade",
+    "new_update": "Atualização disponível",
+    "download": "Baixar",
+    "paused": "Os testes de velocidade estão atualmente pausados. Por favor, continue-os se quiser realizar um.",
+    "running": "Um teste de velocidade já está em andamento. Por favor, aguarde um momento.",
+    "admin_login": "Login de Administrador",
+    "beta": {
+      "title": "\"Versão Beta",
+      "description": "Este recurso ainda está em beta. Se encontrar algum erro, por favor, relate <Link>aqui</Link>."
+    }
+  },
+  "latest": {
+    "ping": "Ping",
+    "ping_unit": "ms",
+    "down": "Download",
+    "speed_unit": "Mbps",
+    "up": "Upload",
+    "latest": "Último teste",
+    "before": "antes"
+  },
+  "info": {
+    "credits": "<Link>MySpeed</Link> é fornecido pela GNMYT e utiliza a <CLILink>CLI do Speedtest</CLILink> da Ookla.",
+    "recommendations_error": "Você precisa fazer pelo menos 10 testes para obter uma média. Não importa se os testes foram feitos manualmente ou automaticamente.",
+    "recommendations_info": "Com base nos últimos 10 testes, foi constatado que o ping ideal foi de <Bold>{{ping}} ms</Bold>, o download em <Bold>{{down}} Mbps</Bold> e o upload em <Bold>{{up}} Mbps</Bold>. É melhor se orientar pelo seu contrato de internet e adotá-lo apenas se estiver de acordo com isso.",
+    "update": "Uma atualização para a versão {{version}} está disponível. Veja <Changes>as mudanças</Changes> e <DLLink>baixe a atualização</DLLink>.",
+    "down": {
+      "title": "Velocidade de download",
+      "description": "A velocidade de download afeta sua experiência de navegação. Quanto mais você obtém, mais rápido seu computador pode receber dados."
+    },
+    "ping": {
+      "title": "Ping",
+      "description": "O ping mostra a você a rapidez com que o respectivo provedor responde. Quanto menor o tempo, melhor."
+    },
+    "up": {
+      "title": "Velocidade de upload",
+      "description": "A velocidade de upload afeta sua experiência de navegação. Quanto mais você obtém, mais rápido seu computador pode enviar dados."
+    },
+    "latest": {
+      "title": "Último teste",
+      "description": "Este é o horário que mostra quando o último teste foi executado. Neste caso, o último ocorreu em <Bold>{{date}}</Bold> às <Bold>{{time}}</Bold>."
+    }
+  },
+  "time": {
+    "now": "Agora mesmo",
+    "seconds": "{$seconds} segundos",
+    "minute": "1 minuto",
+    "minutes": "{{minutes}} minutos",
+    "hour": "1 hora",
+    "hours": "{{hours}} horas",
+    "on": "Ativo",
+    "at": "Às"
+  },
+  "test": {
+    "not_available": "No momento, não há testes disponíveis",
+    "no_latest": "Não há nenhum teste disponível no momento. Realize um teste ou aguarde até que o próximo teste seja realizado.",
+    "unknown_error": "Unknown error:",
+    "failed": "Test failed",
+    "recheck": "Please check as far as possible if this happens often.",
+    "delete": "Delete Test",
+    "deleted": "The test has been deleted",
+    "average": {
+      "title": "Average Speed",
+      "description": "<Bold>{{amount}}</Bold> Tests have shown that on <Bold>{{date}}</Bold> an average download speed of <Bold>{{down}} Mbps </Bold> and an upload speed of <Bold>{{up}} Mbps</Bold> was passed. The tests took an average of <Bold>{{duration}} Seconds</Bold>."
+    },
+    "result": {
+      "title": "Test result",
+      "description": "This test achieved a maximum download speed of <Bold>{{down}} Mbps</Bold> and a maximum upload speed of <Bold>{{up}} Mbps</Bold>. It was created <Bold>{{type}}</Bold> and took <Bold>{{duration}} Seconds</Bold>.",
+      "from_you": "by you",
+      "automatic": "automatically"
+    },
+    "tooltips": {
+      "custom": "Custom",
+      "average": "Average",
+      "auto": "Automated"
+    },
+    "views": {
+      "list": "Test Overview",
+      "statistic": "Test statistics"
+    },
+    "overview": {
+      "title": "Test overview of the last {{amount}}",
+      "1": "24 hours",
+      "2": "2 days",
+      "3": "7 days",
+      "4": "30 days"
+    }
+  },
+  "errors": {
+    "network_unreachable": "Internet connection was unstable during the time of the test",
+    "took_too_long": "The test took too long and was canceled",
+    "no_permission": "MySpeed has no permission to start this test",
+    "resource_unavailable": "The test could not be performed because the resource was temporarily unavailable",
+    "no_route": "The test could not be performed because there was no route to the host",
+    "connection_refused": "The test could not be performed because the connection was rejected",
+    "timed_out": "Internet connection was unstable during the time of the test",
+    "config": "The configuration file could not be loaded",
+    "invalid_view": "Invalid view"
+  },
+  "statistics": {
+    "overview": {
+      "total_title": "Total tests",
+      "total_description": "The number of executed tests",
+      "failed_title": "Failed tests",
+      "failed_description": "The number of failed tests",
+      "average_title": "Average duration",
+      "average_description": "The average duration of the tests"
+    },
+    "failed": {
+      "title": "Failed tests",
+      "success": "Successful",
+      "failed": "Failed",
+      "label": "Tests"
+    },
+    "speed": {
+      "title": "Speed"
+    },
+    "manual": {
+      "title": "Manual tests",
+      "yes": "Created manually",
+      "no": "Created automatically"
+    },
+    "duration": {
+      "title": "Test duration",
+      "label": "Amount"
+    },
+    "values": {
+      "min": "Minimum",
+      "max": "Maximum",
+      "avg": "Average",
+      "down": "Download values",
+      "up": "Upload values"
+    }
+  },
+  "nodes": {
+    "add": "Add server",
+    "create": "Add",
+    "this_server": "This server",
+    "created": "The server has been successfully added",
+    "password_required": "This node requires a password",
+    "update_password": "Please update the password of this node",
+    "password_outdated": "Password outdated",
+    "password_updated": "The password has been successfully updated",
+    "preview_active": "Adding and deleting servers is disabled during demo mode.",
+    "placeholder": {
+      "name": "MySpeed instance",
+      "url": "https://your-server.com"
+    },
+    "group": {
+      "name": "Server name",
+      "url": "Server address"
+    },
+    "delete": {
+      "title": "Delete server",
+      "description": "The server <Bold>{{name}}</Bold> (#{{id}}) will be deleted. This action cannot be undone. Do you want to continue?",
+      "yes": "Yes, delete",
+      "success": "The server has been deleted successfully"
+    },
+    "messages": {
+      "not_reachable": "Server is not reachable",
+      "password_changed": "Password changed",
+      "tests_pending": "Test results pending"
+    }
+  },
+  "preview": {
+    "title": "Demo mode",
+    "info": "DEMO",
+    "description": "You are currently in demo mode. Some features are disabled and some settings cannot be changed. If you want to use all features, you can <Link>install MySpeed</Link> on your own server."
+  },
+  "integrations": {
+    "none_active": "This integration is not active. <br/><Bold>Create</Bold>",
+    "preview_active": "Integrations are disabled during demo mode.",
+    "display_name": "Integration name",
+    "create": "Create",
+    "activity": {
+      "never_executed": "Never executed",
+      "last_run": "Last run before "
+    },
+    "discord": {
+      "title": "Discord",
+      "fields": {
+        "url": "Webhook-URL",
+        "url_placeholder": "https://discord.com/api/webhooks/...",
+        "display_name": "Display name",
+        "display_name_placeholder": "MySpeed Notification",
+        "error_message": "Error message",
+        "error_message_placeholder": "Error: %error%",
+        "send_failed": "Send error messages",
+        "send_finished": "Send finished messages",
+        "finished_message": "Finished message",
+        "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
+      }
+    },
+    "gotify": {
+      "title": "Gotify",
+      "fields": {
+        "url": "Server-URL",
+        "key": "App token",
+        "priority": "Priority",
+        "error_message": "Error message",
+        "error_message_placeholder": "Error: %error%",
+        "send_failed": "Send error messages",
+        "send_finished": "Send finished messages",
+        "finished_message": "Finished message",
+        "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
+      }
+    },
+    "healthChecks": {
+      "title": "HealthChecks",
+      "fields": {
+        "url": "HealthChecks-URL",
+        "url_placeholder": "https://hc-ping.com/<uuid>"
+      }
+    },
+    "telegram": {
+      "title": "Telegram",
+      "fields": {
+        "token": "Bot Token",
+        "chat_id": "Chat ID",
+        "error_message": "Error message",
+        "error_message_placeholder": "Error: %error%",
+        "send_failed": "Send error messages",
+        "send_finished": "Send finished messages",
+        "finished_message": "Finished message",
+        "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
+      }
+    },
+    "webhook": {
+      "title": "Webhook",
+      "fields": {
+        "url": "Webhook-URL",
+        "url_placeholder": "https://your-server.com/hook",
+        "send_started": "Send started",
+        "send_failed": "Send error messages",
+        "send_finished": "Send finished messages",
+        "send_alive": "Send Keep-Alive messages",
+        "send_recommendations": "Send recommendations",
+        "send_config_updates": "Send configuration updates"
+      }
+    }
+  }
+}
