@@ -83,9 +83,10 @@ module.exports.run = async (retryAuto = false) => {
         let server = Object.entries(serverController.getLibreServers())
             .filter(([, value]) => value === speedtest.server.name)[0][0];
 
-        serverId = parseInt(server);
-
-        if (server) await config.updateValue("libreId", server);
+        if (server) {
+            serverId = parseInt(server);
+            await config.updateValue("libreId", server);
+        }
     }
 
     if (Object.keys(speedtest).length === 0) throw {message: "No response, even after trying again, test timed out."};
