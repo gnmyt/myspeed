@@ -23,11 +23,11 @@ export const Dialog = () => {
     const [animating, setAnimating] = useState(false);
 
     const finish = async () => {
+        await patchRequest("/config/provider", {value: provider});
+
         if (config.previewMode) {
             localStorage.setItem("welcomeShown", "true");
         } else {
-            await patchRequest("/config/provider", {value: provider});
-
             await patchRequest("/config/ping", {value: ping});
             await patchRequest("/config/download", {value: download});
             await patchRequest("/config/upload", {value: upload});
