@@ -104,7 +104,7 @@ module.exports.create = async (type = "auto", retried = false) => {
         if (process.env.PREVIEW_MODE === "true") {
             await new Promise(resolve => setTimeout(resolve, 5000));
             test = {
-                ping: {latency: Math.floor(Math.random() * 250) + 5},
+                ping: {latency: Math.floor(Math.random() * 25) + 5},
                 download: {bytes: Math.floor(Math.random() * 1000000000) + 1000000, elapsed: 10000},
                 upload: {bytes: Math.floor(Math.random() * 1000000000) + 1000000, elapsed: 10000}
             }
@@ -112,7 +112,8 @@ module.exports.create = async (type = "auto", retried = false) => {
             test = await this.run(retried);
         }
 
-        let {ping, download, upload, time} = await parseData.parseData(mode, test);
+        let {ping, download, upload, time} = await parseData.parseData(process.env.PREVIEW_MODE === "true" ?
+            "ookla" : mode, test);
 
         let testResult = await tests.create(ping, download, upload, time, test.serverId, type);
         console.log(`Test #${testResult} was executed successfully in ${time}s. 🏓 ${ping} ⬇ ${download}️ ⬆ ${upload}️`);
@@ -120,6 +121,7 @@ module.exports.create = async (type = "auto", retried = false) => {
         setRunning(false);
         sendFinished({ping, download, upload, time}).then(() => "");
     } catch (e) {
+        console.log(e)
         if (!retried) return this.create(type, true);
         let testResult = await tests.create(-1, -1, -1, null, 0, type, e.message);
         await sendError(e.message);
