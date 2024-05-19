@@ -21,7 +21,7 @@
     },
     "provider": {
       "server": "Server",
-      "server_id": "Server ID",
+      "server_id": "ID de servidor",
       "choose_automatically": "Choose automatically",
       "ookla_license": "I have read and accept the <Eula>EULA</Eula>, <GDPR>privacy policy</GDPR> and <TOS>terms of service</TOS> of Ookla.",
       "cloudflare_note": "Cloudflare does not require any additional settings"
@@ -308,6 +308,19 @@
         "send_failed": "Enviar mensajes de error",
         "send_finished": "Enviar completado",
         "finished_message": "Mensaje finalizado",
+        "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
+      }
+    },
+    "pushover": {
+      "title": "Pushover",
+      "fields": {
+        "token": "App token",
+        "user_key": "User key",
+        "error_message": "Error message",
+        "error_message_placeholder": "Error: %error%",
+        "send_failed": "Send error messages",
+        "send_finished": "Send finished messages",
+        "finished_message": "Finished message",
         "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
       }
     },
