@@ -15,14 +15,16 @@
       "wrong": "你输入的密码不正确",
       "unlock": "解锁"
     },
-    "accept": {
-      "title": "我们需要你的许可",
-      "description": "我们使用来自Ookla的服务。通过点击<Bold>接受</Bold>，您承认您已经阅读并同意Ookla的<EULA>EULA</EULA>、<Privacy>隐私声明</Privacy>以及<Terms>使用条款</Terms>。",
-      "button": "接受"
-    },
     "api": {
       "title": "无法访问API",
       "description": "MySpeed无法到达该实例的API。请稍后再试。"
+    },
+    "provider": {
+      "server": "Server",
+      "server_id": "Server ID",
+      "choose_automatically": "Choose automatically",
+      "ookla_license": "I have read and accept the <Eula>EULA</Eula>, <GDPR>privacy policy</GDPR> and <TOS>terms of service</TOS> of Ookla.",
+      "cloudflare_note": "Cloudflare does not require any additional settings"
     }
   },
   "dropdown": {
@@ -35,7 +37,7 @@
     "upload": "最佳的上升速度",
     "download": "最佳的下行速度",
     "recommendations": "最优值",
-    "server": "更改服务器",
+    "change_provider": "Change provider",
     "password": "更改密码",
     "cron": "设置频率",
     "time": "设置期限",
@@ -80,10 +82,8 @@
     "download_placeholder": "下载速度 (Mbit/s)",
     "recommendations_title": "最优建议",
     "recommendations_set": "设置自动推荐？",
-    "server_title": "设置速度测试服务器",
+    "provider_title": "Set speedtest provider",
     "manually": "手动设置",
-    "manual_server_title": "设置速度测试服务器",
-    "manual_server_id": "服务器ID",
     "new_password": "设置新密码",
     "password_placeholder": "新密码",
     "password_removed": "密码锁已被取消，设定的密码也已被删除。",
