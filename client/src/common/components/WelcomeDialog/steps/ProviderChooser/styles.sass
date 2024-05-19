@@ -1,0 +1,43 @@
+@import "@/common/styles/colors"
+
+.provider-chooser
+
+  h2
+    margin: 0 0 0.5rem
+    color: $darker-white
+
+  p
+    margin: 0
+    color: $darker-white
+
+  .provider-list
+    margin-top: 1rem
+    display: flex
+    gap: 1rem
+    flex-wrap: wrap
+
+  .provider-item
+    display: flex
+    align-items: center
+    padding: 0.2rem 1rem
+    gap: 0.5rem
+    border-radius: 0.8rem
+    border: 2px solid $light-gray
+    color: $darker-white
+    cursor: pointer
+
+    img
+      width: 3rem
+      height: 3rem
+
+    h2
+      margin: 0
+
+    &:hover
+      background-color: $darker-gray
+
+  .provider-item-active
+    background-color: $light-gray
+
+    &:hover
+      background-color: $light-gray
