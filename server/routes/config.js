@@ -26,7 +26,7 @@ app.patch("/:key", password(false), async (req, res) => {
     if ((req.params.key === "ping" || req.params.key === "download" || req.params.key === "upload") && isNaN(req.body.value))
         return res.status(400).json({message: "You need to provide a number in order to change this"});
 
-    if ((req.params.key === "ooklaId" || req.params.key === "libreId") && isNaN(req.body.value))
+    if ((req.params.key === "ooklaId" || req.params.key === "libreId") && (isNaN(req.body.value) && req.body.value !== "none"))
         return res.status(400).json({message: "You need to provide a number in order to change this"});
 
 
