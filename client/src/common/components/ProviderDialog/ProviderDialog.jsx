@@ -11,7 +11,7 @@ import {jsonRequest, patchRequest} from "@/common/utils/RequestUtil";
 import {Trans} from "react-i18next";
 import {ConfigContext} from "@/common/contexts/Config";
 
-const providers = [
+export const providers = [
     {id: "ookla", name: "Ookla", image: OoklaImage},
     {id: "libre", name: "LibreSpeed", image: LibreImage},
     {id: "cloudflare", name: "Cloudflare", image: CloudflareImage}

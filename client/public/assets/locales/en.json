@@ -1,8 +1,22 @@
 {
   "failed": "Failed",
+  "welcome": {
+    "step": "Step",
+    "title": "Welcome to MySpeed!",
+    "subtext": "Let's set up MySpeed for the first time. Don't worry, it won't take long.",
+    "provider_title": "Choose a provider",
+    "provider_subtext": "Select the provider you want to use here. This provider will then perform your tests.",
+    "data_title": "Set optimal data",
+    "data_subtext": "Select your contractually agreed speeds in this step",
+    "ms": "(in ms)",
+    "mbps": "(in Mbps)",
+    "accept_title": "Accept the terms",
+    "accept_subtext": "In this step, we would like to inform you about the Ookla license. Read it and confirm that you have read and accept it by clicking on “Done”."
+  },
   "dialog": {
     "okay": "Okay",
     "done": "Done",
+    "continue": "Continue",
     "apply": "Yes, apply",
     "update": "Update",
     "close": "Close",

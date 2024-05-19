@@ -1,0 +1,1 @@
+export {WelcomeDialog as default} from "./WelcomeDialog";
