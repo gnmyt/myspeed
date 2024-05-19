@@ -15,14 +15,16 @@
       "wrong": "Das von dir eingegebene Passwort ist falsch",
       "unlock": "Sperre aufheben"
     },
-    "accept": {
-      "title": "Wir brauchen deine Genehmigung",
-      "description": "Wir nutzen Dienste von Ookla. Mit dem Klick auf <Bold>Akzeptieren</Bold> bestätigst du, dass du die <EULA>EULA</EULA>, <Privacy>Datenschutzerklärung</Privacy> und <Terms>Nutzungsbedingungen</Terms>  von Ookla gelesen hast und diesen zustimmst.",
-      "button": "Akzeptieren"
-    },
     "api": {
       "title": "API nicht erreichbar",
       "description": "MySpeed konnte die API dieser Instanz nicht erreichen. Bitte versuche es später erneut."
+    },
+    "provider": {
+      "server": "Server",
+      "server_id": "Server ID",
+      "choose_automatically": "Choose automatically",
+      "ookla_license": "I have read and accept the <Eula>EULA</Eula>, <GDPR>privacy policy</GDPR> and <TOS>terms of service</TOS> of Ookla.",
+      "cloudflare_note": "Cloudflare does not require any additional settings"
     }
   },
   "dropdown": {
@@ -35,7 +37,7 @@
     "upload": "Optimaler Up-Speed",
     "download": "Optimaler Down-Speed",
     "recommendations": "Optimale Werte",
-    "server": "Server wechseln",
+    "change_provider": "Change provider",
     "password": "Passwort ändern",
     "cron": "Häufigkeit einstellen",
     "time": "Zeitraum festlegen",
@@ -80,10 +82,8 @@
     "download_placeholder": "Down-Speed (Mbit/s)",
     "recommendations_title": "Optimale Empfehlungen",
     "recommendations_set": "Automatische Empfehlungen setzen?",
-    "server_title": "Speedtest-Server setzen",
+    "provider_title": "Set speedtest provider",
     "manually": "Manuell festlegen",
-    "manual_server_title": "Speedtest-Server setzen",
-    "manual_server_id": "Server-ID",
     "new_password": "Neues Passwort festlegen",
     "password_placeholder": "Neues Passwort",
     "password_removed": "Die Passwortsperre wurde aufgehoben und das festgelegte Passwort wurde entfernt.",
