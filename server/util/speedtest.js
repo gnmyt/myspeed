@@ -19,6 +19,13 @@ module.exports = async (mode, serverId) => {
 
     const testProcess = spawn(binaryPath, args, {windowsHide: true});
 
+    testProcess.stderr.on('data', (buffer) => {
+        result.error = buffer.toString();
+        if (buffer.toString().includes("Too many requests")) {
+            result.error = "Too many requests. Please try again later";
+        }
+    });
+
     testProcess.stdout.on('data', (buffer) => {
         const line = buffer.toString().replace("\n", "");
         if (!(line.startsWith("{") || line.startsWith("["))) return;
