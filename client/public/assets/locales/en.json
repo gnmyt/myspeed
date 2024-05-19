@@ -15,11 +15,6 @@
       "wrong": "The password you entered is incorrect",
       "unlock": "Unlock"
     },
-    "accept": {
-      "title": "We need your permission",
-      "description": "We use services from Ookla. By clicking <Bold>Accept</Bold>, you acknowledge that you have read and agree to Ookla's <EULA>EULA</EULA>, <Privacy>Privacy Statement</Privacy> and <Terms>Terms of Use</Terms>.",
-      "button": "Accept"
-    },
     "api": {
       "title": "API not reachable",
       "description": "MySpeed could not reach the API of this instance. Please try again later."
