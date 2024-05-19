@@ -15,14 +15,16 @@
       "wrong": "Le mot de passe entré est incorrect",
       "unlock": "Déverrouiller"
     },
-    "accept": {
-      "title": "Nous avons besoin de votre permission",
-      "description": "Nous utilisons les services d'Ookla. En cliquant sur <Bold>Accepter</Bold>, vous reconnaissez avoir lu et accepté les conditions de <EULA>Ookla</EULA>, <Privacy>la Déclaration de confidentialité</Privacy> et <Terms>les Conditions d'utilisation</Terms>.",
-      "button": "Accepter"
-    },
     "api": {
       "title": "API inaccessible",
       "description": "MySpeed n'a pas pu accéder à l'API de cette instance. Veuillez réessayer plus tard."
+    },
+    "provider": {
+      "server": "Server",
+      "server_id": "Server ID",
+      "choose_automatically": "Choose automatically",
+      "ookla_license": "I have read and accept the <Eula>EULA</Eula>, <GDPR>privacy policy</GDPR> and <TOS>terms of service</TOS> of Ookla.",
+      "cloudflare_note": "Cloudflare does not require any additional settings"
     }
   },
   "dropdown": {
@@ -35,7 +37,7 @@
     "upload": "Vitesse optimale de téléversement",
     "download": "Vitesse optimale de téléchargement",
     "recommendations": "Recommandations",
-    "server": "Changer de serveur",
+    "change_provider": "Change provider",
     "password": "Changer le mot de passe",
     "cron": "Définir la fréquence",
     "time": "Définir la période",
@@ -80,10 +82,8 @@
     "download_placeholder": "Vitesse de téléchargement (Mbps)",
     "recommendations_title": "Recommandations optimales",
     "recommendations_set": "Définir des recommandations automatiques ?",
-    "server_title": "Définir le serveur de test de vitesse",
+    "provider_title": "Set speedtest provider",
     "manually": "Définir manuellement",
-    "manual_server_title": "Définir le serveur de test de vitesse",
-    "manual_server_id": "ID du serveur",
     "new_password": "Définir un nouveau mot de passe",
     "password_placeholder": "Nouveau mot de passe",
     "password_removed": "Le verrouillage du mot de passe a été supprimé et le mot de passe défini a été enlevé.",
