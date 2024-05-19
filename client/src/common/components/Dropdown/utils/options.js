@@ -20,14 +20,6 @@ export const selectOptions = () => ({
     "0 0,6,12,18 * * *": t("options.cron.really_rare")
 });
 
-export const languageOptions = {
-    "en": "English",
-    "de": "Deutsch",
-    "ru": "Русский",
-    "bg": "Български",
-    "es": "Español"
-}
-
 export const exportOptions = () => ({
     json: t("options.export.json"),
     csv: t("options.export.csv")
