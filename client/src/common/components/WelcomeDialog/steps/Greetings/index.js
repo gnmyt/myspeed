@@ -1,0 +1,1 @@
+export {Greetings as default} from "./Greetings";
