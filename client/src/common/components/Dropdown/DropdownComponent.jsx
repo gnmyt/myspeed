@@ -227,7 +227,7 @@ function DropdownComponent() {
         {run: updateDownload, icon: faArrowDown, text: t("dropdown.download")},
         {run: recommendedSettings, icon: faWandMagicSparkles, text: t("dropdown.recommendations")},
         {hr: true, key: 1},
-        {run: () => setShowProviderDialog(true), icon: faSliders, text: t("dropdown.server")},
+        {run: () => setShowProviderDialog(true), icon: faSliders, text: t("dropdown.change_provider")},
         {run: updatePassword, icon: faKey, text: t("dropdown.password"), previewHidden: true},
         {run: updateCron, icon: faClock, text: t("dropdown.cron")},
         {run: exportDialog, icon: faFileExport, text: t("dropdown.export")},
