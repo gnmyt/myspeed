@@ -15,14 +15,16 @@
       "wrong": "Въведената от вас парола е неправилна",
       "unlock": "Отключване на"
     },
-    "accept": {
-      "title": "Трябва ни вашето разрешение",
-      "description": "Използваме услуги от Ookla. С натискането на <Bold>Приемам</Bold> потвърждавате, че сте прочели и сте съгласни с <EULA>ЕУЛА</EULA>, <Privacy>Декларация за поверителност</Privacy> и <Terms>Условия за ползване</Terms> на Ookla.",
-      "button": "Приемане на"
-    },
     "api": {
       "title": "API не е достъпен",
       "description": "MySpeed не може да се свърже с API на тази инстанция. Моля, опитайте отново по-късно."
+    },
+    "provider": {
+      "server": "Server",
+      "server_id": "Server ID",
+      "choose_automatically": "Choose automatically",
+      "ookla_license": "I have read and accept the <Eula>EULA</Eula>, <GDPR>privacy policy</GDPR> and <TOS>terms of service</TOS> of Ookla.",
+      "cloudflare_note": "Cloudflare does not require any additional settings"
     }
   },
   "dropdown": {
@@ -35,7 +37,7 @@
     "upload": "Оптимална скорост нагоре",
     "download": "Оптимална скорост нагоре",
     "recommendations": "Оптимални стойности",
-    "server": "Промяна на сървъра",
+    "change_provider": "Change provider",
     "password": "Промяна на паролата",
     "cron": "Задаване на честота",
     "time": "Зададен период",
@@ -80,10 +82,8 @@
     "download_placeholder": "Скорост надолу (Mbit/s)",
     "recommendations_title": "Оптимални препоръки",
     "recommendations_set": "Задаване на автоматични препоръки?",
-    "server_title": "Задаване на сървър за тестване на скоростта",
+    "provider_title": "Set speedtest provider",
     "manually": "Задайте ръчно",
-    "manual_server_title": "Задаване на сървър за тестване на скоростта",
-    "manual_server_id": "Идентификатор на сървъра",
     "new_password": "Задаване на нова парола",
     "password_placeholder": "Нова парола",
     "password_removed": "Заключването с парола е премахнато и зададената парола е премахната.",
