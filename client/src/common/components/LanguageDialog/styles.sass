@@ -27,6 +27,7 @@
   img
     width: 2rem
     margin-right: 0.5rem
+    border-radius: 0.2rem
 
   p
     text-align: center
@@ -36,3 +37,19 @@
 .language-selected
   background-color: $light-gray
   color: $white
+
+@media screen and (max-height: 425px)
+  .language-chooser-dialog
+    height: 15rem
+
+@media screen and (max-height: 375px)
+  .language-chooser-dialog
+    height: 5rem
+
+@media screen and (max-width: 425px)
+  .language-chooser-dialog
+    grid-template-columns: 1fr
+
+  .language-chooser-item
+    margin-left: 1.5rem
+    margin-right: 1.5rem
