@@ -37,7 +37,8 @@ export const ConfigProvider = (props) => {
     useEffect(reloadConfig, []);
 
     useEffect(() => {
-        if (config.provider === "none") setWelcomeShown(true);
+        if (config.previewMode && !localStorage.getItem("welcomeShown")) setWelcomeShown(true);
+        if (!config.previewMode && config.provider === "none") setWelcomeShown(true);
     }, [config]);
 
     return (
