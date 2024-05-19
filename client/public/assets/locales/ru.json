@@ -15,14 +15,16 @@
       "wrong": "Введенный вами пароль неверен",
       "unlock": "Разблокировать"
     },
-    "accept": {
-      "title": "Нам нужно ваше разрешение",
-      "description": "Мы пользуемся услугами компании Ookla. Нажимая <Bold>Принять</Bold>, вы подтверждаете, что прочитали и согласны с <EULA>EULA</EULA>, <Privacy>Privacy Statement</Privacy> и <Terms>Terms of Use</Terms>.",
-      "button": "Принять"
-    },
     "api": {
       "title": "API недоступен",
       "description": "MySpeed не смог связаться с API этого экземпляра. Пожалуйста, повторите попытку позже."
+    },
+    "provider": {
+      "server": "Server",
+      "server_id": "Server ID",
+      "choose_automatically": "Choose automatically",
+      "ookla_license": "I have read and accept the <Eula>EULA</Eula>, <GDPR>privacy policy</GDPR> and <TOS>terms of service</TOS> of Ookla.",
+      "cloudflare_note": "Cloudflare does not require any additional settings"
     }
   },
   "dropdown": {
@@ -35,7 +37,7 @@
     "upload": "Оптимальная скорость передачи",
     "download": "Оптимальная скорость приема",
     "recommendations": "Оптимальные значения",
-    "server": "Изменить сервер",
+    "change_provider": "Change provider",
     "password": "Изменить пароль",
     "cron": "Установить частоту",
     "time": "Установить период",
@@ -80,10 +82,8 @@
     "download_placeholder": "Скорость снижения (Мбит/с)",
     "recommendations_title": "Оптимальные рекомендации",
     "recommendations_set": "Установить автоматические рекомендации?",
-    "server_title": "Установите сервер тестирования скорости",
+    "provider_title": "Set speedtest provider",
     "manually": "Установить вручную",
-    "manual_server_title": "Установите сервер тестирования скорости",
-    "manual_server_id": "Идентификатор сервера",
     "new_password": "Установите новый пароль",
     "password_placeholder": "Новый пароль",
     "password_removed": "Блокировка пароля была снята, а установленный пароль удален.",
