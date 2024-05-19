@@ -1,0 +1,1 @@
+export {OoklaLicense as default} from "./OoklaLicense";
