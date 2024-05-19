@@ -16,10 +16,9 @@ import {
     faPause,
     faPingPongPaddleBall,
     faPlay,
-    faServer,
     faWandMagicSparkles,
     faCheck,
-    faExclamationTriangle
+    faExclamationTriangle, faSliders
 } from "@fortawesome/free-solid-svg-icons";
 import {ConfigContext} from "@/common/contexts/Config";
 import {StatusContext} from "@/common/contexts/Status";
@@ -36,6 +35,7 @@ import {ToastNotificationContext} from "@/common/contexts/ToastNotification";
 import {NodeContext} from "@/common/contexts/Node";
 import {IntegrationDialog} from "@/common/components/IntegrationDialog";
 import LanguageDialog from "@/common/components/LanguageDialog";
+import ProviderDialog from "@/common/components/ProviderDialog";
 
 let icon;
 
@@ -65,6 +65,7 @@ function DropdownComponent() {
     const [showViewDialog, setShowViewDialog] = useState(false);
     const [showIntegrationDialog, setShowIntegrationDialog] = useState(false);
     const [showLanguageDialog, setShowLanguageDialog] = useState(false);
+    const [showProviderDialog, setShowProviderDialog] = useState(false);
     const ref = useRef();
 
     useEffect(() => {
@@ -129,19 +130,6 @@ function DropdownComponent() {
             });
         } else setDialog({title: t("update.recommendations_title"), description: t("info.recommendations_error"), buttonText: t("dialog.okay")});
     }
-
-    const updateServer = () => patchDialog("serverId", async (value) => ({
-        title: t("update.server_title"),
-        select: true,
-        selectOptions: await jsonRequest("/info/server"),
-        unsetButton: t("update.manually"),
-        onClear: updateServerManually,
-        value
-    }));
-
-    const updateServerManually = () => patchDialog("serverId", (value) => ({
-        title: t("update.manual_server_title"), placeholder: t("update.manual_server_id"), type: "number", value: value,
-    }));
 
     const updatePassword = async () => {
         const passwordSet = currentNode !== 0 ? findNode(currentNode).password : localStorage.getItem("password") != null;
@@ -239,7 +227,7 @@ function DropdownComponent() {
         {run: updateDownload, icon: faArrowDown, text: t("dropdown.download")},
         {run: recommendedSettings, icon: faWandMagicSparkles, text: t("dropdown.recommendations")},
         {hr: true, key: 1},
-        {run: updateServer, icon: faServer, text: t("dropdown.server")},
+        {run: () => setShowProviderDialog(true), icon: faSliders, text: t("dropdown.change_provider")},
         {run: updatePassword, icon: faKey, text: t("dropdown.password"), previewHidden: true},
         {run: updateCron, icon: faClock, text: t("dropdown.cron")},
         {run: exportDialog, icon: faFileExport, text: t("dropdown.export")},
@@ -258,6 +246,7 @@ function DropdownComponent() {
             {showViewDialog && <ViewDialog onClose={() => setShowViewDialog(false)}/>}
             {showIntegrationDialog && <IntegrationDialog onClose={() => setShowIntegrationDialog(false)}/>}
             {showLanguageDialog && <LanguageDialog onClose={() => setShowLanguageDialog(false)}/>}
+            {showProviderDialog && <ProviderDialog onClose={() => setShowProviderDialog(false)}/>}
             <div className="dropdown dropdown-invisible" id="dropdown" ref={ref}>
                 <div className="dropdown-content">
                     <h2>{t("dropdown.settings")}</h2>

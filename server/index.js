@@ -59,8 +59,8 @@ const run = async () => {
 }
 
 db.authenticate().then(() => {
-    console.log("Successfully connected to the database file");
-    run().then(undefined);
+    console.log("Successfully connected to the database " + (process.env.DB_TYPE === "mysql" ? "server" : "file"));
+        run().then(undefined);
 }).catch(err => {
     console.error("Could not open the database file. Maybe it is damaged?: " + err.message);
     process.exit(111);

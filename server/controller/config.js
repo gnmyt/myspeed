@@ -6,10 +6,11 @@ const configDefaults = {
     download: "100",
     upload: "50",
     cron: "0 * * * *",
-    serverId: "none",
+    provider: "none",
+    ooklaId: "none",
+    libreId: "none",
     password: "none",
-    passwordLevel: "none",
-    acceptOoklaLicense: "false"
+    passwordLevel: "none"
 }
 
 module.exports.insertDefaults = async () => {
@@ -27,8 +28,7 @@ module.exports.listAll = async () => {
 }
 
 module.exports.getValue = async (key) => {
-    if (process.env.PREVIEW_MODE === "true" && key === "acceptOoklaLicense") return true;
-    return (await config.findByPk(key)).value;
+    return (await config.findByPk(key))?.value;
 }
 
 module.exports.updateValue = async (key, newValue) => {

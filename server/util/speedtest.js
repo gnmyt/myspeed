@@ -1,34 +1,53 @@
 const {spawn} = require('child_process');
 
-module.exports = async (serverId, binary_path = './bin/speedtest' + (process.platform === "win32" ? ".exe" : "")) => {
-    const args = ['--accept-license', '--accept-gdpr', '--format=jsonl'];
-    if (serverId) args.push(`--server-id=${serverId}`);
+module.exports = async (mode, serverId) => {
+    const binaryPath = mode === "ookla" ? './bin/speedtest' + (process.platform === "win32" ? ".exe" : "")
+        : './bin/librespeed-cli' + (process.platform === "win32" ? ".exe" : "");
+
+    const startTime = new Date().getTime();
+    let args;
+
+    if (mode === "ookla") {
+        args = ['--accept-license', '--accept-gdpr', '--format=json'];
+        if (serverId) args.push(`--server-id=${serverId}`);
+    } else {
+        args = ['--json', '--duration=5'];
+        if (serverId) args.push(`--server=${serverId}`);
+    }
 
     let result = {};
 
-    const process = spawn(binary_path, args, {windowsHide: true});
+    const testProcess = spawn(binaryPath, args, {windowsHide: true});
 
-    process.stdout.on('data', (buffer) => {
+    testProcess.stderr.on('data', (buffer) => {
+        result.error = buffer.toString();
+        if (buffer.toString().includes("Too many requests")) {
+            result.error = "Too many requests. Please try again later";
+        }
+    });
+
+    testProcess.stdout.on('data', (buffer) => {
         const line = buffer.toString().replace("\n", "");
-        if (!line.startsWith("{")) return;
+        if (!(line.startsWith("{") || line.startsWith("["))) return;
 
         let data = {};
         try {
             data = JSON.parse(line);
+            if (line.startsWith("[")) data = data[0];
         } catch (e) {
             data.error = e.message;
         }
 
         if (data.error) result.error = data.error;
 
-        if (data.type === "result") result = data;
+        if ((mode === "ookla" && data.type === "result") || mode === "libre") result = data;
     });
 
     await new Promise((resolve, reject) => {
-        process.on('error', e => reject({message: e}));
-        process.on('exit', resolve);
+        testProcess.on('error', e => reject({message: e}));
+        testProcess.on('exit', resolve);
     });
 
     if (result.error) throw new Error(result.error);
-    return result;
+    return {...result, elapsed: new Date().getTime() - startTime};
 }

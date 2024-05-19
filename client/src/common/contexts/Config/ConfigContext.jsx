@@ -1,14 +1,13 @@
 import React, {createContext, useContext, useEffect, useState} from "react";
 import {InputDialogContext} from "../InputDialog";
 import {request} from "@/common/utils/RequestUtil";
-import {acceptDialog, apiErrorDialog, passwordRequiredDialog} from "@/common/contexts/Config/dialog";
+import {apiErrorDialog, passwordRequiredDialog} from "@/common/contexts/Config/dialog";
 
 export const ConfigContext = createContext({});
 
 export const ConfigProvider = (props) => {
     const [config, setConfig] = useState({});
     const [setDialog] = useContext(InputDialogContext);
-    const [dialogShown, setDialogShown] = useState(false);
 
     const reloadConfig = () => {
         request("/config").then(async res => {
@@ -31,13 +30,6 @@ export const ConfigProvider = (props) => {
     }
 
     const checkConfig = async () => (await request("/config")).json();
-
-    useEffect(() => {
-        if (config.acceptOoklaLicense !== undefined && config.acceptOoklaLicense === "false" && !dialogShown) {
-            setDialogShown(true);
-            setDialog(acceptDialog());
-        }
-    }, [config]);
 
     useEffect(reloadConfig, []);
 

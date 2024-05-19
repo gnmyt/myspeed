@@ -7,6 +7,10 @@ module.exports = db.define("speedtests", {
         primaryKey: true,
         autoIncrement: true,
     },
+    serverId: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0
+    },
     ping: {
         type: Sequelize.INTEGER,
         allowNull: false
