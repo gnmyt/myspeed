@@ -2,17 +2,17 @@ import i18n from "i18next";
 import {initReactI18next} from "react-i18next";
 import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpApi from 'i18next-http-backend';
-import EnglishFlag from "@/common/languages/en.webp";
-import GermanFlag from "@/common/languages/de.webp";
-import BulgarianFlag from "@/common/languages/bg.webp";
-import ChineseFlag from "@/common/languages/zh.webp";
-import DutchFlag from "@/common/languages/nl.webp";
-import FranceFlag from "@/common/languages/fr.webp";
-import ItalianFlag from "@/common/languages/it.webp";
-import PortugueseBrazilFlag from "@/common/languages/br.webp";
-import RussianFlag from "@/common/languages/ru.webp";
-import SpanishFlag from "@/common/languages/es.webp";
-import TurkishFlag from "@/common/languages/tr.webp";
+import EnglishFlag from "@/common/assets/languages/en.webp";
+import GermanFlag from "@/common/assets/languages/de.webp";
+import BulgarianFlag from "@/common/assets/languages/bg.webp";
+import ChineseFlag from "@/common/assets/languages/zh.webp";
+import DutchFlag from "@/common/assets/languages/nl.webp";
+import FranceFlag from "@/common/assets/languages/fr.webp";
+import ItalianFlag from "@/common/assets/languages/it.webp";
+import PortugueseBrazilFlag from "@/common/assets/languages/br.webp";
+import RussianFlag from "@/common/assets/languages/ru.webp";
+import SpanishFlag from "@/common/assets/languages/es.webp";
+import TurkishFlag from "@/common/assets/languages/tr.webp";
 
 if (localStorage.getItem('language') === null)
     localStorage.setItem('language', navigator.language.split('-')[0]);

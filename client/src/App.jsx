@@ -20,8 +20,10 @@ import {NodeProvider} from "@/common/contexts/Node";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from "@fortawesome/free-brands-svg-icons";
+import {PushOverIcon} from "@/common/assets/icons/pushover";
 
 library.add(fas, fab);
+library.add(PushOverIcon);
 
 const MainContent = () => {
     const [view] = useContext(ViewContext);
