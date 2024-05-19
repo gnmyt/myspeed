@@ -15,14 +15,16 @@
       "wrong": "Het ingevoerde wachtwoord is onjuist",
       "unlock": "Ontgrendel"
     },
-    "accept": {
-      "title": "We hebben uw toestemming nodig",
-      "description": "We gebruiken diensten van Ookla. Door op <Bold>Accept</Bold> te klikken, bevestig je dat je de <EULA>EULA</EULA>, <Privacy>Privacy Statement</Privacy> en <Terms>Terms of Use</Terms> van Ookla hebt gelezen en ermee akkoord gaat.",
-      "button": "Accepteer"
-    },
     "api": {
       "title": "API niet toegankelijk",
       "description": "MySpeed kon de API van deze instantie niet bereiken. Probeer het later opnieuw."
+    },
+    "provider": {
+      "server": "Server",
+      "server_id": "Server ID",
+      "choose_automatically": "Choose automatically",
+      "ookla_license": "I have read and accept the <Eula>EULA</Eula>, <GDPR>privacy policy</GDPR> and <TOS>terms of service</TOS> of Ookla.",
+      "cloudflare_note": "Cloudflare does not require any additional settings"
     }
   },
   "dropdown": {
@@ -35,7 +37,7 @@
     "upload": "Optimale snelheid",
     "download": "Optimale daalsnelheid",
     "recommendations": "Optimale waarden",
-    "server": "Server wijzigen",
+    "change_provider": "Change provider",
     "password": "Wachtwoord wijzigen",
     "cron": "Frequentie instellen",
     "time": "Ingestelde periode",
@@ -80,10 +82,8 @@
     "download_placeholder": "Neerwaartse snelheid (Mbit/s)",
     "recommendations_title": "Optimale aanbevelingen",
     "recommendations_set": "Automatische aanbevelingen instellen?",
-    "server_title": "Snelheidstestserver instellen",
+    "provider_title": "Set speedtest provider",
     "manually": "Handmatig instellen",
-    "manual_server_title": "Snelheidstestserver instellen",
-    "manual_server_id": "Server-ID",
     "new_password": "Nieuw wachtwoord instellen",
     "password_placeholder": "Nieuw wachtwoord",
     "password_removed": "De wachtwoordvergrendeling is verwijderd en het ingestelde wachtwoord is verwijderd.",
