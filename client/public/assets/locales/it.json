@@ -15,14 +15,16 @@
       "wrong": "La password inserita non è corretta",
       "unlock": "Sbloccare"
     },
-    "accept": {
-      "title": "Abbiamo bisogno del vostro permesso",
-      "description": "Utilizziamo i servizi di Ookla. Facendo clic su <Bold>Accettare</Bold>, l'utente dichiara di aver letto e accettato l'<EULA>EULA</EULA>, la <Privacy>Dichiarazione sulla privacy</Privacy> e i <Terms>Termini di utilizzo</Terms> di Ookla.",
-      "button": "Accettare"
-    },
     "api": {
       "title": "API non accessibile",
       "description": "MySpeed non è riuscito a raggiungere l'API di questa istanza. Riprovare più tardi."
+    },
+    "provider": {
+      "server": "Server",
+      "server_id": "Server ID",
+      "choose_automatically": "Choose automatically",
+      "ookla_license": "I have read and accept the <Eula>EULA</Eula>, <GDPR>privacy policy</GDPR> and <TOS>terms of service</TOS> of Ookla.",
+      "cloudflare_note": "Cloudflare does not require any additional settings"
     }
   },
   "dropdown": {
@@ -35,7 +37,7 @@
     "upload": "Velocità di salita ottimale",
     "download": "Velocità di discesa ottimale",
     "recommendations": "Valori ottimali",
-    "server": "Modifica del server",
+    "change_provider": "Change provider",
     "password": "Modifica della password",
     "cron": "Impostazione della frequenza",
     "time": "Periodo impostato",
@@ -80,10 +82,8 @@
     "download_placeholder": "Velocità di discesa (Mbps)",
     "recommendations_title": "Raccomandazioni ottimali",
     "recommendations_set": "Impostare raccomandazioni automatiche?",
-    "server_title": "Impostare il server per il test di velocità",
+    "provider_title": "Set speedtest provider",
     "manually": "Impostazione manuale",
-    "manual_server_title": "Impostare il server per il test di velocità",
-    "manual_server_id": "ID server",
     "new_password": "Impostare una nuova password",
     "password_placeholder": "Nuova password",
     "password_removed": "Il blocco della password è stato rimosso e la password impostata è stata rimossa.",
