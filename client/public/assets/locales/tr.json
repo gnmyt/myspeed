@@ -21,7 +21,7 @@
     },
     "provider": {
       "server": "Server",
-      "server_id": "Server ID",
+      "server_id": "Sunucu Kimliği",
       "choose_automatically": "Choose automatically",
       "ookla_license": "I have read and accept the <Eula>EULA</Eula>, <GDPR>privacy policy</GDPR> and <TOS>terms of service</TOS> of Ookla.",
       "cloudflare_note": "Cloudflare does not require any additional settings"
@@ -309,6 +309,19 @@
         "send_finished": "Tamamlanan mesajları gönder",
         "finished_message": "Tamamlanan mesaj",
         "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
+      }
+    },
+    "pushover": {
+      "title": "Pushover",
+      "fields": {
+        "token": "App token",
+        "user_key": "User key",
+        "error_message": "Error message",
+        "error_message_placeholder": "Error: %error%",
+        "send_failed": "Send error messages",
+        "send_finished": "Send finished messages",
+        "finished_message": "Finished message",
+        "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
       }
     },
     "healthChecks": {
