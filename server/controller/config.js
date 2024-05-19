@@ -28,7 +28,7 @@ module.exports.listAll = async () => {
 }
 
 module.exports.getValue = async (key) => {
-    return (await config.findByPk(key)).value;
+    return (await config.findByPk(key))?.value;
 }
 
 module.exports.updateValue = async (key, newValue) => {
