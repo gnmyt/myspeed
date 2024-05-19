@@ -15,14 +15,16 @@
       "wrong": "Girdiğiniz şifre yanlış",
       "unlock": "Kilidi aç"
     },
-    "accept": {
-      "title": "İzninize ihtiyacımız var",
-      "description": "Ookla'nın hizmetlerini kullanıyoruz. <Bold>Kabul Et</Bold>e tıklayarak, Ookla'nın <EULA>EULA</EULA>, <Privacy>Gizlilik Bildirimi</Privacy> ve <Terms>Kullanım Şartları</Terms>ni okuduğunuzu ve kabul ettiğinizi onaylamış olursunuz.",
-      "button": "Kabul et"
-    },
     "api": {
       "title": "API'ye erişilemiyor",
       "description": "MySpeed bu örneğin API'sine ulaşamadı. Lütfen daha sonra tekrar deneyin."
+    },
+    "provider": {
+      "server": "Server",
+      "server_id": "Server ID",
+      "choose_automatically": "Choose automatically",
+      "ookla_license": "I have read and accept the <Eula>EULA</Eula>, <GDPR>privacy policy</GDPR> and <TOS>terms of service</TOS> of Ookla.",
+      "cloudflare_note": "Cloudflare does not require any additional settings"
     }
   },
   "dropdown": {
@@ -35,7 +37,7 @@
     "upload": "Optimum yükleme hızı",
     "download": "Optimum indirme hızı",
     "recommendations": "Öneriler",
-    "server": "Sunucu Değiştir",
+    "change_provider": "Change provider",
     "password": "Şifre Değiştir",
     "cron": "Frekans ayarlama",
     "time": "Süreyi ayarla",
@@ -80,10 +82,8 @@
     "download_placeholder": "İndirme hızı (Mbps)",
     "recommendations_title": "Optimum öneriler",
     "recommendations_set": "Otomatik tavsiyeleri ayarla?",
-    "server_title": "Speedtest sunucusunu ayarla",
+    "provider_title": "Set speedtest provider",
     "manually": "Manuel olarak ayarla",
-    "manual_server_title": "Speedtest sunucusunu ayarla",
-    "manual_server_id": "Sunucu Kimliği",
     "new_password": "Yeni bir şifre belirle",
     "password_placeholder": "Yeni şifre",
     "password_removed": "Parola kilidi kaldırıldı ve belirlenen parola kaldırıldı.",
