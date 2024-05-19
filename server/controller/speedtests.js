@@ -2,8 +2,8 @@ const tests = require('../models/Speedtests');
 const {Op, Sequelize} = require("sequelize");
 const {mapFixed, mapRounded, calculateTestAverages} = require("../util/helpers");
 
-module.exports.create = async (ping, download, upload, time, type = "auto", error = null) => {
-    return (await tests.create({ping, download, upload, error, type, time})).id;
+module.exports.create = async (ping, download, upload, time, serverId, type = "auto", error = null) => {
+    return (await tests.create({ping, download, upload, error, serverId, type, time})).id;
 }
 
 module.exports.getOne = async (id) => {
