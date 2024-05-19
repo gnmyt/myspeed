@@ -74,22 +74,22 @@ module.exports.run = async (retryAuto = false) => {
         speedtest = await (retryAuto ? speedTest(mode) : speedTest(mode, serverId));
     }
 
-    if (serverId === undefined && mode === "ookla") {
-        serverId = speedtest.server.id;
-        await config.updateValue("ooklaId", speedtest.server.id);
+    if (mode === "ookla" && speedtest.server) {
+        if (serverId === undefined) await config.updateValue("ooklaId", speedtest.server?.id);
+        serverId = speedtest.server?.id;
     }
 
-    if (serverId === undefined && mode === "libre") {
+    if (mode === "libre" && speedtest.server) {
         let server = Object.entries(serverController.getLibreServers())
             .filter(([, value]) => value === speedtest.server.name)[0][0];
 
         if (server) {
+            if (serverId === undefined) await config.updateValue("libreId", server);
             serverId = parseInt(server);
-            await config.updateValue("libreId", server);
         }
     }
 
-    if (Object.keys(speedtest).length === 0) throw {message: "No response, even after trying again, test timed out."};
+    if (Object.keys(speedtest).length <= 1) throw {message: "No response, even after trying again, test timed out."};
 
     return {...speedtest, serverId}
 }
