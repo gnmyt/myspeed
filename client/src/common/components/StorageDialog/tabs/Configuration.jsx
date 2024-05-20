@@ -37,7 +37,7 @@ export default () => {
                         updateConfig();
                         close();
                     } else {
-                        updateToast(t("storage.import_error"), "red");
+                        updateToast(t("storage.import_config_error"), "red");
                     }
                 });
             }

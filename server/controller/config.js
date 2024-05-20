@@ -124,7 +124,7 @@ module.exports.exportConfig = async () => {
 module.exports.importConfig = async (obj) => {
     let configValues = obj.config;
     for (let key in configValues) {
-        if (configDefaults[key] === undefined) return false;
+        if (configDefaults[key] === undefined) continue
         if (key === "password") continue;
 
         const validate = await this.validateInput(key, configValues[key]);

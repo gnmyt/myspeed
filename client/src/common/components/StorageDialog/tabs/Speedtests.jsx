@@ -50,7 +50,7 @@ export default ({tests}) => {
                         updateToast(t("storage.tests_imported"), "green", faFileImport);
                         updateTests();
                     } else {
-                        updateToast(t("storage.import_error"), "red");
+                        updateToast(t("storage.import_test_error"), "red");
                     }
                     close();
                 });
