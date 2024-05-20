@@ -44,6 +44,8 @@
   "dropdown": {
     "settings": "设置",
     "changes_applied": "更改已被保存。",
+    "language_changed": "The language has been changed.",
+    "provider_changed": "The provider has been changed.",
     "view_changed": "观点被改变了。",
     "changes_unsaved": "你的修改没有被接受。检查你的输入。",
     "invalid": "输入无效",
@@ -55,7 +57,7 @@
     "password": "更改密码",
     "cron": "设置频率",
     "time": "设置期限",
-    "export": "出口测试",
+    "storage": "Manage storage",
     "pause_tests": "暂停测试",
     "resume_tests": "继续测试",
     "language": "改变语言",
@@ -77,10 +79,6 @@
       "default": "标准 (每小时一次)",
       "rare": "很少 (每3小时一次)",
       "really_rare": "非常少 (每6小时一次)"
-    },
-    "export": {
-      "json": "JSON文件",
-      "csv": "CSV文件"
     },
     "level": {
       "no_access": "无法进入",
@@ -107,7 +105,6 @@
     "cron_rules": "克隆规则",
     "cron_next_test": "下一次测试：",
     "time_title": "显示最后一次测试...",
-    "export_title": "出口速度测试",
     "download": "下载",
     "pause_title": "速度测试暂停了，因为...",
     "hours": "小时",
@@ -130,6 +127,33 @@
       "description": "该功能仍处于测试阶段。如果你发现错误，请报告 <Link>这里</Link>."
     }
   },
+  "storage": {
+    "speedtests": "Speedtests",
+    "configuration": "Configuration",
+    "stored_tests": "Stored tests",
+    "tests": "Tests",
+    "export_tests": "Export tests",
+    "tests_exported": "The tests have been exported",
+    "csv": "CSV",
+    "json": "JSON",
+    "import_tests": "Import tests",
+    "tests_imported": "The tests have been imported",
+    "import_error": "An error occurred while importing the tests",
+    "export": "Export",
+    "import": "Import",
+    "clear_history": "Clear history",
+    "history_cleared": "The history has been cleared",
+    "delete": "Delete",
+    "confirm_delete": "Yes, delete",
+    "export_settings": "Export settings",
+    "import_settings": "Import settings",
+    "factory_reset": "Factory reset",
+    "factory_reset_completed": "The factory reset has been completed",
+    "reset": "Reset",
+    "confirm_reset": "Yes, reset",
+    "settings_exported": "The settings have been exported",
+    "settings_imported": "The settings have been imported"
+  },
   "latest": {
     "ping": "Ping",
     "ping_unit": "ms",
@@ -140,7 +164,7 @@
     "before": "从"
   },
   "info": {
-    "credits": "<Link>MySpeed</Link>是由GNMYT提供的，并使用Ookla的<CLILink>Speedtest CLI</CLILink>。",
+    "credits": "<MSpeed>MySpeed</MSpeed> is a open source project provided by GNMYT. Leave a star on <Github>GitHub</Github> or <Donate>donate</Donate> to support the project.",
     "recommendations_error": "必须至少做10次测试，这样才能确定平均数。无论这些测试是手动还是自动完成的，都没有关系。",
     "recommendations_info": "根据最近10次测试结果，最佳的Ping延迟为<Bold>{{ping}} 毫秒</Bold>，下载速度为<Bold>{{down}} Mbit/s</Bold>，上传速度为<Bold>{{up}} Mbit/s</Bold>。最好参考你的互联网合同，并只在与之相符的情况下采用这些值。",
     "update": "对{{version}} 版本的更新是可用的。参见<Changes>变化</Changes>和<DLLink>下载更新</DLLink>。",
