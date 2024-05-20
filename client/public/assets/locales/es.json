@@ -44,6 +44,8 @@
   "dropdown": {
     "settings": "Ajustes",
     "changes_applied": "Los cambios han sido guardados.",
+    "language_changed": "The language has been changed.",
+    "provider_changed": "The provider has been changed.",
     "view_changed": "La vista cambió.",
     "changes_unsaved": "Tus cambios no han sido aceptados. Compruebe su entrada.",
     "invalid": "Entrada inválida",
@@ -55,7 +57,7 @@
     "password": "Cambiar la contraseña",
     "cron": "Ajustar frecuencia",
     "time": "Período específico",
-    "export": "Pruebas de exportación",
+    "storage": "Manage storage",
     "pause_tests": "Pruebas de pausa",
     "resume_tests": "Continuación de la revisión",
     "language": "Cambiar de idioma",
@@ -77,10 +79,6 @@
       "default": "Estándar (cada hora)",
       "rare": "Raramente (cada 3 horas)",
       "really_rare": "Muy raramente (cada 6 horas)"
-    },
-    "export": {
-      "json": "JSON-Archivo",
-      "csv": "CSV-Archivo"
     },
     "level": {
       "no_access": "Sin acceso",
@@ -107,7 +105,6 @@
     "cron_rules": "Regla Cron",
     "cron_next_test": "Próxima prueba:",
     "time_title": "Mostrar las pruebas de los últimos ...",
-    "export_title": "Pruebas de velocidad de exportación",
     "download": "Descargar",
     "pause_title": "Las pruebas de velocidad...",
     "hours": "Horas",
@@ -130,6 +127,33 @@
       "description": "Esta función está todavía en fase beta. Si encuentra algún error, notifíquelo <Link>aquí</Link>."
     }
   },
+  "storage": {
+    "speedtests": "Speedtests",
+    "configuration": "Configuration",
+    "stored_tests": "Stored tests",
+    "tests": "Tests",
+    "export_tests": "Export tests",
+    "tests_exported": "The tests have been exported",
+    "csv": "CSV",
+    "json": "JSON",
+    "import_tests": "Import tests",
+    "tests_imported": "The tests have been imported",
+    "import_error": "An error occurred while importing the tests",
+    "export": "Export",
+    "import": "Import",
+    "clear_history": "Clear history",
+    "history_cleared": "The history has been cleared",
+    "delete": "Delete",
+    "confirm_delete": "Yes, delete",
+    "export_settings": "Export settings",
+    "import_settings": "Import settings",
+    "factory_reset": "Factory reset",
+    "factory_reset_completed": "The factory reset has been completed",
+    "reset": "Reset",
+    "confirm_reset": "Yes, reset",
+    "settings_exported": "The settings have been exported",
+    "settings_imported": "The settings have been imported"
+  },
   "latest": {
     "ping": "Ping",
     "ping_unit": "ms",
@@ -140,7 +164,7 @@
     "before": "de"
   },
   "info": {
-    "credits": "<Link>MySpeed</Link> es proporcionado por GNMYT y utiliza el <CLILink>Speedtest CLI</CLILink> de Ookla.",
+    "credits": "<MSpeed>MySpeed</MSpeed> is a open source project provided by GNMYT. Leave a star on <Github>GitHub</Github> or <Donate>donate</Donate> to support the project.",
     "recommendations_error": "Hay que hacer al menos 10 pruebas para poder determinar una media. No importa si las pruebas se hicieron manual o automáticamente.",
     "recommendations_info": "Basándose en los resultados de las 10 últimas pruebas, se descubrió que el ping óptimo era <Bold>{{ping}} ms</Bold>, la descarga era <Bold>{{down}} Mbit/s</Bold> y la subida a <Bold>{{up}} Mbit/s</Bold>. Lo mejor es que utilices tu contrato de internet como guía y sólo lo adoptes si coincide.",
     "update": "Está disponible una actualización de la versión {{version}}. Ver <Changes>los cambios</Changes> y <DLLink>descargar la actualización</DLLink>.",
