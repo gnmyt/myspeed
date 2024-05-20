@@ -204,9 +204,12 @@ module.exports = async function speedTest() {
         result["ping"] = Math.round((await measureLatency())[3]);
 
         const testDown1 = await measureDownload(101000, 10);
-        const testDown2 = await measureDownload(25001000, 4);
-        const testDown3 = await measureDownload(100001000, 1);
-        result["download"] = quartile([...testDown1, ...testDown2, ...testDown3], 0.9).toFixed(2);
+        const testDown2 = await measureDownload(1001000, 8);
+        const testDown3 = await measureDownload(10001000, 6);
+        const testDown4 = await measureDownload(25001000, 4);
+        const testDown5 = await measureDownload(100001000, 1);
+
+        result["download"] = quartile([...testDown1, ...testDown2, ...testDown3, ...testDown4, ...testDown5], 0.9).toFixed(2);
 
         const testUp1 = await measureUpload(11000, 10);
         const testUp2 = await measureUpload(101000, 10);
