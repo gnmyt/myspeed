@@ -1,17 +1,17 @@
 {
   "failed": "Échec",
   "welcome": {
-    "step": "Step",
-    "title": "Welcome to MySpeed!",
-    "subtext": "Let's set up MySpeed for the first time. Don't worry, it won't take long.",
-    "provider_title": "Choose a provider",
-    "provider_subtext": "Select the provider you want to use here. This provider will then perform your tests.",
-    "data_title": "Set optimal data",
-    "data_subtext": "Select your contractually agreed speeds in this step",
-    "ms": "(in ms)",
-    "mbps": "(in Mbps)",
-    "accept_title": "Accept the terms",
-    "accept_subtext": "In this step, we would like to inform you about the Ookla license. Read it and confirm that you have read and accept it by clicking on “Done”."
+    "step": "Étape",
+    "title": "Bienvenue sur MySpeed !",
+    "subtext": "Configurons MySpeed pour la première fois. Ne t'inquiète pas, cela ne prendra pas longtemps.",
+    "provider_title": "Choisis un fournisseur",
+    "provider_subtext": "Sélectionne ici le prestataire que tu veux utiliser. Ce prestataire effectuera ensuite tes tests.",
+    "data_title": "Définir les données optimales",
+    "data_subtext": "Sélectionne tes vitesses convenues par contrat dans cette étape.",
+    "ms": "(en ms)",
+    "mbps": "(en Mbps)",
+    "accept_title": "Accepte les conditions",
+    "accept_subtext": "Dans cette étape, nous souhaitons t'informer sur la licence Ookla. Lis-la et confirme que tu l'as lue et que tu l'acceptes en cliquant sur \"Terminé\"."
   },
   "dialog": {
     "okay": "Ok",
@@ -34,11 +34,11 @@
       "description": "MySpeed n'a pas pu accéder à l'API de cette instance. Veuillez réessayer plus tard."
     },
     "provider": {
-      "server": "Server",
+      "server": "Serveur",
       "server_id": "ID du serveur",
-      "choose_automatically": "Choose automatically",
-      "ookla_license": "I have read and accept the <Eula>EULA</Eula>, <GDPR>privacy policy</GDPR> and <TOS>terms of service</TOS> of Ookla.",
-      "cloudflare_note": "Cloudflare does not require any additional settings"
+      "choose_automatically": "Choisis automatiquement",
+      "ookla_license": "J'ai lu et j'accepte le <Eula>CLUF</Eula>, la <GDPR>politique de confidentialité</GDPR> et les <TOS>conditions de service</TOS> d'Ookla.",
+      "cloudflare_note": "Cloudflare ne nécessite pas de paramètres supplémentaires"
     }
   },
   "dropdown": {
@@ -51,7 +51,7 @@
     "upload": "Vitesse optimale de téléversement",
     "download": "Vitesse optimale de téléchargement",
     "recommendations": "Recommandations",
-    "change_provider": "Change provider",
+    "change_provider": "Changer de fournisseur",
     "password": "Changer le mot de passe",
     "cron": "Définir la fréquence",
     "time": "Définir la période",
@@ -96,7 +96,7 @@
     "download_placeholder": "Vitesse de téléchargement (Mbps)",
     "recommendations_title": "Recommandations optimales",
     "recommendations_set": "Définir des recommandations automatiques ?",
-    "provider_title": "Set speedtest provider",
+    "provider_title": "Définir le fournisseur de speedtest",
     "manually": "Définir manuellement",
     "new_password": "Définir un nouveau mot de passe",
     "password_placeholder": "Nouveau mot de passe",
@@ -326,15 +326,15 @@
       }
     },
     "pushover": {
-      "title": "Pushover",
+      "title": "Effet de poussée",
       "fields": {
-        "token": "App token",
-        "user_key": "User key",
-        "error_message": "Error message",
-        "error_message_placeholder": "Error: %error%",
-        "send_failed": "Send error messages",
-        "send_finished": "Send finished messages",
-        "finished_message": "Finished message",
+        "token": "Jeton d'application",
+        "user_key": "Clé d'utilisateur",
+        "error_message": "Message d'erreur",
+        "error_message_placeholder": "Erreur : %error%",
+        "send_failed": "Envoyer des messages d'erreur",
+        "send_finished": "Envoyer des messages terminés",
+        "finished_message": "Message terminé",
         "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
       }
     },
