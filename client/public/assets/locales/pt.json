@@ -1,22 +1,22 @@
 {
   "failed": "Falhou",
   "welcome": {
-    "step": "Step",
-    "title": "Welcome to MySpeed!",
-    "subtext": "Let's set up MySpeed for the first time. Don't worry, it won't take long.",
-    "provider_title": "Choose a provider",
-    "provider_subtext": "Select the provider you want to use here. This provider will then perform your tests.",
-    "data_title": "Set optimal data",
-    "data_subtext": "Select your contractually agreed speeds in this step",
-    "ms": "(in ms)",
-    "mbps": "(in Mbps)",
-    "accept_title": "Accept the terms",
-    "accept_subtext": "In this step, we would like to inform you about the Ookla license. Read it and confirm that you have read and accept it by clicking on “Done”."
+    "step": "Etapa",
+    "title": "Bem-vindo ao MySpeed!",
+    "subtext": "Vamos configurar o MySpeed pela primeira vez. Não se preocupe, não vai demorar muito.",
+    "provider_title": "Escolha um provedor",
+    "provider_subtext": "Selecione o provedor que você deseja usar aqui. Esse provedor executará seus testes.",
+    "data_title": "Definir dados ideais",
+    "data_subtext": "Selecione as velocidades acordadas contratualmente nesta etapa",
+    "ms": "(em ms)",
+    "mbps": "(em Mbps)",
+    "accept_title": "Aceitar os termos",
+    "accept_subtext": "Nesta etapa, gostaríamos de informar você sobre a licença da Ookla. Leia-a e confirme que você a leu e aceitou clicando em \"Concluído\"."
   },
   "dialog": {
     "okay": "OK",
     "done": "Concluído",
-    "continue": "Continue",
+    "continue": "Continuar",
     "apply": "Sim, aplicar",
     "update": "Atualizar",
     "close": "Fechar",
@@ -34,11 +34,11 @@
       "description": "MySpeed não pôde alcançar a API desta instância. Por favor, tente novamente mais tarde."
     },
     "provider": {
-      "server": "Server",
+      "server": "Servidor",
       "server_id": "ID do servidor",
-      "choose_automatically": "Choose automatically",
-      "ookla_license": "I have read and accept the <Eula>EULA</Eula>, <GDPR>privacy policy</GDPR> and <TOS>terms of service</TOS> of Ookla.",
-      "cloudflare_note": "Cloudflare does not require any additional settings"
+      "choose_automatically": "Escolha automaticamente",
+      "ookla_license": "Eu li e aceito o <Eula>EULA</Eula>, <GDPR>a política de privacidade</GDPR> e os <TOS>termos de serviço</TOS> da Ookla.",
+      "cloudflare_note": "O Cloudflare não exige nenhuma configuração adicional"
     }
   },
   "dropdown": {
@@ -51,7 +51,7 @@
     "upload": "Velocidade de upload ótima",
     "download": "Velocidade de download ótima",
     "recommendations": "Recomendações",
-    "change_provider": "Change provider",
+    "change_provider": "Mudar de provedor",
     "password": "Alterar senha",
     "cron": "Definir frequência",
     "time": "Definir período",
@@ -96,7 +96,7 @@
     "download_placeholder": "Velocidade de download (Mbps)",
     "recommendations_title": "Recomendações ótimas",
     "recommendations_set": "Definir recomendações automáticas?",
-    "provider_title": "Set speedtest provider",
+    "provider_title": "Definir o provedor do speedtest",
     "manually": "Definir manualmente",
     "new_password": "Definir uma nova senha",
     "password_placeholder": "Nova senha",
@@ -174,167 +174,167 @@
   "test": {
     "not_available": "No momento, não há testes disponíveis",
     "no_latest": "Não há nenhum teste disponível no momento. Realize um teste ou aguarde até que o próximo teste seja realizado.",
-    "unknown_error": "Unknown error:",
-    "failed": "Test failed",
-    "recheck": "Please check as far as possible if this happens often.",
-    "delete": "Delete Test",
-    "deleted": "The test has been deleted",
+    "unknown_error": "Erro desconhecido:",
+    "failed": "Falha no teste",
+    "recheck": "Se isso acontecer com frequência, verifique o máximo possível.",
+    "delete": "Excluir teste",
+    "deleted": "O teste foi excluído",
     "average": {
-      "title": "Average Speed",
-      "description": "<Bold>{{amount}}</Bold> Tests have shown that on <Bold>{{date}}</Bold> an average download speed of <Bold>{{down}} Mbps </Bold> and an upload speed of <Bold>{{up}} Mbps</Bold> was passed. The tests took an average of <Bold>{{duration}} Seconds</Bold>."
+      "title": "Velocidade média",
+      "description": "<Bold>{{amount}}</Bold> Os testes mostraram que, em <Bold>{{date}}</Bold> você obteve uma velocidade média de download de <Bold>{{down}} Mbps </Bold> e uma velocidade de upload de <Bold>{{up}} Mbps</Bold>. Os testes levaram uma média de <Bold>{{duration}} segundos</Bold>."
     },
     "result": {
-      "title": "Test result",
-      "description": "This test achieved a maximum download speed of <Bold>{{down}} Mbps</Bold> and a maximum upload speed of <Bold>{{up}} Mbps</Bold>. It was created <Bold>{{type}}</Bold> and took <Bold>{{duration}} Seconds</Bold>.",
-      "from_you": "by you",
-      "automatic": "automatically"
+      "title": "Resultado do teste",
+      "description": "Esse teste atingiu uma velocidade máxima de download de <Bold>{{down}} Mbps</Bold> e uma velocidade máxima de upload de <Bold>{{up}} Mbps</Bold>. Ele foi criado <Bold>{{type}}</Bold> e levou <Bold>{{duration}} segundos</Bold>.",
+      "from_you": "por você",
+      "automatic": "automaticamente"
     },
     "tooltips": {
-      "custom": "Custom",
-      "average": "Average",
-      "auto": "Automated"
+      "custom": "Personalizado",
+      "average": "Média",
+      "auto": "Automatizado"
     },
     "views": {
-      "list": "Test Overview",
-      "statistic": "Test statistics"
+      "list": "Visão geral do teste",
+      "statistic": "Estatísticas de teste"
     },
     "overview": {
-      "title": "Test overview of the last {{amount}}",
-      "1": "24 hours",
-      "2": "2 days",
-      "3": "7 days",
-      "4": "30 days"
+      "title": "Visão geral do teste do último {{amount}}",
+      "1": "24 horas",
+      "2": "2 dias",
+      "3": "7 dias",
+      "4": "30 dias"
     }
   },
   "errors": {
-    "network_unreachable": "Internet connection was unstable during the time of the test",
-    "took_too_long": "The test took too long and was canceled",
-    "no_permission": "MySpeed has no permission to start this test",
-    "resource_unavailable": "The test could not be performed because the resource was temporarily unavailable",
-    "no_route": "The test could not be performed because there was no route to the host",
-    "connection_refused": "The test could not be performed because the connection was rejected",
-    "timed_out": "Internet connection was unstable during the time of the test",
-    "config": "The configuration file could not be loaded",
-    "invalid_view": "Invalid view"
+    "network_unreachable": "A conexão com a Internet estava instável durante o período do teste",
+    "took_too_long": "O teste demorou muito e foi cancelado",
+    "no_permission": "MySpeed não tem permissão para iniciar este teste",
+    "resource_unavailable": "O teste não pôde ser realizado porque o recurso estava temporariamente indisponível",
+    "no_route": "O teste não pôde ser realizado porque não havia rota para o host",
+    "connection_refused": "O teste não pôde ser realizado porque a conexão foi rejeitada",
+    "timed_out": "A conexão com a Internet estava instável durante o período do teste",
+    "config": "O arquivo de configuração não pôde ser carregado",
+    "invalid_view": "Visualização inválida"
   },
   "statistics": {
     "overview": {
-      "total_title": "Total tests",
-      "total_description": "The number of executed tests",
-      "failed_title": "Failed tests",
-      "failed_description": "The number of failed tests",
-      "average_title": "Average duration",
-      "average_description": "The average duration of the tests"
+      "total_title": "Total de testes",
+      "total_description": "O número de testes executados",
+      "failed_title": "Testes com falha",
+      "failed_description": "O número de testes com falha",
+      "average_title": "Duração média",
+      "average_description": "A duração média dos testes"
     },
     "failed": {
-      "title": "Failed tests",
-      "success": "Successful",
+      "title": "Testes com falha",
+      "success": "Bem-sucedido",
       "failed": "Falhou",
-      "label": "Tests"
+      "label": "Testes"
     },
     "speed": {
-      "title": "Speed"
+      "title": "Velocidade"
     },
     "manual": {
-      "title": "Manual tests",
-      "yes": "Created manually",
-      "no": "Created automatically"
+      "title": "Testes manuais",
+      "yes": "Criado manualmente",
+      "no": "Criado automaticamente"
     },
     "duration": {
-      "title": "Test duration",
-      "label": "Amount"
+      "title": "Duração do teste",
+      "label": "Valor"
     },
     "values": {
-      "min": "Minimum",
-      "max": "Maximum",
-      "avg": "Average",
-      "down": "Download values",
-      "up": "Upload values"
+      "min": "Mínimo",
+      "max": "Máximo",
+      "avg": "Média",
+      "down": "Valores de download",
+      "up": "Carregar valores"
     }
   },
   "nodes": {
-    "add": "Add server",
-    "create": "Add",
-    "this_server": "This server",
-    "created": "The server has been successfully added",
-    "password_required": "This node requires a password",
-    "update_password": "Please update the password of this node",
-    "password_outdated": "Password outdated",
-    "password_updated": "The password has been successfully updated",
-    "preview_active": "Adding and deleting servers is disabled during demo mode.",
+    "add": "Adicionar servidor",
+    "create": "Adicionar",
+    "this_server": "Esse servidor",
+    "created": "O servidor foi adicionado com sucesso",
+    "password_required": "Esse nó requer uma senha",
+    "update_password": "Atualize a senha desse nó",
+    "password_outdated": "Senha desatualizada",
+    "password_updated": "A senha foi atualizada com sucesso",
+    "preview_active": "A adição e a exclusão de servidores são desativadas durante o modo de demonstração.",
     "placeholder": {
-      "name": "MySpeed instance",
+      "name": "Instância MySpeed",
       "url": "https://your-server.com"
     },
     "group": {
-      "name": "Server name",
-      "url": "Server address"
+      "name": "Nome do servidor",
+      "url": "Endereço do servidor"
     },
     "delete": {
-      "title": "Delete server",
-      "description": "The server <Bold>{{name}}</Bold> (#{{id}}) will be deleted. This action cannot be undone. Do you want to continue?",
-      "yes": "Yes, delete",
-      "success": "The server has been deleted successfully"
+      "title": "Excluir servidor",
+      "description": "O servidor <Bold>{{name}}</Bold> (#{{id}}) será excluído. Essa ação não pode ser desfeita. Você deseja continuar?",
+      "yes": "Sim, excluir",
+      "success": "O servidor foi excluído com êxito"
     },
     "messages": {
-      "not_reachable": "Server is not reachable",
-      "password_changed": "Password changed",
-      "tests_pending": "Test results pending"
+      "not_reachable": "O servidor não pode ser acessado",
+      "password_changed": "Senha alterada",
+      "tests_pending": "Resultados de testes pendentes"
     }
   },
   "preview": {
-    "title": "Demo mode",
+    "title": "Modo de demonstração",
     "info": "DEMO",
-    "description": "You are currently in demo mode. Some features are disabled and some settings cannot be changed. If you want to use all features, you can <Link>install MySpeed</Link> on your own server."
+    "description": "No momento, você está no modo de demonstração. Alguns recursos estão desativados e algumas configurações não podem ser alteradas. Se quiser usar todos os recursos, você pode <Link>instalar o MySpeed</Link> em seu próprio servidor."
   },
   "integrations": {
-    "none_active": "This integration is not active. <br/><Bold>Create</Bold>",
-    "preview_active": "Integrations are disabled during demo mode.",
-    "display_name": "Integration name",
-    "create": "Create",
+    "none_active": "Essa integração não está ativa. <br/><Bold>Criar</Bold>",
+    "preview_active": "As integrações são desativadas durante o modo de demonstração.",
+    "display_name": "Nome da integração",
+    "create": "Criar",
     "activity": {
-      "never_executed": "Never executed",
-      "last_run": "Last run before "
+      "never_executed": "Nunca executado",
+      "last_run": "Última corrida antes de "
     },
     "discord": {
-      "title": "Discord",
+      "title": "Discórdia",
       "fields": {
-        "url": "Webhook-URL",
+        "url": "URL do site",
         "url_placeholder": "https://discord.com/api/webhooks/...",
-        "display_name": "Display name",
-        "display_name_placeholder": "MySpeed Notification",
-        "error_message": "Error message",
-        "error_message_placeholder": "Error: %error%",
-        "send_failed": "Send error messages",
-        "send_finished": "Send finished messages",
-        "finished_message": "Finished message",
+        "display_name": "Nome de exibição",
+        "display_name_placeholder": "Notificação MySpeed",
+        "error_message": "Mensagem de erro",
+        "error_message_placeholder": "Erro: %error%",
+        "send_failed": "Enviar mensagens de erro",
+        "send_finished": "Enviar mensagens concluídas",
+        "finished_message": "Mensagem finalizada",
         "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
       }
     },
     "gotify": {
       "title": "Gotify",
       "fields": {
-        "url": "Server-URL",
-        "key": "App token",
-        "priority": "Priority",
-        "error_message": "Error message",
-        "error_message_placeholder": "Error: %error%",
-        "send_failed": "Send error messages",
-        "send_finished": "Send finished messages",
-        "finished_message": "Finished message",
+        "url": "URL do servidor",
+        "key": "Token de aplicativo",
+        "priority": "Prioridade",
+        "error_message": "Mensagem de erro",
+        "error_message_placeholder": "Erro: %error%",
+        "send_failed": "Enviar mensagens de erro",
+        "send_finished": "Enviar mensagens concluídas",
+        "finished_message": "Mensagem finalizada",
         "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
       }
     },
     "pushover": {
       "title": "Pushover",
       "fields": {
-        "token": "App token",
-        "user_key": "User key",
-        "error_message": "Error message",
-        "error_message_placeholder": "Error: %error%",
-        "send_failed": "Send error messages",
-        "send_finished": "Send finished messages",
-        "finished_message": "Finished message",
+        "token": "Token de aplicativo",
+        "user_key": "Chave do usuário",
+        "error_message": "Mensagem de erro",
+        "error_message_placeholder": "Erro: %error%",
+        "send_failed": "Enviar mensagens de erro",
+        "send_finished": "Enviar mensagens concluídas",
+        "finished_message": "Mensagem finalizada",
         "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
       }
     },
@@ -346,29 +346,29 @@
       }
     },
     "telegram": {
-      "title": "Telegram",
+      "title": "Telegrama",
       "fields": {
-        "token": "Bot Token",
-        "chat_id": "Chat ID",
-        "error_message": "Error message",
-        "error_message_placeholder": "Error: %error%",
-        "send_failed": "Send error messages",
-        "send_finished": "Send finished messages",
-        "finished_message": "Finished message",
+        "token": "Token de bot",
+        "chat_id": "ID do bate-papo",
+        "error_message": "Mensagem de erro",
+        "error_message_placeholder": "Erro: %error%",
+        "send_failed": "Enviar mensagens de erro",
+        "send_finished": "Enviar mensagens concluídas",
+        "finished_message": "Mensagem finalizada",
         "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
       }
     },
     "webhook": {
       "title": "Webhook",
       "fields": {
-        "url": "Webhook-URL",
+        "url": "URL do site",
         "url_placeholder": "https://your-server.com/hook",
-        "send_started": "Send started",
-        "send_failed": "Send error messages",
-        "send_finished": "Send finished messages",
-        "send_alive": "Send Keep-Alive messages",
-        "send_recommendations": "Send recommendations",
-        "send_config_updates": "Send configuration updates"
+        "send_started": "Enviar iniciado",
+        "send_failed": "Enviar mensagens de erro",
+        "send_finished": "Enviar mensagens concluídas",
+        "send_alive": "Enviar mensagens Keep-Alive",
+        "send_recommendations": "Enviar recomendações",
+        "send_config_updates": "Enviar atualizações de configuração"
       }
     }
   }
