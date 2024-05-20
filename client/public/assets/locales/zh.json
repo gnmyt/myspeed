@@ -1,22 +1,22 @@
 {
   "failed": "失败",
   "welcome": {
-    "step": "Step",
-    "title": "Welcome to MySpeed!",
-    "subtext": "Let's set up MySpeed for the first time. Don't worry, it won't take long.",
-    "provider_title": "Choose a provider",
-    "provider_subtext": "Select the provider you want to use here. This provider will then perform your tests.",
-    "data_title": "Set optimal data",
-    "data_subtext": "Select your contractually agreed speeds in this step",
-    "ms": "(in ms)",
-    "mbps": "(in Mbps)",
-    "accept_title": "Accept the terms",
-    "accept_subtext": "In this step, we would like to inform you about the Ookla license. Read it and confirm that you have read and accept it by clicking on “Done”."
+    "step": "步骤",
+    "title": "欢迎来到 MySpeed！",
+    "subtext": "让我们首次设置 MySpeed。别担心，不会花很长时间。",
+    "provider_title": "选择供应商",
+    "provider_subtext": "在此选择您要使用的提供商。然后，该提供商将执行您的测试。",
+    "data_title": "设置最佳数据",
+    "data_subtext": "在此步骤中选择合同约定的速度",
+    "ms": "（毫秒）",
+    "mbps": "(单位：兆比特/秒）",
+    "accept_title": "接受条款",
+    "accept_subtext": "在此步骤中，我们将向您介绍 Ookla 许可证。请阅读并点击 \"完成 \"确认您已阅读并接受该许可。"
   },
   "dialog": {
     "okay": "好的",
     "done": "准备就绪",
-    "continue": "Continue",
+    "continue": "继续",
     "apply": "是的，应用",
     "update": "更新",
     "close": "关闭",
@@ -34,11 +34,11 @@
       "description": "MySpeed无法到达该实例的API。请稍后再试。"
     },
     "provider": {
-      "server": "Server",
+      "server": "服务器",
       "server_id": "服务器ID",
-      "choose_automatically": "Choose automatically",
-      "ookla_license": "I have read and accept the <Eula>EULA</Eula>, <GDPR>privacy policy</GDPR> and <TOS>terms of service</TOS> of Ookla.",
-      "cloudflare_note": "Cloudflare does not require any additional settings"
+      "choose_automatically": "自动选择",
+      "ookla_license": "我已阅读并接受 Ookla 的<Eula>EULA</Eula>、<GDPR>隐私政策</GDPR>和<TOS>服务条款</TOS>。",
+      "cloudflare_note": "Cloudflare 不需要任何额外设置"
     }
   },
   "dropdown": {
@@ -51,7 +51,7 @@
     "upload": "最佳的上升速度",
     "download": "最佳的下行速度",
     "recommendations": "最优值",
-    "change_provider": "Change provider",
+    "change_provider": "更换提供商",
     "password": "更改密码",
     "cron": "设置频率",
     "time": "设置期限",
@@ -96,7 +96,7 @@
     "download_placeholder": "下载速度 (Mbit/s)",
     "recommendations_title": "最优建议",
     "recommendations_set": "设置自动推荐？",
-    "provider_title": "Set speedtest provider",
+    "provider_title": "设置速度测试提供商",
     "manually": "手动设置",
     "new_password": "设置新密码",
     "password_placeholder": "新密码",
@@ -326,16 +326,16 @@
       }
     },
     "pushover": {
-      "title": "Pushover",
+      "title": "推杆",
       "fields": {
-        "token": "App token",
-        "user_key": "User key",
-        "error_message": "Error message",
-        "error_message_placeholder": "Error: %error%",
-        "send_failed": "Send error messages",
-        "send_finished": "Send finished messages",
-        "finished_message": "Finished message",
-        "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
+        "token": "应用程序令牌",
+        "user_key": "用户密钥",
+        "error_message": "错误信息",
+        "error_message_placeholder": "错误： %error%",
+        "send_failed": "发送错误信息",
+        "send_finished": "发送完成的信息",
+        "finished_message": "完成信息",
+        "finished_message_placeholder": "%ping% 毫秒， %download% Mbps， %upload% Mbps"
       }
     },
     "healthChecks": {
