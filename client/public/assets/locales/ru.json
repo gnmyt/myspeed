@@ -1,22 +1,22 @@
 {
   "failed": "Ошибка",
   "welcome": {
-    "step": "Step",
-    "title": "Welcome to MySpeed!",
-    "subtext": "Let's set up MySpeed for the first time. Don't worry, it won't take long.",
-    "provider_title": "Choose a provider",
-    "provider_subtext": "Select the provider you want to use here. This provider will then perform your tests.",
-    "data_title": "Set optimal data",
-    "data_subtext": "Select your contractually agreed speeds in this step",
-    "ms": "(in ms)",
-    "mbps": "(in Mbps)",
-    "accept_title": "Accept the terms",
-    "accept_subtext": "In this step, we would like to inform you about the Ookla license. Read it and confirm that you have read and accept it by clicking on “Done”."
+    "step": "Шаг",
+    "title": "Добро пожаловать в MySpeed!",
+    "subtext": "Давай настроим MySpeed для первого раза. Не волнуйся, это не займет много времени.",
+    "provider_title": "Выберите провайдера",
+    "provider_subtext": "Выбери здесь провайдера, услугами которого ты хочешь воспользоваться. Этот провайдер затем будет выполнять твои тесты.",
+    "data_title": "Установи оптимальные данные",
+    "data_subtext": "Выберите скорость, оговоренную в контракте, на этом шаге",
+    "ms": "(в мс)",
+    "mbps": "(в Мбит/с)",
+    "accept_title": "Прими условия",
+    "accept_subtext": "На этом шаге мы хотели бы проинформировать тебя о лицензии Ookla. Ознакомься с ней и подтверди, что ты прочитал и принял ее, нажав на кнопку \"Готово\"."
   },
   "dialog": {
     "okay": "Хорошо",
     "done": "Готовый",
-    "continue": "Continue",
+    "continue": "Продолжай",
     "apply": "Да, применить",
     "update": "Обновление",
     "close": "Закрыть",
@@ -34,11 +34,11 @@
       "description": "MySpeed не смог связаться с API этого экземпляра. Пожалуйста, повторите попытку позже."
     },
     "provider": {
-      "server": "Server",
+      "server": "Сервер",
       "server_id": "Идентификатор сервера",
-      "choose_automatically": "Choose automatically",
-      "ookla_license": "I have read and accept the <Eula>EULA</Eula>, <GDPR>privacy policy</GDPR> and <TOS>terms of service</TOS> of Ookla.",
-      "cloudflare_note": "Cloudflare does not require any additional settings"
+      "choose_automatically": "Выбирай автоматически",
+      "ookla_license": "Я прочитал и принимаю <Eula>EULA</Eula>, <GDPR>политику конфиденциальности</GDPR> и <TOS>условия обслуживания</TOS> Ookla.",
+      "cloudflare_note": "Cloudflare не требует никаких дополнительных настроек"
     }
   },
   "dropdown": {
@@ -51,7 +51,7 @@
     "upload": "Оптимальная скорость передачи",
     "download": "Оптимальная скорость приема",
     "recommendations": "Оптимальные значения",
-    "change_provider": "Change provider",
+    "change_provider": "Смените поставщика услуг",
     "password": "Изменить пароль",
     "cron": "Установить частоту",
     "time": "Установить период",
@@ -96,7 +96,7 @@
     "download_placeholder": "Скорость снижения (Мбит/с)",
     "recommendations_title": "Оптимальные рекомендации",
     "recommendations_set": "Установить автоматические рекомендации?",
-    "provider_title": "Set speedtest provider",
+    "provider_title": "Установи провайдера speedtest",
     "manually": "Установить вручную",
     "new_password": "Установите новый пароль",
     "password_placeholder": "Новый пароль",
@@ -328,14 +328,14 @@
     "pushover": {
       "title": "Pushover",
       "fields": {
-        "token": "App token",
-        "user_key": "User key",
-        "error_message": "Error message",
-        "error_message_placeholder": "Error: %error%",
-        "send_failed": "Send error messages",
-        "send_finished": "Send finished messages",
-        "finished_message": "Finished message",
-        "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
+        "token": "Прикладной токен",
+        "user_key": "Ключ пользователя",
+        "error_message": "Сообщение об ошибке",
+        "error_message_placeholder": "Ошибка: %error%",
+        "send_failed": "Отправляй сообщения об ошибках",
+        "send_finished": "Отправляйте готовые сообщения",
+        "finished_message": "Готовое сообщение",
+        "finished_message_placeholder": "%ping% мс, %download% Мбит/с, %upload% Мбит/с"
       }
     },
     "healthChecks": {
