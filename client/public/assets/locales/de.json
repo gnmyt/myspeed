@@ -1,22 +1,22 @@
 {
   "failed": "Fehlgeschlagen",
   "welcome": {
-    "step": "Step",
-    "title": "Welcome to MySpeed!",
-    "subtext": "Let's set up MySpeed for the first time. Don't worry, it won't take long.",
-    "provider_title": "Choose a provider",
-    "provider_subtext": "Select the provider you want to use here. This provider will then perform your tests.",
-    "data_title": "Set optimal data",
-    "data_subtext": "Select your contractually agreed speeds in this step",
+    "step": "Schritt",
+    "title": "Willkommen bei MySpeed!",
+    "subtext": "Lass uns MySpeed zum ersten Mal einrichten. Keine Sorge, es wird nicht lange dauern.",
+    "provider_title": "Wähle einen Anbieter",
+    "provider_subtext": "Wähle hier den Anbieter aus, den du verwenden möchtest. Dieser Anbieter wird dann deine Tests durchführen.",
+    "data_title": "Optimale Daten einstellen",
+    "data_subtext": "Wähle in diesem Schritt deine vertraglich vereinbarten Geschwindigkeiten",
     "ms": "(in ms)",
     "mbps": "(in Mbps)",
-    "accept_title": "Accept the terms",
-    "accept_subtext": "In this step, we would like to inform you about the Ookla license. Read it and confirm that you have read and accept it by clicking on “Done”."
+    "accept_title": "Akzeptiere die Bedingungen",
+    "accept_subtext": "In diesem Schritt möchten wir dich über die Ookla-Lizenz informieren. Lies sie und bestätige, dass du sie gelesen hast und akzeptierst, indem du auf \"Fertig\" klickst."
   },
   "dialog": {
     "okay": "Okay",
     "done": "Fertig",
-    "continue": "Continue",
+    "continue": "Weiter",
     "apply": "Ja, übernehmen",
     "update": "Aktualisieren",
     "close": "Schließen",
@@ -36,9 +36,9 @@
     "provider": {
       "server": "Server",
       "server_id": "Server-ID",
-      "choose_automatically": "Choose automatically",
-      "ookla_license": "I have read and accept the <Eula>EULA</Eula>, <GDPR>privacy policy</GDPR> and <TOS>terms of service</TOS> of Ookla.",
-      "cloudflare_note": "Cloudflare does not require any additional settings"
+      "choose_automatically": "Automatisch wählen",
+      "ookla_license": "Ich habe die <Eula>EULA</Eula>, die <GDPR>Datenschutzrichtlinie</GDPR> und die <TOS>Nutzungsbedingungen</TOS> von Ookla gelesen und akzeptiere sie.",
+      "cloudflare_note": "Cloudflare erfordert keine zusätzlichen Einstellungen"
     }
   },
   "dropdown": {
@@ -51,7 +51,7 @@
     "upload": "Optimaler Up-Speed",
     "download": "Optimaler Down-Speed",
     "recommendations": "Optimale Werte",
-    "change_provider": "Change provider",
+    "change_provider": "Anbieter wechseln",
     "password": "Passwort ändern",
     "cron": "Häufigkeit einstellen",
     "time": "Zeitraum festlegen",
@@ -96,7 +96,7 @@
     "download_placeholder": "Down-Speed (Mbit/s)",
     "recommendations_title": "Optimale Empfehlungen",
     "recommendations_set": "Automatische Empfehlungen setzen?",
-    "provider_title": "Set speedtest provider",
+    "provider_title": "Speedtest-Anbieter einstellen",
     "manually": "Manuell festlegen",
     "new_password": "Neues Passwort festlegen",
     "password_placeholder": "Neues Passwort",
@@ -328,14 +328,14 @@
     "pushover": {
       "title": "Pushover",
       "fields": {
-        "token": "App token",
-        "user_key": "User key",
-        "error_message": "Error message",
-        "error_message_placeholder": "Error: %error%",
-        "send_failed": "Send error messages",
-        "send_finished": "Send finished messages",
-        "finished_message": "Finished message",
-        "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
+        "token": "App-Token",
+        "user_key": "Benutzerschlüssel",
+        "error_message": "Fehlermeldung",
+        "error_message_placeholder": "Fehler: %error%",
+        "send_failed": "Fehlermeldungen senden",
+        "send_finished": "Beendete Nachrichten senden",
+        "finished_message": "Beendete Nachricht",
+        "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
       }
     },
     "healthChecks": {
