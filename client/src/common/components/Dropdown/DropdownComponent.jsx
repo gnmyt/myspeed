@@ -7,7 +7,6 @@ import {
     faCircleNodes,
     faClock,
     faClose,
-    faFileExport,
     faChartSimple,
     faGear,
     faGlobeEurope,
@@ -18,15 +17,15 @@ import {
     faPlay,
     faWandMagicSparkles,
     faCheck,
-    faExclamationTriangle, faSliders
+    faExclamationTriangle, faSliders, faHardDrive
 } from "@fortawesome/free-solid-svg-icons";
 import {ConfigContext} from "@/common/contexts/Config";
 import {StatusContext} from "@/common/contexts/Status";
 import {InputDialogContext} from "@/common/contexts/InputDialog";
 import {SpeedtestContext} from "@/common/contexts/Speedtests";
-import {baseRequest, downloadRequest, jsonRequest, patchRequest, postRequest} from "@/common/utils/RequestUtil";
+import {baseRequest, jsonRequest, patchRequest, postRequest} from "@/common/utils/RequestUtil";
 import {creditsInfo, recommendationsInfo} from "@/common/components/Dropdown/utils/infos";
-import {exportOptions, levelOptions, selectOptions, timeOptions} from "@/common/components/Dropdown/utils/options";
+import {levelOptions, selectOptions, timeOptions} from "@/common/components/Dropdown/utils/options";
 import {parseCron, stringifyCron} from "@/common/components/Dropdown/utils/utils";
 import {t} from "i18next";
 import ViewDialog from "@/common/components/ViewDialog";
@@ -36,6 +35,7 @@ import {NodeContext} from "@/common/contexts/Node";
 import {IntegrationDialog} from "@/common/components/IntegrationDialog";
 import LanguageDialog from "@/common/components/LanguageDialog";
 import ProviderDialog from "@/common/components/ProviderDialog";
+import StorageDialog from "@/common/components/StorageDialog";
 
 let icon;
 
@@ -66,6 +66,7 @@ function DropdownComponent() {
     const [showIntegrationDialog, setShowIntegrationDialog] = useState(false);
     const [showLanguageDialog, setShowLanguageDialog] = useState(false);
     const [showProviderDialog, setShowProviderDialog] = useState(false);
+    const [showStorageDialog, setShowStorageDialog] = useState(false);
     const ref = useRef();
 
     useEffect(() => {
@@ -192,17 +193,6 @@ function DropdownComponent() {
         });
     }
 
-    function exportDialog() {
-        setDialog({
-            select: true,
-            title: t("update.export_title"),
-            buttonText: t("update.download"),
-            value: "json",
-            selectOptions: exportOptions(),
-            onSuccess: value => downloadRequest("/export/" + value)
-        });
-    }
-
     const togglePause = () => {
         if (!status.paused) {
             setDialog({
@@ -228,9 +218,9 @@ function DropdownComponent() {
         {run: recommendedSettings, icon: faWandMagicSparkles, text: t("dropdown.recommendations")},
         {hr: true, key: 1},
         {run: () => setShowProviderDialog(true), icon: faSliders, text: t("dropdown.change_provider")},
+        {run: () => setShowStorageDialog(true), icon: faHardDrive, text: t("dropdown.storage")},
         {run: updatePassword, icon: faKey, text: t("dropdown.password"), previewHidden: true},
         {run: updateCron, icon: faClock, text: t("dropdown.cron")},
-        {run: exportDialog, icon: faFileExport, text: t("dropdown.export")},
         {run: togglePause, icon: status.paused ? faPlay : faPause, text: t("dropdown." + (status.paused ? "resume_tests" : "pause_tests"))},
         {run: () => setShowIntegrationDialog(true), icon: faCircleNodes, text: t("dropdown.integrations")},
         {hr: true, key: 2},
@@ -247,6 +237,7 @@ function DropdownComponent() {
             {showIntegrationDialog && <IntegrationDialog onClose={() => setShowIntegrationDialog(false)}/>}
             {showLanguageDialog && <LanguageDialog onClose={() => setShowLanguageDialog(false)}/>}
             {showProviderDialog && <ProviderDialog onClose={() => setShowProviderDialog(false)}/>}
+            {showStorageDialog && <StorageDialog onClose={() => setShowStorageDialog(false)}/>}
             <div className="dropdown dropdown-invisible" id="dropdown" ref={ref}>
                 <div className="dropdown-content">
                     <h2>{t("dropdown.settings")}</h2>

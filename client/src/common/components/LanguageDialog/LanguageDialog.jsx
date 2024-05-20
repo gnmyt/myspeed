@@ -1,17 +1,20 @@
 import {DialogContext, DialogProvider} from "@/common/contexts/Dialog";
 import {t, changeLanguage} from "i18next";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faClose} from "@fortawesome/free-solid-svg-icons";
+import {faClose, faGlobe} from "@fortawesome/free-solid-svg-icons";
 import "./styles.sass";
 import {languages} from "@/i18n";
 import {useContext, useState} from "react";
+import {ToastNotificationContext} from "@/common/contexts/ToastNotification";
 
 export const Dialog = () => {
     const [selectedLanguage, setSelectedLanguage] = useState(localStorage.getItem("language") || "en");
+    const updateToast = useContext(ToastNotificationContext);
     const close = useContext(DialogContext);
 
     const updateLanguage = () => {
         changeLanguage(selectedLanguage);
+        updateToast(t('dropdown.language_changed'), "green", faGlobe);
         close();
     }
 

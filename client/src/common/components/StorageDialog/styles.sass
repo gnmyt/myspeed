@@ -1,0 +1,91 @@
+@import "@/common/styles/colors"
+
+.storage-dialog
+  display: flex
+  margin-left: 0.5rem
+  margin-right: 0.5rem
+  gap: 1rem
+  width: 45rem
+  margin-top: 1rem
+  height: 14rem
+  user-select: none
+
+.storage-options
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+
+.storage-top
+  display: flex
+  flex-direction: column
+  gap: 0.5rem
+  user-select: none
+  overflow-x: hidden
+  overflow-y: scroll
+
+.storage-tab
+  display: flex
+  gap: 0.5rem
+  align-items: center
+  padding: 0.6rem 0.7rem
+  color: $darker-white
+  border: 2px solid transparent
+  border-radius: 1rem
+  cursor: pointer
+
+  svg
+    width: 1.3rem
+    height: 1.3rem
+  p
+    margin: 0
+    font-size: 14pt
+
+
+.reset-cursor
+  cursor: default
+
+.storage-item-active
+  background-color: $light-gray
+  color: $white
+
+.storage-manager
+  width: 70%
+  display: flex
+  flex-direction: column
+  gap: 1rem
+
+.storage-manager .storage-row
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+  h3
+    margin: 0
+    color: $darker-white
+
+  .dialog-btn
+    padding: 0.4rem 1rem
+
+
+@media (max-width: 781px)
+  .storage-dialog
+    width: 90vw
+    margin-left: 0
+    height: 100%
+    margin-top: 0.5rem
+    margin-right: 0
+    flex-direction: column
+
+  .storage-bottom
+    display: none
+
+  .storage-manager
+    max-height: 15rem
+    width: 100%
+
+  .storage-top
+    flex-direction: row
+    justify-content: center
+    overflow-x: scroll
+    overflow-y: hidden
+    gap: 0.5rem

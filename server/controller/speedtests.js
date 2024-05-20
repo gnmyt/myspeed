@@ -66,6 +66,25 @@ module.exports.listAverage = async (days) => {
     return result;
 }
 
+module.exports.deleteTests = async () => {
+    await tests.destroy({where: {}});
+    return true;
+}
+
+module.exports.importTests = async (data) => {
+    if (!Array.isArray(data)) return false;
+
+    for (let entry of data) {
+        if (entry.error === null) delete entry.error;
+        try {
+            await tests.create(entry);
+        } catch (e) {
+        }
+    }
+
+    return true;
+}
+
 module.exports.listStatistics = async (days) => {
     let dbEntries = (await tests.findAll({order: [["created", "DESC"]]}))
         .filter((entry) => new Date(entry.created) > new Date().getTime() - (days <= 30 ? days : 30 ) * 24 * 3600000);

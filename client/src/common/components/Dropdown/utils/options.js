@@ -19,8 +19,3 @@ export const selectOptions = () => ({
     "0 0,3,6,9,12,15,18,21 * * *": t("options.cron.rare"),
     "0 0,6,12,18 * * *": t("options.cron.really_rare")
 });
-
-export const exportOptions = () => ({
-    json: t("options.export.json"),
-    csv: t("options.export.csv")
-});

@@ -17,9 +17,9 @@ export const Dialog = () => {
     const [step, setStep] = useState(1);
     const [provider, setProvider] = useState("ookla");
 
-    const [ping, setPing] = useState(25);
-    const [download, setDownload] = useState(100);
-    const [upload, setUpload] = useState(50);
+    const [ping, setPing] = useState(parseInt(config.ping) || 0);
+    const [download, setDownload] = useState(parseInt(config.download) || 0);
+    const [upload, setUpload] = useState(parseInt(config.upload) || 0);
     const [animating, setAnimating] = useState(false);
 
     const finish = async () => {

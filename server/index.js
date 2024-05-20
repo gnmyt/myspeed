@@ -20,7 +20,7 @@ app.use(require('./middlewares/error'));
 app.use("/api/config", require('./routes/config'));
 app.use("/api/speedtests", require('./routes/speedtests'));
 app.use("/api/info", require('./routes/system'));
-app.use("/api/export", require('./routes/export'));
+app.use("/api/storage", require('./routes/storage'));
 app.use("/api/recommendations", require('./routes/recommendations'));
 app.use("/api/nodes", require('./routes/nodes'));
 app.use("/api/integrations", require('./routes/integrations'));

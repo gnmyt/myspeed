@@ -1,7 +1,7 @@
 import {DialogContext, DialogProvider} from "@/common/contexts/Dialog";
 import {t} from "i18next";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faClose} from "@fortawesome/free-solid-svg-icons";
+import {faCheck, faClose} from "@fortawesome/free-solid-svg-icons";
 import "./styles.sass";
 import React, {useContext, useEffect, useState} from "react";
 import OoklaImage from "./assets/img/ookla.webp";
@@ -10,6 +10,7 @@ import CloudflareImage from "./assets/img/cloudflare.webp";
 import {jsonRequest, patchRequest} from "@/common/utils/RequestUtil";
 import {Trans} from "react-i18next";
 import {ConfigContext} from "@/common/contexts/Config";
+import {ToastNotificationContext} from "@/common/contexts/ToastNotification";
 
 export const providers = [
     {id: "ookla", name: "Ookla", image: OoklaImage},
@@ -21,6 +22,7 @@ export const providers = [
 export const Dialog = () => {
     const close = useContext(DialogContext);
     const [config, reloadConfig] = useContext(ConfigContext);
+    const updateToast = useContext(ToastNotificationContext);
     const [provider, setProvider] = useState(config.provider || "ookla");
 
     const [licenseAccepted, setLicenseAccepted] = useState(false);
@@ -61,6 +63,7 @@ export const Dialog = () => {
         }
 
         reloadConfig();
+        updateToast(t('dropdown.provider_changed'), "green", faCheck);
 
         close();
     }
