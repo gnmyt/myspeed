@@ -44,6 +44,8 @@
   "dropdown": {
     "settings": "Settings",
     "changes_applied": "Your changes have been saved.",
+    "language_changed": "The language has been changed.",
+    "provider_changed": "The provider has been changed.",
     "view_changed": "The view has been changed.",
     "changes_unsaved": "Your changes were not applied. Check your input.",
     "invalid": "Input invalid",
@@ -55,7 +57,7 @@
     "password": "Change password",
     "cron": "Set frequency",
     "time": "Set period",
-    "export": "Export tests",
+    "storage": "Manage storage",
     "pause_tests": "Pause tests",
     "resume_tests": "Resume tests",
     "language": "Change language",
@@ -77,10 +79,6 @@
       "default": "Default (every hour)",
       "rare": "Rarely (every 3 hours)",
       "really_rare": "Very rarely (every 6 hours)"
-    },
-    "export": {
-      "json": "JSON file",
-      "csv": "CSV file"
     },
     "level": {
       "no_access": "No Access",
@@ -107,7 +105,6 @@
     "cron_rules": "Cron rule",
     "cron_next_test": "Next Test:",
     "time_title": "Show tests of the last ...",
-    "export_title": "Export speedtests",
     "download": "Download",
     "pause_title": "Pause speedtests for...",
     "hours": "Hours",
@@ -130,6 +127,33 @@
       "description": "This feature is still in beta. If you find any bugs, please report them <Link>here</Link>."
     }
   },
+  "storage": {
+    "speedtests": "Speedtests",
+    "configuration": "Configuration",
+    "stored_tests": "Stored tests",
+    "tests": "Tests",
+    "export_tests": "Export tests",
+    "tests_exported": "The tests have been exported",
+    "csv": "CSV",
+    "json": "JSON",
+    "import_tests": "Import tests",
+    "tests_imported": "The tests have been imported",
+    "import_error": "An error occurred while importing the tests",
+    "export": "Export",
+    "import": "Import",
+    "clear_history": "Clear history",
+    "history_cleared": "The history has been cleared",
+    "delete": "Delete",
+    "confirm_delete": "Yes, delete",
+    "export_settings": "Export settings",
+    "import_settings": "Import settings",
+    "factory_reset": "Factory reset",
+    "factory_reset_completed": "The factory reset has been completed",
+    "reset": "Reset",
+    "confirm_reset": "Yes, reset",
+    "settings_exported": "The settings have been exported",
+    "settings_imported": "The settings have been imported"
+  },
   "latest": {
     "ping": "Ping",
     "ping_unit": "ms",
@@ -140,7 +164,7 @@
     "before": "before"
   },
   "info": {
-    "credits": "<Link>MySpeed</Link> is provided by GNMYT and uses the <CLILink>Speedtest CLI</CLILink> from Ookla.",
+    "credits": "<MSpeed>MySpeed</MSpeed> is a open source project provided by GNMYT. Leave a star on <Github>GitHub</Github> or <Donate>donate</Donate> to support the project.",
     "recommendations_error": "You have to do at least 10 tests to get an average. It doesn't matter if the tests were done manually or automatically.",
     "recommendations_info": "Based on the last 10 tests, it was found that the optimal ping was <Bold>{{ping}} ms</Bold>, the download at <Bold>{{down}} Mbps</Bold> and the upload at <Bold>{{up}} Mbps</Bold>. It is best to orientate yourself on your internet contract and only adopt it if it matches that.",
     "update": "An update to version {{version}} is available. See <Changes>the changes</Changes> and <DLLink>download the update</DLLink>.",
