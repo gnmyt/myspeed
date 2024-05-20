@@ -44,6 +44,8 @@
   "dropdown": {
     "settings": "Настройки",
     "changes_applied": "Изменения были сохранены.",
+    "language_changed": "The language has been changed.",
+    "provider_changed": "The provider has been changed.",
     "view_changed": "Вид был изменен.",
     "changes_unsaved": "Ваши изменения не были приняты. Проверьте введенные данные.",
     "invalid": "Некорректный ввод",
@@ -55,7 +57,7 @@
     "password": "Изменить пароль",
     "cron": "Установить частоту",
     "time": "Установить период",
-    "export": "Экспорт тестов",
+    "storage": "Manage storage",
     "pause_tests": "Приостановить тесты",
     "resume_tests": "Продолжить тесты",
     "language": "Изменить язык",
@@ -77,10 +79,6 @@
       "default": "По умолчанию (каждый час)",
       "rare": "Редко (каждые 3 часа)",
       "really_rare": "Очень редко (каждые 6 часов)"
-    },
-    "export": {
-      "json": "JSON-файл",
-      "csv": "CSV-файл"
     },
     "level": {
       "no_access": "Нет доступа",
@@ -107,7 +105,6 @@
     "cron_rules": "Правило Cron",
     "cron_next_test": "Следующий тест:",
     "time_title": "Показать тесты последних ...",
-    "export_title": "Экспорт тестов скорости",
     "download": "Скачать",
     "pause_title": "Скоростные тесты приостанавливают...",
     "hours": "Часы",
@@ -130,6 +127,33 @@
       "description": "Эта функция все еще находится на стадии бета-тестирования. Если вы обнаружите какие-либо ошибки, пожалуйста, сообщите о них <Link>здесь</Link>."
     }
   },
+  "storage": {
+    "speedtests": "Speedtests",
+    "configuration": "Configuration",
+    "stored_tests": "Stored tests",
+    "tests": "Tests",
+    "export_tests": "Export tests",
+    "tests_exported": "The tests have been exported",
+    "csv": "CSV",
+    "json": "JSON",
+    "import_tests": "Import tests",
+    "tests_imported": "The tests have been imported",
+    "import_error": "An error occurred while importing the tests",
+    "export": "Export",
+    "import": "Import",
+    "clear_history": "Clear history",
+    "history_cleared": "The history has been cleared",
+    "delete": "Delete",
+    "confirm_delete": "Yes, delete",
+    "export_settings": "Export settings",
+    "import_settings": "Import settings",
+    "factory_reset": "Factory reset",
+    "factory_reset_completed": "The factory reset has been completed",
+    "reset": "Reset",
+    "confirm_reset": "Yes, reset",
+    "settings_exported": "The settings have been exported",
+    "settings_imported": "The settings have been imported"
+  },
   "latest": {
     "ping": "Пинг",
     "ping_unit": "ms",
@@ -140,7 +164,7 @@
     "before": "с сайта"
   },
   "info": {
-    "credits": "<Link>MySpeed</Link> предоставляется GNMYT и использует <CLILink>Speedtest CLI</CLILink> от Ookla.",
+    "credits": "<MSpeed>MySpeed</MSpeed> is a open source project provided by GNMYT. Leave a star on <Github>GitHub</Github> or <Donate>donate</Donate> to support the project.",
     "recommendations_error": "Вы должны провести не менее 10 тестов, чтобы можно было определить среднее значение. Не имеет значения, были ли тесты проведены вручную или автоматически.",
     "recommendations_info": "По результатам последних 10 тестов было установлено, что оптимальный пинг составляет <Bold>{{ping}} ms</Bold>, загрузка - <Bold>{{down}} Mbit/s</Bold>, а загрузка - <Bold>{{up}} Mbit/s</Bold>. Лучше всего использовать ваш договор на подключение к Интернету в качестве ориентира и принимать его только в том случае, если он совпадает.",
     "update": "Доступно обновление до версии {{version}}. Смотрите <Changes>изменения</Changes> и <DLLink>скачать обновление</DLLink>.",
