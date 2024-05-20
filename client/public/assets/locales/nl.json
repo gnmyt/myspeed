@@ -1,22 +1,22 @@
 {
   "failed": "Mislukt",
   "welcome": {
-    "step": "Step",
-    "title": "Welcome to MySpeed!",
-    "subtext": "Let's set up MySpeed for the first time. Don't worry, it won't take long.",
-    "provider_title": "Choose a provider",
-    "provider_subtext": "Select the provider you want to use here. This provider will then perform your tests.",
-    "data_title": "Set optimal data",
-    "data_subtext": "Select your contractually agreed speeds in this step",
+    "step": "Stap",
+    "title": "Welkom bij MySpeed!",
+    "subtext": "Laten we MySpeed voor de eerste keer instellen. Maak je geen zorgen, het duurt niet lang.",
+    "provider_title": "Kies een aanbieder",
+    "provider_subtext": "Selecteer hier de provider die je wilt gebruiken. Deze provider zal dan je tests uitvoeren.",
+    "data_title": "Stel optimale gegevens in",
+    "data_subtext": "Selecteer je contractueel overeengekomen snelheden in deze stap",
     "ms": "(in ms)",
     "mbps": "(in Mbps)",
-    "accept_title": "Accept the terms",
-    "accept_subtext": "In this step, we would like to inform you about the Ookla license. Read it and confirm that you have read and accept it by clicking on “Done”."
+    "accept_title": "Accepteer de voorwaarden",
+    "accept_subtext": "In deze stap willen we je informeren over de Ookla licentie. Lees het en bevestig dat je het gelezen en geaccepteerd hebt door op \"Gereed\" te klikken."
   },
   "dialog": {
     "okay": "Oké",
     "done": "Klaar",
-    "continue": "Continue",
+    "continue": "Ga verder",
     "apply": "Ja, neem over",
     "update": "Vernieuwen",
     "close": "Sluit",
@@ -36,9 +36,9 @@
     "provider": {
       "server": "Server",
       "server_id": "Server-ID",
-      "choose_automatically": "Choose automatically",
-      "ookla_license": "I have read and accept the <Eula>EULA</Eula>, <GDPR>privacy policy</GDPR> and <TOS>terms of service</TOS> of Ookla.",
-      "cloudflare_note": "Cloudflare does not require any additional settings"
+      "choose_automatically": "Automatisch kiezen",
+      "ookla_license": "Ik heb de <Eula>EULA</Eula>, <GDPR>het privacybeleid</GDPR> en <TOS>de servicevoorwaarden</TOS> van Ookla gelezen en accepteer deze.",
+      "cloudflare_note": "Cloudflare heeft geen extra instellingen nodig"
     }
   },
   "dropdown": {
@@ -51,7 +51,7 @@
     "upload": "Optimale snelheid",
     "download": "Optimale daalsnelheid",
     "recommendations": "Optimale waarden",
-    "change_provider": "Change provider",
+    "change_provider": "Verander van leverancier",
     "password": "Wachtwoord wijzigen",
     "cron": "Frequentie instellen",
     "time": "Ingestelde periode",
@@ -96,7 +96,7 @@
     "download_placeholder": "Neerwaartse snelheid (Mbit/s)",
     "recommendations_title": "Optimale aanbevelingen",
     "recommendations_set": "Automatische aanbevelingen instellen?",
-    "provider_title": "Set speedtest provider",
+    "provider_title": "Snelheidstest-provider instellen",
     "manually": "Handmatig instellen",
     "new_password": "Nieuw wachtwoord instellen",
     "password_placeholder": "Nieuw wachtwoord",
@@ -328,13 +328,13 @@
     "pushover": {
       "title": "Pushover",
       "fields": {
-        "token": "App token",
-        "user_key": "User key",
-        "error_message": "Error message",
-        "error_message_placeholder": "Error: %error%",
-        "send_failed": "Send error messages",
-        "send_finished": "Send finished messages",
-        "finished_message": "Finished message",
+        "token": "App-token",
+        "user_key": "Gebruikers sleutel",
+        "error_message": "Foutmelding",
+        "error_message_placeholder": "Fout: %error%",
+        "send_failed": "Foutmeldingen verzenden",
+        "send_finished": "Voltooide berichten verzenden",
+        "finished_message": "Voltooid bericht",
         "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
       }
     },
