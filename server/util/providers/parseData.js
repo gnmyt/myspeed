@@ -11,18 +11,9 @@ module.exports.parseOokla = (test) => {
     return {ping, download, upload, time};
 }
 
-module.exports.parseLibre = (test) => {
-    return {ping: test.ping, upload: test.upload, download: test.download, time: Math.round(test.elapsed / 1000)};
-}
+module.exports.parseLibre = (test) => ({...test, time: Math.round(test.elapsed / 1000)});
 
-module.exports.parseCloudflare = async (test) => {
-    let ping = Math.round(test.latency);
-    let download = Math.round(test.download / 10000) / 100;
-    let upload = Math.round(test.upload / 10000) / 100;
-    let time = Math.round(test.elapsed / 1000);
-
-    return {ping, download, upload, time};
-}
+module.exports.parseCloudflare = (test) => ({...test, time: Math.round(test.elapsed)});
 
 module.exports.parseData = (provider, data) => {
     switch (provider) {
