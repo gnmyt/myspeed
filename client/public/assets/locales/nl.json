@@ -44,6 +44,8 @@
   "dropdown": {
     "settings": "Instellingen",
     "changes_applied": "De wijzigingen zijn opgeslagen.",
+    "language_changed": "The language has been changed.",
+    "provider_changed": "The provider has been changed.",
     "view_changed": "Het uitzicht was veranderd.",
     "changes_unsaved": "Je wijzigingen zijn niet geaccepteerd. Controleer je invoer.",
     "invalid": "Invoer ongeldig",
@@ -55,7 +57,7 @@
     "password": "Wachtwoord wijzigen",
     "cron": "Frequentie instellen",
     "time": "Ingestelde periode",
-    "export": "Tests exporteren",
+    "storage": "Manage storage",
     "pause_tests": "Pauzetests",
     "resume_tests": "Doorgaan met testen",
     "language": "Taal wijzigen",
@@ -77,10 +79,6 @@
       "default": "Standaard (elk uur)",
       "rare": "Zelden (om de 3 uur)",
       "really_rare": "Zeer zelden (om de 6 uur)"
-    },
-    "export": {
-      "json": "JSON-bestand",
-      "csv": "CSV-bestand"
     },
     "level": {
       "no_access": "Geen toegang",
@@ -107,7 +105,6 @@
     "cron_rules": "Cron-regel",
     "cron_next_test": "Volgende test:",
     "time_title": "Tests van de laatste ...",
-    "export_title": "Snelheidstests exporteren",
     "download": "Downloaden",
     "pause_title": "Snelheidstests pauzeren voor...",
     "hours": "Uren",
@@ -130,6 +127,33 @@
       "description": "Deze functie is nog in betafase. Als je bugs vindt, meld ze dan <Link>hier</Link>."
     }
   },
+  "storage": {
+    "speedtests": "Speedtests",
+    "configuration": "Configuration",
+    "stored_tests": "Stored tests",
+    "tests": "Tests",
+    "export_tests": "Export tests",
+    "tests_exported": "The tests have been exported",
+    "csv": "CSV",
+    "json": "JSON",
+    "import_tests": "Import tests",
+    "tests_imported": "The tests have been imported",
+    "import_error": "An error occurred while importing the tests",
+    "export": "Export",
+    "import": "Import",
+    "clear_history": "Clear history",
+    "history_cleared": "The history has been cleared",
+    "delete": "Delete",
+    "confirm_delete": "Yes, delete",
+    "export_settings": "Export settings",
+    "import_settings": "Import settings",
+    "factory_reset": "Factory reset",
+    "factory_reset_completed": "The factory reset has been completed",
+    "reset": "Reset",
+    "confirm_reset": "Yes, reset",
+    "settings_exported": "The settings have been exported",
+    "settings_imported": "The settings have been imported"
+  },
   "latest": {
     "ping": "Ping",
     "ping_unit": "ms",
@@ -140,7 +164,7 @@
     "before": "van"
   },
   "info": {
-    "credits": "<Link>MySpeed</Link> wordt geleverd door GNMYT en gebruikt de <CLILink>Speedtest CLI</CLILink> van Ookla.",
+    "credits": "<MSpeed>MySpeed</MSpeed> is a open source project provided by GNMYT. Leave a star on <Github>GitHub</Github> or <Donate>donate</Donate> to support the project.",
     "recommendations_error": "Je moet minstens 10 tests doen zodat je een gemiddelde kunt bepalen. Het maakt niet uit of de tests handmatig of automatisch zijn uitgevoerd.",
     "recommendations_info": "Op basis van de laatste 10 testresultaten bleek dat de optimale ping <Bold>{{ping}} ms</Bold> was, de download <Bold>{{down}} Mbit/s</Bold> en de upload op <Bold>{{up}} Mbit/s</Bold>. Je kunt het beste je internetcontract als richtlijn gebruiken en het alleen overnemen als het overeenkomt.",
     "update": "Er is een update voor versie {{version}} beschikbaar. Zie <Changes>de wijzigingen</Changes> en <DLLink>download de update</DLLink>.",
