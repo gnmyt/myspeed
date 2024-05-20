@@ -13,6 +13,14 @@ module.exports.getOne = async (id) => {
     return speedtest
 }
 
+module.exports.listAll = async () => {
+    let dbEntries = await tests.findAll({order: [["created", "DESC"]]});
+    for (let dbEntry of dbEntries)
+        if (dbEntry.error === null) delete dbEntry.error;
+
+    return dbEntries;
+}
+
 module.exports.listTests = async (hours = 24, start, limit) => {
     limit = parseInt(limit) || 10;
     const whereClause = start ? {id: {[Op.lt]: start}} : undefined;

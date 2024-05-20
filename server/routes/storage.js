@@ -9,12 +9,12 @@ app.get("/", password(false), async (req, res) => {
 
 app.get("/tests/history/json", password(false), async (req, res) => {
     res.set({"Content-Disposition": "attachment; filename=\"speedtests.json\""});
-    res.send(JSON.stringify(await tests.listTests(), null, 4));
+    res.send(JSON.stringify(await tests.listAll(), null, 4));
 });
 
 app.get("/tests/history/csv", password(false), async (req, res) => {
     res.set({"Content-Disposition": "attachment; filename=\"speedtests.csv\""});
-    let list = await tests.listTests();
+    let list = await tests.listAll();
 
     if (list.length === 0) return res.send("");
     let fields = Object.keys(list[0]);
