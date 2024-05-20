@@ -5,6 +5,7 @@ const controller = require("../controller/recommendations");
 const parseData = require('../util/providers/parseData');
 let {setState, sendRunning, sendError, sendFinished} = require("./integrations");
 const serverController = require("../controller/servers");
+const cloudflareTask = require("./cloudflare");
 
 let isRunning = false;
 
@@ -33,26 +34,6 @@ const createRecommendations = async () => {
     }
 }
 
-module.exports.executeCloudflare = async () => {
-    try {
-        const {default: SpeedTest} = await import('@cloudflare/speedtest');
-
-        // This needs to be disabled because of a library issue
-        // See https://github.com/cloudflare/speedtest/issues/17
-        console.warn = () => {};
-
-        const startTime = new Date().getTime();
-        return await new Promise(resolve => {
-            const speedTest = new SpeedTest();
-            speedTest.onFinish = results => {
-                resolve({...results.getSummary(), elapsed: new Date().getTime() - startTime});
-            }
-        });
-    } catch (error) {
-        console.error('Error loading SpeedTest module:', error);
-    }
-}
-
 module.exports.run = async (retryAuto = false) => {
     setRunning(true);
     let mode = await config.getValue("provider");
@@ -69,7 +50,9 @@ module.exports.run = async (retryAuto = false) => {
 
     let speedtest;
     if (mode === "cloudflare") {
-        speedtest = await this.executeCloudflare();
+        const startTime = new Date().getTime();
+        speedtest = await cloudflareTask();
+        speedtest = {...speedtest, elapsed: (new Date().getTime() - startTime) / 1000};
     } else {
         speedtest = await (retryAuto ? speedTest(mode) : speedTest(mode, serverId));
     }
