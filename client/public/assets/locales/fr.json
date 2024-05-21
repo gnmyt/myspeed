@@ -138,8 +138,8 @@
     "json": "JSON",
     "import_tests": "Tests d'importation",
     "tests_imported": "Les tests ont été importés",
-    "import_test_error": "An error occurred while importing the tests",
-    "import_config_error": "An error occurred while importing the configuration",
+    "import_test_error": "Une erreur s'est produite lors de l'importation des tests",
+    "import_config_error": "Une erreur s'est produite lors de l'importation de la configuration",
     "export": "Exporter",
     "import": "Importation",
     "clear_history": "Effacer l'historique",
@@ -210,7 +210,7 @@
     },
     "result": {
       "title": "Résultats du test",
-      "description": "<Link>This test</Link> achieved a maximum download speed of <Bold>{{down}} Mbps</Bold> and a maximum upload speed of <Bold>{{up}} Mbps</Bold>. It was created <Bold>{{type}}</Bold> and took <Bold>{{duration}} Seconds</Bold>.",
+      "description": "<Link>Ce test</Link> a atteint une vitesse de téléchargement maximale de <Bold>{{down}} Mbps</Bold> et une vitesse de téléchargement maximale de <Bold>{{up}} Mbps</Bold>. Il a été créé <Bold>{{type}}</Bold> et a duré <Bold>{{duration}} secondes</Bold>.",
       "from_you": "par vous",
       "automatic": "automatiquement"
     },
