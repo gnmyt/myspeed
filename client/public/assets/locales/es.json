@@ -34,11 +34,11 @@
       "description": "MySpeed no ha podido acceder a la API de esta instancia. Vuelva a intentarlo más tarde."
     },
     "provider": {
+      "interface": "Interface",
       "server": "Servidor",
       "server_id": "ID de servidor",
       "choose_automatically": "Elige automáticamente",
-      "ookla_license": "He leído y acepto <Eula>el CLUF</Eula>, la <GDPR>política de privacidad</GDPR> y las <TOS>condiciones de servicio</TOS> de Ookla.",
-      "cloudflare_note": "Cloudflare no requiere ninguna configuración adicional"
+      "ookla_license": "He leído y acepto <Eula>el CLUF</Eula>, la <GDPR>política de privacidad</GDPR> y las <TOS>condiciones de servicio</TOS> de Ookla."
     }
   },
   "dropdown": {
@@ -210,7 +210,7 @@
     },
     "result": {
       "title": "Resultado de la prueba",
-      "description": "En esta prueba se alcanzó una velocidad máxima de descarga de <Bold>{{down}} Mbit/s</Bold> y una velocidad máxima de subida de <Bold>{{up}} Mbps</Bold>. Se creó <Bold>{{type}}</Bold> y tardó <Bold>{{duration}} segundos</Bold>.",
+      "description": "<Link>This test</Link> achieved a maximum download speed of <Bold>{{down}} Mbps</Bold> and a maximum upload speed of <Bold>{{up}} Mbps</Bold>. It was created <Bold>{{type}}</Bold> and took <Bold>{{duration}} Seconds</Bold>.",
       "from_you": "de ti",
       "automatic": "automático"
     },
