@@ -90,7 +90,7 @@ module.exports.importTests = async (data) => {
         if (entry.error === null) delete entry.error;
         if (entry.resultId === null) delete entry.resultId;
 
-        if (["custom", "auto"].includes(entry.type)) continue;
+        if (!["custom", "auto"].includes(entry.type)) continue;
         if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$/.test(entry.created)) continue;
 
         try {
