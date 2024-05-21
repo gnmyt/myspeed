@@ -34,7 +34,7 @@
       "description": "MySpeed无法到达该实例的API。请稍后再试。"
     },
     "provider": {
-      "interface": "Interface",
+      "interface": "界面",
       "server": "服务器",
       "server_id": "服务器ID",
       "choose_automatically": "自动选择",
@@ -138,8 +138,8 @@
     "json": "JSON",
     "import_tests": "进口测试",
     "tests_imported": "测试已导入",
-    "import_test_error": "An error occurred while importing the tests",
-    "import_config_error": "An error occurred while importing the configuration",
+    "import_test_error": "导入测试时发生错误",
+    "import_config_error": "导入配置时发生错误",
     "export": "出口",
     "import": "进口",
     "clear_history": "清除历史记录",
@@ -210,7 +210,7 @@
     },
     "result": {
       "title": "测试结果",
-      "description": "<Link>This test</Link> achieved a maximum download speed of <Bold>{{down}} Mbps</Bold> and a maximum upload speed of <Bold>{{up}} Mbps</Bold>. It was created <Bold>{{type}}</Bold> and took <Bold>{{duration}} Seconds</Bold>.",
+      "description": "<Link>该测试</Link>的最高下载速度为<Bold>{{down}} Mbps</Bold>，最高上传速度为<Bold>{{up}} Mbps</Bold>。创建 <Bold>{{type}}</Bold>耗时<Bold>{{duration}} 秒</Bold>。",
       "from_you": "来自你的",
       "automatic": "自动"
     },
