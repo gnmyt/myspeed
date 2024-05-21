@@ -138,8 +138,8 @@
     "json": "JSON",
     "import_tests": "Tests importeren",
     "tests_imported": "De tests zijn geïmporteerd",
-    "import_test_error": "An error occurred while importing the tests",
-    "import_config_error": "An error occurred while importing the configuration",
+    "import_test_error": "Er is een fout opgetreden tijdens het importeren van de tests",
+    "import_config_error": "Er is een fout opgetreden tijdens het importeren van de configuratie",
     "export": "Exporteer",
     "import": "Importeren",
     "clear_history": "Geschiedenis wissen",
@@ -210,7 +210,7 @@
     },
     "result": {
       "title": "Testresultaat",
-      "description": "<Link>This test</Link> achieved a maximum download speed of <Bold>{{down}} Mbps</Bold> and a maximum upload speed of <Bold>{{up}} Mbps</Bold>. It was created <Bold>{{type}}</Bold> and took <Bold>{{duration}} Seconds</Bold>.",
+      "description": "<Link>Deze test</Link> behaalde een maximale downloadsnelheid van <Bold>{{down}} Mbps</Bold> en een maximale uploadsnelheid van <Bold>{{up}} Mbps</Bold>. Hij werd gemaakt <Bold>{{type}}</Bold> en duurde <Bold>{{duration}} Seconden</Bold>.",
       "from_you": "van jou",
       "automatic": "automatisch"
     },
