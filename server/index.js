@@ -44,6 +44,7 @@ const run = async () => {
     await require('./controller/integrations').initialize();
 
     await require('./util/loadInterfaces').requestInterfaces();
+    setInterval(() => require('./util/loadInterfaces').requestInterfaces(), 3600000);
 
     if (process.env.PREVIEW_MODE !== "true") await require('./util/loadCli').load();
 
