@@ -122,7 +122,7 @@ module.exports.exportConfig = async () => {
 
     let configValues = await config.findAll();
     for (let i = 0; i < configValues.length; i++) {
-        if (configValues[i].key === "password") continue;
+        if (configValues[i].key === "password" || configValues[i].key === "interface") continue;
         obj.config[configValues[i].key] = configValues[i].value;
     }
 
