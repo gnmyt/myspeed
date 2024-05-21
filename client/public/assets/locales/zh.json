@@ -1,8 +1,22 @@
 {
   "failed": "失败",
+  "welcome": {
+    "step": "步骤",
+    "title": "欢迎来到 MySpeed！",
+    "subtext": "让我们首次设置 MySpeed。别担心，不会花很长时间。",
+    "provider_title": "选择供应商",
+    "provider_subtext": "在此选择您要使用的提供商。然后，该提供商将执行您的测试。",
+    "data_title": "设置最佳数据",
+    "data_subtext": "在此步骤中选择合同约定的速度",
+    "ms": "(毫秒)",
+    "mbps": "(单位：兆比特/秒)",
+    "accept_title": "接受条款",
+    "accept_subtext": "在此步骤中，我们将向您介绍 Ookla 许可证。请阅读并点击 \"完成 \"确认您已阅读并接受该许可。"
+  },
   "dialog": {
     "okay": "好的",
     "done": "准备就绪",
+    "continue": "继续",
     "apply": "是的，应用",
     "update": "更新",
     "close": "关闭",
@@ -15,19 +29,23 @@
       "wrong": "你输入的密码不正确",
       "unlock": "解锁"
     },
-    "accept": {
-      "title": "我们需要你的许可",
-      "description": "我们使用来自Ookla的服务。通过点击<Bold>接受</Bold>，您承认您已经阅读并同意Ookla的<EULA>EULA</EULA>、<Privacy>隐私声明</Privacy>以及<Terms>使用条款</Terms>。",
-      "button": "接受"
-    },
     "api": {
       "title": "无法访问API",
       "description": "MySpeed无法到达该实例的API。请稍后再试。"
+    },
+    "provider": {
+      "interface": "界面",
+      "server": "服务器",
+      "server_id": "服务器ID",
+      "choose_automatically": "自动选择",
+      "ookla_license": "我已阅读并接受 Ookla 的<Eula>EULA</Eula>、<GDPR>隐私政策</GDPR>和<TOS>服务条款</TOS>。"
     }
   },
   "dropdown": {
     "settings": "设置",
     "changes_applied": "更改已被保存。",
+    "language_changed": "语言有所改变。",
+    "provider_changed": "提供商已变更。",
     "view_changed": "观点被改变了。",
     "changes_unsaved": "你的修改没有被接受。检查你的输入。",
     "invalid": "输入无效",
@@ -35,11 +53,11 @@
     "upload": "最佳的上升速度",
     "download": "最佳的下行速度",
     "recommendations": "最优值",
-    "server": "更改服务器",
+    "change_provider": "更换提供商",
     "password": "更改密码",
     "cron": "设置频率",
     "time": "设置期限",
-    "export": "出口测试",
+    "storage": "管理存储",
     "pause_tests": "暂停测试",
     "resume_tests": "继续测试",
     "language": "改变语言",
@@ -62,10 +80,6 @@
       "rare": "很少 (每3小时一次)",
       "really_rare": "非常少 (每6小时一次)"
     },
-    "export": {
-      "json": "JSON文件",
-      "csv": "CSV文件"
-    },
     "level": {
       "no_access": "无法进入",
       "read_access": "只读访问"
@@ -80,10 +94,8 @@
     "download_placeholder": "下载速度 (Mbit/s)",
     "recommendations_title": "最优建议",
     "recommendations_set": "设置自动推荐？",
-    "server_title": "设置速度测试服务器",
+    "provider_title": "设置速度测试提供商",
     "manually": "手动设置",
-    "manual_server_title": "设置速度测试服务器",
-    "manual_server_id": "服务器ID",
     "new_password": "设置新密码",
     "password_placeholder": "新密码",
     "password_removed": "密码锁已被取消，设定的密码也已被删除。",
@@ -93,7 +105,6 @@
     "cron_rules": "克隆规则",
     "cron_next_test": "下一次测试：",
     "time_title": "显示最后一次测试...",
-    "export_title": "出口速度测试",
     "download": "下载",
     "pause_title": "速度测试暂停了，因为...",
     "hours": "小时",
@@ -116,6 +127,34 @@
       "description": "该功能仍处于测试阶段。如果你发现错误，请报告 <Link>这里</Link>."
     }
   },
+  "storage": {
+    "speedtests": "速度测试",
+    "configuration": "配置",
+    "stored_tests": "存储测试",
+    "tests": "测试",
+    "export_tests": "出口测试",
+    "tests_exported": "测试已导出",
+    "csv": "CSV",
+    "json": "JSON",
+    "import_tests": "进口测试",
+    "tests_imported": "测试已导入",
+    "import_test_error": "导入测试时发生错误",
+    "import_config_error": "导入配置时发生错误",
+    "export": "出口",
+    "import": "进口",
+    "clear_history": "清除历史记录",
+    "history_cleared": "历史记录已清除",
+    "delete": "删除",
+    "confirm_delete": "是，删除",
+    "export_settings": "导出设置",
+    "import_settings": "导入设置",
+    "factory_reset": "出厂重置",
+    "factory_reset_completed": "出厂重置已完成",
+    "reset": "重置",
+    "confirm_reset": "是，重置",
+    "settings_exported": "设置已导出",
+    "settings_imported": "设置已导入"
+  },
   "latest": {
     "ping": "Ping",
     "ping_unit": "ms",
@@ -126,7 +165,7 @@
     "before": "从"
   },
   "info": {
-    "credits": "<Link>MySpeed</Link>是由GNMYT提供的，并使用Ookla的<CLILink>Speedtest CLI</CLILink>。",
+    "credits": "<MSpeed>MySpeed</MSpeed>是由 GNMYT 提供的一个开源项目。请在<Github>GitHub</Github>上留言或<Donate>捐款</Donate>支持该项目。",
     "recommendations_error": "必须至少做10次测试，这样才能确定平均数。无论这些测试是手动还是自动完成的，都没有关系。",
     "recommendations_info": "根据最近10次测试结果，最佳的Ping延迟为<Bold>{{ping}} 毫秒</Bold>，下载速度为<Bold>{{down}} Mbit/s</Bold>，上传速度为<Bold>{{up}} Mbit/s</Bold>。最好参考你的互联网合同，并只在与之相符的情况下采用这些值。",
     "update": "对{{version}} 版本的更新是可用的。参见<Changes>变化</Changes>和<DLLink>下载更新</DLLink>。",
@@ -171,7 +210,7 @@
     },
     "result": {
       "title": "测试结果",
-      "description": "此测试达到了最大下载速度<Bold>{{down}} Mbit/s</Bold>和最大上传速度<Bold>{{up}} Mbit/s</Bold>。它是一个<Bold>{{type}}</Bold>测试，持续了<Bold>{{duration}} 秒</Bold>。",
+      "description": "<Link>该测试</Link>的最高下载速度为<Bold>{{down}} Mbps</Bold>，最高上传速度为<Bold>{{up}} Mbps</Bold>。创建 <Bold>{{type}}</Bold>耗时<Bold>{{duration}} 秒</Bold>。",
       "from_you": "来自你的",
       "automatic": "自动"
     },
@@ -309,6 +348,19 @@
         "send_finished": "发送完成",
         "finished_message": "已完成的信息",
         "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
+      }
+    },
+    "pushover": {
+      "title": "推杆",
+      "fields": {
+        "token": "应用程序令牌",
+        "user_key": "用户密钥",
+        "error_message": "错误信息",
+        "error_message_placeholder": "错误： %error%",
+        "send_failed": "发送错误信息",
+        "send_finished": "发送完成的信息",
+        "finished_message": "完成信息",
+        "finished_message_placeholder": "%ping% 毫秒， %download% Mbps， %upload% Mbps"
       }
     },
     "healthChecks": {

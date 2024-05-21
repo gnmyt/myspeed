@@ -1,8 +1,22 @@
 {
   "failed": "Mislukt",
+  "welcome": {
+    "step": "Stap",
+    "title": "Welkom bij MySpeed!",
+    "subtext": "Laten we MySpeed voor de eerste keer instellen. Maak je geen zorgen, het duurt niet lang.",
+    "provider_title": "Kies een aanbieder",
+    "provider_subtext": "Selecteer hier de provider die je wilt gebruiken. Deze provider zal dan je tests uitvoeren.",
+    "data_title": "Stel optimale gegevens in",
+    "data_subtext": "Selecteer je contractueel overeengekomen snelheden in deze stap",
+    "ms": "(in ms)",
+    "mbps": "(in Mbps)",
+    "accept_title": "Accepteer de voorwaarden",
+    "accept_subtext": "In deze stap willen we je informeren over de Ookla licentie. Lees het en bevestig dat je het gelezen en geaccepteerd hebt door op \"Gereed\" te klikken."
+  },
   "dialog": {
     "okay": "Oké",
     "done": "Klaar",
+    "continue": "Ga verder",
     "apply": "Ja, neem over",
     "update": "Vernieuwen",
     "close": "Sluit",
@@ -15,19 +29,23 @@
       "wrong": "Het ingevoerde wachtwoord is onjuist",
       "unlock": "Ontgrendel"
     },
-    "accept": {
-      "title": "We hebben uw toestemming nodig",
-      "description": "We gebruiken diensten van Ookla. Door op <Bold>Accept</Bold> te klikken, bevestig je dat je de <EULA>EULA</EULA>, <Privacy>Privacy Statement</Privacy> en <Terms>Terms of Use</Terms> van Ookla hebt gelezen en ermee akkoord gaat.",
-      "button": "Accepteer"
-    },
     "api": {
       "title": "API niet toegankelijk",
       "description": "MySpeed kon de API van deze instantie niet bereiken. Probeer het later opnieuw."
+    },
+    "provider": {
+      "interface": "Interface",
+      "server": "Server",
+      "server_id": "Server-ID",
+      "choose_automatically": "Automatisch kiezen",
+      "ookla_license": "Ik heb de <Eula>EULA</Eula>, <GDPR>het privacybeleid</GDPR> en <TOS>de servicevoorwaarden</TOS> van Ookla gelezen en accepteer deze."
     }
   },
   "dropdown": {
     "settings": "Instellingen",
     "changes_applied": "De wijzigingen zijn opgeslagen.",
+    "language_changed": "De taal is veranderd.",
+    "provider_changed": "De provider is gewijzigd.",
     "view_changed": "Het uitzicht was veranderd.",
     "changes_unsaved": "Je wijzigingen zijn niet geaccepteerd. Controleer je invoer.",
     "invalid": "Invoer ongeldig",
@@ -35,11 +53,11 @@
     "upload": "Optimale snelheid",
     "download": "Optimale daalsnelheid",
     "recommendations": "Optimale waarden",
-    "server": "Server wijzigen",
+    "change_provider": "Verander van leverancier",
     "password": "Wachtwoord wijzigen",
     "cron": "Frequentie instellen",
     "time": "Ingestelde periode",
-    "export": "Tests exporteren",
+    "storage": "Opslag beheren",
     "pause_tests": "Pauzetests",
     "resume_tests": "Doorgaan met testen",
     "language": "Taal wijzigen",
@@ -62,10 +80,6 @@
       "rare": "Zelden (om de 3 uur)",
       "really_rare": "Zeer zelden (om de 6 uur)"
     },
-    "export": {
-      "json": "JSON-bestand",
-      "csv": "CSV-bestand"
-    },
     "level": {
       "no_access": "Geen toegang",
       "read_access": "Alleen-lezen toegang"
@@ -80,10 +94,8 @@
     "download_placeholder": "Neerwaartse snelheid (Mbit/s)",
     "recommendations_title": "Optimale aanbevelingen",
     "recommendations_set": "Automatische aanbevelingen instellen?",
-    "server_title": "Snelheidstestserver instellen",
+    "provider_title": "Snelheidstest-provider instellen",
     "manually": "Handmatig instellen",
-    "manual_server_title": "Snelheidstestserver instellen",
-    "manual_server_id": "Server-ID",
     "new_password": "Nieuw wachtwoord instellen",
     "password_placeholder": "Nieuw wachtwoord",
     "password_removed": "De wachtwoordvergrendeling is verwijderd en het ingestelde wachtwoord is verwijderd.",
@@ -93,7 +105,6 @@
     "cron_rules": "Cron-regel",
     "cron_next_test": "Volgende test:",
     "time_title": "Tests van de laatste ...",
-    "export_title": "Snelheidstests exporteren",
     "download": "Downloaden",
     "pause_title": "Snelheidstests pauzeren voor...",
     "hours": "Uren",
@@ -107,7 +118,7 @@
     "running_tooltip": "Snelheidstest wordt uitgevoerd",
     "start_tooltip": "Snelheidstest starten",
     "new_update": "Update beschikbaar",
-    "download": "downloaden",
+    "download": "Downloaden",
     "paused": "Snelheidstests zijn momenteel gepauzeerd. Ga door als je er een wilt doen.",
     "running": "Er wordt al een snelheidstest uitgevoerd. Een ogenblik geduld alstublieft.",
     "admin_login": "Beheerderslogin",
@@ -115,6 +126,34 @@
       "title": "Beta-versie",
       "description": "Deze functie is nog in betafase. Als je bugs vindt, meld ze dan <Link>hier</Link>."
     }
+  },
+  "storage": {
+    "speedtests": "Snelheidstests",
+    "configuration": "Configuratie",
+    "stored_tests": "Opgeslagen tests",
+    "tests": "Tests",
+    "export_tests": "Tests exporteren",
+    "tests_exported": "De tests zijn geëxporteerd",
+    "csv": "CSV",
+    "json": "JSON",
+    "import_tests": "Tests importeren",
+    "tests_imported": "De tests zijn geïmporteerd",
+    "import_test_error": "Er is een fout opgetreden tijdens het importeren van de tests",
+    "import_config_error": "Er is een fout opgetreden tijdens het importeren van de configuratie",
+    "export": "Exporteer",
+    "import": "Importeren",
+    "clear_history": "Geschiedenis wissen",
+    "history_cleared": "De geschiedenis is gewist",
+    "delete": "Verwijder",
+    "confirm_delete": "Ja, verwijderen",
+    "export_settings": "Instellingen exporteren",
+    "import_settings": "Instellingen importeren",
+    "factory_reset": "Fabrieksreset",
+    "factory_reset_completed": "De fabrieksreset is voltooid",
+    "reset": "Reset",
+    "confirm_reset": "Ja, opnieuw instellen",
+    "settings_exported": "De instellingen zijn geëxporteerd",
+    "settings_imported": "De instellingen zijn geïmporteerd"
   },
   "latest": {
     "ping": "Ping",
@@ -126,7 +165,7 @@
     "before": "van"
   },
   "info": {
-    "credits": "<Link>MySpeed</Link> wordt geleverd door GNMYT en gebruikt de <CLILink>Speedtest CLI</CLILink> van Ookla.",
+    "credits": "<MSpeed>MySpeed</MSpeed> is een open source project van GNMYT. Laat een ster achter op <Github>GitHub</Github> of <Donate>doneer</Donate> om het project te steunen.",
     "recommendations_error": "Je moet minstens 10 tests doen zodat je een gemiddelde kunt bepalen. Het maakt niet uit of de tests handmatig of automatisch zijn uitgevoerd.",
     "recommendations_info": "Op basis van de laatste 10 testresultaten bleek dat de optimale ping <Bold>{{ping}} ms</Bold> was, de download <Bold>{{down}} Mbit/s</Bold> en de upload op <Bold>{{up}} Mbit/s</Bold>. Je kunt het beste je internetcontract als richtlijn gebruiken en het alleen overnemen als het overeenkomt.",
     "update": "Er is een update voor versie {{version}} beschikbaar. Zie <Changes>de wijzigingen</Changes> en <DLLink>download de update</DLLink>.",
@@ -171,7 +210,7 @@
     },
     "result": {
       "title": "Testresultaat",
-      "description": "Deze test behaalde een maximale downloadsnelheid van <Bold>{{down}} Mbit/s</Bold> en een maximale uploadsnelheid van <Bold>{{up}} Mbit/s</Bold>. De test werd gemaakt <Bold>{{type}}</Bold> en duurde <Bold>{{duration}} seconden</Bold>.",
+      "description": "<Link>Deze test</Link> behaalde een maximale downloadsnelheid van <Bold>{{down}} Mbps</Bold> en een maximale uploadsnelheid van <Bold>{{up}} Mbps</Bold>. Hij werd gemaakt <Bold>{{type}}</Bold> en duurde <Bold>{{duration}} Seconden</Bold>.",
       "from_you": "van jou",
       "automatic": "automatisch"
     },
@@ -247,7 +286,7 @@
     "update_password": "Werk het wachtwoord van dit knooppunt bij",
     "password_outdated": "Wachtwoord verouderd",
     "password_updated": "Het wachtwoord is succesvol bijgewerkt",
-    "preview_active": "Het toevoegen en verwijderen van servers is uitgeschakeld in demomodus",
+    "preview_active": "Het toevoegen en verwijderen van servers is uitgeschakeld in demomodus.",
     "placeholder": {
       "name": "MySpeed instantie",
       "url": "https://uw-server.nt"
@@ -275,7 +314,7 @@
   },
   "integrations": {
     "none_active": "Deze integratie is niet actief. <br/><Bold>Voeg toe</Bold>",
-    "preview_active": "Integraties zijn uitgeschakeld in demomodus",
+    "preview_active": "Integraties zijn uitgeschakeld in demomodus.",
     "display_name": "Naam integratie",
     "create": "Voeg toe",
     "activity": {
@@ -309,6 +348,19 @@
         "send_finished": "Volledig ingevuld verzenden",
         "finished_message": "Voltooid bericht",
         "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
+      }
+    },
+    "pushover": {
+      "title": "Pushover",
+      "fields": {
+        "token": "App-token",
+        "user_key": "Gebruikers sleutel",
+        "error_message": "Foutmelding",
+        "error_message_placeholder": "Fout: %error%",
+        "send_failed": "Foutmeldingen verzenden",
+        "send_finished": "Voltooide berichten verzenden",
+        "finished_message": "Voltooid bericht",
+        "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
       }
     },
     "healthChecks": {

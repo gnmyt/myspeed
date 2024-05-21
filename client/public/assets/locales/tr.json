@@ -1,8 +1,22 @@
 {
   "failed": "Başarısız",
+  "welcome": {
+    "step": "Adım",
+    "title": "MySpeed'e hoş geldiniz!",
+    "subtext": "MySpeed'i ilk kez kuralım. Merak etmeyin, uzun sürmeyecek.",
+    "provider_title": "Bir sağlayıcı seçin",
+    "provider_subtext": "Burada kullanmak istediğiniz sağlayıcıyı seçin. Bu sağlayıcı daha sonra testlerinizi gerçekleştirecektir.",
+    "data_title": "Optimum verileri ayarlayın",
+    "data_subtext": "Bu adımda sözleşmeyle kararlaştırılan hızlarınızı seçin",
+    "ms": "(ms cinsinden)",
+    "mbps": "(Mbps cinsinden)",
+    "accept_title": "Şartları kabul edin",
+    "accept_subtext": "Bu adımda sizi Ookla lisansı hakkında bilgilendirmek istiyoruz. Okuyun ve \"Bitti\" butonuna tıklayarak okuduğunuzu ve kabul ettiğinizi onaylayın."
+  },
   "dialog": {
     "okay": "Tamam",
     "done": "Tamamlandı",
+    "continue": "Devam et",
     "apply": "Evet, uygula",
     "update": "Güncelle",
     "close": "Kapat",
@@ -15,19 +29,23 @@
       "wrong": "Girdiğiniz şifre yanlış",
       "unlock": "Kilidi aç"
     },
-    "accept": {
-      "title": "İzninize ihtiyacımız var",
-      "description": "Ookla'nın hizmetlerini kullanıyoruz. <Bold>Kabul Et</Bold>e tıklayarak, Ookla'nın <EULA>EULA</EULA>, <Privacy>Gizlilik Bildirimi</Privacy> ve <Terms>Kullanım Şartları</Terms>ni okuduğunuzu ve kabul ettiğinizi onaylamış olursunuz.",
-      "button": "Kabul et"
-    },
     "api": {
       "title": "API'ye erişilemiyor",
       "description": "MySpeed bu örneğin API'sine ulaşamadı. Lütfen daha sonra tekrar deneyin."
+    },
+    "provider": {
+      "interface": "Arayüz",
+      "server": "Sunucu",
+      "server_id": "Sunucu Kimliği",
+      "choose_automatically": "Otomatik olarak seçin",
+      "ookla_license": "Ookla'nın <Eula>EULA</Eula>'sını, <GDPR>gizlilik politikasını</GDPR> ve <TOS>hizmet şartlarını</TOS> okudum ve kabul ediyorum."
     }
   },
   "dropdown": {
     "settings": "Ayarlar",
     "changes_applied": "Değişiklikler kaydedildi.",
+    "language_changed": "Dil değiştirilmiştir.",
+    "provider_changed": "Sağlayıcı değiştirildi.",
     "view_changed": "Görünüm değiştirildi.",
     "changes_unsaved": "Değişiklikleriniz uygulanamadı. Girişinizi kontrol edin.",
     "invalid": "Geçersiz giriş",
@@ -35,11 +53,11 @@
     "upload": "Optimum yükleme hızı",
     "download": "Optimum indirme hızı",
     "recommendations": "Öneriler",
-    "server": "Sunucu Değiştir",
+    "change_provider": "Sağlayıcıyı değiştirin",
     "password": "Şifre Değiştir",
     "cron": "Frekans ayarlama",
     "time": "Süreyi ayarla",
-    "export": "Testleri dışa aktar",
+    "storage": "Depolamayı yönetin",
     "pause_tests": "Testleri duraklat",
     "resume_tests": "Testlere devam et",
     "language": "Dili değiştir",
@@ -62,10 +80,6 @@
       "rare": "Nadiren (her 3 saatte bir)",
       "really_rare": "Çok nadiren (her 6 saatte bir)"
     },
-    "export": {
-      "json": "JSON dosyası",
-      "csv": "CSV dosyası"
-    },
     "level": {
       "no_access": "Erişim yok",
       "read_access": "Salt Okunur Erişim"
@@ -80,10 +94,8 @@
     "download_placeholder": "İndirme hızı (Mbps)",
     "recommendations_title": "Optimum öneriler",
     "recommendations_set": "Otomatik tavsiyeleri ayarla?",
-    "server_title": "Speedtest sunucusunu ayarla",
+    "provider_title": "Speedtest sağlayıcısını ayarla",
     "manually": "Manuel olarak ayarla",
-    "manual_server_title": "Speedtest sunucusunu ayarla",
-    "manual_server_id": "Sunucu Kimliği",
     "new_password": "Yeni bir şifre belirle",
     "password_placeholder": "Yeni şifre",
     "password_removed": "Parola kilidi kaldırıldı ve belirlenen parola kaldırıldı.",
@@ -93,7 +105,6 @@
     "cron_rules": "Cron kuralı",
     "cron_next_test": "Sonraki test:",
     "time_title": "Son testleri göster ...",
-    "export_title": "Speedtestleri dışa aktar",
     "download": "İndir",
     "pause_title": "Speedtestleri duraklat...",
     "hours": "Saatler",
@@ -116,6 +127,34 @@
       "description": "Bu özellik hala beta aşamasında. Herhangi bir hata bulursanız lütfen bunları <Link>buradan</Link> bildirin."
     }
   },
+  "storage": {
+    "speedtests": "Hız testleri",
+    "configuration": "Konfigürasyon",
+    "stored_tests": "Saklanan testler",
+    "tests": "Testler",
+    "export_tests": "İhracat testleri",
+    "tests_exported": "Testler dışa aktarıldı",
+    "csv": "CSV",
+    "json": "JSON",
+    "import_tests": "İthalat testleri",
+    "tests_imported": "Testler içe aktarıldı",
+    "import_test_error": "Testler içe aktarılırken bir hata oluştu",
+    "import_config_error": "Yapılandırma içe aktarılırken bir hata oluştu",
+    "export": "İhracat",
+    "import": "İthalat",
+    "clear_history": "Geçmişi temizle",
+    "history_cleared": "Geçmiş temizlendi",
+    "delete": "Silme",
+    "confirm_delete": "Evet, silin",
+    "export_settings": "Dışa aktarma ayarları",
+    "import_settings": "Ayarları içe aktar",
+    "factory_reset": "Fabrika ayarlarına sıfırlama",
+    "factory_reset_completed": "Fabrika ayarlarına sıfırlama işlemi tamamlandı",
+    "reset": "Sıfırla",
+    "confirm_reset": "Evet, sıfırla",
+    "settings_exported": "Ayarlar dışa aktarıldı",
+    "settings_imported": "Ayarlar içe aktarıldı"
+  },
   "latest": {
     "ping": "Ping",
     "ping_unit": "ms",
@@ -126,7 +165,7 @@
     "before": "önce"
   },
   "info": {
-    "credits": "<Link>MySpeed</Link>, GNMYT tarafından sağlanmakta olup Ookla'dan <CLILink>Speedtest CLI</CLILink>'ı kullanmaktadır.",
+    "credits": "<MSpeed>MySpeed</MSpeed>, GNMYT tarafından sağlanan açık kaynaklı bir projedir. <Github>GitHub</Github> 'da bir yıldız bırakın veya projeyi desteklemek için <Donate>bağış</Donate> yapın.",
     "recommendations_error": "Bir ortalama almak için en az 10 test yapmanız gerekmektedir. Testler manuel veya otomatik yapılmış olmasının bir önemi yoktur.",
     "recommendations_info": "Son 10 test baz alındığında, optimum ping'in <Bold>{{ping}} ms</Bold>, indirme hızının <Bold>{{down}} Mbps</Bold> ve yükleme hızının <Bold>{{up}} Mbps</Bold> olduğu bulundu. İnternet sözleşmenize yönelik olarak kendinizi en iyi şekilde yönlendirmeniz ve yalnızca sözleşmenizle uyumlu olanı kabul etmeniz en iyisi karar olacaktır.",
     "update": "Sürüm {{version}} için bir güncelleme mevcut. <Changes>Değişiklikleri</Changes> görüntüleyin ve <DLLink>güncellemeyi indirin</DLLink>.",
@@ -171,7 +210,7 @@
     },
     "result": {
       "title": "Test sonucu",
-      "description": "Bu test, bir maksimum indirme hızı olan <Bold>{{down}} Mbps</Bold> ve bir maksimum yükleme hızı olan <Bold>{{up}} Mbps</Bold> elde etti. <Bold>{{type}}</Bold> tarafından oluşturuldu ve <Bold>{{duration}} Saniye</Bold> sürdü.",
+      "description": "<Link>Bu testte</Link> maksimum indirme hızı <Bold>{{down}} M</Bold> bps ve maksimum yükleme hızı <Bold>{{up}} Mbps</Bold> olarak elde edilmiştir. Oluşturuldu <Bold>{{type}}</Bold> ve <Bold>{{duration}} saniye</Bold> sürdü.",
       "from_you": "siz tarafından",
       "automatic": "otomatik olarak"
     },
@@ -309,6 +348,19 @@
         "send_finished": "Tamamlanan mesajları gönder",
         "finished_message": "Tamamlanan mesaj",
         "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
+      }
+    },
+    "pushover": {
+      "title": "Pushover",
+      "fields": {
+        "token": "Uygulama belirteci",
+        "user_key": "Kullanıcı anahtarı",
+        "error_message": "Hata mesajı",
+        "error_message_placeholder": "Hata: %error%",
+        "send_failed": "Hata mesajları gönderme",
+        "send_finished": "Tamamlanan mesajları gönderme",
+        "finished_message": "Bitti mesajı",
+        "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
       }
     },
     "healthChecks": {

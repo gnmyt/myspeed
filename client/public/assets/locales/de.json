@@ -1,8 +1,22 @@
 {
   "failed": "Fehlgeschlagen",
+  "welcome": {
+    "step": "Schritt",
+    "title": "Willkommen bei MySpeed!",
+    "subtext": "Lass uns MySpeed zum ersten Mal einrichten. Keine Sorge, es wird nicht lange dauern.",
+    "provider_title": "Wähle einen Anbieter",
+    "provider_subtext": "Wähle hier den Anbieter aus, den du verwenden möchtest. Dieser Anbieter wird dann deine Tests durchführen.",
+    "data_title": "Optimale Daten einstellen",
+    "data_subtext": "Wähle in diesem Schritt deine vertraglich vereinbarten Geschwindigkeiten",
+    "ms": "(in ms)",
+    "mbps": "(in Mbit/s)",
+    "accept_title": "Bedingungen akzeptieren",
+    "accept_subtext": "In diesem Schritt möchten wir dich über die Ookla-Lizenz informieren. Lies sie und bestätige, dass du sie gelesen hast und akzeptierst, indem du auf \"Fertig\" klickst."
+  },
   "dialog": {
     "okay": "Okay",
     "done": "Fertig",
+    "continue": "Weiter",
     "apply": "Ja, übernehmen",
     "update": "Aktualisieren",
     "close": "Schließen",
@@ -15,19 +29,23 @@
       "wrong": "Das von dir eingegebene Passwort ist falsch",
       "unlock": "Sperre aufheben"
     },
-    "accept": {
-      "title": "Wir brauchen deine Genehmigung",
-      "description": "Wir nutzen Dienste von Ookla. Mit dem Klick auf <Bold>Akzeptieren</Bold> bestätigst du, dass du die <EULA>EULA</EULA>, <Privacy>Datenschutzerklärung</Privacy> und <Terms>Nutzungsbedingungen</Terms>  von Ookla gelesen hast und diesen zustimmst.",
-      "button": "Akzeptieren"
-    },
     "api": {
       "title": "API nicht erreichbar",
       "description": "MySpeed konnte die API dieser Instanz nicht erreichen. Bitte versuche es später erneut."
+    },
+    "provider": {
+      "interface": "Schnittstelle",
+      "server": "Server",
+      "server_id": "Server-ID",
+      "choose_automatically": "Automatisch wählen",
+      "ookla_license": "Ich habe die <Eula>EULA</Eula>, die <GDPR>Datenschutzrichtlinie</GDPR> und die <TOS>Nutzungsbedingungen</TOS> von Ookla gelesen und akzeptiere sie."
     }
   },
   "dropdown": {
     "settings": "Einstellungen",
     "changes_applied": "Die Änderungen wurden gespeichert.",
+    "language_changed": "Die Sprache wurde geändert.",
+    "provider_changed": "Der Anbieter wurde gewechselt.",
     "view_changed": "Die Ansicht wurde gewechselt.",
     "changes_unsaved": "Deine Änderungen wurden nicht übernommen. Überprüfe deine Eingabe.",
     "invalid": "Eingabe ungültig",
@@ -35,11 +53,11 @@
     "upload": "Optimaler Up-Speed",
     "download": "Optimaler Down-Speed",
     "recommendations": "Optimale Werte",
-    "server": "Server wechseln",
+    "change_provider": "Anbieter wechseln",
     "password": "Passwort ändern",
     "cron": "Häufigkeit einstellen",
     "time": "Zeitraum festlegen",
-    "export": "Tests exportieren",
+    "storage": "Speicher verwalten",
     "pause_tests": "Tests pausieren",
     "resume_tests": "Tests fortsetzen",
     "language": "Sprache ändern",
@@ -62,10 +80,6 @@
       "rare": "Selten (alle 3 Stunden)",
       "really_rare": "Sehr selten (alle 6 Stunden)"
     },
-    "export": {
-      "json": "JSON-Datei",
-      "csv": "CSV-Datei"
-    },
     "level": {
       "no_access": "Kein Zugriff",
       "read_access": "Nur Lesezugriff"
@@ -80,10 +94,8 @@
     "download_placeholder": "Down-Speed (Mbit/s)",
     "recommendations_title": "Optimale Empfehlungen",
     "recommendations_set": "Automatische Empfehlungen setzen?",
-    "server_title": "Speedtest-Server setzen",
+    "provider_title": "Speedtest-Anbieter einstellen",
     "manually": "Manuell festlegen",
-    "manual_server_title": "Speedtest-Server setzen",
-    "manual_server_id": "Server-ID",
     "new_password": "Neues Passwort festlegen",
     "password_placeholder": "Neues Passwort",
     "password_removed": "Die Passwortsperre wurde aufgehoben und das festgelegte Passwort wurde entfernt.",
@@ -93,7 +105,6 @@
     "cron_rules": "Cron-Regel",
     "cron_next_test": "Nächster Test:",
     "time_title": "Zeige Tests der letzten ...",
-    "export_title": "Speedtests exportieren",
     "download": "Herunterladen",
     "pause_title": "Speedtests pausieren für...",
     "hours": "Stunden",
@@ -116,6 +127,34 @@
       "description": "Diese Funktion befindet sich noch in der Beta-Phase. Wenn du Fehler findest, melde sie bitte <Link>hier</Link>."
     }
   },
+  "storage": {
+    "speedtests": "Speedtests",
+    "configuration": "Konfiguration",
+    "stored_tests": "Gespeicherte Tests",
+    "tests": "Tests",
+    "export_tests": "Tests exportieren",
+    "tests_exported": "Die Tests wurden exportiert",
+    "csv": "CSV",
+    "json": "JSON",
+    "import_tests": "Tests importieren",
+    "tests_imported": "Die Tests wurden importiert",
+    "import_test_error": "Beim Importieren der Tests ist ein Fehler aufgetreten",
+    "import_config_error": "Beim Importieren der Konfiguration ist ein Fehler aufgetreten",
+    "export": "Exportieren",
+    "import": "Importieren",
+    "clear_history": "Verlauf leeren",
+    "history_cleared": "Der Verlauf wurde gelöscht",
+    "delete": "Löschen",
+    "confirm_delete": "Ja, löschen",
+    "export_settings": "Einstellungen exportieren",
+    "import_settings": "Einstellungen importieren",
+    "factory_reset": "Werkseinstellungen",
+    "factory_reset_completed": "Das Zurücksetzen auf die Werkseinstellungen wurde abgeschlossen",
+    "reset": "Zurücksetzen",
+    "confirm_reset": "Ja, zurücksetzen",
+    "settings_exported": "Die Einstellungen wurden exportiert",
+    "settings_imported": "Die Einstellungen wurden importiert"
+  },
   "latest": {
     "ping": "Ping",
     "ping_unit": "ms",
@@ -126,7 +165,7 @@
     "before": "vor"
   },
   "info": {
-    "credits": "<Link>MySpeed</Link> wird von GNMYT bereitgestellt und verwendet die <CLILink>Speedtest-CLI</CLILink> von Ookla.",
+    "credits": "<MSpeed>MySpeed</MSpeed> ist ein Open-Source-Projekt von GNMYT. Hinterlasse einen Stern auf <Github>GitHub</Github> oder <Donate>spende</Donate>, um das Projekt zu unterstützen.",
     "recommendations_error": "Du musst mindestens 10 Tests machen, damit ein Durchschnitt ermittelt werden kann. Ob die Tests manuell oder automatisch durchgeführt wurden ist egal.",
     "recommendations_info": "Anhand der letzten 10 Testergebnisse wurde festgestellt, dass der optimale Ping bei <Bold>{{ping}} ms</Bold>, der Download bei <Bold>{{down}} Mbit/s</Bold> und der Upload bei <Bold>{{up}} Mbit/s</Bold> liegt. Orientiere dich am besten an deinem Internetvertrag und übernehme es nur, wenn es mit dem übereinstimmt.",
     "update": "Ein Update auf die Version {{version}} ist verfügbar. Sieh dir <Changes>die Änderungen an</Changes> und <DLLink>lade dir das Update herunter</DLLink>.",
@@ -171,7 +210,7 @@
     },
     "result": {
       "title": "Testergebnis",
-      "description": "Dieser Test erreichte eine maximale Download-Geschwindigkeit von <Bold>{{down}} Mbit/s</Bold> und eine maximale Upload-Geschwindigkeit von <Bold>{{up}} Mbit/s</Bold>. Er wurde <Bold>{{type}}</Bold> angelegt und hat <Bold>{{duration}} Sekunden</Bold> gedauert.",
+      "description": "<Link>Bei diesem Test</Link> wurde eine maximale Download-Geschwindigkeit von <Bold>{{down}} Mbps</Bold> und eine maximale Upload-Geschwindigkeit von <Bold>{{up}} Mbps</Bold> erreicht. Er wurde erstellt <Bold>{{type}}</Bold> und dauerte <Bold>{{duration}} Sekunden</Bold>.",
       "from_you": "von dir",
       "automatic": "automatisch"
     },
@@ -306,6 +345,19 @@
         "error_message": "Fehlernachricht",
         "error_message_placeholder": "Fehler: %error%",
         "send_failed": "Fehlernachrichten senden",
+        "send_finished": "Abgeschlossene senden",
+        "finished_message": "Abgeschlossen-Nachricht",
+        "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
+      }
+    },
+    "pushover": {
+      "title": "Pushover",
+      "fields": {
+        "token": "App-Token",
+        "user_key": "Benutzerschlüssel",
+        "error_message": "Fehlermeldung",
+        "error_message_placeholder": "Fehler: %error%",
+        "send_failed": "Fehlermeldungen senden",
         "send_finished": "Abgeschlossene senden",
         "finished_message": "Abgeschlossen-Nachricht",
         "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"

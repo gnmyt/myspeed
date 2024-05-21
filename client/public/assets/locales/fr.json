@@ -1,8 +1,22 @@
 {
   "failed": "Échec",
+  "welcome": {
+    "step": "Étape",
+    "title": "Bienvenue sur MySpeed !",
+    "subtext": "Configurons MySpeed pour la première fois. Ne t'inquiète pas, cela ne prendra pas longtemps.",
+    "provider_title": "Choisis un fournisseur",
+    "provider_subtext": "Sélectionne ici le prestataire que tu veux utiliser. Ce prestataire effectuera ensuite tes tests.",
+    "data_title": "Définir les données optimales",
+    "data_subtext": "Sélectionne tes vitesses convenues par contrat dans cette étape",
+    "ms": "(en ms)",
+    "mbps": "(en Mbps)",
+    "accept_title": "Accepte les conditions",
+    "accept_subtext": "Dans cette étape, nous souhaitons t'informer sur la licence Ookla. Lis-la et confirme que tu l'as lue et que tu l'acceptes en cliquant sur \"Terminé\"."
+  },
   "dialog": {
     "okay": "Ok",
     "done": "Terminé",
+    "continue": "Continue",
     "apply": "Oui, appliquer",
     "update": "Mettre à jour",
     "close": "Fermer",
@@ -15,19 +29,23 @@
       "wrong": "Le mot de passe entré est incorrect",
       "unlock": "Déverrouiller"
     },
-    "accept": {
-      "title": "Nous avons besoin de votre permission",
-      "description": "Nous utilisons les services d'Ookla. En cliquant sur <Bold>Accepter</Bold>, vous reconnaissez avoir lu et accepté les conditions de <EULA>Ookla</EULA>, <Privacy>la Déclaration de confidentialité</Privacy> et <Terms>les Conditions d'utilisation</Terms>.",
-      "button": "Accepter"
-    },
     "api": {
       "title": "API inaccessible",
       "description": "MySpeed n'a pas pu accéder à l'API de cette instance. Veuillez réessayer plus tard."
+    },
+    "provider": {
+      "interface": "Interface",
+      "server": "Serveur",
+      "server_id": "ID du serveur",
+      "choose_automatically": "Choisis automatiquement",
+      "ookla_license": "J'ai lu et j'accepte le <Eula>CLUF</Eula>, la <GDPR>politique de confidentialité</GDPR> et les <TOS>conditions de service</TOS> d'Ookla."
     }
   },
   "dropdown": {
     "settings": "Paramètres",
     "changes_applied": "Vos changements ont été enregistrés.",
+    "language_changed": "La langue a été modifiée.",
+    "provider_changed": "Le fournisseur a été modifié.",
     "view_changed": "L'affichage a été modifié.",
     "changes_unsaved": "Vos modifications n'ont pas été appliquées. Vérifiez vos entrées.",
     "invalid": "Entrée invalide",
@@ -35,11 +53,11 @@
     "upload": "Vitesse optimale de téléversement",
     "download": "Vitesse optimale de téléchargement",
     "recommendations": "Recommandations",
-    "server": "Changer de serveur",
+    "change_provider": "Changer de fournisseur",
     "password": "Changer le mot de passe",
     "cron": "Définir la fréquence",
     "time": "Définir la période",
-    "export": "Exporter les tests",
+    "storage": "Gérer le stockage",
     "pause_tests": "Mettre en pause les tests",
     "resume_tests": "Reprendre les tests",
     "language": "Changer de langue",
@@ -62,10 +80,6 @@
       "rare": "Rarement (toutes les 3 heures)",
       "really_rare": "Très rarement (toutes les 6 heures)"
     },
-    "export": {
-      "json": "Fichier JSON",
-      "csv": "Fichier CSV"
-    },
     "level": {
       "no_access": "Accès Refusé",
       "read_access": "Accès en lecture seule"
@@ -80,10 +94,8 @@
     "download_placeholder": "Vitesse de téléchargement (Mbps)",
     "recommendations_title": "Recommandations optimales",
     "recommendations_set": "Définir des recommandations automatiques ?",
-    "server_title": "Définir le serveur de test de vitesse",
+    "provider_title": "Définir le fournisseur de speedtest",
     "manually": "Définir manuellement",
-    "manual_server_title": "Définir le serveur de test de vitesse",
-    "manual_server_id": "ID du serveur",
     "new_password": "Définir un nouveau mot de passe",
     "password_placeholder": "Nouveau mot de passe",
     "password_removed": "Le verrouillage du mot de passe a été supprimé et le mot de passe défini a été enlevé.",
@@ -93,7 +105,6 @@
     "cron_rules": "Règle Cron",
     "cron_next_test": "Test suivant :",
     "time_title": "Afficher les tests des dernières ...",
-    "export_title": "Exporter les tests de vitesse",
     "download": "Télécharger",
     "pause_title": "Mettre en pause les tests de vitesse pour...",
     "hours": "Heures",
@@ -116,6 +127,34 @@
       "description": "Cette fonctionnalité est encore en version bêta. Si vous trouvez des bugs, veuillez les signaler <Link>ici</Link>."
     }
   },
+  "storage": {
+    "speedtests": "Tests de vitesse",
+    "configuration": "Configuration",
+    "stored_tests": "Tests enregistrés",
+    "tests": "Tests",
+    "export_tests": "Tests d'exportation",
+    "tests_exported": "Les tests ont été exportés",
+    "csv": "CSV",
+    "json": "JSON",
+    "import_tests": "Tests d'importation",
+    "tests_imported": "Les tests ont été importés",
+    "import_test_error": "Une erreur s'est produite lors de l'importation des tests",
+    "import_config_error": "Une erreur s'est produite lors de l'importation de la configuration",
+    "export": "Exporter",
+    "import": "Importation",
+    "clear_history": "Effacer l'historique",
+    "history_cleared": "L'historique a été effacé",
+    "delete": "Supprimer",
+    "confirm_delete": "Oui, supprimer",
+    "export_settings": "Paramètres d'exportation",
+    "import_settings": "Paramètres d'importation",
+    "factory_reset": "Réinitialisation d'usine",
+    "factory_reset_completed": "La réinitialisation d'usine a été effectuée",
+    "reset": "Remise à zéro",
+    "confirm_reset": "Oui, réinitialisation",
+    "settings_exported": "Les paramètres ont été exportés",
+    "settings_imported": "Les paramètres ont été importés"
+  },
   "latest": {
     "ping": "Ping",
     "ping_unit": "ms",
@@ -126,7 +165,7 @@
     "before": "avant"
   },
   "info": {
-    "credits": "<Link>MySpeed</Link> est fourni par GNMYT et utilise le <CLILink>Speedtest CLI</CLILink> d'Ookla.",
+    "credits": "<MSpeed>MySpeed</MSpeed> est un projet open source fourni par GNMYT. Laisse une étoile sur <Github>GitHub</Github> ou <Donate>fais un don</Donate> pour soutenir le projet.",
     "recommendations_error": "Vous devez faire au moins 10 tests pour obtenir une moyenne, peu importe que les tests aient été faits manuellement ou automatiquement.",
     "recommendations_info": "Sur la base des 10 derniers tests, il a été constaté que le ping optimal était de <Bold>{{ping}} ms</Bold>, le téléchargement à <Bold>{{down}} Mbps</Bold> et le téléversement à <Bold>{{up}} Mbps</Bold>.",
     "update": "Une mise à jour vers la version {{version}} est disponible. Voir <Changes>les changements</Changes> et <DLLink>télécharger la mise à jour</DLLink>.",
@@ -171,7 +210,7 @@
     },
     "result": {
       "title": "Résultats du test",
-      "description": "Ce test a atteint une vitesse de téléchargement maximale de <Bold>{{down}} Mbps</Bold> et une vitesse d'envoi maximale de <Bold>{{up}} Mbps</Bold>. Il a été créé <Bold>{{type}}</Bold> et a pris <Bold>{{duration}} secondes</Bold>.",
+      "description": "<Link>Ce test</Link> a atteint une vitesse de téléchargement maximale de <Bold>{{down}} Mbps</Bold> et une vitesse de téléchargement maximale de <Bold>{{up}} Mbps</Bold>. Il a été créé <Bold>{{type}}</Bold> et a duré <Bold>{{duration}} secondes</Bold>.",
       "from_you": "par vous",
       "automatic": "automatiquement"
     },
@@ -307,6 +346,19 @@
         "error_message_placeholder": "Erreur : %error%",
         "send_failed": "Envoyer des messages d'erreur",
         "send_finished": "Envoyer les messages terminés",
+        "finished_message": "Message terminé",
+        "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
+      }
+    },
+    "pushover": {
+      "title": "Effet de poussée",
+      "fields": {
+        "token": "Jeton d'application",
+        "user_key": "Clé d'utilisateur",
+        "error_message": "Message d'erreur",
+        "error_message_placeholder": "Erreur : %error%",
+        "send_failed": "Envoyer des messages d'erreur",
+        "send_finished": "Envoyer des messages terminés",
         "finished_message": "Message terminé",
         "finished_message_placeholder": "%ping% ms, %download% Mbps, %upload% Mbps"
       }
