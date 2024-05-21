@@ -17,6 +17,7 @@
     "express": "^4.19.2",
     "mysql2": "^3.9.7",
     "node-schedule": "^2.1.1",
+    "prom-client": "^15.1.2",
     "sequelize": "^6.37.3",
     "sqlite3": "^5.1.7",
     "tmp": "^0.2.3"
