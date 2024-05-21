@@ -34,7 +34,7 @@
       "description": "MySpeed konnte die API dieser Instanz nicht erreichen. Bitte versuche es später erneut."
     },
     "provider": {
-      "interface": "Interface",
+      "interface": "Schnittstelle",
       "server": "Server",
       "server_id": "Server-ID",
       "choose_automatically": "Automatisch wählen",
@@ -138,8 +138,8 @@
     "json": "JSON",
     "import_tests": "Tests importieren",
     "tests_imported": "Die Tests wurden importiert",
-    "import_test_error": "An error occurred while importing the tests",
-    "import_config_error": "An error occurred while importing the configuration",
+    "import_test_error": "Beim Importieren der Tests ist ein Fehler aufgetreten",
+    "import_config_error": "Beim Importieren der Konfiguration ist ein Fehler aufgetreten",
     "export": "exportieren",
     "import": "Importieren",
     "clear_history": "Geschichte löschen",
@@ -210,7 +210,7 @@
     },
     "result": {
       "title": "Testergebnis",
-      "description": "<Link>This test</Link> achieved a maximum download speed of <Bold>{{down}} Mbps</Bold> and a maximum upload speed of <Bold>{{up}} Mbps</Bold>. It was created <Bold>{{type}}</Bold> and took <Bold>{{duration}} Seconds</Bold>.",
+      "description": "<Link>Bei diesem Test</Link> wurde eine maximale Download-Geschwindigkeit von <Bold>{{down}} Mbps</Bold> und eine maximale Upload-Geschwindigkeit von <Bold>{{up}} Mbps</Bold> erreicht. Er wurde erstellt <Bold>{{type}}</Bold> und dauerte <Bold>{{duration}} Sekunden</Bold>.",
       "from_you": "von dir",
       "automatic": "automatisch"
     },
