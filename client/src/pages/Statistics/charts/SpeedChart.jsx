@@ -17,11 +17,22 @@ const chartOptions = {
 };
 
 const SpeedChart = (props) => {
+    const testTime = localStorage.getItem("testTime") || 1;
     const chartData = {
-        labels: props.labels,
+        labels: testTime < 3 ? props.labels.map((label) => new Date(label).toLocaleTimeString([],
+            {hour: "2-digit", minute: "2-digit"})) : props.labels.slice(1).map((label) =>
+            new Date(label).toLocaleDateString()),
         datasets: [
-            {label: t("latest.down"), data: props.data.download, borderColor: '#45C65A'},
-            {label: t("latest.up"), data: props.data.upload, borderColor: '#456AC6'},
+            {
+                label: t("latest.down"),
+                data: testTime < 3 ? props.data.download : props.data.download.slice(1),
+                borderColor: '#45C65A'
+            },
+            {
+                label: t("latest.up"),
+                data: testTime < 3 ? props.data.upload : props.data.upload.slice(1),
+                borderColor: '#456AC6'
+            },
         ],
     };
 
