@@ -71,7 +71,7 @@ module.exports.listAverage = async (days) => {
             time: Math.round(avgNumbers["time"]),
             type: "average",
             amount: currentDay.length,
-            created: created.getFullYear() + "-" + (created.getMonth() + 1) + "-" + created.getDate()
+            created: created.toISOString()
         });
     }
 
@@ -124,8 +124,8 @@ module.exports.listStatistics = async (days) => {
         upload: mapFixed(notFailed, "upload"),
         time: mapRounded(notFailed, "time"),
         data,
-        labels: days >= 3 ? avgEntries.map((entry) => new Date(entry.created).toLocaleDateString())
-            : notFailed.map((entry) => new Date(entry.created).toLocaleTimeString([], {hour: "2-digit", minute: "2-digit"}))
+        labels: days >= 3 ? avgEntries.map((entry) => new Date(entry.created).toISOString())
+            : notFailed.map((entry) => new Date(entry.created).toISOString())
     };
 }
 
