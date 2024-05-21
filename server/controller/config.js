@@ -10,6 +10,7 @@ const cron = require('cron-validator');
 const db = require("../config/database");
 const fs = require('fs');
 const path = require('path');
+const interfaces = require('../util/loadInterfaces');
 
 const configDefaults = {
     ping: "25",
@@ -20,14 +21,23 @@ const configDefaults = {
     ooklaId: "none",
     libreId: "none",
     password: "none",
-    passwordLevel: "none"
+    passwordLevel: "none",
+    interface: "none"
 }
 
 module.exports.insertDefaults = async () => {
     let insert = [];
     for (let key in configDefaults) {
-        if (!(await config.findOne({where: {key: key}})))
+        if (key !== "interface" && !(await config.findOne({where: {key: key}})))
             insert.push({key: key, value: configDefaults[key]});
+
+        if (key === "interface") {
+            const ips = Object.keys(interfaces.interfaces);
+            let ip = ips.length > 0 ? ips[0] : "none";
+
+            if (!(await config.findOne({where: {key: key}})))
+                insert.push({key: key, value: ip});
+        }
     }
 
     await config.bulkCreate(insert, {validate: true});
@@ -93,6 +103,9 @@ module.exports.validateInput = async (key, value) => {
 
     if (key === "cron" && !cron.isValidCron(value.toString()))
         return "Not a valid cron expression";
+
+    if (key === "interface" && !Object.keys(interfaces.interfaces).includes(value))
+        return "The provided interface does not exist";
 
     if (configDefaults[key] === undefined)
         return "The provided key does not exist";
@@ -173,6 +186,8 @@ module.exports.factoryReset = async () => {
 
     timer.stopTimer();
     timer.startTimer(configDefaults.cron);
+
+    interfaces.requestInterfaces();
 
     return true;
 }

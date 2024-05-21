@@ -27,6 +27,8 @@
  */
 const { performance } = require("perf_hooks");
 const https = require("https");
+const interfaces = require("../util/loadInterfaces");
+const config = require("../controller/config");
 
 function average(values) {
     let total = 0;
@@ -72,7 +74,7 @@ function jitter(values) {
     return average(jitters);
 }
 
-function request(options, data = "") {
+function request(localAddress, options, data = "") {
     let started;
     let dnsLookup;
     let tcpHandshake;
@@ -80,6 +82,8 @@ function request(options, data = "") {
     let ttfb;
     let ended;
 
+    options.localAddress = localAddress;
+    options.family = localAddress.includes(":") ? 6 : 4;
     options.agent = new https.Agent(options);
 
     return new Promise((resolve, reject) => {
@@ -91,7 +95,7 @@ function request(options, data = "") {
             res.on("data", () => {});
             res.on("end", () => {
                 ended = performance.now();
-                resolve([started, dnsLookup, tcpHandshake, sslHandshake, ttfb, ended, parseFloat(res.headers["server-timing"].slice(22))]);
+                resolve([started, dnsLookup, tcpHandshake, sslHandshake, ttfb, ended, parseFloat(res.headers["server-timing"]?.slice(22))]);
             });
         });
 
@@ -108,7 +112,7 @@ function request(options, data = "") {
         });
 
         req.on("error", (error) => {
-            reject(error);
+            reject(error.message);
         });
 
         req.write(data);
@@ -116,17 +120,17 @@ function request(options, data = "") {
     });
 }
 
-function download(bytes) {
+function download(ip, bytes) {
     const options = {
         hostname: "speed.cloudflare.com",
         path: `/__down?bytes=${bytes}`,
         method: "GET",
     };
 
-    return request(options);
+    return request(ip, options);
 }
 
-function upload(bytes) {
+function upload(ip, bytes) {
     const data = "0".repeat(bytes);
     const options = {
         hostname: "speed.cloudflare.com",
@@ -137,24 +141,24 @@ function upload(bytes) {
         },
     };
 
-    return request(options, data);
+    return request(ip, options, data);
 }
 
 function measureSpeed(bytes, duration) {
     return (bytes * 8) / (duration / 1000) / 1e6;
 }
 
-async function measureLatency() {
+async function measureLatency(ip) {
     const measurements = [];
 
     for (let i = 0; i < 20; i += 1) {
-        await download(1000).then(
+        await download(ip, 1000).then(
             (response) => {
                 // TTFB - Server processing time
                 measurements.push(response[4] - response[0] - response[6]);
             },
             (error) => {
-                console.log(`Error: ${error}`);
+                console.log(`Error while pinging: ${error}`);
             },
         );
     }
@@ -162,17 +166,17 @@ async function measureLatency() {
     return [Math.min(...measurements), Math.max(...measurements), average(measurements), median(measurements), jitter(measurements)];
 }
 
-async function measureDownload(bytes, iterations) {
+async function measureDownload(ip, bytes, iterations) {
     const measurements = [];
 
     for (let i = 0; i < iterations; i += 1) {
-        await download(bytes).then(
+        await download(ip, bytes).then(
             (response) => {
                 const transferTime = response[5] - response[4];
                 measurements.push(measureSpeed(bytes, transferTime));
             },
             (error) => {
-                console.log(`Error: ${error}`);
+                console.log(`Error while downloading: ${error}`);
             },
         );
     }
@@ -180,17 +184,17 @@ async function measureDownload(bytes, iterations) {
     return measurements;
 }
 
-async function measureUpload(bytes, iterations) {
+async function measureUpload(ip, bytes, iterations) {
     const measurements = [];
 
     for (let i = 0; i < iterations; i += 1) {
-        await upload(bytes).then(
+        await upload(ip, bytes).then(
             (response) => {
                 const transferTime = response[6];
                 measurements.push(measureSpeed(bytes, transferTime));
             },
             (error) => {
-                console.log(`Error: ${error}`);
+                console.log(`Error while uploading: ${error}`);
             },
         );
     }
@@ -201,22 +205,28 @@ async function measureUpload(bytes, iterations) {
 module.exports = async function speedTest() {
     let result = {};
     try {
-        result["ping"] = Math.round((await measureLatency())[3]);
+        const currentInterface = await config.getValue("interface");
+        const interfaceIp = interfaces.interfaces[currentInterface];
+        if (!interfaceIp) {
+            throw new Error("Invalid interface");
+        }
 
-        const testDown1 = await measureDownload(101000, 10);
-        const testDown2 = await measureDownload(1001000, 8);
-        const testDown3 = await measureDownload(10001000, 6);
-        const testDown4 = await measureDownload(25001000, 4);
-        const testDown5 = await measureDownload(100001000, 1);
+        result["ping"] = Math.round((await measureLatency(interfaceIp))[3]);
+
+        const testDown1 = await measureDownload(interfaceIp, 101000, 1);
+        const testDown2 = await measureDownload(interfaceIp, 1001000, 8);
+        const testDown3 = await measureDownload(interfaceIp, 10001000, 6);
+        const testDown4 = await measureDownload(interfaceIp, 25001000, 4);
+        const testDown5 = await measureDownload(interfaceIp, 100001000, 1);
 
         result["download"] = quartile([...testDown1, ...testDown2, ...testDown3, ...testDown4, ...testDown5], 0.9).toFixed(2);
 
-        const testUp1 = await measureUpload(11000, 10);
-        const testUp2 = await measureUpload(101000, 10);
-        const testUp3 = await measureUpload(1001000, 8);
+        const testUp1 = await measureUpload(interfaceIp, 11000, 10);
+        const testUp2 = await measureUpload(interfaceIp, 101000, 10);
+        const testUp3 = await measureUpload(interfaceIp, 1001000, 8);
         result["upload"] = quartile([...testUp1, ...testUp2, ...testUp3], 0.9).toFixed(2);
     } catch (error) {
-        console.error("Error while using cloudflare speedtest");
+        console.error("Error while using cloudflare speedtest: " + error.message);
         result = {error: error.message};
     }
 

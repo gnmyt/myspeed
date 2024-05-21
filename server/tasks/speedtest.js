@@ -95,18 +95,17 @@ module.exports.create = async (type = "auto", retried = false) => {
             test = await this.run(retried);
         }
 
-        let {ping, download, upload, time} = await parseData.parseData(process.env.PREVIEW_MODE === "true" ?
+        let {ping, download, upload, time, resultId} = await parseData.parseData(process.env.PREVIEW_MODE === "true" ?
             "ookla" : mode, test);
 
-        let testResult = await tests.create(ping, download, upload, time, test.serverId, type);
+        let testResult = await tests.create(ping, download, upload, time, test.serverId, type, resultId);
         console.log(`Test #${testResult} was executed successfully in ${time}s. 🏓 ${ping} ⬇ ${download}️ ⬆ ${upload}️`);
         createRecommendations().then(() => "");
         setRunning(false);
         sendFinished({ping, download, upload, time}).then(() => "");
     } catch (e) {
-        console.log(e)
         if (!retried) return this.create(type, true);
-        let testResult = await tests.create(-1, -1, -1, null, 0, type, e.message);
+        let testResult = await tests.create(-1, -1, -1, null, 0, type, null, e.message);
         await sendError(e.message);
         setRunning(false, false);
         console.log(`Test #${testResult} was not executed successfully. Please try reconnecting to the internet or restarting the software: ` + e.message);

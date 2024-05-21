@@ -28,6 +28,8 @@ export const Dialog = () => {
     const [licenseAccepted, setLicenseAccepted] = useState(false);
     const [licenseError, setLicenseError] = useState(false);
 
+    const [interfaces, setInterfaces] = useState({});
+    const [currentInterface, setCurrentInterface] = useState(config.interface || "none");
     const [ooklaServers, setOoklaServers] = useState({});
     const [libreServers, setLibreServers] = useState({});
 
@@ -39,6 +41,9 @@ export const Dialog = () => {
         });
         jsonRequest("/info/server/libre").then((response) => {
             setLibreServers(response);
+        });
+        jsonRequest("/info/interfaces").then((response) => {
+            setInterfaces(response);
         });
     }, []);
 
@@ -60,6 +65,10 @@ export const Dialog = () => {
 
         if (serverId !== config[provider + "Id"] && provider !== "cloudflare") {
             await patchRequest("/config/" + provider + "Id", {value: serverId});
+        }
+
+        if (currentInterface !== config.interface) {
+            await patchRequest("/config/interface", {value: currentInterface});
         }
 
         reloadConfig();
@@ -84,43 +93,53 @@ export const Dialog = () => {
                         </div>
                     ))}
                 </div>
-                {provider !== "cloudflare" && <div className="provider-content">
+                <div className="provider-content">
                     <div className="provider-setting">
-                        <h3>{t("dialog.provider.server")}</h3>
-                        <select className="dialog-input provider-input" value={serverId}
-                                onChange={(e) => setServerId(e.target.value)}>
-                            <option value="none">{t("dialog.provider.choose_automatically")}</option>
-                            {provider === "ookla" && Object.keys(ooklaServers).map((current, index) => (
-                                <option key={index} value={current}>{ooklaServers[current]}</option>
-                            ))}
-                            {provider === "libre" && Object.keys(libreServers).map((current, index) => (
-                                <option key={index} value={current}>{libreServers[current]}</option>
+                        <h3>{t("dialog.provider.interface")}</h3>
+                        <select className="dialog-input provider-input" value={currentInterface}
+                                onChange={(e) => setCurrentInterface(e.target.value)}>
+                            {interfaces && Object.keys(interfaces).map((current, index) => (
+                                <option key={index} value={current}>{current} ({interfaces[current]})</option>
                             ))}
                         </select>
                     </div>
-                    <div className="provider-setting">
-                        <h3>{t("dialog.provider.server_id")}</h3>
-                        <input type="text" className="dialog-input provider-input" value={serverId === "none" ? "" : serverId}
-                                 onChange={(e) => setServerId(e.target.value)}/>
-                    </div>
-                </div>}
-                {provider === "cloudflare" && <div className="provider-content">
-                    <p className="cloudflare-provider-info">{t("dialog.provider.cloudflare_note")}</p>
-                </div>}
+
+                    {provider !== "cloudflare" && <>
+                        <div className="provider-setting">
+                            <h3>{t("dialog.provider.server")}</h3>
+                            <select className="dialog-input provider-input" value={serverId}
+                                    onChange={(e) => setServerId(e.target.value)}>
+                                <option value="none">{t("dialog.provider.choose_automatically")}</option>
+                                {provider === "ookla" && Object.keys(ooklaServers).map((current, index) => (
+                                    <option key={index} value={current}>{ooklaServers[current]}</option>
+                                ))}
+                                {provider === "libre" && Object.keys(libreServers).map((current, index) => (
+                                    <option key={index} value={current}>{libreServers[current]}</option>
+                                ))}
+                            </select>
+                        </div>
+                        <div className="provider-setting">
+                            <h3>{t("dialog.provider.server_id")}</h3>
+                            <input type="text" className="dialog-input provider-input"
+                                   value={serverId === "none" ? "" : serverId}
+                                   onChange={(e) => setServerId(e.target.value)}/>
+                        </div>
+                    </>}
+                </div>
             </div>
             <div className="provider-dialog-footer">
                 <div className="provider-license-box">
                     {provider === "ookla" && <>
                         <input type="checkbox" className={licenseError ? "cb-error" : ""} id="license" name="license"
-                                 onChange={(e) => setLicenseAccepted(e.target.checked)}/>
+                               onChange={(e) => setLicenseAccepted(e.target.checked)}/>
                         <label htmlFor="license"
                         ><Trans components={{
                             Eula: <a href="https://www.speedtest.net/about/eula" target="_blank"
-                                     rel="noreferrer" />,
+                                     rel="noreferrer"/>,
                             GDPR: <a href="https://www.speedtest.net/about/privacy" target="_blank"
-                                     rel="noreferrer" />,
+                                     rel="noreferrer"/>,
                             TOS: <a href="https://www.speedtest.net/about/terms" target="_blank"
-                                    rel="noreferrer" />}}>dialog.provider.ookla_license</Trans></label>
+                                    rel="noreferrer"/>}}>dialog.provider.ookla_license</Trans></label>
                     </>}
                 </div>
 

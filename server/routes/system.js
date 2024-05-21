@@ -4,6 +4,7 @@ const remote_url = "https://api.github.com/repos/gnmyt/myspeed/releases/latest";
 const axios = require('axios');
 const password = require('../middlewares/password');
 const serverController = require('../controller/servers');
+const interfaces = require('../util/loadInterfaces');
 
 app.get("/version", password(false), async (req, res) => {
     if (process.env.PREVIEW_MODE === "true") return res.json({local: version, remote: "0"});
@@ -20,6 +21,10 @@ app.get("/server/:provider", password(false), (req, res) => {
         return res.status(400).json({message: "Invalid provider"});
 
     res.json(serverController.getByMode(req.params.provider));
+});
+
+app.get("/interfaces", password(false), async (req, res) => {
+    res.json(interfaces.interfaces);
 });
 
 module.exports = app;

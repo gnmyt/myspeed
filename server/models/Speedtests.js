@@ -31,8 +31,16 @@ module.exports = db.define("speedtests", {
         type: Sequelize.STRING,
         defaultValue: "auto"
     },
+    resultId: {
+        type: Sequelize.STRING,
+        allowNull: true
+    },
     time: {
         type: Sequelize.INTEGER,
         defaultValue: 0
+    },
+    created: {
+        type: Sequelize.TIME,
+        defaultValue: Sequelize.NOW
     }
-}, {createdAt: "created", updatedAt: false});
+}, {createdAt: false, updatedAt: false});

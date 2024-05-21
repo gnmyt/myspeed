@@ -43,6 +43,9 @@ const run = async () => {
 
     await require('./controller/integrations').initialize();
 
+    await require('./util/loadInterfaces').requestInterfaces();
+    setInterval(() => require('./util/loadInterfaces').requestInterfaces(), 3600000);
+
     if (process.env.PREVIEW_MODE !== "true") await require('./util/loadCli').load();
 
     await config.insertDefaults();
@@ -60,7 +63,7 @@ const run = async () => {
 
 db.authenticate().then(() => {
     console.log("Successfully connected to the database " + (process.env.DB_TYPE === "mysql" ? "server" : "file"));
-        run().then(undefined);
+    run().then(undefined);
 }).catch(err => {
     console.error("Could not open the database file. Maybe it is damaged?: " + err.message);
     process.exit(111);
