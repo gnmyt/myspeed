@@ -1,17 +1,24 @@
 const {spawn} = require('child_process');
+const interfaces = require('../util/loadInterfaces');
+const config = require('../controller/config');
 
 module.exports = async (mode, serverId) => {
     const binaryPath = mode === "ookla" ? './bin/speedtest' + (process.platform === "win32" ? ".exe" : "")
         : './bin/librespeed-cli' + (process.platform === "win32" ? ".exe" : "");
 
+    if (!interfaces.interfaces) throw new Error("No interfaces found");
+
+    const currentInterface = await config.getValue("interface");
+    const interfaceIp = interfaces.interfaces[currentInterface];
+
     const startTime = new Date().getTime();
     let args;
 
     if (mode === "ookla") {
-        args = ['--accept-license', '--accept-gdpr', '--format=json'];
+        args = ['--accept-license', '--accept-gdpr', '--format=json', '--interface=' + currentInterface];
         if (serverId) args.push(`--server-id=${serverId}`);
     } else {
-        args = ['--json', '--duration=5'];
+        args = ['--json', '--duration=5', '--source=' + interfaceIp];
         if (serverId) args.push(`--server=${serverId}`);
     }
 
