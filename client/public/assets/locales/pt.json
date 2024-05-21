@@ -14,7 +14,7 @@
     "accept_subtext": "Nesta etapa, gostaríamos de informar você sobre a licença da Ookla. Leia-a e confirme que você a leu e aceitou clicando em \"Concluído\"."
   },
   "dialog": {
-    "okay": "OK",
+    "okay": "Ok",
     "done": "Concluído",
     "continue": "Continuar",
     "apply": "Sim, aplicar",
@@ -188,7 +188,7 @@
   },
   "time": {
     "now": "Agora mesmo",
-    "seconds": "{$seconds} segundos",
+    "seconds": "{{seconds}} Segundos",
     "minute": "1 minuto",
     "minutes": "{{minutes}} minutos",
     "hour": "1 hora",
