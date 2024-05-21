@@ -58,7 +58,11 @@ const requestInterfaces = async () => {
     const currentInterface = await config.getValue("interface");
 
     if (!usableInterfaces[currentInterface]) {
-        console.warn(`Interface ${currentInterface} not found. Falling back to default.`);
+        if (!currentInterface) {
+            console.warn("No interface set. Falling back to default.");
+        } else {
+            console.warn(`Interface ${currentInterface} not found. Falling back to default.`);
+        }
         await config.updateValue("interface", Object.keys(usableInterfaces)[0]);
     }
 }
