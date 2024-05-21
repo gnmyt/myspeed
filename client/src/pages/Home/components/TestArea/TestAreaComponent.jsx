@@ -36,6 +36,7 @@ function TestArea() {
                                   type={test.type}
                                   duration={test.time}
                                   amount={test.amount}
+                                  resultId={test.resultId}
                                   id={id}
                 />
             }) : ""}
