@@ -187,7 +187,7 @@ module.exports.factoryReset = async () => {
     timer.stopTimer();
     timer.startTimer(configDefaults.cron);
 
-    await interfaces.requestInterfaces();
+    interfaces.requestInterfaces();
 
     return true;
 }
