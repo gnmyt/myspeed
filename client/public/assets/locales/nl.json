@@ -118,7 +118,7 @@
     "running_tooltip": "Snelheidstest wordt uitgevoerd",
     "start_tooltip": "Snelheidstest starten",
     "new_update": "Update beschikbaar",
-    "download": "downloaden",
+    "download": "Downloaden",
     "paused": "Snelheidstests zijn momenteel gepauzeerd. Ga door als je er een wilt doen.",
     "running": "Er wordt al een snelheidstest uitgevoerd. Een ogenblik geduld alstublieft.",
     "admin_login": "Beheerderslogin",
@@ -286,7 +286,7 @@
     "update_password": "Werk het wachtwoord van dit knooppunt bij",
     "password_outdated": "Wachtwoord verouderd",
     "password_updated": "Het wachtwoord is succesvol bijgewerkt",
-    "preview_active": "Het toevoegen en verwijderen van servers is uitgeschakeld in demomodus",
+    "preview_active": "Het toevoegen en verwijderen van servers is uitgeschakeld in demomodus.",
     "placeholder": {
       "name": "MySpeed instantie",
       "url": "https://uw-server.nt"
@@ -314,7 +314,7 @@
   },
   "integrations": {
     "none_active": "Deze integratie is niet actief. <br/><Bold>Voeg toe</Bold>",
-    "preview_active": "Integraties zijn uitgeschakeld in demomodus",
+    "preview_active": "Integraties zijn uitgeschakeld in demomodus.",
     "display_name": "Naam integratie",
     "create": "Voeg toe",
     "activity": {
