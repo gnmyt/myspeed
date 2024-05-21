@@ -358,8 +358,8 @@
         "error_message": "Fehlermeldung",
         "error_message_placeholder": "Fehler: %error%",
         "send_failed": "Fehlermeldungen senden",
-        "send_finished": "Beendete Nachrichten senden",
-        "finished_message": "Beendete Nachricht",
+        "send_finished": "Abgeschlossene senden",
+        "finished_message": "Abgeschlossen-Nachricht",
         "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
       }
     },
