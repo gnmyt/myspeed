@@ -40,7 +40,9 @@ app.get('/metrics', async (req, res) => {
     downloadGauge.set(latest.download);
     uploadGauge.set(latest.upload);
     currentServerGauge.set(latest.serverId);
-    timeGauge.set(latest.time);
+
+    if (latest.time)
+        timeGauge.set(latest.time);
 
     res.set('Content-Type', promClient.register.contentType);
     res.end(await promClient.register.metrics());

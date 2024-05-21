@@ -6,7 +6,8 @@ module.exports.updateState = (newState) => {
 }
 
 module.exports.resumeIn = (hours) => {
-    if (isNaN(hours)) return;
+    if (/[^0-9]/.test(hours)) return false;
+
 
     if (updateTimer !== null) 
         clearTimeout(updateTimer);

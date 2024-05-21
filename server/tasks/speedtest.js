@@ -88,8 +88,8 @@ module.exports.create = async (type = "auto", retried = false) => {
             await new Promise(resolve => setTimeout(resolve, 5000));
             test = {
                 ping: {latency: Math.floor(Math.random() * 25) + 5},
-                download: {bytes: Math.floor(Math.random() * 1000000000) + 1000000, elapsed: 10000},
-                upload: {bytes: Math.floor(Math.random() * 1000000000) + 1000000, elapsed: 10000}
+                download: {bandwidth: 125 * 100000 * (Math.random() + 0.5), elapsed: 10000},
+                upload: {bandwidth: 125 * 100000 * (Math.random() + 0.5), elapsed: 10000},
             }
         } else {
             test = await this.run(retried);
@@ -104,6 +104,7 @@ module.exports.create = async (type = "auto", retried = false) => {
         setRunning(false);
         sendFinished({ping, download, upload, time}).then(() => "");
     } catch (e) {
+        console.log(e)
         if (!retried) return this.create(type, true);
         let testResult = await tests.create(-1, -1, -1, null, 0, type, null, e.message);
         await sendError(e.message);

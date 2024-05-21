@@ -83,10 +83,10 @@ module.exports.getUsedStorage = async () => {
 module.exports.validateInput = async (key, value) => {
     if (!value?.toString()) return "You need to provide the new value";
 
-    if ((key === "ping" || key === "download" || key === "upload") && isNaN(value))
+    if ((key === "ping" || key === "download" || key === "upload") && /[^0-9]/.test(value))
         return "You need to provide a number in order to change this";
 
-    if ((key === "ooklaId" || key === "libreId") && (isNaN(value) && value !== "none"))
+    if ((key === "ooklaId" || key === "libreId") && (/[^0-9]/.test(value) && value !== "none"))
         return "You need to provide a number in order to change this";
 
     if (key === "passwordLevel" && !["none", "read"].includes(value))

@@ -6,7 +6,7 @@ const testTask = require("../tasks/speedtest");
 const password = require('../middlewares/password');
 
 app.get("/", password(true), async (req, res) => {
-    if (req.query.limit && isNaN(req.query.limit))
+    if (req.query.limit && /[^0-9]/.test(req.query.limit))
         return res.status(400).json({message: "You need to provide a correct number in the limit parameter"});
 
     res.json(await tests.listTests(req.query.hours || 24, req.query.start, req.query.limit));

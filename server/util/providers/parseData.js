@@ -8,7 +8,7 @@ module.exports.parseOokla = (test) => {
     let upload = roundSpeed(test.upload.bandwidth);
     let time = Math.round((test.download.elapsed + test.upload.elapsed) / 1000);
 
-    return {ping, download, upload, time, resultId: test.result.id};
+    return {ping, download, upload, time, resultId: test.result?.id};
 }
 
 module.exports.parseLibre = (test) => ({...test, ping: Math.round(test.ping), time: Math.round(test.elapsed / 1000),

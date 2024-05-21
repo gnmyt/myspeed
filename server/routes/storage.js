@@ -34,6 +34,9 @@ app.delete("/tests/history", password(false), async (req, res) => {
 });
 
 app.put("/tests/history", password(false), async (req, res) => {
+    if (process.env.PREVIEW_MODE === "true")
+        return res.status(403).json({message: "You can't import the tests in preview mode"});
+
     let result = await tests.importTests(req.body);
     res.status(result ? 200 : 500).json({message: result ? "Tests imported" : "Error importing tests"});
 });
@@ -44,6 +47,8 @@ app.get("/config", password(false), async (req, res) => {
 });
 
 app.put("/config", password(false), async (req, res) => {
+    if (process.env.PREVIEW_MODE === "true")
+        return res.status(403).json({message: "You can't import the config in preview mode"});
     let result = await config.importConfig(req.body);
     res.status(result ? 200 : 500).json({message: result ? "Config imported" : "Error importing config"});
 });
