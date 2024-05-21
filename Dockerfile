@@ -14,7 +14,10 @@ RUN mv /myspeed/client/build /myspeed
 
 FROM node:18-alpine
 
+RUN apk add --no-cache tzdata
+
 ENV NODE_ENV=production
+ENV TZ=Etc/UTC
 
 WORKDIR /myspeed
 
