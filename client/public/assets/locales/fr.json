@@ -7,7 +7,7 @@
     "provider_title": "Choisis un fournisseur",
     "provider_subtext": "Sélectionne ici le prestataire que tu veux utiliser. Ce prestataire effectuera ensuite tes tests.",
     "data_title": "Définir les données optimales",
-    "data_subtext": "Sélectionne tes vitesses convenues par contrat dans cette étape.",
+    "data_subtext": "Sélectionne tes vitesses convenues par contrat dans cette étape",
     "ms": "(en ms)",
     "mbps": "(en Mbps)",
     "accept_title": "Accepte les conditions",
