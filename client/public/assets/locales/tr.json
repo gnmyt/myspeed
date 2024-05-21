@@ -34,11 +34,11 @@
       "description": "MySpeed bu örneğin API'sine ulaşamadı. Lütfen daha sonra tekrar deneyin."
     },
     "provider": {
+      "interface": "Interface",
       "server": "Sunucu",
       "server_id": "Sunucu Kimliği",
       "choose_automatically": "Otomatik olarak seçin",
-      "ookla_license": "Ookla'nın <Eula>EULA</Eula>'sını, <GDPR>gizlilik politikasını</GDPR> ve <TOS>hizmet şartlarını</TOS> okudum ve kabul ediyorum.",
-      "cloudflare_note": "Cloudflare herhangi bir ek ayar gerektirmez"
+      "ookla_license": "Ookla'nın <Eula>EULA</Eula>'sını, <GDPR>gizlilik politikasını</GDPR> ve <TOS>hizmet şartlarını</TOS> okudum ve kabul ediyorum."
     }
   },
   "dropdown": {
@@ -210,7 +210,7 @@
     },
     "result": {
       "title": "Test sonucu",
-      "description": "Bu test, bir maksimum indirme hızı olan <Bold>{{down}} Mbps</Bold> ve bir maksimum yükleme hızı olan <Bold>{{up}} Mbps</Bold> elde etti. <Bold>{{type}}</Bold> tarafından oluşturuldu ve <Bold>{{duration}} Saniye</Bold> sürdü.",
+      "description": "<Link>This test</Link> achieved a maximum download speed of <Bold>{{down}} Mbps</Bold> and a maximum upload speed of <Bold>{{up}} Mbps</Bold>. It was created <Bold>{{type}}</Bold> and took <Bold>{{duration}} Seconds</Bold>.",
       "from_you": "siz tarafından",
       "automatic": "otomatik olarak"
     },
