@@ -34,7 +34,7 @@
       "description": "MySpeed bu örneğin API'sine ulaşamadı. Lütfen daha sonra tekrar deneyin."
     },
     "provider": {
-      "interface": "Interface",
+      "interface": "Arayüz",
       "server": "Sunucu",
       "server_id": "Sunucu Kimliği",
       "choose_automatically": "Otomatik olarak seçin",
@@ -138,8 +138,8 @@
     "json": "JSON",
     "import_tests": "İthalat testleri",
     "tests_imported": "Testler içe aktarıldı",
-    "import_test_error": "An error occurred while importing the tests",
-    "import_config_error": "An error occurred while importing the configuration",
+    "import_test_error": "Testler içe aktarılırken bir hata oluştu",
+    "import_config_error": "Yapılandırma içe aktarılırken bir hata oluştu",
     "export": "İhracat",
     "import": "İthalat",
     "clear_history": "Geçmişi temizle",
@@ -210,7 +210,7 @@
     },
     "result": {
       "title": "Test sonucu",
-      "description": "<Link>This test</Link> achieved a maximum download speed of <Bold>{{down}} Mbps</Bold> and a maximum upload speed of <Bold>{{up}} Mbps</Bold>. It was created <Bold>{{type}}</Bold> and took <Bold>{{duration}} Seconds</Bold>.",
+      "description": "<Link>Bu testte</Link> maksimum indirme hızı <Bold>{{down}} M</Bold> bps ve maksimum yükleme hızı <Bold>{{up}} Mbps</Bold> olarak elde edilmiştir. Oluşturuldu <Bold>{{type}}</Bold> ve <Bold>{{duration}} saniye</Bold> sürdü.",
       "from_you": "siz tarafından",
       "automatic": "otomatik olarak"
     },
