@@ -15,7 +15,14 @@ module.exports = async (mode, serverId) => {
     let args;
 
     if (mode === "ookla") {
-        args = ['--accept-license', '--accept-gdpr', '--format=json', '--interface=' + currentInterface];
+        args = ['--accept-license', '--accept-gdpr', '--format=json'];
+
+        if (process.platform === "win32") {
+            args.push('--ip=' + interfaceIp);
+        } else {
+            args.push('--interface=' + currentInterface);
+        }
+
         if (serverId) args.push(`--server-id=${serverId}`);
     } else {
         args = ['--json', '--duration=5', '--source=' + interfaceIp];
