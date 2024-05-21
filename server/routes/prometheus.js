@@ -33,6 +33,9 @@ app.get('/metrics', async (req, res) => {
     const latest = await testController.getLatest();
     if (!latest) return res.status(500).end('No test found');
 
+    if (latest.error || latest.ping === -1)
+        return res.status(500).end('Error in the latest test');
+
     pingGauge.set(latest.ping);
     downloadGauge.set(latest.download);
     uploadGauge.set(latest.upload);
