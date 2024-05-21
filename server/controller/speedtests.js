@@ -152,3 +152,11 @@ module.exports.getLatest = async () => {
     if (latest.resultId === null) delete latest.resultId;
     return latest;
 }
+
+module.exports.getLatest = async () => {
+    let latest = await tests.findOne({order: [["created", "DESC"]]});
+    if (latest === null) return undefined;
+    if (latest.error === null) delete latest.error;
+    if (latest.resultId === null) delete latest.resultId;
+    return latest;
+}
