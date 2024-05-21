@@ -1,12 +1,13 @@
 const os = require('os');
 const https = require('https');
-
-let interfacesNode = os.networkInterfaces();
-let interfaces = {};
+const config = require('../controller/config');
 
 let usableInterfaces = {};
 
 const requestInterfaces = async () => {
+    let interfacesNode = os.networkInterfaces();
+    let interfaces = {};
+
     console.log("Looking for network interfaces...");
     for (let i in interfacesNode) {
         for (let j in interfacesNode[i]) {
@@ -52,6 +53,13 @@ const requestInterfaces = async () => {
 
     for (let i in usableInterfaces) {
         console.log(`Found interface ${i} with IP ${usableInterfaces[i]}`);
+    }
+
+    const currentInterface = await config.getValue("interface");
+
+    if (!usableInterfaces[currentInterface]) {
+        console.warn(`Interface ${currentInterface} not found. Falling back to default.`);
+        await config.updateValue("interface", Object.keys(usableInterfaces)[0]);
     }
 }
 
