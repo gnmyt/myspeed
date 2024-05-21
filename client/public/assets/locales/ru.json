@@ -34,11 +34,11 @@
       "description": "MySpeed не смог связаться с API этого экземпляра. Пожалуйста, повторите попытку позже."
     },
     "provider": {
+      "interface": "Interface",
       "server": "Сервер",
       "server_id": "Идентификатор сервера",
       "choose_automatically": "Выбирай автоматически",
-      "ookla_license": "Я прочитал и принимаю <Eula>EULA</Eula>, <GDPR>политику конфиденциальности</GDPR> и <TOS>условия обслуживания</TOS> Ookla.",
-      "cloudflare_note": "Cloudflare не требует никаких дополнительных настроек"
+      "ookla_license": "Я прочитал и принимаю <Eula>EULA</Eula>, <GDPR>политику конфиденциальности</GDPR> и <TOS>условия обслуживания</TOS> Ookla."
     }
   },
   "dropdown": {
@@ -210,7 +210,7 @@
     },
     "result": {
       "title": "Результат тестирования",
-      "description": "В этом тесте была достигнута максимальная скорость загрузки <Bold>{{down}} Mbit/s</Bold> и максимальная скорость загрузки <Bold>{{up}} Mbits/s</Bold>. Он был создан <Bold>{{type}}</Bold> и занял <Bold>{{duration}} секунд</Bold>.",
+      "description": "<Link>This test</Link> achieved a maximum download speed of <Bold>{{down}} Mbps</Bold> and a maximum upload speed of <Bold>{{up}} Mbps</Bold>. It was created <Bold>{{type}}</Bold> and took <Bold>{{duration}} Seconds</Bold>.",
       "from_you": "от тебя",
       "automatic": "автоматический"
     },
