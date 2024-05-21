@@ -34,11 +34,11 @@
       "description": "MySpeed无法到达该实例的API。请稍后再试。"
     },
     "provider": {
+      "interface": "Interface",
       "server": "服务器",
       "server_id": "服务器ID",
       "choose_automatically": "自动选择",
-      "ookla_license": "我已阅读并接受 Ookla 的<Eula>EULA</Eula>、<GDPR>隐私政策</GDPR>和<TOS>服务条款</TOS>。",
-      "cloudflare_note": "Cloudflare 不需要任何额外设置"
+      "ookla_license": "我已阅读并接受 Ookla 的<Eula>EULA</Eula>、<GDPR>隐私政策</GDPR>和<TOS>服务条款</TOS>。"
     }
   },
   "dropdown": {
@@ -210,7 +210,7 @@
     },
     "result": {
       "title": "测试结果",
-      "description": "此测试达到了最大下载速度<Bold>{{down}} Mbit/s</Bold>和最大上传速度<Bold>{{up}} Mbit/s</Bold>。它是一个<Bold>{{type}}</Bold>测试，持续了<Bold>{{duration}} 秒</Bold>。",
+      "description": "<Link>This test</Link> achieved a maximum download speed of <Bold>{{down}} Mbps</Bold> and a maximum upload speed of <Bold>{{up}} Mbps</Bold>. It was created <Bold>{{type}}</Bold> and took <Bold>{{duration}} Seconds</Bold>.",
       "from_you": "来自你的",
       "automatic": "自动"
     },
