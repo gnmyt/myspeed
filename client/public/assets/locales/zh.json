@@ -156,10 +156,10 @@
     "settings_imported": "设置已导入"
   },
   "latest": {
-    "ping": "Ping",
-    "ping_unit": "ms",
-    "down": "Download",
-    "speed_unit": "Mbit/s",
+    "ping": "延迟",
+    "ping_unit": "毫秒",
+    "down": "下载",
+    "speed_unit": "兆位/秒",
     "up": "上传",
     "latest": "最后一次测试",
     "before": "从"
@@ -351,7 +351,7 @@
       }
     },
     "pushover": {
-      "title": "推杆",
+      "title": "Pushover",
       "fields": {
         "token": "应用程序令牌",
         "user_key": "用户密钥",
