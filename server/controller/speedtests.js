@@ -2,8 +2,8 @@ const tests = require('../models/Speedtests');
 const {Op, Sequelize} = require("sequelize");
 const {mapFixed, mapRounded, calculateTestAverages} = require("../util/helpers");
 
-module.exports.create = async (ping, download, upload, time, serverId, type = "auto", error = null) => {
-    return (await tests.create({ping, download, upload, error, serverId, type, time})).id;
+module.exports.create = async (ping, download, upload, time, serverId, type = "auto", resultId = null, error = null) => {
+    return (await tests.create({ping, download, upload, error, serverId, type, resultId, time, created: new Date().toISOString()})).id;
 }
 
 module.exports.getOne = async (id) => {
@@ -15,8 +15,10 @@ module.exports.getOne = async (id) => {
 
 module.exports.listAll = async () => {
     let dbEntries = await tests.findAll({order: [["created", "DESC"]]});
-    for (let dbEntry of dbEntries)
+    for (let dbEntry of dbEntries) {
         if (dbEntry.error === null) delete dbEntry.error;
+        if (dbEntry.resultId === null) delete dbEntry.resultId;
+    }
 
     return dbEntries;
 }
@@ -28,8 +30,10 @@ module.exports.listTests = async (hours = 24, start, limit) => {
     let dbEntries = (await tests.findAll({where: whereClause, order: [["created", "DESC"]], limit}))
         .filter((entry) => new Date(entry.created) > new Date().getTime() - hours * 3600000);
 
-    for (let dbEntry of dbEntries)
+    for (let dbEntry of dbEntries) {
         if (dbEntry.error === null) delete dbEntry.error;
+        if (dbEntry.resultId === null) delete dbEntry.resultId;
+    }
 
     return dbEntries;
 }
@@ -84,6 +88,7 @@ module.exports.importTests = async (data) => {
 
     for (let entry of data) {
         if (entry.error === null) delete entry.error;
+        if (entry.resultId === null) delete entry.resultId;
         try {
             await tests.create(entry);
         } catch (e) {
