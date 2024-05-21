@@ -40,7 +40,7 @@ module.exports = db.define("speedtests", {
         defaultValue: 0
     },
     created: {
-        type: Sequelize.TIME,
+        type: process.env.DB_TYPE === "mysql" ? Sequelize.STRING : Sequelize.TIME,
         defaultValue: Sequelize.NOW
     }
 }, {createdAt: false, updatedAt: false});
