@@ -17,7 +17,7 @@
     "okay": "好的",
     "done": "准备就绪",
     "continue": "继续",
-    "apply": "是的，应用",
+    "apply": "应用",
     "update": "更新",
     "close": "关闭",
     "unset": "移除",
@@ -44,27 +44,27 @@
   "dropdown": {
     "settings": "设置",
     "changes_applied": "更改已被保存。",
-    "language_changed": "语言有所改变。",
-    "provider_changed": "提供商已变更。",
-    "view_changed": "观点被改变了。",
-    "changes_unsaved": "你的修改没有被接受。检查你的输入。",
+    "language_changed": "语言已变更。",
+    "provider_changed": "提供已变更。",
+    "view_changed": "视图已变更。",
+    "changes_unsaved": "你的修改没有被接受。请检查你的输入。",
     "invalid": "输入无效",
-    "ping": "最佳的平移",
-    "upload": "最佳的上升速度",
-    "download": "最佳的下行速度",
+    "ping": "最佳的延迟",
+    "upload": "最佳的上传速度",
+    "download": "最佳的下载速度",
     "recommendations": "最优值",
     "change_provider": "更换提供商",
     "password": "更改密码",
-    "cron": "设置频率",
+    "cron": "设置测试频率",
     "time": "设置期限",
     "storage": "管理存储",
     "pause_tests": "暂停测试",
     "resume_tests": "继续测试",
-    "language": "改变语言",
-    "view": "改变观点",
+    "language": "修改语言",
+    "view": "修改视图",
     "info": "关于项目的信息",
     "provider": "关于供应商",
-    "integrations": "整合"
+    "integrations": "集成"
   },
   "options": {
     "time": {
@@ -99,8 +99,8 @@
     "new_password": "设置新密码",
     "password_placeholder": "新密码",
     "password_removed": "密码锁已被取消，设定的密码也已被删除。",
-    "level": "变化水平",
-    "level_title": "游客的权利",
+    "level": "修改访问权限",
+    "level_title": "游客的权限",
     "cron_title": "设置测试频率",
     "cron_rules": "克隆规则",
     "cron_next_test": "下一次测试：",
@@ -252,7 +252,7 @@
       "average_description": "测试的平均时间"
     },
     "failed": {
-      "title": "失败的测试",
+      "title": "测试结果",
       "success": "成功的",
       "failed": "失败",
       "label": "测试"
@@ -261,7 +261,7 @@
       "title": "速度"
     },
     "manual": {
-      "title": "手动测试",
+      "title": "测试来源",
       "yes": "手动创建",
       "no": "自动创建"
     },
@@ -270,11 +270,11 @@
       "label": "数量"
     },
     "values": {
-      "min": "最低的",
-      "max": "最高的",
-      "avg": "平均值",
-      "down": "下载价值",
-      "up": "上传价值"
+      "min": "最慢",
+      "max": "最快",
+      "avg": "平均",
+      "down": "下载数值",
+      "up": "上传数值"
     }
   },
   "nodes": {
