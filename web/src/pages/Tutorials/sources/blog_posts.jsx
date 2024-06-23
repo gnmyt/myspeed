@@ -5,10 +5,12 @@
 // Creators
 import GigazineChannel from "@/pages/Tutorials/sources/channels/gigazine.png";
 import MariusHostingChannel from "@/pages/Tutorials/sources/channels/mariushosting.png";
+import UbunlogChannel from "@/pages/Tutorials/sources/channels/ubunlog.png";
 
 // Thumbnails
 import Thumb_20240128 from "@/pages/Tutorials/sources/thumbs/20240128.webp";
 import Thumb_MariusMySpeed from "@/pages/Tutorials/sources/thumbs/marius-myspeed.webp";
+import Thumb_UbunlogMySpeed from "@/pages/Tutorials/sources/thumbs/ubunlog-myspeed.webp";
 
 export default [
     {
@@ -22,5 +24,11 @@ export default [
         link: "https://mariushosting.com/how-to-install-myspeed-on-your-synology-nas/",
         thumb: Thumb_MariusMySpeed,
         creator: MariusHostingChannel
+    },
+    {
+        title: "What is MySpeed and how is it installed on Debian, Ubuntu and others?",
+        link: "https://ubunlog.com/en/myspeed-dev-installation-debian-ubuntu/",
+        thumb: Thumb_UbunlogMySpeed,
+        creator: UbunlogChannel
     }
 ];
