@@ -1,5 +1,5 @@
 FROM node:18-alpine AS build
-RUN apk add g++ make cmake python3
+RUN apk add --no-cache g++ make cmake python3 py3-setuptools
 
 WORKDIR /myspeed
 
