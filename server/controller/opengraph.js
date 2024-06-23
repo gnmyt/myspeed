@@ -16,7 +16,7 @@ async function generateOpenGraphImage(req) {
   const font =
     process.env.NODE_ENV === "production"
       ? (await axios.get(`${req.protocol}://${req.hostname}${fontPath}`)).data
-      : await fs.promises.readFile(`web/public${fontPath}`);
+      : await fs.promises.readFile(`client/public${fontPath}`);
 
   const html = (await import("satori-html")).html;
   const satori = (await import("satori")).default;
