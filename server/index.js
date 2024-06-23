@@ -25,6 +25,7 @@ app.use("/api/recommendations", require('./routes/recommendations'));
 app.use("/api/nodes", require('./routes/nodes'));
 app.use("/api/integrations", require('./routes/integrations'));
 app.use("/api/prometheus", require('./routes/prometheus'));
+app.use('/api/opengraph', require('./routes/opengraph'));
 app.use("/api*", (req, res) => res.status(404).json({message: "Route not found"}));
 
 if (process.env.NODE_ENV === 'production') {
