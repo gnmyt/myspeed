@@ -18,7 +18,7 @@
     "express": "^4.19.2",
     "mysql2": "^3.10.1",
     "node-schedule": "^2.1.1",
-    "prom-client": "^15.1.2",
+    "prom-client": "^15.1.3",
     "satori": "^0.10.13",
     "satori-html": "^0.3.2",
     "sequelize": "^6.37.3",
