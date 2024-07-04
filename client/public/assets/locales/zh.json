@@ -61,7 +61,7 @@
     "pause_tests": "暂停测试",
     "resume_tests": "继续测试",
     "language": "改变语言",
-    "view": "改变观点",
+    "view": "切换视图",
     "info": "关于项目的信息",
     "provider": "关于供应商",
     "integrations": "整合"
@@ -111,7 +111,7 @@
     "pause": "暂停",
     "release_manually": "手动释放",
     "language": "改变语言",
-    "view_title": "改变观点"
+    "view_title": "切换视图"
   },
   "header": {
     "title": "MySpeed",
