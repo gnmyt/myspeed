@@ -1,6 +1,8 @@
 # Setup Windows
 Here we describe the setup for Windows.
 
+## Installing MySpeed
+
 1. Download NodeJS  
    To use MySpeed, you first need **NodeJS**. You can easily download the installer [here](https://nodejs.org/en/download/). Recommended is the LTS version 18 of NodeJS.
 
@@ -17,19 +19,20 @@ Here we describe the setup for Windows.
    npm install
    ```
    
-    ??? warning "Does the NPM installation fail?"
-        There is a possibility that there are no precompiled modules for your system. In this case you have to compile the modules yourself.
-        Follow these steps:
+    ::: warning Does the NPM installation fail?
+    There is a possibility that there are no precompiled modules for your system. In this case you have to compile the modules yourself.
+    Follow these steps:
 
-        1. Download Python  
-            To "build" the project, you also need to download Python. You can do this [here](https://www.python.org/downloads/).
+    1. Download Python  
+       To "build" the project, you also need to download Python. You can do this [here](https://www.python.org/downloads/).
 
-        2. Download the Visual Studio BuildTools  
-            The "node-gyp" tool also requires Visual Studio's BuildTools to successfully "build" the project. Here's how it works:
-            1. click [on this link](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools) and wait a short time until the download starts
-            2. open the file and click "continue
-            3. now select the optional workload "Desktop development with C++" and confirm your selection by clicking on "Install
-        3. run `npm install` again
+    2. Download the Visual Studio BuildTools  
+       The "node-gyp" tool also requires Visual Studio's BuildTools to successfully "build" the project. Here's how it works:
+       1. click [on this link](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools) and wait a short time until the download starts
+       2. open the file and click "continue
+       3. now select the optional workload "Desktop development with C++" and confirm your selection by clicking on "Install
+    3. run `npm install` again
+    :::
    If everything runs successfully, you did everything right! Congratulations. :)   
    You can now start MySpeed with this command in your Powershell.
 
