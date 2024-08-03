@@ -83,6 +83,10 @@
       "read_access": "Read-only Access"
     }
   },
+  "page": {
+    "overview": "Overview",
+    "statistics": "Statistics"
+  },
   "update": {
     "ping_title": "Set optimal ping (ms)",
     "ping_placeholder": "Ping (ms)",
