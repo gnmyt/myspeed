@@ -1,7 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import {createBrowserRouter, Outlet, RouterProvider} from 'react-router-dom';
+import '@fontsource/inter/300.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/inter/700.css';
 import "@/common/styles/default.sass";
-import "@/common/styles/fonts.sass";
 import "@/common/styles/spinner.sass";
 import HeaderComponent from "./common/components/Header";
 import {SpeedtestProvider} from "./common/contexts/Speedtests";
