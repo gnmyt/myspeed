@@ -24,6 +24,7 @@
 .dialog
   padding: 15px
   background-color: $dark-gray
+  border: 1px solid $light-gray
   border-radius: 15px
   transition: all 0.2s
   animation: fadeIn 0.3s
@@ -56,13 +57,13 @@
 
 .dialog-text
   font-size: 16pt
-  color: $darker-white
+  color: $subtext
   margin: 0
 
 .dialog-description
   font-size: 16pt
   margin: 10px 2px 2px
-  color: $darker-white
+  color: $subtext
 
 .dialog-description a
   color: $green
@@ -75,7 +76,7 @@
   cursor: pointer
 
 .dialog-icon:hover
-    color: $red-hover
+    color: $red
 
 .dialog-btn
   font-size: 16pt
@@ -88,12 +89,13 @@
   cursor: pointer
   margin-left: 5px
   margin-right: 5px
+  transition: all 0.2s
 
 .dialog-btn:hover
-  background-color: $green-hover
+  filter: brightness(0.8)
 
 .dialog-secondary
   background-color: $red
 
 .dialog-secondary:hover
-    background-color: $red-hover
+    background-color: $red
