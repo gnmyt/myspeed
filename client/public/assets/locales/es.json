@@ -214,11 +214,6 @@
       "from_you": "de ti",
       "automatic": "automático"
     },
-    "tooltips": {
-      "custom": "A medida",
-      "average": "Media",
-      "auto": "Automatizado"
-    },
     "views": {
       "list": "Resumen de la prueba",
       "statistic": "Estadísticas de las pruebas"
