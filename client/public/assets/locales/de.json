@@ -46,7 +46,6 @@
     "changes_applied": "Die Änderungen wurden gespeichert.",
     "language_changed": "Die Sprache wurde geändert.",
     "provider_changed": "Der Anbieter wurde gewechselt.",
-    "view_changed": "Die Ansicht wurde gewechselt.",
     "changes_unsaved": "Deine Änderungen wurden nicht übernommen. Überprüfe deine Eingabe.",
     "invalid": "Eingabe ungültig",
     "ping": "Optimaler Ping",
@@ -61,7 +60,6 @@
     "pause_tests": "Tests pausieren",
     "resume_tests": "Tests fortsetzen",
     "language": "Sprache ändern",
-    "view": "Ansicht wechseln",
     "info": "Infos zum Projekt",
     "provider": "Über den Anbieter",
     "integrations": "Integrationen"
@@ -84,6 +82,10 @@
       "no_access": "Kein Zugriff",
       "read_access": "Nur Lesezugriff"
     }
+  },
+  "page": {
+    "overview": "Overview",
+    "statistics": "Statistics"
   },
   "update": {
     "ping_title": "Optimalen Ping setzen (ms)",
@@ -213,10 +215,6 @@
       "description": "<Link>Bei diesem Test</Link> wurde eine maximale Download-Geschwindigkeit von <Bold>{{down}} Mbps</Bold> und eine maximale Upload-Geschwindigkeit von <Bold>{{up}} Mbps</Bold> erreicht. Er wurde erstellt <Bold>{{type}}</Bold> und dauerte <Bold>{{duration}} Sekunden</Bold>.",
       "from_you": "von dir",
       "automatic": "automatisch"
-    },
-    "views": {
-      "list": "Test-Übersicht",
-      "statistic": "Test-Statistik"
     },
     "overview": {
       "title": "Test-Übersicht der letzten {{amount}}",
