@@ -1,0 +1,71 @@
+@import "@/common/styles/colors"
+
+.pagination
+  display: flex
+  justify-content: center
+  background-color: $dark-gray
+  border: 2px solid $light-gray
+  padding: 0.7rem 0.8rem
+  gap: 1rem
+  border-radius: 1rem
+  position: relative
+  overflow: hidden
+  box-sizing: border-box
+  user-select: none
+
+  .pagination-item
+    display: flex
+    color: $subtext
+    justify-content: center
+    align-items: center
+    cursor: pointer
+    padding: 0.5rem 1.5rem
+    gap: 1rem
+    border-radius: 0.5rem
+    position: relative
+    z-index: 1
+
+    &:hover
+      color: $white
+
+    p
+      margin: 0
+      font-weight: 500
+      font-size: 16pt
+    svg
+      font-size: 16pt
+
+
+
+  .page-active
+    color: $white
+
+  .pagination-active-background
+    position: absolute
+    top: 50%
+    left: var(--active-left, 0)
+    width: var(--active-width, 0)
+    height: calc(100% - 1rem)
+    background-color: $light-gray
+    border-radius: 0.8rem
+    transition: left 0.3s ease, width 0.3s ease
+    transform: translateY(-50%)
+    z-index: 0
+
+
+@media (max-width: 968px)
+  .pagination-item
+    gap: 0.5rem
+
+    p
+      display: none
+
+
+@media (max-width: 768px)
+  .pagination
+    position: fixed
+    bottom: 1rem
+    left: 50%
+    transform: translateX(-50%)
+    z-index: 100
+    box-shadow: 0 0 10px 0 $light-gray
