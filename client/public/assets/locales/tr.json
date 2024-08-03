@@ -46,7 +46,6 @@
     "changes_applied": "Değişiklikler kaydedildi.",
     "language_changed": "Dil değiştirilmiştir.",
     "provider_changed": "Sağlayıcı değiştirildi.",
-    "view_changed": "Görünüm değiştirildi.",
     "changes_unsaved": "Değişiklikleriniz uygulanamadı. Girişinizi kontrol edin.",
     "invalid": "Geçersiz giriş",
     "ping": "Optimum ping",
@@ -61,7 +60,6 @@
     "pause_tests": "Testleri duraklat",
     "resume_tests": "Testlere devam et",
     "language": "Dili değiştir",
-    "view": "Görünümü değiştir",
     "info": "Proje hakkında bilgi",
     "provider": "Sağlayıcı hakkında",
     "integrations": "Entegrasyonlar"
@@ -84,6 +82,10 @@
       "no_access": "Erişim yok",
       "read_access": "Salt Okunur Erişim"
     }
+  },
+  "page": {
+    "overview": "Overview",
+    "statistics": "Statistics"
   },
   "update": {
     "ping_title": "Optimum ping ayarla (ms)",
@@ -213,10 +215,6 @@
       "description": "<Link>Bu testte</Link> maksimum indirme hızı <Bold>{{down}} M</Bold> bps ve maksimum yükleme hızı <Bold>{{up}} Mbps</Bold> olarak elde edilmiştir. Oluşturuldu <Bold>{{type}}</Bold> ve <Bold>{{duration}} saniye</Bold> sürdü.",
       "from_you": "siz tarafından",
       "automatic": "otomatik olarak"
-    },
-    "views": {
-      "list": "Teste genel bakış",
-      "statistic": "Test istatistikleri"
     },
     "overview": {
       "title": "Son {{amount}} içindeki test genel bakışı",
