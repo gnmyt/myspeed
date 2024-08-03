@@ -214,11 +214,6 @@
       "from_you": "van jou",
       "automatic": "automatisch"
     },
-    "tooltips": {
-      "custom": "Aangepast",
-      "average": "Gemiddeld",
-      "auto": "Geautomatiseerd"
-    },
     "views": {
       "list": "Overzicht test",
       "statistic": "Teststatistieken"
