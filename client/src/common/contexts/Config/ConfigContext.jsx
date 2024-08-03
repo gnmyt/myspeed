@@ -3,6 +3,7 @@ import {InputDialogContext} from "../InputDialog";
 import {request} from "@/common/utils/RequestUtil";
 import {apiErrorDialog, passwordRequiredDialog} from "@/common/contexts/Config/dialog";
 import WelcomeDialog from "@/common/components/WelcomeDialog";
+import {useNavigate} from "react-router-dom";
 
 export const ConfigContext = createContext({});
 
@@ -10,6 +11,7 @@ export const ConfigProvider = (props) => {
     const [config, setConfig] = useState({});
     const [setDialog] = useContext(InputDialogContext);
     const [welcomeShown, setWelcomeShown] = useState(false);
+    const navigate = useNavigate();
 
 
     const reloadConfig = () => {
@@ -25,10 +27,10 @@ export const ConfigProvider = (props) => {
         }).then(result => {
             if (config !== result)
                 result.viewMode && localStorage.getItem("currentNode") !== null && localStorage.getItem("currentNode") !== "0"
-                    ? props.showNodePage(true) : setConfig(result);
+                    ? navigate("/nodes") : setConfig(result);
         }).catch((code) => {
             localStorage.getItem("currentNode") !== null && localStorage.getItem("currentNode") !== "0"
-                ? props.showNodePage(true) : setDialog(code === 1 ? passwordRequiredDialog() : apiErrorDialog());
+                ? navigate("/nodes") : setDialog(code === 1 ? passwordRequiredDialog() : apiErrorDialog());
         });
     }
 

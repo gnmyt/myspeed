@@ -46,7 +46,6 @@
     "changes_applied": "Your changes have been saved.",
     "language_changed": "The language has been changed.",
     "provider_changed": "The provider has been changed.",
-    "view_changed": "The view has been changed.",
     "changes_unsaved": "Your changes were not applied. Check your input.",
     "invalid": "Input invalid",
     "ping": "Optimal ping",
@@ -61,7 +60,6 @@
     "pause_tests": "Pause tests",
     "resume_tests": "Resume tests",
     "language": "Change language",
-    "view": "Switch view",
     "info": "About the project",
     "provider": "About the provider",
     "integrations": "Integrations"
@@ -84,6 +82,10 @@
       "no_access": "No Access",
       "read_access": "Read-only Access"
     }
+  },
+  "page": {
+    "overview": "Overview",
+    "statistics": "Statistics"
   },
   "update": {
     "ping_title": "Set optimal ping (ms)",
@@ -213,10 +215,6 @@
       "description": "<Link>This test</Link> achieved a maximum download speed of <Bold>{{down}} Mbps</Bold> and a maximum upload speed of <Bold>{{up}} Mbps</Bold>. It was created <Bold>{{type}}</Bold> and took <Bold>{{duration}} Seconds</Bold>.",
       "from_you": "by you",
       "automatic": "automatically"
-    },
-    "views": {
-      "list": "Test Overview",
-      "statistic": "Test statistics"
     },
     "overview": {
       "title": "Test overview of the last {{amount}}",

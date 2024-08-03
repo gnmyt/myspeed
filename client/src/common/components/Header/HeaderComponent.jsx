@@ -1,29 +1,34 @@
 import "./styles.sass";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faCircleArrowUp, faDownload,
     faGaugeHigh,
     faGear,
     faLock,
-    faServer
+    faServer,
+    faClose
 } from "@fortawesome/free-solid-svg-icons";
-import {useContext, useEffect, useState} from "react";
-import DropdownComponent, {toggleDropdown} from "../Dropdown/DropdownComponent";
-import {InputDialogContext} from "@/common/contexts/InputDialog";
-import {StatusContext} from "@/common/contexts/Status";
-import {SpeedtestContext} from "@/common/contexts/Speedtests";
-import {jsonRequest, postRequest} from "@/common/utils/RequestUtil";
-import {updateInfo} from "@/common/components/Header/utils/infos";
-import {t} from "i18next";
-import {ConfigContext} from "@/common/contexts/Config";
-import {LoadingDialog} from "@/common/components/LoadingDialog";
-import {NodeContext} from "@/common/contexts/Node";
-import {WEB_URL} from "@/index";
-import {Trans} from "react-i18next";
+import { useContext, useEffect, useState } from "react";
+import DropdownComponent from "../Dropdown/DropdownComponent";
+import { InputDialogContext } from "@/common/contexts/InputDialog";
+import { StatusContext } from "@/common/contexts/Status";
+import { SpeedtestContext } from "@/common/contexts/Speedtests";
+import { jsonRequest, postRequest } from "@/common/utils/RequestUtil";
+import { updateInfo } from "@/common/components/Header/utils/infos";
+import { t } from "i18next";
+import { ConfigContext } from "@/common/contexts/Config";
+import { LoadingDialog } from "@/common/components/LoadingDialog";
+import { NodeContext } from "@/common/contexts/Node";
+import { WEB_URL } from "@/index";
+import { Trans } from "react-i18next";
+import { useLocation, useNavigate } from "react-router-dom";
+import Pagination from "./components/Pagination";
 
-function HeaderComponent(props) {
+const HeaderComponent = () => {
     const findNode = useContext(NodeContext)[4];
     const currentNode = useContext(NodeContext)[2];
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const [setDialog] = useContext(InputDialogContext);
     const [icon, setIcon] = useState(faGear);
@@ -32,14 +37,16 @@ function HeaderComponent(props) {
     const updateTests = useContext(SpeedtestContext)[1];
     const [config, reloadConfig, checkConfig] = useContext(ConfigContext);
     const [updateAvailable, setUpdateAvailable] = useState("");
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-    function switchDropdown() {
-        toggleDropdown(setIcon);
+    const switchDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen);
+        setIcon(isDropdownOpen ? faGear : faClose);
     }
 
     const showDemoDialog = () => setDialog({
         title: t("preview.title"),
-        description: <Trans components={{Link: <a href={WEB_URL + "/install"} target="_blank" />}}>preview.description</Trans>,
+        description: <Trans components={{ Link: <a href={WEB_URL + "/install"} target="_blank" /> }}>preview.description</Trans>,
         buttonText: t("dialog.okay")
     });
 
@@ -85,7 +92,7 @@ function HeaderComponent(props) {
         async function updateVersion() {
             const version = await jsonRequest("/info/version");
 
-            if (version.remote.localeCompare(version.local, undefined, {numeric: true, sensitivity: 'base'}) === 1)
+            if (version.remote.localeCompare(version.local, undefined, { numeric: true, sensitivity: 'base' }) === 1)
                 setUpdateAvailable(version.remote);
         }
 
@@ -94,19 +101,21 @@ function HeaderComponent(props) {
 
     const getNodeName = () => currentNode === "0" ? t("header.title") : findNode(currentNode)?.name || t("header.title");
 
+    if (location.pathname === "/nodes") return <></>;
     if (Object.keys(config).length === 0) return <></>;
 
     return (
         <header>
-            <LoadingDialog isOpen={startedManually}/>
+            <LoadingDialog isOpen={startedManually} />
             <div className="header-main">
                 <div className="header-left">
                     {config.viewMode && <h2>{t("header.title")}</h2>}
-                    {!config.viewMode &&  <h2 onClick={() => props.showNodePage(true)} className="h2-click"><FontAwesomeIcon icon={faServer} /> {getNodeName()}</h2>}
+                    {!config.viewMode && <h2 onClick={() => navigate("/nodes")} className="h2-click"><FontAwesomeIcon icon={faServer} /> {getNodeName()}</h2>}
 
                     {config.previewMode && <h2 className="demo-info" onClick={showDemoDialog}>{t("preview.info")}</h2>}
                 </div>
 
+                <Pagination />
 
                 <div className="header-right">
                     {updateAvailable ?
@@ -115,32 +124,32 @@ function HeaderComponent(props) {
                                                   title: t("header.new_update"),
                                                   buttonText: t("dialog.okay"),
                                                   description: updateInfo(updateAvailable)
-                                              })}/></div> : <></>}
+                                              })} /></div> : <></>}
 
                     {!(status.paused || config.viewMode) ? <div className="tooltip-element tooltip-bottom">
                         <FontAwesomeIcon icon={faGaugeHigh}
                                          className={"header-icon " + (status.running ? "test-running" : "")}
-                                         onClick={startSpeedtest}/>
+                                         onClick={startSpeedtest} />
                         <span className="tooltip">{t("header." + (status.running ? "running_tooltip" : "start_tooltip"))}</span>
                     </div> : <></>}
 
                     {(config.viewMode ? <div className="tooltip-element tooltip-bottom">
-                        <FontAwesomeIcon icon={faLock} className={"header-icon"} onClick={showPasswordDialog}/>
+                        <FontAwesomeIcon icon={faLock} className={"header-icon"} onClick={showPasswordDialog} />
                         <span className="tooltip">{t("header.admin_login")}</span>
                     </div> : <></>)}
 
                     {(config.previewMode ? <div className="tooltip-element tooltip-bottom">
-                        <FontAwesomeIcon icon={faDownload} className={"header-icon"} onClick={openDownloadPage}/>
+                        <FontAwesomeIcon icon={faDownload} className={"header-icon"} onClick={openDownloadPage} />
                         <span className="tooltip">{t("header.download")}</span>
                     </div> : <></>)}
 
                     <div className="tooltip-element tooltip-bottom" id="open-header">
-                        <FontAwesomeIcon icon={icon} className="header-icon" onClick={switchDropdown}/>
+                        <FontAwesomeIcon icon={icon} className="header-icon" onClick={switchDropdown} />
                         <span className="tooltip">{t("dropdown.settings")}</span>
                     </div>
                 </div>
             </div>
-            <DropdownComponent/>
+            <DropdownComponent isOpen={isDropdownOpen} switchDropdown={switchDropdown} />
         </header>
     )
 }

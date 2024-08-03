@@ -1,73 +1,84 @@
+import React, {useState, useEffect} from 'react';
+import {createBrowserRouter, Outlet, RouterProvider} from 'react-router-dom';
+import '@fontsource/inter/300.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/inter/700.css';
 import "@/common/styles/default.sass";
-import "@/common/styles/fonts.sass";
 import "@/common/styles/spinner.sass";
-import Home from "./pages/Home";
 import HeaderComponent from "./common/components/Header";
 import {SpeedtestProvider} from "./common/contexts/Speedtests";
 import {ConfigProvider} from "./common/contexts/Config";
 import {StatusProvider} from "./common/contexts/Status";
 import {InputDialogProvider} from "@/common/contexts/InputDialog/InputDialog";
-import {useContext, useState} from "react";
 import i18n from './i18n';
 import Loading from "@/pages/Loading";
 import Error from "@/pages/Error";
-import {ViewContext, ViewProvider} from "@/common/contexts/View";
-import Statistics from "@/pages/Statistics";
-import {t} from "i18next";
 import {ToastNotificationProvider} from "@/common/contexts/ToastNotification";
-import Nodes from "@/pages/Nodes";
 import {NodeProvider} from "@/common/contexts/Node";
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-import { fab } from "@fortawesome/free-brands-svg-icons";
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {fas} from '@fortawesome/free-solid-svg-icons';
+import {fab} from "@fortawesome/free-brands-svg-icons";
 import {PushOverIcon} from "@/common/assets/icons/pushover";
+import Nodes from "@/pages/Nodes";
+import Statistics from "@/pages/Statistics";
+import Home from "@/pages/Home";
 
 library.add(fas, fab);
 library.add(PushOverIcon);
 
-const MainContent = () => {
-    const [view] = useContext(ViewContext);
-    return (
-        <main>
-            {view === 0 && <Home/>}
-            {view === 1 && <Statistics/>}
-            {view !== 0 && view !== 1 && <Error text={t("errors.invalid_view")} disableReload={true}/>}
-        </main>
-    );
-}
+const Providers = ({children}) => (
+    <InputDialogProvider>
+        <ToastNotificationProvider>
+            <ConfigProvider>
+                <NodeProvider>
+                    <SpeedtestProvider>
+                        <StatusProvider>
+                            {children}
+                        </StatusProvider>
+                    </SpeedtestProvider>
+                </NodeProvider>
+            </ConfigProvider>
+        </ToastNotificationProvider>
+    </InputDialogProvider>
+);
 
 const App = () => {
     const [translationsLoaded, setTranslationsLoaded] = useState(false);
     const [translationError, setTranslationError] = useState(false);
 
-    const [showNodePage, setShowNodePage] = useState(false);
+    useEffect(() => {
+        i18n.on("initialized", () => setTranslationsLoaded(true));
+        i18n.on("failedLoading", () => setTranslationError(true));
+    }, []);
 
-    i18n.on("initialized", () => setTranslationsLoaded(true));
-    i18n.on("failedLoading", () => setTranslationError(true));
+    const router = createBrowserRouter([
+        {
+            path: "/",
+            element: (
+                <Providers>
+                    <HeaderComponent/>
+                    <main><Outlet/></main>
+                </Providers>
+            ),
+            children: [
+                {path: "/", element: <Home/>},
+                {path: "/nodes", element: <Nodes/>},
+                {path: "/statistics", element: <Statistics/>}
+            ]
+        }
+    ]);
 
-    return (
-        <>
-            {!translationsLoaded && !translationError && <Loading/>}
-            {translationError && <Error text="Failed to load translations"/>}
-            {!translationError && translationsLoaded && <InputDialogProvider>
-                <ToastNotificationProvider>
-                    <ConfigProvider showNodePage={setShowNodePage}>
-                        <NodeProvider>
-                            {showNodePage && <Nodes setShowNodePage={setShowNodePage}/>}
-                            {!showNodePage && <SpeedtestProvider>
-                                <ViewProvider>
-                                    <StatusProvider>
-                                        <HeaderComponent showNodePage={setShowNodePage}/>
-                                        <MainContent/>
-                                    </StatusProvider>
-                                </ViewProvider>
-                            </SpeedtestProvider>}
-                        </NodeProvider>
-                    </ConfigProvider>
-                </ToastNotificationProvider>
-            </InputDialogProvider>}
-        </>
-    );
-}
+    if (!translationsLoaded && !translationError) {
+        return <Loading/>;
+    }
+
+    if (translationError) {
+        return <Error text="Failed to load translations"/>;
+    }
+
+    return <RouterProvider router={router}/>;
+};
 
 export default App;

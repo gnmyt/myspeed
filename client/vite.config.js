@@ -1,14 +1,12 @@
 import {defineConfig} from "vite";
 import react from "@vitejs/plugin-react";
 import {VitePWA} from "vite-plugin-pwa";
-import { wasm } from "@rollup/plugin-wasm";
 import * as path from "path";
 
 export default defineConfig({
     plugins: [
         VitePWA({injectRegister: "auto", manifest: false}),
-        react(),
-        wasm()
+        react()
     ],
     build: {
         outDir: "build",

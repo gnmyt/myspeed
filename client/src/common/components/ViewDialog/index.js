@@ -1,1 +1,0 @@
-export {ViewDialog as default} from "./ViewDialog";
