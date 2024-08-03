@@ -46,7 +46,6 @@
     "changes_applied": "Промените са записани.",
     "language_changed": "Езикът е променен.",
     "provider_changed": "Доставчикът е променен.",
-    "view_changed": "Гледката е променена.",
     "changes_unsaved": "Промените ви не бяха приети. Проверете въведените данни.",
     "invalid": "Невалиден вход",
     "ping": "Оптимален пинг",
@@ -61,7 +60,6 @@
     "pause_tests": "Тестове за пауза",
     "resume_tests": "Продължи тестове",
     "language": "Промяна на езика",
-    "view": "Промяна на изгледа",
     "info": "Информация за проекта",
     "provider": "Щодо провайдера",
     "integrations": "Интеграции"
@@ -84,6 +82,10 @@
       "no_access": "Няма достъп",
       "read_access": "Достъп само за четене"
     }
+  },
+  "page": {
+    "overview": "Overview",
+    "statistics": "Statistics"
   },
   "update": {
     "ping_title": "Задаване на оптимален ping (ms)",
@@ -213,10 +215,6 @@
       "description": "При <Link>този тест</Link> беше постигната максимална скорост на изтегляне от <Bold>{{down}} Mbps</Bold> и максимална скорост на качване от <Bold>{{up}} Mbps</Bold>. Той беше създаден <Bold>{{type}}</Bold> и е отнел <Bold>{{duration}} секунди</Bold>.",
       "from_you": "от вас",
       "automatic": "автоматичен"
-    },
-    "views": {
-      "list": "Преглед на теста",
-      "statistic": "Тестова статистика"
     },
     "overview": {
       "title": "Преглед на теста за последната {{amount}}",
