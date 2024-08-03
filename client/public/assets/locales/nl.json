@@ -46,7 +46,6 @@
     "changes_applied": "De wijzigingen zijn opgeslagen.",
     "language_changed": "De taal is veranderd.",
     "provider_changed": "De provider is gewijzigd.",
-    "view_changed": "Het uitzicht was veranderd.",
     "changes_unsaved": "Je wijzigingen zijn niet geaccepteerd. Controleer je invoer.",
     "invalid": "Invoer ongeldig",
     "ping": "Optimale ping",
@@ -61,7 +60,6 @@
     "pause_tests": "Pauzetests",
     "resume_tests": "Doorgaan met testen",
     "language": "Taal wijzigen",
-    "view": "Weergave wijzigen",
     "info": "Info over het project",
     "provider": "Over de provider",
     "integrations": "Integraties"
@@ -84,6 +82,10 @@
       "no_access": "Geen toegang",
       "read_access": "Alleen-lezen toegang"
     }
+  },
+  "page": {
+    "overview": "Overview",
+    "statistics": "Statistics"
   },
   "update": {
     "ping_title": "Optimale ping instellen (ms)",
@@ -213,10 +215,6 @@
       "description": "<Link>Deze test</Link> behaalde een maximale downloadsnelheid van <Bold>{{down}} Mbps</Bold> en een maximale uploadsnelheid van <Bold>{{up}} Mbps</Bold>. Hij werd gemaakt <Bold>{{type}}</Bold> en duurde <Bold>{{duration}} Seconden</Bold>.",
       "from_you": "van jou",
       "automatic": "automatisch"
-    },
-    "views": {
-      "list": "Overzicht test",
-      "statistic": "Teststatistieken"
     },
     "overview": {
       "title": "Testoverzicht van de laatste {{amount}}",
