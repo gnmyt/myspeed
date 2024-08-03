@@ -6,9 +6,6 @@ import {
     faCalendarDays,
     faCircleNodes,
     faClock,
-    faClose,
-    faChartSimple,
-    faGear,
     faGlobeEurope,
     faInfo,
     faKey,
@@ -28,7 +25,6 @@ import {creditsInfo, recommendationsInfo} from "@/common/components/Dropdown/uti
 import {levelOptions, selectOptions, timeOptions} from "@/common/components/Dropdown/utils/options";
 import {parseCron, stringifyCron} from "@/common/components/Dropdown/utils/utils";
 import {t} from "i18next";
-import ViewDialog from "@/common/components/ViewDialog";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {ToastNotificationContext} from "@/common/contexts/ToastNotification";
 import {NodeContext} from "@/common/contexts/Node";
@@ -37,23 +33,7 @@ import LanguageDialog from "@/common/components/LanguageDialog";
 import ProviderDialog from "@/common/components/ProviderDialog";
 import StorageDialog from "@/common/components/StorageDialog";
 
-let icon;
-
-export const isOpen = () => !document.getElementById("dropdown").classList.contains("dropdown-invisible");
-
-export const toggleDropdown = (setIcon) => {
-    if (setIcon) icon = setIcon;
-    let classList = document.getElementById("dropdown").classList;
-    if (classList.contains("dropdown-invisible")) {
-        classList.remove("dropdown-invisible");
-        icon(faClose);
-    } else {
-        classList.add("dropdown-invisible");
-        icon(faGear);
-    }
-}
-
-function DropdownComponent() {
+const DropdownComponent = ({isOpen, switchDropdown}) => {
     const [config, reloadConfig] = useContext(ConfigContext);
     const [status, updateStatus] = useContext(StatusContext);
     const findNode = useContext(NodeContext)[4];
@@ -62,7 +42,6 @@ function DropdownComponent() {
     const updateTests = useContext(SpeedtestContext)[1];
     const updateToast = useContext(ToastNotificationContext);
     const [setDialog] = useContext(InputDialogContext);
-    const [showViewDialog, setShowViewDialog] = useState(false);
     const [showIntegrationDialog, setShowIntegrationDialog] = useState(false);
     const [showLanguageDialog, setShowLanguageDialog] = useState(false);
     const [showProviderDialog, setShowProviderDialog] = useState(false);
@@ -71,23 +50,25 @@ function DropdownComponent() {
 
     useEffect(() => {
         const onPress = event => {
-            if (event.code === "Escape" && isOpen())
-                toggleDropdown(icon);
+            if (event.code === "Escape" && isOpen) {
+                switchDropdown();
+            }
         }
-        document.addEventListener("keyup", onPress);
-        return () => document.removeEventListener("keyup", onPress);
-    }, []);
 
-    useEffect(() => {
         const onClick = event => {
             let headerIcon = event.composedPath()[1].id || event.composedPath()[2].id;
-            if (isOpen() && !ref.current.contains(event.target) && headerIcon !== "open-header")
-                toggleDropdown(icon);
+            if (isOpen && !ref.current.contains(event.target) && headerIcon !== "open-header") {
+                switchDropdown();
+            }
         }
-        document.addEventListener("mousedown", onClick);
-        return () => document.removeEventListener("mousedown", onClick);
-    }, []);
 
+        document.addEventListener("mousedown", onClick);
+        document.addEventListener("keyup", onPress);
+        return () => {
+            document.removeEventListener("keyup", onPress);
+            document.removeEventListener("mousedown", onClick);
+        }
+    }, [isOpen]);
     const showFeedback = (customText = "dropdown.changes_applied", reload = true) => {
         updateToast(t(customText), customText === "dropdown.changes_unsaved" ? "red" : "green",
             customText === "dropdown.changes_unsaved" ? faExclamationTriangle : faCheck);
@@ -226,19 +207,17 @@ function DropdownComponent() {
         {hr: true, key: 2},
         {run: () => setShowLanguageDialog(true), icon: faGlobeEurope, text: t("dropdown.language"), allowView: true},
         {run: updateTime, icon: faCalendarDays, text: t("dropdown.time"), allowView: true},
-        {run: () => setShowViewDialog(true), icon: faChartSimple, allowView: true, text: t("dropdown.view")},
         {run: showCredits, icon: faInfo, text: t("dropdown.info"), allowView: true, previewHidden: true},
         {run: showProviderDetails, icon: faInfo, text: t("dropdown.provider"), previewShown: true}
     ];
 
     return (
         <>
-            {showViewDialog && <ViewDialog onClose={() => setShowViewDialog(false)}/>}
             {showIntegrationDialog && <IntegrationDialog onClose={() => setShowIntegrationDialog(false)}/>}
             {showLanguageDialog && <LanguageDialog onClose={() => setShowLanguageDialog(false)}/>}
             {showProviderDialog && <ProviderDialog onClose={() => setShowProviderDialog(false)}/>}
             {showStorageDialog && <StorageDialog onClose={() => setShowStorageDialog(false)}/>}
-            <div className="dropdown dropdown-invisible" id="dropdown" ref={ref}>
+            <div className={`dropdown ${isOpen ? '' : 'dropdown-invisible'}`} ref={ref}>
                 <div className="dropdown-content">
                     <h2>{t("dropdown.settings")}</h2>
                     <div className="dropdown-entries">
@@ -248,7 +227,7 @@ function DropdownComponent() {
                             if (!config.viewMode || (config.viewMode && entry.allowView)) {
                                 if (!entry.hr) {
                                     return (<div className="dropdown-item" onClick={() => {
-                                        toggleDropdown();
+                                        switchDropdown();
                                         entry.run();
                                     }} key={entry.run}>
                                         <FontAwesomeIcon icon={entry.icon}/>
