@@ -46,7 +46,6 @@
     "changes_applied": "Zmiany zostały zapisane.",
     "language_changed": "Język został zmieniony.",
     "provider_changed": "Dostawca został zmieniony.",
-    "view_changed": "Widok został zmieniony.",
     "changes_unsaved": "Zmiany nie zostały zastosowane. Sprawdź swoje dane.",
     "invalid": "Nieprawidłowe dane",
     "ping": "Optymalny ping",
@@ -61,7 +60,6 @@
     "pause_tests": "Wstrzymaj testy",
     "resume_tests": "Wznów testy",
     "language": "Zmień język",
-    "view": "Zmień widok",
     "info": "O projekcie",
     "provider": "O dostawcy",
     "integrations": "Integracje"
@@ -84,6 +82,10 @@
       "no_access": "Brak dostępu",
       "read_access": "Dostęp tylko do odczytu"
     }
+  },
+  "page": {
+    "overview": "Overview",
+    "statistics": "Statistics"
   },
   "update": {
     "ping_title": "Ustaw optymalny ping (ms)",
@@ -213,10 +215,6 @@
       "description": "W <Link>tym teście</Link> osiągnięto maksymalną prędkość pobierania <Bold>{{down}} Mbps</Bold> i maksymalną prędkość wysyłania <Bold>{{up}} Mbps</Bold>. Został on utworzony <Bold>{{type}}</Bold> i trwał <Bold>{{duration}} sekund</Bold>.",
       "from_you": "przez Ciebie",
       "automatic": "automatycznie"
-    },
-    "views": {
-      "list": "Przegląd testu",
-      "statistic": "Statystyki testu"
     },
     "overview": {
       "title": "Przegląd testu z ostatniego {{amount}}",
