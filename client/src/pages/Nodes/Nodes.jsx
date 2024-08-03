@@ -29,10 +29,9 @@ export const Nodes = (props) => {
             {createDialogOpen && <CreateNodeDialog onClose={() => setCreateDialogOpen(false)}/>}
             <NodeHeader/>
             <div className="node-area">
-                <NodeContainer name={t("nodes.this_server")} url={location.host} currentNode={true}
-                               setShowNodePage={props.setShowNodePage} id={0}/>
+                <NodeContainer name={t("nodes.this_server")} url={location.host} currentNode={true} id={0}/>
 
-                {nodes.map(node => <NodeContainer {...node} key={node.id} setShowNodePage={props.setShowNodePage} />)}
+                {nodes.map(node => <NodeContainer {...node} key={node.id} />)}
 
                 <div className={"node-add" + (config.previewMode ? " node-disabled" : "")} onClick={() => config.previewMode
                     ? openPreviewInfoDialog() : setCreateDialogOpen(true)}>
