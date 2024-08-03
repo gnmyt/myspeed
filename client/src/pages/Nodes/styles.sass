@@ -22,48 +22,48 @@
 
 .node-add
   width: 53rem
-  border: 2px dashed #696C73
+  display: flex
+  justify-content: center
+  align-items: center
+  border: 2px solid $light-gray
+  background-color: $dark-gray
   border-radius: 15px
   cursor: pointer
   user-select: none
 
 .node-add h1
-  font-size: 24pt
+  font-size: 22pt
   font-weight: 700
   margin: 1rem
-  color: $darker-white
+  color: $subtext
+
+.node-add svg
+  font-size: 22pt
 
 .node-add:hover
-  border: 2px dashed $green-hover
+  border: 2px solid $green
 
   h1
     color: $white
 
 .node-disabled
   width: 53rem
-  border: 2px dashed #696C73
+  border: 2px dashed $light-gray
   border-radius: 15px
   cursor: not-allowed
   user-select: none
 
 .node-disabled:hover
-  border: 2px dashed #696C73
+  border: 2px dashed $light-gray
 
   h1
-    color: $darker-white
+    color: $subtext
 
 @media screen and (max-width: 862px)
   .node-add
     width: calc(20vw + 11rem)
-    border: 2px dashed #696C73
     border-radius: 15px
     cursor: pointer
 
   .node-add h1
     font-size: 22pt
-
-  .node-add:hover
-    border: 2px dashed $green-hover
-
-    h1
-      color: $white
