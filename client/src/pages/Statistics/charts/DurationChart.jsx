@@ -1,5 +1,5 @@
 import StatisticContainer from "@/pages/Statistics/components/StatisticContainer";
-import {PolarArea} from "react-chartjs-2";
+import {Bar} from "react-chartjs-2";
 import {useEffect, useState} from "react";
 import {t} from "i18next";
 
@@ -10,11 +10,16 @@ const chartOptions = {
         }
     },
     scales: {
-        r: {
+        x: {
             ticks: {
                 color: "#B0B0B0",
-                backdropColor: "transparent",
             }
+        },
+        y: {
+            ticks: {
+                color: "#B0B0B0",
+            },
+            beginAtZero: true,
         }
     }
 }
@@ -53,8 +58,8 @@ const DurationChart = (props) => {
     if (Object.keys(data).length === 0) return <></>;
 
     return (
-        <StatisticContainer title={t("statistics.duration.title")} size="small" center={true}>
-            <PolarArea data={data} options={chartOptions}/>
+        <StatisticContainer title={t("statistics.duration.title")} center={true}>
+            <Bar data={data} options={chartOptions}/>
         </StatisticContainer>
     );
 

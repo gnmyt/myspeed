@@ -7,6 +7,7 @@
   z-index: 5
   background-color: $darker-gray
   box-shadow: 0 0 1rem $darker-gray
+  border: 2px solid $light-gray
   border-radius: 0.5rem
   animation: 0.5s moveIn
   cursor: pointer
@@ -17,28 +18,22 @@
   animation: 0.5s moveOut
 
 .toast-green
-  border: 2px solid $green
+  transition: all 0.3s
 
   & .toast-content svg
     color: $green
 
 .toast-green:hover
-  border-color: $green-hover
-
-  & .toast-content svg
-    color: $green-hover
+  border-color: $green
+  filter: brightness(0.9)
 
 .toast-red
-  border: 2px solid $red
-
   & .toast-content svg
     color: $red
 
 .toast-red:hover
-  border-color: $red-hover
-
-  & .toast-content svg
-    color: $red-hover
+  border-color: $red
+  filter: brightness(0.9)
 
 .toast-content
   display: flex

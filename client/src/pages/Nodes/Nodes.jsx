@@ -7,6 +7,8 @@ import {t} from "i18next";
 import CreateNodeDialog from "@/pages/Nodes/components/CreateNodeDialog";
 import {ConfigContext} from "@/common/contexts/Config";
 import {InputDialogContext} from "@/common/contexts/InputDialog";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faPlus} from "@fortawesome/free-solid-svg-icons";
 
 export const Nodes = (props) => {
     const [config] = useContext(ConfigContext);
@@ -34,6 +36,7 @@ export const Nodes = (props) => {
 
                 <div className={"node-add" + (config.previewMode ? " node-disabled" : "")} onClick={() => config.previewMode
                     ? openPreviewInfoDialog() : setCreateDialogOpen(true)}>
+                    <FontAwesomeIcon icon={faPlus}/>
                     <h1>{t("nodes.add")}</h1>
                 </div>
             </div>

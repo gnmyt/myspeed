@@ -24,7 +24,7 @@ const ManuelChart = (props) => {
     };
 
     return (
-        <StatisticContainer title={t("statistics.manual.title")} center={true}>
+        <StatisticContainer title={t("statistics.manual.title")} center={true} size="small">
             <Doughnut data={chartData} options={chartOptions}/>
         </StatisticContainer>
     );
