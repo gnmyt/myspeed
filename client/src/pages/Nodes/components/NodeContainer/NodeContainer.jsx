@@ -19,6 +19,7 @@ import {t} from "i18next";
 import {Trans} from "react-i18next";
 import {getIconBySpeed} from "@/common/utils/TestUtil";
 import {ConfigContext} from "@/common/contexts/Config";
+import {useNavigate} from "react-router-dom";
 
 export const NodeContainer = (node) => {
     const updateNodes = useContext(NodeContext)[1];
@@ -28,6 +29,8 @@ export const NodeContainer = (node) => {
     const [setDialog] = useContext(InputDialogContext);
     const [nodeData, setNodeData] = useState(null);
     const [nodeError, setNodeError] = useState(undefined);
+
+    const navigate = useNavigate();
 
     const prefix = node.currentNode ? "" : "/nodes/" + node.id;
 
@@ -92,7 +95,7 @@ export const NodeContainer = (node) => {
             return;
         }
 
-        node.setShowNodePage(false);
+        navigate("/");
         updateCurrentNode(node.id);
         reloadConfig();
     }
