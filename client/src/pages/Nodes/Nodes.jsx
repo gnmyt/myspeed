@@ -10,7 +10,7 @@ import {InputDialogContext} from "@/common/contexts/InputDialog";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlus} from "@fortawesome/free-solid-svg-icons";
 
-export const Nodes = (props) => {
+export const Nodes = () => {
     const [config] = useContext(ConfigContext);
     const [nodes, updateNodes] = useContext(NodeContext);
     const [setDialog] = useContext(InputDialogContext);
