@@ -8,12 +8,13 @@
   background-color: $dark-gray
   border-radius: 15px
   justify-content: space-between
-  width: 80rem
+  width: 100%
   flex-wrap: wrap
   transition: all 0.5s
   animation: fadeIn 0.5s
   cursor: pointer
   user-select: none
+  box-sizing: border-box
 
 .speedtest:hover
   border: $green 2px solid
@@ -34,13 +35,13 @@
 .date-text
   margin: 0 0 0 1rem
   font-size: 24pt
-  font-weight: 900
+  font-weight: 700
   color: $subtext
 
 .speedtest-text
   margin: 0
   font-size: 28pt
-  font-weight: 900
+  font-weight: 700
   color: $subtext
 
 .tooltip-element
@@ -75,18 +76,6 @@
 .tooltip-element:hover .tooltip
   opacity: 1
 
-@media (max-width: 1351px)
-  .speedtest
-    width: 70rem
-
-@media (max-width: 1200px)
-  .speedtest
-    width: 60rem
-
-@media (max-width: 1050px)
-  .speedtest
-    width: 40rem
-
 @media (max-width: 900px)
   .tooltip-element .tooltip
     font-size: 14pt
@@ -94,12 +83,9 @@
 @media (max-width: 730px)
   .tooltip-element .tooltip
     font-size: 11pt
-  .speedtest
-    width: 33rem
 
 @media (max-width: 605px)
   .speedtest
-    width: 25rem
     flex-direction: column
   .date-text
     font-size: 32pt
@@ -110,9 +96,3 @@
   .tooltip-element .tooltip
     font-size: 12pt
     padding: 5px 4px
-  .speedtest
-    width: 18rem
-
-@media (max-width: 360px)
-  .speedtest
-    width: 16rem
