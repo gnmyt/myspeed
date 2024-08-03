@@ -46,7 +46,6 @@
     "changes_applied": "更改已被保存。",
     "language_changed": "语言已变更。",
     "provider_changed": "提供已变更。",
-    "view_changed": "视图已变更。",
     "changes_unsaved": "你的修改没有被接受。请检查你的输入。",
     "invalid": "输入无效",
     "ping": "最佳的延迟",
@@ -61,7 +60,6 @@
     "pause_tests": "暂停测试",
     "resume_tests": "继续测试",
     "language": "修改语言",
-    "view": "修改视图",
     "info": "关于项目的信息",
     "provider": "关于供应商",
     "integrations": "集成"
@@ -84,6 +82,10 @@
       "no_access": "无法进入",
       "read_access": "只读访问"
     }
+  },
+  "page": {
+    "overview": "Overview",
+    "statistics": "Statistics"
   },
   "update": {
     "ping_title": "设置最佳延迟 (ms)",
@@ -213,10 +215,6 @@
       "description": "<Link>该测试</Link>的最高下载速度为<Bold>{{down}} Mbps</Bold>，最高上传速度为<Bold>{{up}} Mbps</Bold>。创建 <Bold>{{type}}</Bold>耗时<Bold>{{duration}} 秒</Bold>。",
       "from_you": "来自你的",
       "automatic": "自动"
-    },
-    "views": {
-      "list": "测试概述",
-      "statistic": "测试统计"
     },
     "overview": {
       "title": "最后一次{{amount}}的测试概述",
