@@ -214,11 +214,6 @@
       "from_you": "siz tarafından",
       "automatic": "otomatik olarak"
     },
-    "tooltips": {
-      "custom": "Özel",
-      "average": "Ortalama",
-      "auto": "Ortalama"
-    },
     "views": {
       "list": "Teste genel bakış",
       "statistic": "Test istatistikleri"
