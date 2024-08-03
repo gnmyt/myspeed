@@ -214,11 +214,6 @@
       "from_you": "来自你的",
       "automatic": "自动"
     },
-    "tooltips": {
-      "custom": "习俗",
-      "average": "平均值",
-      "auto": "自动化的"
-    },
     "views": {
       "list": "测试概述",
       "statistic": "测试统计"
