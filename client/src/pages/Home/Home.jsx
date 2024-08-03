@@ -5,7 +5,7 @@ const Home = () => (
     <>
         <LatestTestComponent/>
 
-        <hr/>
+        <br />
 
         <TestAreaComponent/>
     </>
