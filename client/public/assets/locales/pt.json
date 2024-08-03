@@ -214,11 +214,6 @@
       "from_you": "por você",
       "automatic": "automaticamente"
     },
-    "tooltips": {
-      "custom": "Personalizado",
-      "average": "Média",
-      "auto": "Automatizado"
-    },
     "views": {
       "list": "Visão geral do teste",
       "statistic": "Estatísticas de teste"
