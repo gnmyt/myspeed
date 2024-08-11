@@ -6,6 +6,7 @@
 import BigBearTechChannel from "./channels/bigbeartechworld.png";
 import RetroMikeTechChannel from "./channels/retromiketech.png";
 import Pavl21Channel from "./channels/pavl21.png";
+import DBTechChannel from "./channels/dbtech.webp";
 
 // Thumbnails
 import Thumb_Iic14oUCCVo from "./thumbs/Iic14oUCCVo.webp";
@@ -14,8 +15,15 @@ import Thumb_SM3RJRktwIk from "./thumbs/SM3RJRktwIk.webp";
 import Thumb_7roj87Fytz0 from "./thumbs/7roj87Fytz0.webp";
 import Thumb_MFbeWdKesTE from "./thumbs/MFbeWdKesTE.webp";
 import Thumb_7108075382452079878 from "./thumbs/7108075382452079878.webp";
+import Thumb_tBJmhgn3ZOM from "./thumbs/tBJmhgn3ZOM.webp";
 
 export default [
+    {
+        title: "MySpeed: Speedtest Automation Made Simple!",
+        link: "https://www.youtube.com/watch?v=tBJmhgn3ZOM",
+        thumb: Thumb_tBJmhgn3ZOM,
+        creator: DBTechChannel
+    },
     {
         title: "How to install MySpeed on Dockge",
         link: "https://www.youtube.com/watch?v=Iic14oUCCVo",
