@@ -30,14 +30,13 @@
 
 
 .interface-image
-  position: absolute
-  bottom: -5rem
-  right: 5rem
+  margin-left: 30vw
+  margin-top: 16vh
   animation: fadeIn 1s ease-in-out
   z-index: 0
 
   img
-    width: 77rem
+    width: 61vw
     transform: rotate(12deg)
     pointer-events: none
     user-select: none
@@ -50,28 +49,28 @@
   animation: spawn 1s ease-in-out
 
   svg
-    font-size: 48pt
+    font-size: 4vh
     animation: flyAround 16s linear infinite
 
 .flying-icons:nth-child(2)
-  top: 50rem
-  left: 10rem
+  top: 70%
+  left: 10%
 
 .flying-icons:nth-child(3)
-  top: 20rem
-  right: 10rem
+  top: 30%
+  right: 10%
 
 .flying-icons:nth-child(4)
-  bottom: 30rem
-  left: 15rem
+  bottom: 50%
+  left: 12%
 
 .flying-icons:nth-child(5)
-  bottom: 40rem
-  right: 40rem
+  top: 25%
+  right: 25%
 
 .flying-icons:nth-child(6)
-  bottom: 18rem
-  left: 20rem
+  bottom: 30%
+  left: 20%
 
 
 @keyframes fadeIn
@@ -115,8 +114,9 @@
     display: none
 
 @media screen and (max-width: 1250px)
-  .interface-image img
-    width: 80vw
+  .interface-image
+    margin-left: 20vw
+    margin-top: 10vh
 
 @media screen and (max-width: 1000px)
   .flying-icons:nth-child(3)
@@ -124,15 +124,8 @@
   .flying-icons:nth-child(5)
     right: 10rem
     top: 20rem
-  .interface-image
-    right: 0
-    bottom: 10rem
-  .interface-image img
-    width: 90vw
 
 @media screen and (max-width: 500px)
   .flying-icons:nth-child(5)
     right: 5rem
     top: 15rem
-  .interface-image
-    bottom: 20rem
