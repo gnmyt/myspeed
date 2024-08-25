@@ -179,7 +179,7 @@
     },
     "up": {
       "title": "Velocidad de subida",
-      "description": "La velocidad de subida afecta a tu experiencia de navegación. Cuanto mayor sea, más rápido podrá enviar datos."
+      "description": "La velocidad de subida afecta a tu experiencia de navegación. Cuanto mayor sea, más rápido podrás enviar datos."
     },
     "latest": {
       "title": "Último test",
@@ -209,7 +209,7 @@
       "description": "<Bold>{{amount}}</Bold> Los tests indican que el <Bold>{{date}}</Bold> hubo una velocidad media de descarga de <Bold>{{down}} Mbit/s</Bold> y una velocidad de subida de <Bold>{{up}} Mbit/s</Bold>. Los tests duraron una media de <Bold>{{duration}} segundos</Bold>."
     },
     "result": {
-      "title": "Resultado de el test",
+      "title": "Resultado del test",
       "description": "<Link>Este test</Link> alcanzó una velocidad de descarga máxima de <Bold>{{down}} Mbps</Bold> y una velocidad de subida máxima de <Bold>{{up}} Mbps</Bold>. Se creó <Bold>{{type}}</Bold> y tardó <Bold>{{duration}} Segundos</Bold>.",
       "from_you": "de ti",
       "automatic": "automático"
@@ -266,12 +266,12 @@
       "no": "Programado"
     },
     "duration": {
-      "title": "Duración de el test",
+      "title": "Duración del test",
       "label": "Número"
     },
     "values": {
-      "min": "Más baja",
-      "max": "Más alta",
+      "min": "Peor",
+      "max": "Mejor",
       "avg": "Media",
       "down": "Velodidad de descarga",
       "up": "Velodidad de subida"
