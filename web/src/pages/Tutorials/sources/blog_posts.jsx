@@ -8,6 +8,7 @@ import MariusHostingChannel from "@/pages/Tutorials/sources/channels/mariushosti
 import UbunlogChannel from "@/pages/Tutorials/sources/channels/ubunlog.png";
 import BelginuxChannel from "@/pages/Tutorials/sources/channels/belginux.webp";
 import LinuxiacChannel from "@/pages/Tutorials/sources/channels/linuxiac.webp";
+import AddRomChannel from "@/pages/Tutorials/sources/channels/addrom.webp";
 
 // Thumbnails
 import Thumb_20240128 from "@/pages/Tutorials/sources/thumbs/20240128.webp";
@@ -15,8 +16,15 @@ import Thumb_MariusMySpeed from "@/pages/Tutorials/sources/thumbs/marius-myspeed
 import Thumb_UbunlogMySpeed from "@/pages/Tutorials/sources/thumbs/ubunlog-myspeed.webp";
 import Thumb_BelginuxMySpeed from "@/pages/Tutorials/sources/thumbs/belginux-myspeed.webp";
 import Thumb_LinuxiacMySpeed from "@/pages/Tutorials/sources/thumbs/linuxiac-myspeed.webp";
+import Thumb_AddRomMySpeed from "@/pages/Tutorials/sources/thumbs/addrom-myspeed.webp";
 
 export default [
+    {
+        title: "MySpeed – Speedtest automation made simple",
+        link: "https://addrom.com/myspeed-speedtest-automation-made-simple/",
+        thumb: Thumb_AddRomMySpeed,
+        creator: AddRomChannel
+    },
     {
         title: "Installer MySpeed avec Docker",
         link: "https://belginux.com/installer-myspeed-avec-docker/",
