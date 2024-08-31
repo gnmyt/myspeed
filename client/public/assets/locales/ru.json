@@ -84,8 +84,8 @@
     }
   },
   "page": {
-    "overview": "Overview",
-    "statistics": "Statistics"
+    "overview": "Обзор",
+    "statistics": "Статистика"
   },
   "update": {
     "ping_title": "Установите оптимальный пинг (мс)",
