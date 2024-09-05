@@ -2,46 +2,57 @@
 Here the setup for Linux is described. MySpeed can be installed in several ways.
 
 ## Installation with Docker
-!!! help "Help"
-    You don't know how to install Docker? Then check out [this guide](https://docs.docker.com/engine/install/#server)
 
-=== "Stable Version"
-    ```sh
-    docker run -d -p 5216:5216 -v myspeed:/myspeed/data --restart=unless-stopped --name MySpeed germannewsmaker/myspeed
-    ```
+::: tip Help
+   You don't know how to install Docker? Then check out [this guide](https://docs.docker.com/engine/install/#server)
+:::
 
-=== "Development Version"
-    ```sh
-    docker run -d -p 5216:5216 -v myspeed:/myspeed/data --restart=unless-stopped --name MySpeed germannewsmaker/myspeed:development
-    ```
+
+::: code-group
+
+```sh [Stable Version]
+docker run -d -p 5216:5216 -v myspeed:/myspeed/data --restart=unless-stopped --name MySpeed germannewsmaker/myspeed
+```
+
+
+```sh [Development Version]
+docker run -d -p 5216:5216 -v myspeed:/myspeed/data --restart=unless-stopped --name MySpeed germannewsmaker/myspeed:development
+```
+
+:::
 
 ## Automatic installation
 
-=== "Stable Version"
-    ```sh
-    bash <(curl -sSL https://install.myspeed.dev)
-    ```
+::: code-group
 
-=== "Development Version"
-    ```sh
-    curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/scripts/install.sh | bash -s -- --beta
-    ```
+```sh [Stable Version]
+bash <(curl -sSL https://install.myspeed.dev)
+```
+
+```sh [Development Version]
+curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/scripts/install.sh | bash -s -- --beta
+```
+
+:::
 
 ## Automatic uninstall process
 Don't want to use MySpeed anymore? You can easily remove MySpeed. Decide here if you want to keep or delete your data.
 
-!!! warning "Execute these commands carefully"
-    Executing the commands will result in deletion / uninstallation of MySpeed. Please be aware of this.
+::: warning Execute these commands with caution
+Executing the commands will result in deletion / uninstallation of MySpeed. Please be aware of this.
+:::
 
-=== "Keep data"
-    ```sh
-    curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/scripts/uninstall.sh | bash -s -- --keep-data
-    ```
+::: code-group
 
-=== "Delete data"
-    ```sh
-    curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/scripts/uninstall.sh | bash
-    ```
+```sh [Keep data]
+curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/scripts/uninstall.sh | bash -s -- --keep-data
+```
+
+```sh [Delete data]
+curl -sSL https://raw.githubusercontent.com/gnmyt/myspeed/development/scripts/uninstall.sh | bash
+```
+
+:::
 
 ## Manual installation
 ```sh
@@ -72,8 +83,10 @@ NODE_ENV=production node server #(7)
    If you plan to run MySpeed in the background, see the guide below.
 
 ## Install MySpeed from the source code
-!!! warning "Attention"
-    This process installs the latest development version of MySpeed. Errors may occur.
+::: warning Attention
+This process installs the latest development version of MySpeed. Errors may occur.
+
+:::
 
 ```sh
 sudo apt-get install git curl -y #(1)
@@ -104,8 +117,9 @@ NODE_ENV=production node server #(7)
 
 
 ## Install MySpeed 24/7
-!!! warning "Important"
-    You have used the installation script? Then you don't need to do this step at all.
+::: warning Important
+You have used the installation script? Then you don't need to do this step at all.
+:::
 
 Installing as a system service is not even that hard. In this case we use `systemd`, because it is directly integrated in most Linux distributions.
 
@@ -115,7 +129,7 @@ Installing as a system service is not even that hard. In this case we use `syste
    ```
 
 2. Now paste the content of the file.
-   ```ini linenums="1"
+   ```ini
    [Unit]
    Description=MySpeed
    After=network.target
@@ -136,17 +150,21 @@ Installing as a system service is not even that hard. In this case we use `syste
 
 3. Save the file. This varies a bit depending on the editor
 
-    === "Nano"
-        `CTRL` + `X`, then `Y` and then `Enter`
-    === "Vim"
-        Press `ESC`, then type `:wq` and press `Enter`
+   ::: code-group
+   ```sh [nano]
+    Press `CTRL` + `X`, then press `Y` and press `Enter` to save the file and exit the editor.
+    ```
+    
+    ```sh [vim]
+    Press `ESC`, then type `:wq` and press `Enter` to save the file and exit the editor.
+    ```
 
-4. Now reload systemd  
+4. Now reload systemd
    ```sh
    systemctl daemon-reload
    ```
 
-5. If you want MySpeed to boot at systemd startup, type this command:  
+5. If you want MySpeed to boot at systemd startup, type this command:
    ```sh
    systemctl enable myspeed
    ```

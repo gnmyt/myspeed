@@ -12,3 +12,7 @@
 /build
 /data
 /bin
+
+# docs
+/docs/.vitepress/dist
+/docs/.vitepress/cache
