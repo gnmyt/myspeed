@@ -84,8 +84,8 @@
     }
   },
   "page": {
-    "overview": "Overview",
-    "statistics": "Statistics"
+    "overview": "概览",
+    "statistics": "统计"
   },
   "update": {
     "ping_title": "设置最佳延迟 (ms)",
