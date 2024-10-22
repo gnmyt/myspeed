@@ -46,7 +46,6 @@
     "changes_applied": "Los cambios han sido guardados.",
     "language_changed": "Se ha cambiado el lenguaje.",
     "provider_changed": "Se ha cambiado el proveedor.",
-    "view_changed": "La vista cambió.",
     "changes_unsaved": "Tus cambios no han sido aceptados. Compruebe su entrada.",
     "invalid": "Entrada inválida",
     "ping": "Ping óptimo",
@@ -61,7 +60,6 @@
     "pause_tests": "Pruebas de pausa",
     "resume_tests": "Continuación de la revisión",
     "language": "Cambiar de idioma",
-    "view": "Cambiar vista",
     "info": "Información sobre el proyecto",
     "provider": "Acerca del proveedor",
     "integrations": "Integraciones"
@@ -84,6 +82,10 @@
       "no_access": "Sin acceso",
       "read_access": "Acceso de sólo lectura"
     }
+  },
+  "page": {
+    "overview": "Overview",
+    "statistics": "Statistics"
   },
   "update": {
     "ping_title": "Establecer ping óptimo (ms)",
@@ -213,15 +215,6 @@
       "description": "<Link>Esta prueba</Link> alcanzó una velocidad máxima de descarga de <Bold>{{down}} Mbps</Bold> y una velocidad máxima de subida de <Bold>{{up}} Mbps</Bold>. Se creó <Bold>{{type}}</Bold> y tardó <Bold>{{duration}} Segundos</Bold>.",
       "from_you": "de ti",
       "automatic": "automático"
-    },
-    "tooltips": {
-      "custom": "A medida",
-      "average": "Media",
-      "auto": "Automatizado"
-    },
-    "views": {
-      "list": "Resumen de la prueba",
-      "statistic": "Estadísticas de las pruebas"
     },
     "overview": {
       "title": "Resumen de la prueba del último {{amount}}",

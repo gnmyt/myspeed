@@ -46,7 +46,6 @@
     "changes_applied": "Suas alterações foram salvas.",
     "language_changed": "O idioma foi alterado.",
     "provider_changed": "O provedor foi alterado.",
-    "view_changed": "\"A visualização foi alterada.",
     "changes_unsaved": "Suas alterações não foram aplicadas. Verifique sua entrada.",
     "invalid": "Entrada inválida",
     "ping": "Ping ótimo",
@@ -61,7 +60,6 @@
     "pause_tests": "Pausar testes",
     "resume_tests": "Retomar testes",
     "language": "Alterar idioma",
-    "view": "Alternar visualização",
     "info": "Sobre o projeto",
     "provider": "Sobre o provedor",
     "integrations": "Integrações"
@@ -84,6 +82,10 @@
       "no_access": "Sem acesso",
       "read_access": "Acesso somente leitura"
     }
+  },
+  "page": {
+    "overview": "Overview",
+    "statistics": "Statistics"
   },
   "update": {
     "ping_title": "Definir pingue ótimo (ms)",
@@ -213,15 +215,6 @@
       "description": "<Link>Esse teste</Link> atingiu uma velocidade máxima de download de <Bold>{{down}} Mbps</Bold> e uma velocidade máxima de upload de <Bold>{{up}} Mbps</Bold>. Ele foi criado <Bold>{{type}}</Bold> e levou <Bold>{{duration}} segundos</Bold>.",
       "from_you": "por você",
       "automatic": "automaticamente"
-    },
-    "tooltips": {
-      "custom": "Personalizado",
-      "average": "Média",
-      "auto": "Automatizado"
-    },
-    "views": {
-      "list": "Visão geral do teste",
-      "statistic": "Estatísticas de teste"
     },
     "overview": {
       "title": "Visão geral do teste do último {{amount}}",

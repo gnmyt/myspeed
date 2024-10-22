@@ -17,7 +17,7 @@
     "okay": "好的",
     "done": "准备就绪",
     "continue": "继续",
-    "apply": "是的，应用",
+    "apply": "应用",
     "update": "更新",
     "close": "关闭",
     "unset": "移除",
@@ -44,27 +44,25 @@
   "dropdown": {
     "settings": "设置",
     "changes_applied": "更改已被保存。",
-    "language_changed": "语言有所改变。",
-    "provider_changed": "提供商已变更。",
-    "view_changed": "观点被改变了。",
-    "changes_unsaved": "你的修改没有被接受。检查你的输入。",
+    "language_changed": "语言已变更。",
+    "provider_changed": "提供已变更。",
+    "changes_unsaved": "你的修改没有被接受。请检查你的输入。",
     "invalid": "输入无效",
-    "ping": "最佳的平移",
-    "upload": "最佳的上升速度",
-    "download": "最佳的下行速度",
+    "ping": "最佳的延迟",
+    "upload": "最佳的上传速度",
+    "download": "最佳的下载速度",
     "recommendations": "最优值",
     "change_provider": "更换提供商",
     "password": "更改密码",
-    "cron": "设置频率",
+    "cron": "设置测试频率",
     "time": "设置期限",
     "storage": "管理存储",
     "pause_tests": "暂停测试",
     "resume_tests": "继续测试",
-    "language": "改变语言",
-    "view": "改变观点",
+    "language": "修改语言",
     "info": "关于项目的信息",
     "provider": "关于供应商",
-    "integrations": "整合"
+    "integrations": "集成"
   },
   "options": {
     "time": {
@@ -85,42 +83,46 @@
       "read_access": "只读访问"
     }
   },
+  "page": {
+    "overview": "概览",
+    "statistics": "统计"
+  },
   "update": {
-    "ping_title": "设置最佳ping (ms)",
-    "ping_placeholder": "Ping (ms)",
+    "ping_title": "设置最佳延迟 (ms)",
+    "ping_placeholder": "延迟 (ms)",
     "upload_title": "设置最佳上传速度 (Mbit/s)",
     "upload_placeholder": "上传速度 (Mbit/s)",
     "download_title": "设置最佳下载速度 (Mbit/s)",
     "download_placeholder": "下载速度 (Mbit/s)",
     "recommendations_title": "最优建议",
     "recommendations_set": "设置自动推荐？",
-    "provider_title": "设置速度测试提供商",
+    "provider_title": "设置测速提供商",
     "manually": "手动设置",
     "new_password": "设置新密码",
     "password_placeholder": "新密码",
     "password_removed": "密码锁已被取消，设定的密码也已被删除。",
-    "level": "变化水平",
-    "level_title": "游客的权利",
+    "level": "修改访问权限",
+    "level_title": "游客的权限",
     "cron_title": "设置测试频率",
     "cron_rules": "克隆规则",
     "cron_next_test": "下一次测试：",
     "time_title": "显示最后一次测试...",
     "download": "下载",
-    "pause_title": "速度测试暂停了，因为...",
+    "pause_title": "测速暂停了，因为...",
     "hours": "小时",
     "pause": "暂停",
     "release_manually": "手动释放",
     "language": "改变语言",
-    "view_title": "改变观点"
+    "view_title": "修改视图"
   },
   "header": {
     "title": "MySpeed",
-    "running_tooltip": "运行速度测试",
-    "start_tooltip": "开始速度测试",
+    "running_tooltip": "运行测速",
+    "start_tooltip": "开始测速",
     "new_update": "可提供最新信息",
     "download": "下载",
-    "paused": "速度测试目前已暂停。如果你想参加，请继续。",
-    "running": "速度测试已经在进行中。请稍等片刻。",
+    "paused": "测速目前已暂停。如果你想参加，请继续。",
+    "running": "测速已经在进行中。请稍等片刻。",
     "admin_login": "管理员登录",
     "beta": {
       "title": "测试版本",
@@ -128,62 +130,62 @@
     }
   },
   "storage": {
-    "speedtests": "速度测试",
+    "speedtests": "测速",
     "configuration": "配置",
-    "stored_tests": "存储测试",
+    "stored_tests": "当前已存储测速量",
     "tests": "测试",
-    "export_tests": "出口测试",
+    "export_tests": "导出测试",
     "tests_exported": "测试已导出",
     "csv": "CSV",
     "json": "JSON",
-    "import_tests": "进口测试",
+    "import_tests": "导入测试",
     "tests_imported": "测试已导入",
-    "import_test_error": "导入测试时发生错误",
+    "import_test_error": "导入测速时发生错误",
     "import_config_error": "导入配置时发生错误",
-    "export": "出口",
-    "import": "进口",
+    "export": "导出",
+    "import": "导入",
     "clear_history": "清除历史记录",
     "history_cleared": "历史记录已清除",
     "delete": "删除",
     "confirm_delete": "是，删除",
-    "export_settings": "导出设置",
-    "import_settings": "导入设置",
-    "factory_reset": "出厂重置",
-    "factory_reset_completed": "出厂重置已完成",
+    "export_settings": "导出配置",
+    "import_settings": "导入配置",
+    "factory_reset": "还原出厂配置",
+    "factory_reset_completed": "已经还原出厂配置",
     "reset": "重置",
     "confirm_reset": "是，重置",
-    "settings_exported": "设置已导出",
-    "settings_imported": "设置已导入"
+    "settings_exported": "配置已导出",
+    "settings_imported": "配置已导入"
   },
   "latest": {
-    "ping": "延迟",
+    "ping": "ping 延迟",
     "ping_unit": "毫秒",
     "down": "下载",
-    "speed_unit": "兆位/秒",
+    "speed_unit": "Mbps",
     "up": "上传",
-    "latest": "最后一次测试",
+    "latest": "最后一次测速",
     "before": "从"
   },
   "info": {
     "credits": "<MSpeed>MySpeed</MSpeed>是由 GNMYT 提供的一个开源项目。请在<Github>GitHub</Github>上留言或<Donate>捐款</Donate>支持该项目。",
-    "recommendations_error": "必须至少做10次测试，这样才能确定平均数。无论这些测试是手动还是自动完成的，都没有关系。",
-    "recommendations_info": "根据最近10次测试结果，最佳的Ping延迟为<Bold>{{ping}} 毫秒</Bold>，下载速度为<Bold>{{down}} Mbit/s</Bold>，上传速度为<Bold>{{up}} Mbit/s</Bold>。最好参考你的互联网合同，并只在与之相符的情况下采用这些值。",
+    "recommendations_error": "必须至少做 10 次测速，这样才能确定平均数。无论这些测速是手动还是自动完成的，都没有关系。",
+    "recommendations_info": "根据最近 10 次测速结果，最佳的 Ping 延迟为<Bold>{{ping}} 毫秒</Bold>，下载速度为<Bold>{{down}} Mbit/s</Bold>，上传速度为<Bold>{{up}} Mbit/s</Bold>。最好参考你的宽带合同，并只在与之相符的情况下采用这些值。",
     "update": "对{{version}} 版本的更新是可用的。参见<Changes>变化</Changes>和<DLLink>下载更新</DLLink>。",
     "down": {
       "title": "下载速度",
-      "description": "下载速度会影响你的浏览体验。你得到的越多，你的计算机接收数据的速度就越快。"
+      "description": "下载速度会影响你的浏览体验。你的测速值越大，你的计算机接收数据的速度就越快。"
     },
     "ping": {
       "title": "平",
-      "description": "Ping显示了各自供应商的响应速度。时间越短越好。"
+      "description": "Ping 延迟显示了各自供应商的响应速度。时间越短越好。"
     },
     "up": {
       "title": "上传速度",
-      "description": "上传速度会影响你的浏览体验。你得到的越多，你的计算机发送数据的速度就越快。"
+      "description": "上传速度会影响你的浏览体验。你的测速值越大，你的计算机发送数据的速度就越快。"
     },
     "latest": {
-      "title": "最后一次测试",
-      "description": "这是向您显示最后一次测试的时间。在这种情况下，最后一次发生在<Bold>{{date}}</Bold>，<Bold>{{time}}</Bold>。"
+      "title": "最后一次测速",
+      "description": "这是向您显示最后一次测速的时间。在这种情况下，最后一次发生在<Bold>{{date}}</Bold>，<Bold>{{time}}</Bold>。"
     }
   },
   "time": {
@@ -214,17 +216,8 @@
       "from_you": "来自你的",
       "automatic": "自动"
     },
-    "tooltips": {
-      "custom": "习俗",
-      "average": "平均值",
-      "auto": "自动化的"
-    },
-    "views": {
-      "list": "测试概述",
-      "statistic": "测试统计"
-    },
     "overview": {
-      "title": "最后一次{{amount}} 的测试概述",
+      "title": "最后一次{{amount}}的测试概述",
       "1": "24小时",
       "2": "2天",
       "3": "7天",
@@ -244,15 +237,15 @@
   },
   "statistics": {
     "overview": {
-      "total_title": "测试总数",
-      "total_description": "所进行的测试的数量",
-      "failed_title": "失败的测试",
-      "failed_description": "测试失败的次数",
-      "average_title": "平均期限",
-      "average_description": "测试的平均时间"
+      "total_title": "测速次数",
+      "total_description": "进行测速的总的数量",
+      "failed_title": "失败次数",
+      "failed_description": "测速失败的次数",
+      "average_title": "平均用时",
+      "average_description": "测速的平均所用时间"
     },
     "failed": {
-      "title": "失败的测试",
+      "title": "测试结果",
       "success": "成功的",
       "failed": "失败",
       "label": "测试"
@@ -261,7 +254,7 @@
       "title": "速度"
     },
     "manual": {
-      "title": "手动测试",
+      "title": "测试来源",
       "yes": "手动创建",
       "no": "自动创建"
     },
@@ -270,11 +263,11 @@
       "label": "数量"
     },
     "values": {
-      "min": "最低的",
-      "max": "最高的",
-      "avg": "平均值",
-      "down": "下载价值",
-      "up": "上传价值"
+      "min": "最慢",
+      "max": "最快",
+      "avg": "平均",
+      "down": "下载数值",
+      "up": "上传数值"
     }
   },
   "nodes": {
@@ -313,9 +306,9 @@
     "description": "您目前处于演示模式。部分功能与设置受限。如果您想使用所有功能，可以 <Link>在自己的服务器上安装 MySpeed</Link>。"
   },
   "integrations": {
-    "none_active": "这种整合并不活跃。<br/><Bold>添加</Bold>",
+    "none_active": "此集成并未启用。<br/><Bold>添加</Bold>",
     "preview_active": "在演示模式下，集成将被禁用。",
-    "display_name": "整合名称",
+    "display_name": "集成名称",
     "create": "添加",
     "activity": {
       "never_executed": "从未执行过",
@@ -327,12 +320,12 @@
         "url": "Webhook-URL",
         "url_placeholder": "https://discord.com/api/webhooks/...",
         "display_name": "显示名称",
-        "display_name_placeholder": "MySpeed通知",
-        "error_message": "错误信息",
+        "display_name_placeholder": "MySpeed 通知",
+        "error_message": "测速失败的信息内容",
         "error_message_placeholder": "错误: %error%",
-        "send_failed": "发送错误信息",
-        "send_finished": "发送完成",
-        "finished_message": "已完成的信息",
+        "send_failed": "是否发送测速失败信息",
+        "send_finished": "是否发送测速完成信息",
+        "finished_message": "测速完成的信息内容",
         "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
       }
     },
@@ -342,11 +335,11 @@
         "url": "服务器网址",
         "key": "应用令牌",
         "priority": "优先权",
-        "error_message": "错误信息",
+        "error_message": "测速失败的信息内容",
         "error_message_placeholder": "错误: %error%",
-        "send_failed": "发送错误信息",
-        "send_finished": "发送完成",
-        "finished_message": "已完成的信息",
+        "send_failed": "是否发送测速失败信息",
+        "send_finished": "是否发送测速完成信息",
+        "finished_message": "测速完成的信息内容",
         "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
       }
     },
@@ -355,11 +348,11 @@
       "fields": {
         "token": "应用程序令牌",
         "user_key": "用户密钥",
-        "error_message": "错误信息",
+        "error_message": "是否发送测速失败信息",
         "error_message_placeholder": "错误： %error%",
-        "send_failed": "发送错误信息",
-        "send_finished": "发送完成的信息",
-        "finished_message": "完成信息",
+        "send_failed": "是否发送测速失败信息",
+        "send_finished": "是否发送测速完成信息",
+        "finished_message": "测速完成的信息内容",
         "finished_message_placeholder": "%ping% 毫秒， %download% Mbps， %upload% Mbps"
       }
     },
@@ -375,11 +368,11 @@
       "fields": {
         "token": "Bot Token",
         "chat_id": "聊天ID",
-        "error_message": "错误信息",
+        "error_message": "是否发送测速失败信息",
         "error_message_placeholder": "错误: %error%",
-        "send_failed": "发送错误信息",
-        "send_finished": "发送完成",
-        "finished_message": "已完成的信息",
+        "send_failed": "是否发送测速失败信息",
+        "send_finished": "是否发送测速完成信息",
+        "finished_message": "测速完成的信息内容",
         "finished_message_placeholder": "%ping% ms, %download% Mbit/s, %upload% Mbit/s"
       }
     },
@@ -388,9 +381,9 @@
       "fields": {
         "url": "Webhook URL",
         "url_placeholder": "https://your-server.com/hook",
-        "send_started": "开始发送",
-        "send_failed": "发送错误信息",
-        "send_finished": "发送完成",
+        "send_started": "是否发送测速开始信息",
+        "send_failed": "是否发送测速失败信息",
+        "send_finished": "是否发送测速完成信息",
         "send_alive": "发送生动的信息",
         "send_recommendations": "发送建议",
         "send_config_updates": "发送配置更新"
